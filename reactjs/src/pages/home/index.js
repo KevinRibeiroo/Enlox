@@ -1,4 +1,4 @@
-import cabecalho from "../../components/cabecalho"
+import Cabecalho from "../../components/cabecalho"
 
 
 
@@ -6,7 +6,7 @@ import cabecalho from "../../components/cabecalho"
 export default function Home(){
     return(
         <hContainer>
-            <cabecalho />
+            <Cabecalho />
             <div className = "hSubcabecalho">
                 <div className = "hCategorias">
                     <div className = "hEletronicos">
