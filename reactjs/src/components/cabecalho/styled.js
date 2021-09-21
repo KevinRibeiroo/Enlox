@@ -5,7 +5,8 @@ const Container = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-around;
-
+align-items: center;
+height: 10VH;
 .icons-cabecalho{
 display: flex;
 flex-direction: column;
