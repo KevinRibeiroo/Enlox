@@ -4,8 +4,10 @@
 
 export default function cabecalho(){
     return (
-        <Headers>
-            <div classname="container"></div>
-        </Headers>
+        <header>
+            <div classname="container">
+                <div className="icons-cabecalho"> <img src="/assets/images/casa 1.svg" alt="" /></div>
+            </div>
+        </header>
     )
 }
