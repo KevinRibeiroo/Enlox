@@ -10,42 +10,44 @@ export default function Home(){
             <div className = "hSubcabecalho">
                 <div className = "hCategorias">
                     <div className = "hEletronicos">
-                        <div></div>
+                        <div className = "hElipse">
+                            <img src="/assets/images/celular.jpg" alt="" />
+                        </div>
                         <div>ELETRÔNICOS</div>
                     </div>
 
                     <div className = "hMobilia">
-                        <div></div>
+                        <div className = "hElipse"></div>
                         <div>MOBÍLIA</div>
                     </div>
 
                     <div className = "hBeleza">
-                        <div></div>
+                        <div className = "hElipse"></div>
                         <div>BELEZA</div>
                     </div>
 
                     <div className = "hEsportes">
-                        <div></div>
+                        <div className = "hElipse"></div>
                         <div>ESPORTES</div>
                     </div>
 
                     <div className = "hConstrucao">
-                        <div></div>
+                        <div className = "hElipse"></div>
                         <div>CONSTRUÇÃO</div>
                     </div>
 
                     <div className = "hBrinquedos">
-                        <div></div>
+                        <div className = "hElipse"></div>
                         <div>BRINQUEDOS</div>
                     </div>
 
                     <div className = "hAutopecas">
-                        <div></div>
+                        <div className = "hElipse"></div>
                         <div>AUTO-PEÇAS</div>
                     </div>
 
                     <div className = "hOutros">
-                        <div></div>
+                        <div className = "hElipse"></div>
                         <div>OUTROS</div>
                     </div>
                     
