@@ -6,7 +6,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-around;
 align-items: center;
-height: 11VH;
+height: 14VH;
 .icons-cabecalho{
 display: flex;
 flex-direction: column;
