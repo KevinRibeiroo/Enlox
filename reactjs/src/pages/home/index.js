@@ -1,6 +1,12 @@
+import Cabecalho from "../../components/cabecalho"
+
+
+
+
 export default function Home(){
     return(
         <hContainer>
+            <Cabecalho />
             <div className = "hSubcabecalho">
                 <div className = "hCategorias">
                     <div className = "hEletronicos">
@@ -45,7 +51,9 @@ export default function Home(){
                     
                 </div>
                 <div className = "hPesquisar">
-                    <div className = "hProcurando"></div>
+                    <div className = "hProcurando">
+                        <input type = "text" placeholder =  "Digite o que está procurando..."/>
+                    </div>
                     <div className = "hSimbolo">
                         <div className = "hLupa"></div>
                         <div className = "hPesquisar">Pesquisar</div>
