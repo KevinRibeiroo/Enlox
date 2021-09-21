@@ -1,6 +1,12 @@
+import Cabecalho from "../../components/cabecalho"
+
+
+
+
 export default function Home(){
     return(
         <hContainer>
+            <Cabecalho />
             <div className = "hSubcabecalho">
                 <div className = "hCategorias">
                     <div className = "hEletronicos">
