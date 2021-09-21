@@ -51,7 +51,9 @@ export default function Home(){
                     
                 </div>
                 <div className = "hPesquisar">
-                    <div className = "hProcurando"></div>
+                    <div className = "hProcurando">
+                        <input type = "text" placeholder =  "Digite o que está procurando..."/>
+                    </div>
                     <div className = "hSimbolo">
                         <div className = "hLupa"></div>
                         <div className = "hPesquisar">Pesquisar</div>
