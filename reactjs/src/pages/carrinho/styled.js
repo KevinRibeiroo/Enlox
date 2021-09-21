@@ -24,28 +24,39 @@ flex-direction: column;
 }
 
 .gab-retfundo {
-    width: 1291px;
+    width: 1000px;
     height: 1351px;
     left: 122px;
     top: 337px;
     align-self: center;
+    justify-content: center;
 
     background: rgba(79, 110, 146, 0.89);
 }
 
 .gab-produto  {
 
+
     display: flex;
     flex-direction: row;
+    align-self: center;
+    justify-content: center;
+    margin-left: 6em;
+    margin-right: 6em;
+    margin-top: 3em;
 
-    left: 3.07%;
-    right: 3.67%;
-    top: 21.11%;
-    bottom: 59.21%;
+    height: 200px;
+    width: 1100px;
+    
+    border-radius: 0px;
 
     background: #FFFFFF;
     border: 3px solid #E78A1D;
     box-sizing: border-box;
+}
+
+.gab-produto > ul, li { 
+    list-style-type: none;
 
 }
 
@@ -57,10 +68,9 @@ flex-direction: column;
 }
 
 .gab-imagemprod > img {
-    width: 163px;
-    height: 243px;
-    left: 18px;
-    top: 58px;
+    width: 80%;
+    height: 80%;
+    padding-top: 1em;
 }
 
 .gab-tit {
