@@ -10,10 +10,11 @@ export default function rodape(){
                 <div className="info">Politica de privacidade</div>
                 <div className="info">Politica de privacidade</div></div>
 
-                <div className="informações-contato"><div className="linkedin"><img src="/assets/images/linkedin.png" alt="" /></div>
-                <div className="linkedin"><img src="/assets/images/linkedin.png" alt="" /></div>
-                <div className="linkedin"><img src="/assets/images/linkedin.png" alt="" /></div>
-                <div className="linkedin"><img src="/assets/images/linkedin.png" alt="" /></div></div>
+                <div className="informacoes-contato"><div className="contato"><div className="icon"><img src="/assets/images/linkedin.png" alt="" /></div>
+                <div className="icon"><img src="/assets/images/linkedin.png" alt="" /></div>
+                <div className="icon"><img src="/assets/images/linkedin.png" alt="" /></div>
+                <div className="icon"><img src="/assets/images/linkedin.png" alt="" /></div></div>
+                <div> <img src="/assets/images/logo.svg" alt="" /> <span> Copyright © 2021-2021 Enlox Company S.L. All rights reserved </span></div></div>
             </Rodape>
         </footer>
     )
