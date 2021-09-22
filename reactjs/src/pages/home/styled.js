@@ -1,25 +1,55 @@
+
 import styled from 'styled-components';
 
-
-const hContainer = styled.div`
-display:flex;
-flex-direction: column;
-
-.hCategorias{
-display:flex-direction;
-flex-direction: row;
-
-.hElipse{
-    width: 4.1em;
-    height: 4.1em;
+const HContainer = styled.div`
+width: 100%;
+height: 100%;
+.HSubCabecalho{
+    padding: 3em 2em;
+    background-color: rgb(79,110,146,0.89);
 }
-.img{
-    width: 4.1em;
-    height: 4.1em;
-}
-
-
-
+.HCategorias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    > div {
+    display: flex;
+    flex-direction: column;
+    align-items : center ;
+    padding-bottom: 2em;
+    color:#fff;
+    }  
 }
 
+.HPesquisar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+
+    .HProcurando{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    > input{
+        width: 100%;
+        padding: 0em 2em;
+        border:none;
+    }
+    }
+
+    .HSimbolo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+
+    .HPesquisou{margin-left:0.3em;}
+    }
+
+    
+}
 `
+
+export{HContainer};
