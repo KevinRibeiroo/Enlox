@@ -6,30 +6,35 @@ flex-direction: column;
 
 .gab-meucarrinho {
     text-align: center;
+    font-size: 1.5em;
 }
 
 .gab-btn-comprartodos > button {
-    width: 351px;
-    height: 80px;
+    width: 200px;
+    height: 70px;
     left: 1129px;
     top: 234px;
+    float: right;
+   
+    margin-bottom: 1.5em;
+    margin-right: 12em;
 
     background: rgba(231, 138, 29, 0.86);
     border-radius: 7px;
 
-    font-size: 2.25em;
-
-    float: right;
-    margin-right: 10px;
+    font-size: 1.50em;
+   
 }
 
 .gab-retfundo {
-    width: 1000px;
-    height: 1351px;
+    width: 60%;
+    height: 110vh;
     left: 122px;
     top: 337px;
     align-self: center;
     justify-content: center;
+    align-items: center;
+   
 
     background: rgba(79, 110, 146, 0.89);
 }
@@ -39,14 +44,15 @@ flex-direction: column;
 
     display: flex;
     flex-direction: row;
-    align-self: center;
-    justify-content: center;
-    margin-left: 6em;
-    margin-right: 6em;
+    
     margin-top: 3em;
+    margin-left: -5.5em;
+    margin-right: 2em;
+    margin-bottom: 3em;
+    position: relative;
 
     height: 200px;
-    width: 1100px;
+    width: 120%;
     
     border-radius: 0px;
 
@@ -63,7 +69,7 @@ flex-direction: column;
 .gab-btnprod {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
     float: right;
 }
 
@@ -114,10 +120,13 @@ flex-direction: column;
 }
 
 .gab-btn-comprar > button {
-    width: 270px;
+    width: 200px;
     height: 52px;
     left: 971px;
     top: 233px;
+    float: inline-end;
+    margin-bottom: 1em;
+    margin-left: 3.5em;
 
     background: #355775;
     border-radius: 5px;
@@ -129,6 +138,17 @@ flex-direction: column;
     line-height: 32px;
 
     color: #FFFFFF;
+}
+
+.gab-btn-remover {
+    margin-top: 2em;
+    margin-left: 5em;
+    align-self:center;
+}
+
+.gab-imgli > img {
+    width: 22;
+    height: 22;
 }
 
 `
