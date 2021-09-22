@@ -72,10 +72,42 @@ export default function Home(){
                         <input type = "text" placeholder =  "Digite o que está procurando..."/>
                     </div>
                     <div className = "HSimbolo">
-                        <div className = "HLupa"><img src="/assets/images/Pesquisar.svg" alt="" /></div>
+                        <div className = "HLupa"><img src="/assets/images/Pesquisarp.svg" alt="" /></div>
                         <div className = "HPesquisou">Pesquisar</div>
                     </div>
                 </div>
+            </div>
+
+            <div className = "HCorpo">
+
+                <div className = "HFaixa">
+                    <div className = "HEspecificacao">Ofertas do Dia</div>
+                    <div>
+                        <div className = "HCarrossel">
+                            <div className = "HSetas"> 
+                                <img className = "HRotacionada" src = "/assets/images/Seta.png" alt=""/> 
+                                <img src = "/assets/images/Seta.png" alt=""/> 
+                            </div>
+                            <div className = "HCentro">
+                                <div className ="HAnuncio"></div>
+                                <div className = "HAnuncioMeio">
+                                    <div className = "HProduto"> <img src = "/assets/images/Celular.png" alt = ""/> </div>
+                                    <div className = "HDescricao">
+                                        <div className = "HTitulo">Xiaomi Mi A2</div>
+                                        <div className = "HTempo">1 ano de uso</div>
+                                        <div className = "HPreco">
+                                            <div className = "HPde">R$ 920,00</div>
+                                            <div className = "HPpor">R$ 790,99</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className = "HAnuncio"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
             <Rodape />

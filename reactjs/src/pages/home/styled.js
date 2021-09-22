@@ -12,6 +12,7 @@ height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0em 2em;
     > div {
     display: flex;
     flex-direction: column;
@@ -19,6 +20,7 @@ height: 100%;
     padding-bottom: 2em;
     color:#fff;
     }  
+  
 }
 
 .HPesquisar{
@@ -33,7 +35,7 @@ height: 100%;
     width: 95%;
     > input{
         width: 100%;
-        padding: 0em 2em;
+        padding: 0em 1em;
         border:none;
     }
     }
@@ -44,11 +46,89 @@ height: 100%;
     align-items: center;
     justify-content: center;
     background-color: #fff;
+    padding: 0.3em;
 
     .HPesquisou{margin-left:0.3em;}
     }
 
     
+}
+
+.HCorpo{
+    display: flex;
+    flex-direction: column;
+    padding: 4em;
+    .HEspecificacao{
+        margin-bottom: 4em;
+    }
+    .HCarrossel{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #B0BDC6;
+        border-radius: 30px;
+        height: 14em;
+        
+        .HSetas{
+            width: 98%;
+            position: absolute;
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            > img{
+                background-color: #fff;
+                border-radius:50%;
+                padding: 2em;
+            }
+
+            .HRotacionada{
+                transform: rotate(180deg)
+            }
+        }
+
+        .HCentro{
+        display: flex;
+        flex-direction: row;
+        left: 13%;
+        position: absolute;
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+
+        .HAnuncio{
+            width: 20em;
+            background-color: #fff;
+            border:1px solid #BCBF50;
+            height: 10em;
+        }
+        .HAnuncioMeio{
+            width: 22em;
+            background-color: #fff;
+            border:2px solid #BCBF50;
+            height: 18em;
+            border-radius: 20px;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .HProduto{
+                border: 1px solid #BCBF50;
+                height: 90%;
+                width: 40%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                margin-right: 3em;
+            }
+            
+        }
+        }
+
+    }
 }
 `
 
