@@ -1,7 +1,5 @@
 import { Container } from "./styled"
 
-
-
 export default function cabecalho(){
     return (
         <header style={{backgroundColor: "#E7E6E1"}}>
