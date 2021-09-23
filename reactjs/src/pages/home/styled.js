@@ -53,13 +53,16 @@ height: 100%;
 
     
 }
-
+.HFaixa{
+    margin-bottom: 6em;
+}
 .HCorpo{
     display: flex;
     flex-direction: column;
     padding: 4em;
     .HEspecificacao{
-        margin-bottom: 4em;
+        margin-bottom: 2em;
+        font: 2.5em "Roboto";
     }
     .HCarrossel{
         display: flex;
@@ -68,7 +71,7 @@ height: 100%;
         align-items: center;
         background-color: #B0BDC6;
         border-radius: 30px;
-        height: 14em;
+        height: 16em;
         
         .HSetas{
             width: 98%;
@@ -98,13 +101,52 @@ height: 100%;
         align-items: center;
 
         .HAnuncio{
-            width: 20em;
+            width: 18em;
             background-color: #fff;
             border:1px solid #BCBF50;
             height: 10em;
+            padding: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .Hproduto{
+                border: 1px solid #BCBF50;
+                height: 90%;
+                width: 40%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center; 
+            }
+
+            .Hdescricao,.Hpreco{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 80%;
+                .Hpde{
+                    text-decoration: line-through;
+                    margin-top: 1em;
+                    color:#554949;
+                    font:0.7em Roboto;
+                }
+                .Hppor{font: 1em "Roboto";
+                    color:#21953A;
+                    font-weight: 550;
+                }
+                .Htempo{
+                font:0.9em Roboto;
+                }
+            }
+        
+            .Htitulo{
+                font: 1em "Roboto";
+                font-weight: 700;
+            }
         }
         .HAnuncioMeio{
-            width: 22em;
+            width: 20.5em;
             background-color: #fff;
             border:2px solid #BCBF50;
             height: 18em;
@@ -122,7 +164,30 @@ height: 100%;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                margin-right: 3em;
+
+            }
+            
+            .HDescricao,.HPreco{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 80%;
+                .HPde{
+                    text-decoration: line-through;
+                    margin-top: 0.9em;
+                    color:#554949;
+                }
+                .HPpor{font: 1.2em "Roboto";
+                    color:#21953A;
+                    font-weight: 550;
+                }
+            }
+            
+        
+            .HTitulo{
+                font: 1.7em "Roboto";
+                font-weight: 700;
             }
             
         }
