@@ -3,8 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Carrinho from './pages/carrinho';
 import TermosServiço from './pages/TermosServiço';
-import SobreNos from './pages/sobreNos';
 import sobreNos from './pages/sobreNos';
+import MeusAnuncios from './pages/meusAnuncios';
 export default function Routes(){
     return (
         <BrowserRouter>
@@ -13,6 +13,7 @@ export default function Routes(){
                 <Route path="/carrinho" component={Carrinho} />
                 <Route path="/termosServiço" component={TermosServiço}/>
                 <Route path="/sobreNos" component={sobreNos} /> 
+                <Route path="/meusAnuncios" component={MeusAnuncios}/>
             </Switch>
         </BrowserRouter>
     )
