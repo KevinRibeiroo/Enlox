@@ -10,7 +10,7 @@ const tsContainer = styled.div`
 
 .tsTermos {
   text-align: center;
-  font-size: 10px;
+  font-size: 17px;
 }
 `
 export default tsContainer 
