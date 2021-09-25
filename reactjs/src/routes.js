@@ -8,6 +8,7 @@ import MeusAnuncios from './pages/meusAnuncios';
 import Produto from './pages/produto';
 import politicaPrivacidade from './pages/políticaPrivacidade';
 import userRegistrado from './pages/homeRegistrado'
+import Perfil from './pages/perfil'
 
 
 
@@ -23,6 +24,7 @@ export default function Routes(){
                 <Route path="/produto" component={Produto}/>
                 <Route path="/politicaDePrivacidade" component={politicaPrivacidade}/>
                 <Route path="/userRegistrado" component={userRegistrado}/>
+                <Route path="/perfil" component={Perfil}/>
 
             </Switch>
         </BrowserRouter>
