@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
+
+a{
+    color: #4F6E92;
+}
  
 .agp{
     display: flex;
     flex-direction: row;
-    margin: 40px ;
+    margin: 3em;
 }
 
 .img-agp img{
@@ -18,7 +22,7 @@ const Container = styled.div`
 .texto1{
     display: flex;
     flex-direction: column;
-    margin: 3em 5em 0px 1em ;
+    margin: 3em 5em 0em 1em ;
 }
 
 .premium{
