@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+
 import Cabecalho from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
 import Container from './styled'
@@ -16,7 +16,7 @@ export default function MeusAnuncios(){
                   </div>
                   <div className="premium">
                      <div className="texto">Destacar anuncio</div>
-                     <div className="comoFunciona"> <a href="">Como funciona?</a></div> 
+                     <div className="comoFunciona"> <a href="/meusAnuncios">Como funciona?</a></div> 
                   </div>
 
                  <div className="butoes"> 
@@ -35,7 +35,7 @@ export default function MeusAnuncios(){
                   </div>
                   <div className="premium">
                      <div className="texto">Destacar anuncio</div>
-                     <div className="comoFunciona"> <a href="">Como funciona?</a></div> 
+                     <div className="comoFunciona"> <a href="/meusAnuncios">Como funciona?</a></div> 
                   </div>
 
                  <div className="butoes"> 
@@ -53,7 +53,7 @@ export default function MeusAnuncios(){
                   </div>
                   <div className="premium">
                      <div className="texto">Destacar anuncio</div>
-                     <div className="comoFunciona"> <a href="">Como funciona?</a></div> 
+                     <div className="comoFunciona"> <a href="/meusAnuncios">Como funciona?</a></div> 
                   </div>
 
                   <div className="butoes"> 
@@ -72,7 +72,7 @@ export default function MeusAnuncios(){
                   </div>
                   <div className="premium">
                      <div className="texto">Destacar anuncio</div>
-                     <div className="comoFunciona"> <a href="">Como funciona?</a></div> 
+                     <div className="comoFunciona"> <a href="/meusAnuncios">Como funciona?</a></div> 
                   </div>
 
                  <div className="butoes"> 
