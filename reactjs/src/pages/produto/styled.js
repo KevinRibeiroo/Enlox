@@ -21,10 +21,10 @@ main {
     flex-direction: column;
     
     align-self: center;
-    width: 65vw;
+    width: 75vw;
     background-color: rgba(188, 191, 80, 0.6);
     
-    height: 65vh;
+    height: 85vh;
     justify-content: center;
 }
 
@@ -34,7 +34,7 @@ main {
     border: 1px solid #4F6E92;
     box-sizing: border-box;
     width: 90%;
-    height: 85%;
+    height: 90%;
 
     align-self: center;
     justify-content: space-around;
@@ -42,14 +42,14 @@ main {
 }
 
 .produt {
-    border: solid;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+   
 }
 
 .title {
-    font-family: Roboto Slab;
+    font-family: Roboto Slab-Bold;
     font-style: normal;
     font-weight: bold;
     font-size: 1.3em;
@@ -60,7 +60,7 @@ main {
 
 .preco {
     display: flex;
-    font-family: Roboto Slab;
+    font-family: Roboto-Slab;
     font-style: normal;
     font-weight: bold;
     font-size: 1.4em;
@@ -69,7 +69,7 @@ main {
     color: #353535;
     align-items: center;
     justify-content: space-between;
-    width: 9em;
+    width: 9.5em;
 
     height: 2.5em;
 }
@@ -78,9 +78,9 @@ main {
     padding-top: 0.3em;
 }
 .title-preco  {
-    font-family: Roboto Slab;
+    font-family: Roboto Slab-Bold;
     font-style: normal;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 1.4em;
  
 
@@ -90,7 +90,9 @@ main {
 }
 .imgs-produt {
     display: flex;
-
+   
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .icon-produt {
@@ -99,16 +101,15 @@ main {
 
 .desc-produt {
     
-    font-family: Roboto Slab;
-font-style: normal;
-font-weight: normal;
-font-size: 1em;
-line-height: 26px;
+    font-family: Roboto-Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 26px;
 
-color: #353535;
+    color: #353535;
 
     width: 13em;
-    border: solid;
    text-align: center;
    
   white-space: nowrap;
@@ -131,8 +132,16 @@ color: #353535;
 
     width: 6em;
     height: 2.2em;
-}
 
+    font-family: Roboto Slab-Bold;
+    color: white;
+}
+.title-frete {
+    font-family: Roboto Slab-Bold;
+
+    font-weight: bold;
+    color: #353535;
+}
 .container-info {
     display: flex;
     flex-direction: column;
@@ -140,7 +149,7 @@ color: #353535;
     height: 50vh;
     background: #FFFFFF;
     width: 21vw;
-    border: solid;
+   
 }
 
 .perfil {
@@ -148,7 +157,7 @@ color: #353535;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 5em;
+    height: 7em;
 }
 
 .agp-info {
@@ -165,32 +174,76 @@ color: #353535;
 }
 
 .title-info {
+    font-family: Roboto Slab-Bold;
+    
     width: 7em;
+    color: #353535;
 }
 
 .bta-info {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    font-family: Roboto Slab-Bold;
+    color: white;
 }
+.bta-info img {
+margin-right: 0.7em;
+   
+    
+}
+
 
 .agp-botao {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 15vh;
+    height: 11vh;
     align-self: center;
 }
 
 .mais {
-    font-family: Roboto Slab;
+    font-family: Roboto Slab-Light;
 font-style: normal;
 font-weight: normal;
 font-size: 0.9em;
 line-height: 26px;
 
 color: #545353;
+background-color: transparent;
+}
 
+.seta {
+    margin-left: -3em;
+}
+
+.img-principal{
+    display: flex;
+    //height: 40vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nm-perfil {
+    font-family: Roboto Slab-Bold;
+    color: #353535;
+
+}
+
+.avaliacao {
+    display: flex;
+    justify-content: space-around;
+    width: 7vw;
+}
+
+.desc-info {
+    font-family: Roboto Slab;
+    color: rgba(53, 53, 53, 0.74);
+}
+
+.traco-produt {
+    height: 55vh;
 }
 `
 

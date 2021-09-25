@@ -6,7 +6,7 @@ const Rodape = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-
+height: 10vh;
 .sobre-empresa {
     display: flex;
     flex-direction: row;
@@ -21,6 +21,7 @@ justify-content: space-between;
     width: 6.5em;
     flex-wrap: wrap;
     text-align: center;
+    font-size: 0.7em;
 }
 
 
@@ -39,13 +40,16 @@ justify-content: space-between;
     width: 20em;
 }
 
-.icon {
+.icon img {
     display: flex;
     //justify-self: end;
+    width: 3em;
+    height: auto;
 }
 
 span {
     padding-left: 1.5vh;
+    font-size: 0.9em;
 }
 `
 

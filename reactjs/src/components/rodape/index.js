@@ -3,7 +3,7 @@ import { Rodape } from "./styled"
 
 export default function rodape(){
     return (
-        <footer style={{backgroundColor: "#E7E6E1"}}>
+        <footer style={{backgroundColor: "#E7E6E1", height: "10vh"}}>
             <Rodape>
                 <div className="sobre-empresa"><div className="info">Política de Privacidade</div>
                 <div className="info">Política de Privacidade</div>
@@ -14,7 +14,7 @@ export default function rodape(){
                 <div className="icon"><img src="/assets/images/linkedin.png" alt="" /></div>
                 <div className="icon"><img src="/assets/images/linkedin.png" alt="" /></div>
                 <div className="icon"><img src="/assets/images/linkedin.png" alt="" /></div></div>
-                <div> <img src="/assets/images/logo.svg" alt="" /> <span> Copyright © 2021-2021 Enlox Company S.L. All rights reserved </span></div></div>
+                <div> <img src="/assets/images/logo.svg" alt="" style={{width: "4em" }}/> <span> Copyright © 2021-2021 Enlox Company S.L. All rights reserved </span></div></div>
             </Rodape>
         </footer>
     )
