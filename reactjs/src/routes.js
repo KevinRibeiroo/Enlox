@@ -6,7 +6,8 @@ import TermosServiço from './pages/TermosServiço';
 import sobreNos from './pages/sobreNos';
 import MeusAnuncios from './pages/meusAnuncios';
 import Produto from './pages/produto';
-
+import politicaPrivacidade from './pages/políticaPrivacidade';
+import userRegistrado from './pages/homeRegistrado'
 
 
 
@@ -20,6 +21,9 @@ export default function Routes(){
                 <Route path="/sobreNos" component={sobreNos} /> 
                 <Route path="/meusAnuncios" component={MeusAnuncios}/>
                 <Route path="/produto" component={Produto}/>
+                <Route path="/politicaDePrivacidade" component={politicaPrivacidade}/>
+                <Route path="/userRegistrado" component={userRegistrado}/>
+
             </Switch>
         </BrowserRouter>
     )
