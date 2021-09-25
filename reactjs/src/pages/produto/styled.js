@@ -58,6 +58,36 @@ main {
     color: #353535;
 }
 
+.preco {
+    display: flex;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.4em;
+   
+
+    color: #353535;
+    align-items: center;
+    justify-content: space-between;
+    width: 9em;
+
+    height: 2.5em;
+}
+
+.preco > span {
+    padding-top: 0.3em;
+}
+.title-preco  {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.4em;
+ 
+
+    color: #353535;
+
+    
+}
 .imgs-produt {
     display: flex;
 
@@ -67,10 +97,32 @@ main {
     width: 4em;
 }
 
+.desc-produt {
+    
+    font-family: Roboto Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 1em;
+line-height: 26px;
+
+color: #353535;
+
+    width: 13em;
+    border: solid;
+   text-align: center;
+   
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .agp-frete {
     display: flex;
     align-self: center;
     justify-content: space-around;
+
+    width: 25vw;
+    align-items: center;
 }
 .bta-frete {
     background: #34D231;
@@ -128,6 +180,17 @@ main {
     justify-content: space-between;
     height: 15vh;
     align-self: center;
+}
+
+.mais {
+    font-family: Roboto Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 0.9em;
+line-height: 26px;
+
+color: #545353;
+
 }
 `
 

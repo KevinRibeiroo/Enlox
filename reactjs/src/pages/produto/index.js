@@ -4,6 +4,7 @@ import Rodape from "../../components/rodape";
 import {Conteudo} from "./styled.js"
 import { InputFrete } from "../../components/inputs/styled";
 import { BotaoProduct } from "../../components/botoes/styled";
+import { useState } from "react";
 
 
 
@@ -15,6 +16,8 @@ import { BotaoProduct } from "../../components/botoes/styled";
 
 
 export default function produto (){
+
+
     return (
     <Conteudo>
         <main>
@@ -34,12 +37,12 @@ export default function produto (){
                                 <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
                             </div>
                             </div>
-                            <div className="preco"><span> Preço: </span> R$ 1100.09 </div>
-                            <div className="desc-produt">oieeeeeeeeeeeeeeeeeeeeeeeeeee</div>
-                            <div> Mostrar mais </div>
+                            <div className="preco"><div className="title-preco"> Preço: </div> <span>R$ 1100.09</span> </div>
+                            <div className="desc-produt">oieeesdasddasdasddasdadasdasdsadsadasdasfasfdasfafjashdjkhsajkdhaskldjsaklfjaskljfklsajfasklfjasklfjakljfaskljdfsakljfaskljfklasfjaklsfjasdkaskdlsakdlsakdlçaskdlçksalçkdke</div>
+                            <div > <button style={{border: "hidden"}} className="mais">Mostrar mais </button></div>
                             <div className="agp-frete">
                                 <div className="title-frete">Calcular Frete:</div>
-                                <div className="input-frete"><InputFrete /></div>
+                                <div className="input-frete"><InputFrete  name="oiiiiiiiii"/></div>
                                 <div className="botao-frete"><button className="bta-frete"> Calcular </button></div>
                             </div>
                         </div>
