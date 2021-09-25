@@ -82,7 +82,7 @@ C) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do
 Mais informações
 Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.
 
-Esta política é efetiva a partir de September/2021
+Esta política é efetiva a partir de Setembro/2021.
         </div>
         <Rodape/>
         </PContainer>
