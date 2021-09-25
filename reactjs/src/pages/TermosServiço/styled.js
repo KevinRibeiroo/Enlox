@@ -1,6 +1,16 @@
 import styled from 'styled-components'
 
-const Container = styled.div`
+const tsContainer = styled.div`
+ 
+.titulo{
+    text-align: center;
+}
 
+
+
+.tsTermos {
+  text-align: center;
+  font-size: 17px;
+}
 `
-export default Container 
+export default tsContainer 

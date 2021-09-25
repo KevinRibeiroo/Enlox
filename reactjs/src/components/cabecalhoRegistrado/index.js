@@ -6,7 +6,7 @@ export default function cabecalho(){
             <Container>
                 <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/casa 1.svg" alt="" /></div>
                 <div className="icon-text">Início</div></div>
-                <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/user.svg" alt="" /></div>
+                <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/userRegistrado.png" alt="" /></div>
                 <div className="icon-text">Login</div></div>
                 <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/task 1.svg" alt="" /></div>
                 <div className="icon-text">Planos</div></div>

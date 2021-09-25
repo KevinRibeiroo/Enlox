@@ -1,5 +1,5 @@
 import Container from './styled'
-import Cabecalho from '../../components/cabecalho/index.js'
+import Cabecalho from '../../components/cabecalho'
 import Rodape from '../../components/rodape/index.js'
 
 export default function Carrinho() {
