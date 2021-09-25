@@ -37,7 +37,25 @@ main {
     height: 85%;
 
     align-self: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.produt {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.title {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3em;
+    line-height: 47px;
+
+    color: #353535;
 }
 
 .imgs-produt {
@@ -70,6 +88,7 @@ main {
     height: 50vh;
     background: #FFFFFF;
     width: 21vw;
+    border: solid;
 }
 
 .perfil {

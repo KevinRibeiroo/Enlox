@@ -23,7 +23,7 @@ export default function produto (){
                 <div className="conteudo">
                     <div className="container-produts">
                         <div className="produt">
-                            <div className="title">Geladeira Frigobar</div>
+                            <div className="title"><h2>Geladeira Frigobar</h2></div>
                             <div className="imgs-produt">
                                 <div className="img-principal"><img src="/assets/images/microondas.jpg" alt="" style={{width: "13em"}}/></div>
                                 <div className="seta"><img src="/assets/images/Seta.png" alt="" /></div>
@@ -43,7 +43,7 @@ export default function produto (){
                                 <div className="botao-frete"><button className="bta-frete"> Calcular </button></div>
                             </div>
                         </div>
-                        <hr className="traco-product"></hr>
+                        
 
                         <div className="container-info">
                             <div className="perfil">
@@ -72,7 +72,7 @@ export default function produto (){
                                 </div>
                             </div>
                             <div className="agp-botao">
-                            <BotaoProduct className="bta-info"> Negocie! </BotaoProduct>
+                                <BotaoProduct className="bta-info"> Negocie! </BotaoProduct>
                                 <BotaoProduct className="bta-info"><img src="/assets/images/chat.svg" alt="" /> Negocie!</BotaoProduct>
                             </div>
                         </div>
