@@ -36,15 +36,15 @@ export default function perfil() {
                         <th>MEUS ENDEREÇOS</th>
                     </tr>
                     <tr>
-                       <td>aquela rua lá</td>
+                       <td className='gab-celula'> | Rua Henriqueta Salvadore Giacometti</td>
                     </tr>
                     <tr>
-                       <td>aquela rua lá</td>
+                       <td className='gab-celula'> | Rua Henriqueta Salvadore Giacometti</td>
                     </tr>
                     </table>
                 </div>
                 <div className='gab-enderecoa'>
-                    <div className='gab-end1'>ADICIONAR NOVO ENDEREÇO</div>
+                    <div className='gab-end1'>ADICIONAR NOVO</div>
                     <div className='gab-endsvg'><img src='/assets/images/mais.svg' alt='' /> </div> 
                 </div>
             </div>

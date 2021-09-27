@@ -7,6 +7,7 @@ height: 100%;
 .HSubCabecalho{
     padding: 3em 2em;
     background-color: rgb(79,110,146,0.89);
+    input{outline: none;}
 }
 .HCategorias{
     display: flex;
@@ -56,6 +57,7 @@ height: 100%;
 .HFaixa{
     margin-bottom: 6em;
 }
+
 .HCorpo{
     display: flex;
     flex-direction: column;

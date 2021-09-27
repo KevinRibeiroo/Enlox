@@ -1,17 +1,10 @@
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import Cabecalho from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
 import {Conteudo} from "./styled.js"
 import { InputFrete } from "../../components/inputs/styled";
 import { BotaoProduct } from "../../components/botoes/styled";
-import { useState } from "react";
-
-
-
-
-
-
-
+//import { useState } from "react";
 
 
 
