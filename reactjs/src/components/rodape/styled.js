@@ -13,6 +13,7 @@ height: 12vh;
     justify-content: space-around;
     margin-left: 1.2em;
     align-self: center;
+    width: 20em;
 }
 
 
@@ -29,6 +30,7 @@ height: 12vh;
     display: flex;
     flex-direction: column;
     margin-bottom: 2em;
+    
 }
 
 
@@ -50,6 +52,29 @@ height: 12vh;
 span {
     padding-left: 1.5vh;
     font-size: 0.9em;
+}
+
+.info {
+    text-align: center !important;
+  
+
+    max-width: 5em;
+    border: solid;
+}
+
+.navegacao {
+   
+   text-decoration: none;
+   font-family: Stoke;
+font-style: normal;
+font-weight: normal;
+
+
+
+text-align: center;
+
+
+color: #000000;
 }
 `
 
