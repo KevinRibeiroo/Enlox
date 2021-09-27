@@ -21,5 +21,20 @@ background-position-x: 1em;
 }
 `
 
+const InputChat = styled.textarea`
+background: #B0BDC6;
+border-radius: 12px;
+width: 35em;
+border: none;
 
-export { InputFrete }
+background-image: url('/assets/images/Digite uma mensagem.svg');
+background-repeat: no-repeat;
+background-position-y: center;
+background-position-x: 1em;
+:focus {
+    background-image: none;
+}
+`
+
+
+export { InputFrete,    InputChat }

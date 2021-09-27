@@ -35,7 +35,6 @@ const Container = styled.div`
 .gab-form1 {
     margin-top: 6em;
     margin-left: 3em;
-
 }
 .gab-form1 > div{
     border-style: solid;

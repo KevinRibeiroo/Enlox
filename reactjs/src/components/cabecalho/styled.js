@@ -6,7 +6,9 @@ display: flex;
 flex-direction: row;
 justify-content: space-around;
 align-items: center;
-height: 10VH;
+height: 12VH;
+
+
 .icons-cabecalho{
 display: flex;
 flex-direction: column;
@@ -45,6 +47,11 @@ span {
     display: flex;
     align-self: center;
     padding-left: 1.9vh;
+}
+
+.navegacao {
+   
+    color: transparent;
 }
 `
 

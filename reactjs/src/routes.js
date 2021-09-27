@@ -9,7 +9,7 @@ import Produto from './pages/produto';
 import politicaPrivacidade from './pages/políticaPrivacidade';
 import userRegistrado from './pages/homeRegistrado'
 import Perfil from './pages/perfil'
-
+import Chat from './pages/chat';
 
 
 export default function Routes(){
@@ -25,7 +25,7 @@ export default function Routes(){
                 <Route path="/politicaDePrivacidade" component={politicaPrivacidade}/>
                 <Route path="/userRegistrado" component={userRegistrado}/>
                 <Route path="/perfil" component={Perfil}/>
-
+                <Route path="/chat" component={Chat} />
             </Switch>
         </BrowserRouter>
     )
