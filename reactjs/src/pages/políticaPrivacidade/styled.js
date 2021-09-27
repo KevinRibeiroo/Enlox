@@ -21,6 +21,7 @@ import styled from "styled-components";
             font: 2em Stoke-Regular;
         }
     }
+    
  `
 
  export {PContainer};
