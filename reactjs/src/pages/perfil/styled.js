@@ -10,14 +10,15 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    line-height: 1em;
 
     width: 100%;
-    height: 13em;
+    height: 11em;
     background-color: #4F6E92;
 }
 
 .gab-logo {
-    margin-top: 4.5em;
+    margin-top: 4em;
     margin-left: 3em;
 }
 
@@ -33,8 +34,8 @@ const Container = styled.div`
 }
 
 .gab-form1 {
-    margin-top: 6em;
-    margin-left: 3em;
+    margin-top: 5em;
+    margin-left: 2em;
 }
 .gab-form1 > div{
     border-style: solid;
@@ -42,7 +43,7 @@ const Container = styled.div`
     height: 4em;
 
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1em;
 
     line-height: 4em;
 }
@@ -69,14 +70,14 @@ const Container = styled.div`
 .gab-form2 {
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
 }
 
 .gab-foto >img {
     margin-top: -8em;
-    margin-left: -4em;
-    width: 20em;
-    height: 20em;
+    margin-left: -2em;
+    width: 18em;
+    height: 18em;
 }
 
 .gab-info {
@@ -96,8 +97,7 @@ const Container = styled.div`
     outline: none;
 }
 .gab-plano-texto >div {
-
-    margin-left: -10em;
+     justify-content: space-between;
 }
 
 .gab-planos {
@@ -105,13 +105,15 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin-top: 2em;
-    margin-left: -5em;
+    margin-left: -2em;
     padding: 0.5em;
-    width: 21em;
+    width: 18em;
 
     border-style: solid;
     border-color: #E78A1D;
 }
+
+
 
 .gab-text1 {
     font-weight: bold;
