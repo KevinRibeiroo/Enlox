@@ -8,7 +8,9 @@ import MeusAnuncios from './pages/meusAnuncios';
 import Produto from './pages/produto';
 import politicaPrivacidade from './pages/políticaPrivacidade';
 import userRegistrado from './pages/homeRegistrado'
-import Perfil from './pages/perfil'
+import Perfil from './pages/perfil';
+import EditarProduto from './pages/editarProduto';
+
 
 
 
@@ -25,6 +27,7 @@ export default function Routes(){
                 <Route path="/politicaDePrivacidade" component={politicaPrivacidade}/>
                 <Route path="/userRegistrado" component={userRegistrado}/>
                 <Route path="/perfil" component={Perfil}/>
+                <Route path="/editarProduto" component={EditarProduto}/>
 
             </Switch>
         </BrowserRouter>
