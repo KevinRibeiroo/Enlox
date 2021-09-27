@@ -126,6 +126,49 @@ const Container = styled.div`
     text-decoration: underline;
 }
 
+.gab-endereco, .gab-enderecoa {
+    margin-right: 4em;
+    width: 17em;
+
+    border-style: solid;
+    border-color: #E78A1D;
+}
+
+.gab-endereco {
+    margin-top: 4em;
+    height: 15em;
+}
+
+.gab-endereco > table > tr >th {
+    font-size: 1.5em;
+}
+
+.gab-endereco >table > tr > td {
+    font-size: 1em  ;
+}
+
+.gab-enderecoa {
+    display: flex;
+    flex-direction: row;
+    height: 4em;
+    line-height: 4em;
+    font-size: 1em;
+    justify-content: space-around;
+}
+
+.gab-end1 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.gab-enderecoa > div > img {
+
+    vertical-align: middle;
+}
+
+.gab-celula {
+    font-size: 1.4em;
+}
 
 `
 
