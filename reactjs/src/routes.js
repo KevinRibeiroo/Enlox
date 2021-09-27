@@ -10,7 +10,7 @@ import politicaPrivacidade from './pages/políticaPrivacidade';
 import userRegistrado from './pages/homeRegistrado'
 import Perfil from './pages/perfil';
 import EditarProduto from './pages/editarProduto';
-
+import Branco from './pages/Branco';
 
 
 
@@ -18,7 +18,8 @@ export default function Routes(){
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact={true} component={Home} />
+                <Route path="/" exact={true} component={Branco} />
+                <Route path="/home" exact={true} component={Home} />
                 <Route path="/carrinho" component={Carrinho} />
                 <Route path="/termosServiço" component={TermosServiço}/>
                 <Route path="/sobreNos" component={sobreNos} /> 
