@@ -6,18 +6,17 @@ flex-direction: column;
 
 .gab-meucarrinho {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .gab-btn-comprartodos > button {
-    width: 200px;
-    height: 70px;
-    left: 1129px;
-    top: 234px;
+    width: 150px;
+    height: 60px;
+    
     float: right;
    
     margin-bottom: 1.5em;
-    margin-right: 12em;
+    margin-right: 11em;
 
     background: rgba(231, 138, 29, 0.86);
     border-radius: 7px;
@@ -34,6 +33,8 @@ flex-direction: column;
     align-self: center;
     justify-content: center;
     align-items: center;
+
+    margin-bottom: 4em;
    
 
     background: rgba(79, 110, 146, 0.89);
@@ -48,7 +49,7 @@ flex-direction: column;
     margin-top: 3em;
     margin-left: -5.5em;
     margin-right: 2em;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
     position: relative;
 
     height: 200px;
