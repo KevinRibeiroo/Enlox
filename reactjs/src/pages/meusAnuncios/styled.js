@@ -50,7 +50,7 @@ a{
     background: rgba(79, 110, 146, 0.89);
     color: #ffffff;
     border-radius: 3px;
-
+    border: none;
    
 }
 
