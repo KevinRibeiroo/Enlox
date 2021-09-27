@@ -12,7 +12,7 @@ export default function perfil() {
             <div className='gab-form1'>
                 <div className='gab-email'>EMAIL: gabs@gmail.com <span>Alterar email</span> </div>
                 <div className='gab-numero'>NÚMERO: 40028922 <span className='gab-img1'><img src='/assets/images/verificado.svg' alt=''  /></span> <span className='gab-verif'>VERIFICADO</span></div>
-                <div className='gab-conect'><span className='gab-img2'><img src='/assets/images/foto.png' alt='' /></span>Silas</div>
+                <div className='gab-conect'><span className='gab-img2'><img src='/assets/images/silas.png' alt='' /></span>Silas</div>
             </div>
             <div gab-form2>
                 <div className='gab-foto'> <img src='/assets/images/silas.png' alt='' /> </div>
