@@ -4,7 +4,7 @@ export default function Index(){
     return(
         <div className = "Container">
            <Link to="/home"><b>Home   │</b></Link>
-           <Link to="/"><b>carrinho   │</b></Link>
+           <Link to="/carrinho"><b>carrinho   │</b></Link>
            <Link to="/termosServiço"><b>Tela termosServiço   │</b></Link>
            <Link to="/sobreNos"><b>Tela Sobre nos   │</b></Link>
            <Link to="/meusAnuncios"><b>Tela Meus Anuncios   │</b></Link>
