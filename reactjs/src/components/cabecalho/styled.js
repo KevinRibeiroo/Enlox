@@ -51,7 +51,17 @@ span {
 
 .navegacao {
    
-    color: transparent;
+    text-decoration: none;
+    font-family: Stoke;
+font-style: normal;
+font-weight: normal;
+
+
+
+text-align: center;
+
+
+color: #000000;
 }
 `
 

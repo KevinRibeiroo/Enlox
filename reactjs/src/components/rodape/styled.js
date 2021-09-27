@@ -6,7 +6,7 @@ const Rodape = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-height: 10vh;
+height: 12vh;
 .sobre-empresa {
     display: flex;
     flex-direction: row;

@@ -3,7 +3,7 @@ import { Rodape } from "./styled"
 
 export default function rodape(){
     return (
-        <footer style={{backgroundColor: "#E7E6E1", height: "10vh"}}>
+        <footer style={{backgroundColor: "#E7E6E1", height: "12vh"}}>
             <Rodape>
                 <div className="sobre-empresa"><div className="info">Política de Privacidade</div>
                 <div className="info">Política de Privacidade</div>
