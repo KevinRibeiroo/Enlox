@@ -9,7 +9,7 @@ import styled from "styled-components";
         padding: 3em;
         text-align: left;
         line-height: 2em;
-        font: 1.5em Roboto-Slab;
+        font: 1em Roboto-Slab;
         width: 70%;
         display: flex;
         flex-direction: column;
