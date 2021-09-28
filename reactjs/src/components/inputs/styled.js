@@ -24,8 +24,15 @@ background-position-x: 1em;
 const InputChat = styled.textarea`
 background: #B0BDC6;
 border-radius: 12px;
-width: 35em;
+width: 42em;
 border: none;
+height: 3em;
+outline: none;
+text-align: center;
+padding: 0.5em 0.5em;
+overflow-y: scroll;
+resize: none;
+
 
 background-image: url('/assets/images/Digite uma mensagem.svg');
 background-repeat: no-repeat;
@@ -34,6 +41,31 @@ background-position-x: 1em;
 :focus {
     background-image: none;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #B0BDC6;
+  height: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6495ED;
+  height: 10px;
+
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
 `
 
 
