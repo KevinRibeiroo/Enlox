@@ -69,4 +69,146 @@ background-position-x: 1em;
 `
 
 
-export { InputFrete,    InputChat }
+const InputCadastrar = styled.input`
+width: 30em;
+height: 3em;
+
+
+display: flex;
+
+background: rgba(60, 60, 60, 0.1);
+border: none;
+outline: none;
+
+::placeholder{
+    font-family: Stoke;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 45px;
+text-align: start;
+letter-spacing: 0.1em;
+
+color: #000000;
+}
+
+padding-left: 0.5em;
+`
+
+const TextareDesc = styled.textarea`
+display: flex;
+
+width: 30em;
+height: 8em;
+
+padding-left: 0.5em;
+
+::placeholder{
+    font-family: Stoke;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 45px;
+text-align: start;
+letter-spacing: 0.1em;
+
+color: #000000;
+}
+
+background: rgba(60, 60, 60, 0.1);
+border: none;
+outline: none;
+
+:focus {
+    background-image: none;
+}
+
+`
+
+const InputTipo = styled.select`
+
+width: 25em;
+height: 2.7em;
+
+background: rgba(60, 60, 60, 0.1);
+border: none;
+outline: none;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url('/assets/images/Seta.svg');
+    background-repeat: no-repeat;
+    background-position-x: 23em;
+    background-position-y: center;
+    padding-right: 0.5em;
+
+       font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 34px;
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    color: #000000;
+
+    padding-left: 0.5em;
+
+    background-size: 0.6em;
+`
+
+const InputPreco = styled.input`
+
+    width: 16em;
+    height: 2.5em;
+
+    font-family: Roboto Slab;
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 34px;
+letter-spacing: 0.1em;
+
+color: #000000;
+
+border: none;
+outline: none;
+
+padding-left: 0.5em;
+
+background: rgba(60, 60, 60, 0.1);
+`
+
+const InputImage = styled.input`
+
+    
+background: rgba(60, 60, 60, 0.1);
+
+`
+
+const InputLocal = styled.input`
+
+background: rgba(60, 60, 60, 0.1);
+
+width: 14em;
+height: 2.5em;
+
+font-family: Roboto Slab;
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 34px;
+letter-spacing: 0.1em;
+
+color: #000000;
+
+border: none;
+outline: none;
+
+padding-left: 0.5em;
+
+`
+
+export { InputFrete,    InputChat, InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal}
