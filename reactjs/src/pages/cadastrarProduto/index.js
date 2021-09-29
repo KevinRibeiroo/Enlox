@@ -2,20 +2,35 @@ import Cabecalho from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
 import { Conteudoprodut } from "./styled"
 import { InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal } from "../../components/inputs/styled"
-
+import {BotaoCdstr, InserirAnuncio} from '../../components/botoes/styled';
 
 export default function CadasdtrarProduto () {
     return (
         <Conteudoprodut>
             <Cabecalho />
                 <div className="container">
-                    <div className="title-pag">
-                    Insira seu proprio anuncio
-                    </div>
+                <div className="title-pag">
+                Insira seu proprio anuncio
+                </div>
                     <div className="conteudo-cdstr">
                         <InputCadastrar placeholder="Insira o nome do produto"/>
                         <TextareDesc placeholder="Insira descrição do produto"/>
+                    
 
+                        <div className="agp-input">
+                            <div className="label">Escolha sua categoria</div>
+                         
+                            <div className="agp-botao">
+                                <BotaoCdstr>Eletronicos</BotaoCdstr>
+                                <BotaoCdstr>Mobilia</BotaoCdstr>
+                                <BotaoCdstr>Beleza</BotaoCdstr>
+                                <BotaoCdstr>Esportes</BotaoCdstr>
+                                <BotaoCdstr>Construções</BotaoCdstr>
+                                <BotaoCdstr>Brinquedos</BotaoCdstr>
+                                <BotaoCdstr>Auto-Peças</BotaoCdstr>
+                                <BotaoCdstr style={{borderBottom: "none"}}>Outros</BotaoCdstr>
+                            </div>
+                        </div>
                         <div className="agp-input">
                             <div className="label">Tipo</div>
                             <InputTipo placeholder="Selecione">
@@ -29,18 +44,20 @@ export default function CadasdtrarProduto () {
                         </div>
                         <div className="agp-input">
                             <InputImage type="file" className="upload" />
-                        <div>
+                        </div>
 
                         
                         <div className="agp-input">
                             <div className="label">Localização</div>
                             <InputLocal placeholder="Localização do produto" />
                         </div>
+
+
+                        <InserirAnuncio style={{alignSelf: "flex-end"}}> Inserir Anuncio</InserirAnuncio>
                     </div>
-                </div>
-            </div>
+
         </div>
-            <Rodape />
+          
         </Conteudoprodut>
     )
 }
