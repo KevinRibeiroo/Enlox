@@ -20,6 +20,8 @@ height: 100%;
     align-items : center ;
     padding-bottom: 2em;
     color:#fff;
+    & img:hover{}
+    
     }  
   
 }
