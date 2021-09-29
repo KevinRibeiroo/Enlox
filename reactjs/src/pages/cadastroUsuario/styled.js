@@ -37,14 +37,14 @@ const UContainer= styled.div`
         .UAnimacao1{
             width:200px; 
             height:15px;
-            animation:linha 5s;
+            animation:linha 5s infinite;
         }
 
         .UAnimacao2{
             width:200px; 
             height:15px;
             margin-bottom:2em;
-            animation:linha2 5s;
+            animation:linha2 5s infinite;
         }
 
         @keyframes linha{

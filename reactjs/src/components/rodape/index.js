@@ -6,9 +6,9 @@ export default function rodape(){
         <footer style={{backgroundColor: "#E7E6E1", }}>
             <Rodape>
                 <div className="sobre-empresa"><Link to = "/politicaDePrivacidade" className="navegacao"><div className="info">Política de Privacidade</div></Link>
-                <div className="info">Política de cookies</div>
-                <Link to="/termosServiço" className="navegacao"><div className="info">Termos & condições </div></Link>
-                <Link to="/sobreNos" className="navegacao"><div className="info" style={{width: "4em"}}>Sobre Nos</div></Link></div>
+                <div className="info">Política de Cookies</div>
+                <Link to="/termosServiço" className="navegacao"><div className="info">Termos & Condições </div></Link>
+                <Link to="/sobreNos" className="navegacao"><div className="info" style={{width: "4em"}}>Sobre Nós</div></Link></div>
 
                 <div className="informacoes-contato"><div className="contato"><div className="icon"><img src="/assets/images/linkedin.png" alt="" /></div>
                 <div className="icon"><img src="/assets/images/face.png" alt="" /></div>
