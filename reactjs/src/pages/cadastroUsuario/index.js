@@ -8,9 +8,9 @@ export default function CadastroDeUsuario(){
             <div className = "UAzul"></div>
             <div className = "UBranco"></div>
             <div className= "UConteudo">
-                <img className="UAnimacao1" src='/assets/images/LinhaAnimada.svg'/>
+                <img className="UAnimacao1" src='/assets/images/LinhaAnimada.svg' alt=''/>
                 <div className = "UTitulo">Cadastre-se</div>
-                <img className="UAnimacao2" src='/assets/images/LinhaAnimada.svg'/>
+                <img className="UAnimacao2" src='/assets/images/LinhaAnimada.svg' alt=''/>
                 <div className = "UDados">Nome:
                     <input type="text"/>
                 </div>
