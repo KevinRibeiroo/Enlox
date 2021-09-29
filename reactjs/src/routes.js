@@ -13,6 +13,7 @@ import Chat from './pages/chat';
 import EditarProduto from './pages/editarProduto';
 import Branco from './pages/Branco';
 import CadasdtrarProduto from './pages/cadastrarProduto';
+import CadastroDeUsuario from './pages/cadastroUsuario';
 
 
 
@@ -33,6 +34,7 @@ export default function Routes(){
                 <Route path="/chat" component={Chat}/>
                 <Route path="/editarProduto" component={EditarProduto}/>
                 <Route path="/cadastrarProduto" component={CadasdtrarProduto} />
+                <Route path="/cadastrarDeUsuario" component={CadastroDeUsuario} />
             </Switch>
         </BrowserRouter>
     )
