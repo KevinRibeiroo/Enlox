@@ -98,6 +98,7 @@ const UContainer= styled.div`
         }
         button:hover{
             opacity: 95%;
+            cursor: pointer;
         }
         
     }
