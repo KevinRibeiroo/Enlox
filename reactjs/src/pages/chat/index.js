@@ -26,7 +26,7 @@ export default function Chat() {
                                     <div className="foto-vendedor"><img src="/assets/images/foto.svg" alt="" style={{width: "38px"}}/></div>
                                     <div className="foto-usuario"><img src="/assets/images/perfil.svg" alt="" /></div>
                                 </div>
-                                <div className="nm-vendedor">Roberto Brunex</div>
+                                <div className="nm-vendedor2">Roberto Brunex</div>
                                 <div className="last-acess">Ultimo acesso ontem as 17:45</div>
                                 </div>
                                 <div className="agp-config">
@@ -36,8 +36,10 @@ export default function Chat() {
                             </div>
                         
                         <div className="box-chat">
+                            <div className="msgs">
                             <div className="msg">bom dia adorei o produto</div>
-                            <div className="msg">Oxi tio sae dae</div>
+                            <div className="msg2">Oxi tio sae dae</div>
+                            </div>
                             <div className="enviar-msg">
                                 <div className="emoji"><img src="/assets/images/emoji.svg" alt="" /></div>
                                 <div className="digit-msg"><InputChat /></div>

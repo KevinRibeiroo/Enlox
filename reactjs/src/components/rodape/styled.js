@@ -7,13 +7,15 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 height: 12vh;
+
+
 .sobre-empresa {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-left: 1.2em;
     align-self: center;
-    width: 20em;
+    width: 26em;
 }
 
 
@@ -22,7 +24,16 @@ height: 12vh;
     width: 6.5em;
     flex-wrap: wrap;
     text-align: center;
-    font-size: 0.7em;
+    
+    font-family: Artifika;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+
+text-align: center;
+letter-spacing: 0.1em;
+
+color: rgba(0, 0, 0, 0.75);
 }
 
 
@@ -58,8 +69,7 @@ span {
     text-align: center !important;
   
 
-    max-width: 5em;
-    border: solid;
+    max-width: 10em;
 }
 
 .navegacao {
