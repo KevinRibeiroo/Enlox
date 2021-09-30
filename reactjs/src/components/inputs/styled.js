@@ -211,4 +211,29 @@ padding-left: 0.5em;
 
 `
 
-export { InputFrete,    InputChat, InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal}
+
+const InputLogin = styled.input`
+display: flex;
+background: #FDFAFA;
+border-radius: 1.5em;
+
+width: 25em;
+height: 2.7em;
+
+font-family: Roboto Slab;
+font-size: 1em;
+::placeholder {
+font-family: Roboto Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 1em;
+line-height: 16px;
+
+color: rgba(0, 0, 0, 0.37);
+}
+border: none;
+outline: none;
+padding-left: 1em;
+`
+
+export { InputFrete,    InputChat, InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal, InputLogin}

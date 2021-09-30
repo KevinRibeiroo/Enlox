@@ -13,6 +13,7 @@ export default function Index(){
            <Link to="/userRegistrado"><b>Tela userRegistrado   │</b></Link>
            <Link to="/perfil"><b>Tela perfil   │</b></Link>
            <Link to="/editarProduto"><b>Tela Editar Produto   │</b></Link>
+           <Link to="/cadastroDeUsuario"><b>Tela Cadastrar Novo Usuário   │</b></Link>
         </div>
     
     
