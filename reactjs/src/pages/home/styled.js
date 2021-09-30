@@ -116,7 +116,7 @@ height: 100%;
         .HCentro{
         display: flex;
         flex-direction: row;
-        left: 13%;
+        left: 16%;
         position: absolute;
         z-index: 1;
         justify-content: center;
