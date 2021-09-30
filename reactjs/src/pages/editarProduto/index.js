@@ -11,6 +11,7 @@ export default function Home(){
              <div className="box">
                  <div className="agp1">
                      <div className="titulo">Geladeira Frigobar</div>
+                     <div className="btn-editar"><img src="../../assets/images/editar.svg"/></div>
                  </div>
              </div>
             <Rodape />
