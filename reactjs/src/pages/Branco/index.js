@@ -16,5 +16,7 @@ export default function Index(){
            <Link to="/cadastroDeUsuario"><b>Tela Cadastrar Novo Usuário   │</b></Link>
            <Link to = "/login">login</Link>
         </div>
+    
+    
     )
 }
