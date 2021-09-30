@@ -35,7 +35,7 @@ export default function Routes(){
                 <Route path="/editarProduto" component={EditarProduto}/>
                 <Route path="/cadastrarProduto" component={CadasdtrarProduto} />
                 <Route path="/cadastroDeUsuario" component={CadastroDeUsuario} />
-                <Route path="login" component={Login} />
+                <Route path="/login" component={Login} />
             </Switch>
         </BrowserRouter>
     )
