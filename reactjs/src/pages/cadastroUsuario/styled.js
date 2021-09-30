@@ -38,6 +38,7 @@ const UContainer= styled.div`
             width:200px; 
             height:15px;
             animation:linha 5s infinite;
+            animation-timing-function: cubic-bezier(0,.77,1,.28);
         }
 
         .UAnimacao2{
@@ -45,6 +46,7 @@ const UContainer= styled.div`
             height:15px;
             margin-bottom:2em;
             animation:linha2 5s infinite;
+            animation-timing-function: cubic-bezier(0,.77,1,.28)
         }
 
         @keyframes linha{
