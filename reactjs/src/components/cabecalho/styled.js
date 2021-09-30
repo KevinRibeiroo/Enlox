@@ -63,6 +63,10 @@ text-align: center;
 
 color: #000000;
 }
+
+.icon-text {
+    font-family: stroke;
+}
 `
 
 export {Container}
