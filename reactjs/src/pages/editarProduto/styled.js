@@ -6,10 +6,13 @@ const Container = styled.div`
 display: flex;
 flex-direction: column;
 
+
+
 main {
     display: flex;
     flex-direction: column;
 
+    margin-bottom: 8em;
 
     height: 120vh;
     justify-content: space-between;
@@ -18,6 +21,7 @@ main {
 .conteudo {
     display: flex;
     flex-direction: column;
+
     
     align-self: center;
     width: 75vw;
@@ -29,7 +33,7 @@ main {
 
 .group {
     display: flex;
-    background: #ECF6FE;
+    background: #ffffff;
     border: 1px solid #4F6E92;
     box-sizing: border-box;
     width: 90%;
@@ -44,8 +48,20 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    border-right: 1px solid black;
+   padding-right: 4em;
    
 }
+
+
+.agp2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
 
 .agp-texto{
     display: flex;
@@ -70,6 +86,7 @@ main {
 .agp-min{
     display: flex;
     flex-direction: column;
+    margin-left: 2.4em;
 }
 
 .preco {
@@ -132,12 +149,57 @@ main {
 
 .img-principal{
     display: flex;
-    //height: 40vh;
+   
     flex-direction: column;
     justify-content: center;
 }
 
+.editar img{
+    width: 1.5em;
+}
 
+.editar{
+    margin: 2.5em 0em 0em 1.5em;
+}
+
+.seta img{
+    width: 1.3em;
+}
+
+.seta{
+    margin: 7em 0em 0em 1.5em;
+}
+
+.salvar{
+    display: flex;
+    justify-content: right;
+    margin-right: 9em;
+}
+
+.btn-salvar {   
+    width: 105px;
+    height: 50px;
+   
+    font-family: Roboto Slab;
+    font-weight: 1000;
+    line-height: 26px;
+    font-size: 20px;
+    
+    color: #888B0D;  
+    background: rgba(176,189,198,1);
+  
+    border: 1px solid rgba(188,191,80,1);
+    border-radius: 50px 50px;  
+}
+
+  .btn-salvar button{
+    width: 66px;
+    color: rgba(0,0,0,0.6499999761581421);
+   
+    top: 10px;
+    left: 20px;
+  }
+  
 `
 
 export{Container};
