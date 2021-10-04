@@ -4,7 +4,7 @@ import Rodape from "../../components/rodape"
 
 import {Container} from './styled.js';
 
-export default function Home(){
+export default function EditarProduto(){
     return(
         <Container>
          <main>
