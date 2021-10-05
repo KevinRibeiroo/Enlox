@@ -12,6 +12,7 @@ import Perfil from './pages/perfil'
 import Chat from './pages/chat';
 import EditarProduto from './pages/editarProduto';
 import Branco from './pages/Branco';
+import PrAnuncio from './pages/PrimeiroAnuncio';
 
 
 
@@ -32,6 +33,7 @@ export default function Routes(){
                 <Route path="/perfil" component={Perfil}/>
                 <Route path="/chat" component={Chat} />
                 <Route path="/editarProduto" component={EditarProduto}/>
+                <Route path="/prAnuncio" component={PrAnuncio}/>
             </Switch>
         </BrowserRouter>
     )
