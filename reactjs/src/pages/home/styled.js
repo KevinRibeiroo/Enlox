@@ -10,6 +10,7 @@ height: 100%;
     input{outline: none;}
 }
 .HCategorias{
+    font:1em Stoke-Regular;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -20,6 +21,8 @@ height: 100%;
     align-items : center ;
     padding-bottom: 2em;
     color:#fff;
+    & img:hover{}
+    .HElipse{cursor: pointer;}
     }  
   
 }
@@ -62,9 +65,26 @@ height: 100%;
     display: flex;
     flex-direction: column;
     padding: 4em;
+    .HBola{position:absolute;
+    top:35%;
+    left: 55%;
+    animation: quicar 1s infinite;
+    }
+    
+    @keyframes quicar{
+    10%{}
+    50%{height:50px;
+    width:60px;
+    transform:translateY(240px);}
+    
+  
+    }
     .HEspecificacao{
         margin-bottom: 2em;
-        font: 2.5em "Roboto";
+        color:#fff;
+        font:2em Roboto-Slab;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #E78A1D;
     }
     .HCarrossel{
         display: flex;
@@ -96,7 +116,7 @@ height: 100%;
         .HCentro{
         display: flex;
         flex-direction: row;
-        left: 13%;
+        left: 16%;
         position: absolute;
         z-index: 1;
         justify-content: center;

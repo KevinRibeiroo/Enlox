@@ -46,7 +46,7 @@ export default function Home(){
                     </div>
 
                     <div className = "HBrinquedos">
-                        <div className = "HElipse">
+                        <div className = "HElipse Brinquedo">
                             <img src="/assets/images/Brinquedos.png" alt="" />
                         </div>
                         <div>BRINQUEDOS</div>
@@ -79,6 +79,7 @@ export default function Home(){
             </div>
 
             <div className = "HCorpo">
+                <img  className="HBola" src="/assets/images/Ball.png" alt = ""/>
 
                 <div className = "HFaixa">
                     <div className = "HEspecificacao">Ofertas do Dia</div>

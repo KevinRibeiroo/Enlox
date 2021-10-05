@@ -62,7 +62,10 @@ height: 100%;
     padding: 4em;
     .HEspecificacao{
         margin-bottom: 2em;
-        font: 2.5em "Roboto";
+        color:#fff;
+        font:2em Roboto-Slab;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #E78A1D;
     }
     .HCarrossel{
         display: flex;
