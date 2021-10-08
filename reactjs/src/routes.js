@@ -15,7 +15,8 @@ import Branco from './pages/Branco';
 import CadasdtrarProduto from './pages/cadastrarProduto';
 import CadastroDeUsuario from './pages/cadastroUsuario';
 import Login from './pages/login';
-
+import Compra from './pages/compra';
+import PrAnuncio from './pages/PrimeiroAnuncio';
 
 export default function Routes(){
     return (
@@ -36,6 +37,8 @@ export default function Routes(){
                 <Route path="/cadastrarProduto" component={CadasdtrarProduto} />
                 <Route path="/cadastroDeUsuario" component={CadastroDeUsuario} />
                 <Route path="/login" component={Login} />
+                <Route path="/compra" component={Compra} />
+                <Route path="/prAnuncio" component={PrAnuncio} />
             </Switch>
         </BrowserRouter>
     )
