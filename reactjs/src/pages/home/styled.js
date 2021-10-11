@@ -52,7 +52,7 @@ height: 100%;
     background-color: #fff;
     padding: 0.3em;
 
-    .HPesquisou{margin-left:0.3em;}
+    
     }
 
     
@@ -132,7 +132,6 @@ height: 100%;
             flex-direction: row;
             align-items: center;
             .Hproduto{
-                border: 1px solid #BCBF50;
                 height: 90%;
                 width: 40%;
                 display: flex;
@@ -179,7 +178,6 @@ height: 100%;
             align-items: center;
 
             .HProduto{
-                border: 1px solid #BCBF50;
                 height: 90%;
                 width: 40%;
                 display: flex;

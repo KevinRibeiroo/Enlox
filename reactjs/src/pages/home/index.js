@@ -73,7 +73,6 @@ export default function Home(){
                     </div>
                     <div className = "HSimbolo">
                         <div className = "HLupa"><img src="/assets/images/Pesquisarp.svg" alt="" /></div>
-                        <div className = "HPesquisou">Pesquisar</div>
                     </div>
                 </div>
             </div>
