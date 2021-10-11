@@ -30,7 +30,7 @@ const Container = styled.div`
     align-items: center;
 }
 
-.agp {
+.agp-fx2 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -50,6 +50,79 @@ const Container = styled.div`
     align-self: center;
 }
 
+.aaa{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    background-color: #DFDFDF;
+
+    border-radius: 60px;
+    height: 3.5em;
+    font-size: 17px;
+
+    margin-top: 2em;
+    margin-bottom: 3.4em;
+    justify-content: space-between;
+}
+
+
+.agp-fx1{
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+   padding-right: 4em;
+   
+}
+
+.cartao img{
+    width: 2.5em;
+    height: auto;
+    margin-right: 0.5em;
+}
+
+.cartao {
+    display: flex;
+    flex-direction: row;
+}
+
+.master{
+    margin-top: 0.5em;
+}
+
+.btn-alterar button {
+
+    background: transparent;
+    border: none !important;
+    color: #47A1EF;
+    font-size: 17px;
+    margin-right: 0.5em;
+}
+
+.btn-comprar button {
+ 
+    width: 350px;
+    height: 57px;
+    left: 127px;
+    top: 800px;
+
+    border: none ;
+  
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 32px;
+    background: #B0BDC6;
+    border-radius: 57px;
+}
+
+.detalhes{
+    margin-top: 1em;
+}
+
 .agp-texto2{
     display: flex;
     flex-direction: row;
@@ -65,6 +138,10 @@ const Container = styled.div`
     color: #353535;
 }
 
+.dentro{
+    margin-left: 1em;
+}
+
 .agp-img{
     display: flex;
     flex-direction: row;
@@ -74,10 +151,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 2.4em;
-}
-
-.cartao {
-     border-radius: 10em;
 }
 
 .preco {
@@ -177,7 +250,6 @@ const Container = styled.div`
 .x span {
     padding-top: 0.3em;
 }
-
 
 .total {
     display: flex;

@@ -10,19 +10,29 @@ export default function Compra(){
             <Cabecalho/>
                 <div className="container">
                     <div className="fx1"> 
-                        <div className="agp">
+                        <div className="agp-fx1">
                          <div className="agp-texto1">
                             <div className="title"><h2>confirme sua compra</h2></div>
-                            <div className="endereço">Detalhes de Endereço</div>
-                            <div classname="endereco"><input></input></div>
-                            <div className="detalhes">detalhes de pagamento</div>
-                            <div classname="cartão"><input></input></div>
+                        <div className="detalhes">
+                         <div className="x">Detalhes de Endereço</div>
+                          <div className="aaa">  
+                                <div className="dentro">avenida taltal ........... n°......... </div>
+                                <div className="btn-alterar"><button>alterar endereço</button></div>
+                          </div>
                         </div>
-                        <div className="btn-comprar"><button>comprar agora</button></div>
+                        <div className="detalhes">
+                         <div className="x">detalhes de pagamento</div>
+                          <div className="aaa">                             
+                                <div className="cartao"><img alt="" src="/assets/images/cartao.svg"/><div className="master">MasterCard</div></div>
+                                <div className="btn-alterar"><button>alterar cartão</button></div>
+                          </div>
+                        </div>
+                    </div>
+                        <div className="btn-comprar"><button>confirmar compra</button></div>
                     </div>
                 </div>
                     <div className="fx2">
-                        <div className="agp">
+                        <div className="agp-fx2">
                                     <div className="agp-texto2">
                                         <div className="title"><h2>Geladeira Frigobar</h2></div>
                                     </div>
@@ -44,8 +54,6 @@ export default function Compra(){
                                     <div className="x"><div className="title-agp"> Produto </div> <span>R$ 1.381.09</span> </div>
                                     <div className="frete"><div className="title-frete"> Frete </div> <span>gratis</span> </div>
                                     <div className="x"><div className="title-agp"> SubTotal</div> <span>R$ 1381.09</span> </div>
-                                    <hr/>
-                                    <div className="x"><div className="title-agp"> parcelas </div> <span> 4x</span> </div>
                                     <hr/>
                                     <div className="total"><div className="title-total"> Total </div> <span>4x de R$ 345.25 </span> </div>
                                 </div>
