@@ -18,7 +18,8 @@ export default function Index(){
            <Link to="/editarProduto"><b>♏Tela Editar Produto   </b></Link>
            <Link to="/cadastroDeUsuario"><b>♏Tela Cadastrar Novo Usuário   </b></Link>
            <Link to = "/login"><b>♏Tela de Login </b></Link>
-           <Link to="/prAnuncio"><b>♏Tela de primeiro anúncio</b>    </Link>
+           <Link to="/prAnuncio"><b>♏Tela de primeiro anúncio</b> </Link>
+           <Link to="/compra"><b>♏Tela de compra</b> </Link>
         </div>
         </Container>
     

@@ -9,14 +9,19 @@ const Container = styled.div`
 }
 
 .fx1{
-    background-color: #EDEDED;
-    width: 50%;
-}
+    display: flex;
+    flex-direction: column;
 
+    background-color: #EDEDED;
+    
+    width: 50%;   
+}
 
 .fx2 {
     display: flex;
     background: #ffffff;
+
+    margin-top: 5em;
     width: 50%;
     height: 90%;
 
@@ -34,7 +39,18 @@ const Container = styled.div`
    
 }
 
-.agp-texto{
+.agp-texto1{
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 1.4em; 
+}
+
+.btn-comprar{
+    align-self: center;
+}
+
+.agp-texto2{
     display: flex;
     flex-direction: row;
 }
@@ -60,6 +76,10 @@ const Container = styled.div`
     margin-left: 2.4em;
 }
 
+.cartao {
+     border-radius: 10em;
+}
+
 .preco {
     display: flex;
     font-family: Roboto-Slab;
@@ -76,7 +96,7 @@ const Container = styled.div`
     height: 2.5em;
 }
 
-.preco > span {
+.preco span {
     padding-top: 0.3em;
 }
 .title-preco  {
@@ -96,6 +116,88 @@ const Container = styled.div`
     align-items: center;
 }
 
+.agp-total{
+    margin: 3em 0em 7em 0em; 
+}
+
+.desc-product {
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 26px;
+    
+}
+
+.frete {
+    display: flex;
+    font-family: Roboto-Slab;
+    font-style: normal;
+    font-size: 1em;
+   
+
+    color: #353535;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 9.5em;
+    height: 2.5em;
+}
+
+.frete span{
+    color: #34D231;
+}
+
+
+.title-agp  {
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 1.2em;
+ 
+
+    color: #353535;
+}
+
+.x {
+    display: flex;
+    font-family: Roboto-Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.1em;
+   
+
+    color: #353535;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 11.5em;
+    height: 2.5em;
+}
+
+.x span {
+    padding-top: 0.3em;
+}
+
+
+.total {
+    display: flex;
+    font-family: Roboto-Slab;
+    font-style: normal;
+    font-size: 1.1em;
+   
+
+    color: #353535;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 11.5em;
+    height: 2.5em;
+}
+
+.title-total span {
+    padding-top: 0.3em;
+}
+
 .img-principal{
     width: 13em;
      height: auto;
@@ -104,18 +206,6 @@ const Container = styled.div`
 .little-img img{
     width: 3em;
      height: auto;
-}
-
-.mais {
-    font-family: Roboto Slab-Light;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 0.9em;
-    line-height: 26px;
-    border: hidden;
-
-    color: #545353;
-    background-color: transparent;
 }
 
 .img-principal{
