@@ -1,5 +1,5 @@
 <svg width="190" height="254" viewBox="0 0 190 254" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<path d="M16.5331 1H173.866C181.984 1 188.6 7.72166 188.6 16.0563V237.529C188.6 245.864 181.984 252.585 173.866 252.585H16.5331C8.4152 252.585 1.7998 245.864 1.7998 237.529V16.0563C1.7998 7.72166 8.4152 1 16.5331 1Z" fill="url(#pattern0)" stroke="black" stroke-width="2"/>
+<path d="M16.5331 1H173.866C181.984 1 188.6 7.72166 188.6 16.0563V237.529C188.6 245.864 181.984 252.585 173.866 252.585H16.5331C8.4152 252.585 1.7998 245.864 1.7998 237.529V16.0563C1.7998 7.72166 8.4152 1 16.5331 1Z" fill="url(#pattern0)" />
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0" transform="translate(0 -0.0690648) scale(0.00207469 0.00157636)"/>

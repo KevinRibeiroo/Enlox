@@ -128,7 +128,10 @@ main {
 .img-principal{
     width: 13em;
      height: auto;
+
+ 
 }
+
 
 .little-img img{
     width: 3em;
