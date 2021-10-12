@@ -1,7 +1,7 @@
 import Cabecalho from '../../components/cabecalho';
 import Rodape from '../../components/rodape';
 import {UContainer} from './styled'
-export default function CadastroDeUsuario(){
+export default function CadastroDeUsuario2(){
     return(
         <UContainer>
             <Cabecalho/>
@@ -11,27 +11,28 @@ export default function CadastroDeUsuario(){
                 <img className="UAnimacao1" src='/assets/images/LinhaAnimada.svg' alt=''/>
                 <div className = "UTitulo">Cadastre-se</div>
                 <img className="UAnimacao2" src='/assets/images/LinhaAnimada.svg' alt=''/>
-                <div className = "UDados">Nome:
+                <div className='roww'>
+                    <div className = "UDados">Rua:
+                        <input type="text"/>
+                    </div>
+
+                    <div className = "UDados">Número:
+                        <input type="text"/>
+                    </div>
+                </div>
+                <div className = "UDados">Bairro:
                     <input type="text"/>
                 </div>
 
-                <div className = "UDados">CPF:
+                <div className = "UDados">Cidade:
                     <input type="text"/>
                 </div>
 
-                <div className = "UDados">Email:
+                <div className = "UDados">Cep:
                     <input type="text"/>
                 </div>
 
-                <div className = "UDados">Usuário:
-                    <input type="text"/>
-                </div>
-
-                <div className = "UDados">Senha:
-                    <input type="text"/>
-                </div>
-
-                <button>Cadastrar</button>
+                <button>Próximo</button>
             </div>
             <Rodape/>
         </UContainer>

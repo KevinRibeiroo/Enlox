@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 const Container = styled.div`
 
-conatiner{
+.Container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 `
