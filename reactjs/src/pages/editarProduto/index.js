@@ -29,7 +29,7 @@ export default function EditarProduto(){
                                </div>
                             <div className="preco"><div className="title-preco"> Preço: </div> <span>R$ 1381.09</span> </div>
                             <div>
-                                <div className="desc-produt">Geledeira frigobar 2020, usada e em otimo estado</div>
+                                <div className="desc-product">Geledeira frigobar 2020, usada e em otimo estado</div>
                                 <div >  <button className="mais">Mostrar mais </button></div>
                             </div>
                         </div>
