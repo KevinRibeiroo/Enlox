@@ -1,9 +1,36 @@
 import Cabecalho from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
-
+import Cookies from "js-cookie";
 import {HContainer} from './styled.js';
+import {useHistory} from 'react-router-dom';
+import Api from "../../service/api";
+import { useEffect } from "react";
+
+const api = new Api();
+
+
+
+/*function usuLogado (nav) {
+    let logado = Cookies.get('usuario-logado');
+
+
+    if (logado == null) {
+        nav.push('/login')
+        return null;
+    }
+}*/
+
+
 
 export default function Home(){
+
+    const navigation = useHistory();
+
+   
+
+
+  
+    
     return(
         <HContainer>
             <Cabecalho/>

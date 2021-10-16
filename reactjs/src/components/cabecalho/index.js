@@ -1,13 +1,55 @@
 import { Container } from "./styled"
 import { Link } from "react-router-dom"
-export default function cabecalho(){
+import Cookies from "js-cookie";
+import Api from "../../service/api";
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
+
+
+
+const api = new Api();
+
+function usuLogado(){
+let logado = Cookies.get('usuario-logado');
+
+let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
+}
+
+
+
+export default function Cabecalho(){
+
+    const nav = useHistory();
+
+    let usuarioLogado = usuLogado() || {};
+
+    const [idUsu] = useState(usuarioLogado.id_usuario);
+    const [nmUsu] = useState(usuarioLogado.nm_usuario)
+    const [imgUsu] = useState(usuarioLogado.foto)
+
+
+    console.log(imgUsu);
+    const listarPessoa = async () => {
+        const r = await api.listarUsu(idUsu);
+    } 
+
+    useEffect(() => {
+        listarPessoa()
+    }, [])
+        
+
+
+
     return (
         <header style={{backgroundColor: "#E7E6E1"}}>
             <Container>
                 <div className="icons-cabecalho"><Link to = "/home" className="navegacao"><div className="icon"><img src="/assets/images/casa 1.svg" alt="" /></div>
                 <div className="icon-text">Início</div></Link></div>
-                <div className="icons-cabecalho"><Link to = "/login" className="navegacao"> <div className="icon"><img src="/assets/images/user.svg" alt="" /></div>
-                <div className="icon-text">Login</div></Link></div>
+                {Cookies.get('usuario-logado') === null || undefined ? <div className="icons-cabecalho"><Link to = "/login" className="navegacao"> <div className="icon"><img src="/assets/images/foto.svg" alt="" /></div>
+                <div className="icon-text"> Login </div></Link></div>
+                :<div className="icons-cabecalho"><Link to = "/perfil" className="navegacao"> <div className="icon"><img src={imgUsu} alt="" /></div>
+                <div className="icon-text"> {nmUsu != null && nmUsu.length >= 15 ? nmUsu.substr(0, 15) + '...' : nmUsu}</div></Link></div>}
                 <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/task 1.svg" alt="" /> </div>
                 <div className="icon-text">Planos</div></div>
                 <Link to = "/home" className="navegacao"><div> <img src="/assets/images/logo.svg" alt="" /> </div></Link>

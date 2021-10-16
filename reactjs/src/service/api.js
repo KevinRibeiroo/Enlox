@@ -21,9 +21,17 @@ export default class Api {
         }
 
 
+        
+        async listarUsu(id) {
+            const r = await api.get(`/usuario/${id}`)
+            return r.data;
+        }
 
 
 
 
-
+        async logar2(ds_email) {
+            const r = await api.post('/login2', {ds_email});
+            return r.data;
+        }
 }
