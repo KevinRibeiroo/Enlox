@@ -43,6 +43,14 @@ export default function CadastroDeUsuario1(){
                     <input type="text"  value={ds_email} onChange={e => setDs_email(e.target.value)}/>
                 </div>
 
+                <div className = "UDados">Celular:
+                    <input type="text"  value={ds_cpf} onChange={e => setDs_cpf(e.target.value)}/>
+                </div>
+
+                <div className = "UDados">Nascimento:
+                    <input type="text"  value={ds_cpf} onChange={e => setDs_cpf(e.target.value)}/>
+                </div>
+
                 <div className = "UDados">Usuário:
                     <input type="text"  value={nm_usuario} onChange={e => setNm_usuario(e.target.value)}/>
                 </div>
