@@ -25,13 +25,17 @@ export default function Login () {
 
 
         const logar = async () => {
-            const r = await api.logando(email, senha)
+            const r = await api.logar2(email);
             console.log(email)
             console.log(r)
 
 
-            Cookies.set('usuario-logado', JSON.stringify(r))
-            nav.push('/home')
+            if(r.error) {
+                alert(`${r.error}`)
+            } else {
+                Cookies.set('usuario-logado' ,JSON.stringify(r));
+                nav.push('/home')
+            }
         }
 
 
