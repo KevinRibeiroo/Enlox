@@ -1,12 +1,40 @@
 import Container from './styled.js'
+import Cookies from 'js-cookie'
+import { useHistory } from 'react-router'
 
-export default function perfil() {
+
+
+
+
+
+
+
+
+export default function Perfil() {
+
+
+
+
+
+
+
+    const nav = useHistory();
+
+
+    const logoof = async () => {
+        Cookies.remove('usuario-logado')
+        nav.push('/login')
+    }
+
+
+
+
     return (
         <Container>
     <div className='gab-pai'>
         <div className='gab-cabec'>
             <div className='gab-logo'> <img src='/assets/images/logo.svg' alt='' /></div>
-            <div className='gab-btn-sair'> <img src='/assets/images/sair.svg' alt='' /></div>
+            <div className='gab-btn-sair' onClick={logoof}> <img src='/assets/images/sair.svg' alt='' /></div>
         </div>
         <div className='gab-conteudo'>
             <div className='gab-form1'>
