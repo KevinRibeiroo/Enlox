@@ -9,7 +9,9 @@ import { BotaoProduct } from "../../components/botoes/styled";
 
 
 export default function produto (){
+     
 
+   
 
     return (
     <Conteudo>
@@ -18,8 +20,9 @@ export default function produto (){
            
                 <div className="conteudo">
                     <div className="container-produts">
+            
                         <div className="produt">
-                            <div className="title"><h2>Geladeira Frigobar</h2></div>
+                            <div className="title"><h2 >Geladeira Frigobar</h2></div>
                             <div className="imgs-produt">
                                 <div className="img-principal"><img src="/assets/images/microondas.jpg" alt="" style={{width: "13em", height: "auto"}}/></div>
                                 <div className="seta"><img src="/assets/images/Seta.png" alt="" /></div>

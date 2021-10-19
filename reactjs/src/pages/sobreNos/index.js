@@ -3,6 +3,29 @@ import Rodape from "../../components/rodape";
 
 
 export default function sobreNos (){
+
+
+/*    let photo = document.getElementById('imgPhoto');
+    let file = document.getElementById('flImage');
+
+
+
+    <img src="https://i1.sndcdn.com/artworks-000608006128-bvmugt-t500x500.jpg" id="imgPhoto" alt=""   onClick={() => file.click()} />
+    <input type="file" id="flImage" name="fImage" accept="image/*" onChange={(e) => {let reader = new FileReader();
+
+reader.onload = () => {
+photo.src = reader.result;
+}
+
+reader.readAsDataURL(file.files[0])}}/>
+
+
+
+    console.log(file)
+
+    console.log(photo)
+
+    */
     return (
         <main>
             <Cabecalho />
@@ -18,6 +41,7 @@ export default function sobreNos (){
                 <div className="fx1" style={{display: "flex", flexDirection: "row", justifyContent: "space-between", height:"55vh"}}><div className="conteudo-text" style={{display: "flex", flexDirection: "column", width: "15em", alignSelf: "center", marginLeft: "5em" }}><div className="titulo"><h2>A SUA SEGURANÇA É A NOSSA SEGURANÇA</h2></div>
                 <div className="conteudo">Nossos anúncios passam por diversas etapas de confirmação, assim minimizando o percentual de anúncios falsos. Mesmo assim, estornamos qualquer valor caso algo de mal lhe tenha acontecido!</div></div>
                 <div style={{display: "flex", alignSelf:"center"}}> <img src="/assets/images/compra.svg" alt="" style={{marginRight: "5em", width: "20em"}} /> </div></div>
+
             <Rodape />
         </main>
     )

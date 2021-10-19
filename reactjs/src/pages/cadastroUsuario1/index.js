@@ -24,7 +24,7 @@ export default function CadastroDeUsuario1(){
 
     return(
         <UContainer>
-            <Cabecalho/>
+            <Cabecalho />
             <div className = "UAzul"></div>
             <div className = "UBranco"></div>
             <div className= "UConteudo">

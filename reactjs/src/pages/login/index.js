@@ -29,7 +29,7 @@ export default function Login () {
             console.log(email)
             console.log(r)
 
-
+            
             if(r.error) {
                 alert(`${r.error}`)
             } else {
