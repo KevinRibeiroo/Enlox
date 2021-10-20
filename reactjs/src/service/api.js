@@ -8,11 +8,6 @@ const api = axios.create({
 export default class Api {
 
 
-        async logando(ds_email, ds_senha) {
-            let r = await api.post('/login', {ds_email, ds_senha});
-            return r.data;
-        }
-
 
 
         async cadastrarUsuario(nm_usuario, ds_cpf, ds_email, ds_senha, ds_cep, nr_casa, ds_complemento) {
