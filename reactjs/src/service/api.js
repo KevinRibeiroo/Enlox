@@ -34,4 +34,25 @@ export default class Api {
             const r = await api.post('/login2', {ds_email});
             return r.data;
         }
+
+
+            async cadastrarProduto(id, nm, preco, descricao, avaliacao, img ){
+                const r = await api.post(`/produto/${id}`, {nm, preco, descricao, avaliacao, img});
+
+                return r.data;
+            }
+
+
+            async listarProduto() {
+                const r = await api.get('/produto');
+
+                return r.data;
+            }
+
+
+        async inserirChatUsu(id_comprador, id_vendedor) {
+            const r = await api.post(`/chat_usu/${id_comprador}/${id_vendedor}`);
+
+            return r.data;
+        }
 }

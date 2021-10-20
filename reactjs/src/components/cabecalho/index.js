@@ -69,3 +69,6 @@ export default function Cabecalho(){
         </header>
     )
 }
+
+
+export {usuLogado}

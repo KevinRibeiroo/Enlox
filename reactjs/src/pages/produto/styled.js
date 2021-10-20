@@ -253,6 +253,10 @@ input[type="file"] {
 #imgPhoto {
     max-width: 2em;
 }
+
+.foto img {
+    border-radius: 1em;
+}
 `
 
 

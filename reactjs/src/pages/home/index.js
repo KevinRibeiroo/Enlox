@@ -4,33 +4,42 @@ import Cookies from "js-cookie";
 import {HContainer} from './styled.js';
 import {useHistory} from 'react-router-dom';
 import Api from "../../service/api";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+
+
 
 const api = new Api();
 
 
 
-/*function usuLogado (nav) {
-    let logado = Cookies.get('usuario-logado');
-
-
-    if (logado == null) {
-        nav.push('/login')
-        return null;
-    }
-}*/
-
 
 
 export default function Home(){
 
-    const navigation = useHistory();
+ 
 
    
+    const [produtos, setProdutos] = useState([]);
 
+    const [nmProduto, setNmPrroduto] = useState('');
+    const [imgProduto, setImgProduto] = useState('');
+    const [preco, setPreco] = useState('');
+    const [avaliacao, setAvalicao] = useState('');
+    const [descricao, setDescricao] = useState('');
 
+    const mostrarProduto = async () => {
+        const r = await api.listarProduto();
+        setProdutos(r);
+    } 
+
+    useEffect(() => {
+        mostrarProduto();
+    }, [])
   
     
+   
     return(
         <HContainer>
             <Cabecalho/>
@@ -163,23 +172,30 @@ export default function Home(){
                     <div className = "HEspecificacao">Vistos Recentemente</div>
                     <div>
                         <div className = "HCarrossel">
-                            <div className = "HSetas"> 
+                            <div className = "HSetas">
+                             
                                 <img className = "HRotacionada" src = "/assets/images/Seta.png" alt=""/> 
                                 <img src = "/assets/images/Seta.png" alt=""/> 
                             </div>
+                          
                             <div className = "HCentro">
 
+                            {produtos.map((x) => 
+                            <Link to={{pathname: "/produto",
+                                        state: x}}>
                                 <div className ="HAnuncio">
-                                    <div className = "Hproduto"> <img src = "/assets/images/Camiseta.png" alt = ""/> </div>
+                                    <div className = "Hproduto"> <img src ={x.ds_imagem} alt = ""/> </div>
                                         <div className = "Hdescricao">
-                                            <div className = "Htitulo">Camiseta Levis</div>
-                                            <div className = "Htempo">4 meses de uso</div>
+                                            <div className = "Htitulo">{x.nm_produto}</div>
+                                            <div className = "Htempo">{x.ds_produto}</div>
                                             <div className = "Hpreco">
-                                                <div className = "Hpde">De: R$ 110,00</div>
+                                                <div className = "Hpde">{x.vl_preco}</div>
                                                 <div className = "Hppor">Por: R$ 52,99</div>
                                             </div>
                                         </div>
                                 </div>
+                            </Link>
+                                )}
 
                                 <div className = "HAnuncioMeio">
                                     <div className = "HProduto"> <img src = "/assets/images/Celular.png" alt = ""/> </div>

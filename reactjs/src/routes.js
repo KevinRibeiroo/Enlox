@@ -18,6 +18,12 @@ import CadastroDeUsuario3 from './pages/cadastroUsuario3';
 import Login from './pages/login';
 import Compra from './pages/compra';
 import PrAnuncio from './pages/PrimeiroAnuncio';
+import CadastrarProduto from './pages/cadastrarProduto';
+
+
+
+
+
 
 export default function Routes(){
     return (
@@ -41,6 +47,7 @@ export default function Routes(){
                 <Route path="/login" component={Login} />
                 <Route path="/compra" component={Compra} />
                 <Route path="/prAnuncio" component={PrAnuncio} />
+                <Route path="/cadastrarProduto" component={CadastrarProduto} />
             </Switch>
         </BrowserRouter>
     )
