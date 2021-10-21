@@ -4,6 +4,9 @@ import Cabecalho from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
 import Container from './styled'
 
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
 import Api from '../../service/api';
 import { useState, React, useEffect } from 'react';
 const api = new Api();
@@ -12,7 +15,8 @@ const api = new Api();
 export default function MeusAnuncios(){
 
     const [produto, setProduto] = useState([]);
-   
+    console.log(produto)
+
     async function listar(){
 
         let r = await api.listarProduto();
@@ -24,6 +28,28 @@ export default function MeusAnuncios(){
     useEffect(() => {
         listar();
     },   [])
+
+    async function remover (id) {
+
+        confirmAlert({
+            title: 'Remover produto',
+            message: `Tem certeza que quer remover o produto ${ produto.ds_produto} ?`,
+            buttons: [
+                {
+                    label: 'Sim',
+                    onClick: async() => {
+                        let r = await api.removerProduto(id);           
+                            listar();
+                    }
+                },
+                {
+                    label: 'não'
+                }
+            ]
+        })
+
+        listar();
+    }
 
 
     return(
@@ -44,7 +70,7 @@ export default function MeusAnuncios(){
 
                  <div className="butoes"> 
                   <button /*onClick={ () => editar() }*/className="editar"> Editar </button>
-                  <button /*onClick={ () => remover() }*/ className="excluir"> Excluir </button>
+                  <button onClick={ () => remover(item.id_produto) } className="excluir"> Excluir </button>
                  </div>    
           </div>
         )}

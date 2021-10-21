@@ -44,6 +44,10 @@ export default class Api {
                 return r.data;
             }
 
+            async removerProduto(id){
+                let r = await api.delete(`/produto/${id}`);
+                return r.data;
+            }
 
         async inserirChatUsu(id_comprador, id_vendedor) {
             const r = await api.post(`/chat_usu/${id_comprador}/${id_vendedor}`);
