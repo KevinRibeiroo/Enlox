@@ -184,13 +184,13 @@ export default function Home(){
                             <Link to={{pathname: "/produto",
                                         state: x}}>
                                 <div className ="HAnuncio">
-                                    <div className = "Hproduto"> <img src ={x.ds_imagem} alt = ""/> </div>
+                                    <div className = "Hproduto"> <img style={{width: "7.5em"}} src ={x.ds_imagem} alt = ""/> </div>
                                         <div className = "Hdescricao">
                                             <div className = "Htitulo">{x.nm_produto}</div>
                                             <div className = "Htempo">{x.ds_produto}</div>
                                             <div className = "Hpreco">
                                                 <div className = "Hpde">{x.vl_preco}</div>
-                                                <div className = "Hppor">Por: R$ 52,99</div>
+                                                <div className = "Hppor">Por: R$ {x.vl_preco}</div>
                                             </div>
                                         </div>
                                 </div>

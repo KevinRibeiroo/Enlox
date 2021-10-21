@@ -12,9 +12,12 @@ import { usuLogado } from "../../components/cabecalho";
 
 
 import Api from "../../service/api";
+import { useHistory } from "react-router";
 const api = new Api();
 
 export default function Produto (props){
+
+        const nav = useHistory();
      
       const [produto, setProduto] = useState(props.location.state);
       const [usu, setUsu] = useState([]);
@@ -37,6 +40,12 @@ export default function Produto (props){
     const InserirChat = async (id_compr, id_vendedor) => {
         const r = await api.inserirChatUsu(idUsu, produto.id_usuario )
         console.log(r);
+
+        if (r.error) {
+            alert(`${r.error}`)
+        } else {
+            nav.push('/chat')
+        }
     }
 
     console.log();
@@ -50,7 +59,7 @@ export default function Produto (props){
                     <div className="container-produts">
             
                         <div className="produt">
-                            <div className="title"><h2 >Geladeira Frigobar</h2></div>
+                            <div className="title"><h2 >{produto.nm_produto}</h2></div>
                             <div className="imgs-produt">
                                 <div className="img-principal"><img src={produto.ds_imagem} alt="" style={{width: "13em", height: "auto"}}/></div>
                                 <div className="seta"><img src="/assets/images/Seta.png" alt="" /></div>

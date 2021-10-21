@@ -186,7 +186,8 @@ height: 100%;
                 justify-content: center;
 
             }
-            
+
+           
             .HDescricao,.HPreco{
                 display: flex;
                 flex-direction: column;
