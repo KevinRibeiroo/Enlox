@@ -10,7 +10,7 @@ import { useHistory } from "react-router";
 const api = new Api();
 
 function usuLogado(){
-    if (Cookies.get('usuario-logado') != undefined){
+    if (Cookies.get('usuario-logado') !== undefined){
 let logado = Cookies.get('usuario-logado');
 
 
