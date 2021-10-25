@@ -1,9 +1,56 @@
 import Cabecalho from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
-
+import Cookies from "js-cookie";
 import {HContainer} from './styled.js';
+import {useHistory} from 'react-router-dom';
+import Api from "../../service/api";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+
+
+
+const api = new Api();
+
+
+
+
 
 export default function Home(){
+
+ 
+
+   
+    const [produtos, setProdutos] = useState([]);
+
+    const [nmProduto, setNmProduto] = useState('');
+    const [imgProduto, setImgProduto] = useState('');
+    const [preco, setPreco] = useState(0);
+    const [avaliacao, setAvalicao] = useState(0);
+    const [desconto, setDesconto] = useState(0);
+    const [descricao, setDescricao] = useState('');
+
+
+
+    async function mostrarProduto(){
+        let r = await api.listarProduto();
+        setProdutos(r);
+        console.log(r);
+    }
+
+    async function editarProduto(item){
+        setNmProduto(item.nm_produto);
+        setPreco(item.vl_preco);
+        setDescricao(item.ds_produto);
+        setDesconto(item.nr_desconto);
+    }
+
+    useEffect(() => {
+        mostrarProduto();
+    }, [])
+  
+    
+   
     return(
         <HContainer>
             <Cabecalho/>
@@ -73,62 +120,48 @@ export default function Home(){
                     </div>
                     <div className = "HSimbolo">
                         <div className = "HLupa"><img src="/assets/images/Pesquisarp.svg" alt="" /></div>
-                        <div className = "HPesquisou">Pesquisar</div>
                     </div>
                 </div>
             </div>
 
             <div className = "HCorpo">
-                <img  className="HBola" src="/assets/images/Ball.png" alt = ""/>
+
 
                 <div className = "HFaixa">
                     <div className = "HEspecificacao">Ofertas do Dia</div>
                     <div>
                         <div className = "HCarrossel">
+
                             <div className = "HSetas"> 
                                 <img className = "HRotacionada" src = "/assets/images/Seta.png" alt=""/> 
                                 <img src = "/assets/images/Seta.png" alt=""/> 
                             </div>
+                            
+                            
+                            
                             <div className = "HCentro">
-
-                                <div className ="HAnuncio">
-                                    <div className = "Hproduto"> <img src = "/assets/images/Camiseta.png" alt = ""/> </div>
+                                {produtos.map((item)=>
+                                <Link to={{pathname: "/produto",
+                                state: item}}>
+                                    <div className ="HAnuncio">
+                                        <div className = "Hproduto"> <img src = {item.ds_imagem} alt = ""/> </div>
                                         <div className = "Hdescricao">
-                                            <div className = "Htitulo">Camiseta Levis</div>
-                                            <div className = "Htempo">4 meses de uso</div>
+                                            <div className = "Htitulo">{item.nm_produto}</div>
+                                            <div className = "Hdesc">{item.ds_produto}</div>
                                             <div className = "Hpreco">
-                                                <div className = "Hpde">De: R$ 110,00</div>
-                                                <div className = "Hppor">Por: R$ 52,99</div>
+                                                <div className = "Hpde">{item.vl_preco+item.nr_desconto}</div>
+                                                <div className = "Hppor">{item.vl_preco}</div>
                                             </div>
                                         </div>
-                                </div>
-
-                                <div className = "HAnuncioMeio">
-                                    <div className = "HProduto"> <img src = "/assets/images/Celular.png" alt = ""/> </div>
-                                    <div className = "HDescricao">
-                                        <div className = "HTitulo">Xiaomi Mi A2</div>
-                                        <div className = "HTempo">1 ano de uso</div>
-                                        <div className = "HPreco">
-                                            <div className = "HPde">De: R$ 920,00</div>
-                                            <div className = "HPpor">Por: R$ 790,99</div>
-                                        </div>
                                     </div>
-                                </div>
-
-                                <div className = "HAnuncio">
-                                    <div className = "Hproduto"> <img src = "/assets/images/CasaBarbie.png" alt = ""/> </div>
-                                    <div className = "Hdescricao">
-                                        <div className = "Htitulo">Casa da Barbie</div>
-                                        <div className = "Htempo">8 meses de uso</div>
-                                        <div className = "Hpreco">
-                                            <div className = "Hpde">De: R$ 400,00</div>
-                                            <div className = "Hppor">Por: R$ 320,99</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    </Link>
+                                )}
                             </div>
                             
+
+
                         </div>
+
                     </div>
                 </div>
 
@@ -137,48 +170,35 @@ export default function Home(){
                     <div className = "HEspecificacao">Vistos Recentemente</div>
                     <div>
                         <div className = "HCarrossel">
-                            <div className = "HSetas"> 
+                            <div className = "HSetas">
+                             
                                 <img className = "HRotacionada" src = "/assets/images/Seta.png" alt=""/> 
                                 <img src = "/assets/images/Seta.png" alt=""/> 
                             </div>
-                            <div className = "HCentro">
+                          
 
-                                <div className ="HAnuncio">
-                                    <div className = "Hproduto"> <img src = "/assets/images/Camiseta.png" alt = ""/> </div>
+
+
+                            <div className = "HCentro">
+                                {produtos.map((item)=>
+                                <Link to={{pathname: "/produto",
+                                state: item}}>
+                                    <div className ="HAnuncio">
+                                        <div className = "Hproduto"> <img src = {item.ds_imagem} alt = ""/> </div>
                                         <div className = "Hdescricao">
-                                            <div className = "Htitulo">Camiseta Levis</div>
-                                            <div className = "Htempo">4 meses de uso</div>
+                                            <div className = "Htitulo">{item.nm_produto}</div>
+                                            <div className = "Hdesc">{item.ds_produto}</div>
                                             <div className = "Hpreco">
-                                                <div className = "Hpde">De: R$ 110,00</div>
-                                                <div className = "Hppor">Por: R$ 52,99</div>
+                                                <div className = "Hpde">{item.vl_preco+item.nr_desconto}</div>
+                                                <div className = "Hppor">{item.vl_preco}</div>
                                             </div>
                                         </div>
-                                </div>
-
-                                <div className = "HAnuncioMeio">
-                                    <div className = "HProduto"> <img src = "/assets/images/Celular.png" alt = ""/> </div>
-                                    <div className = "HDescricao">
-                                        <div className = "HTitulo">Xiaomi Mi A2</div>
-                                        <div className = "HTempo">1 ano de uso</div>
-                                        <div className = "HPreco">
-                                            <div className = "HPde">De: R$ 920,00</div>
-                                            <div className = "HPpor">Por: R$ 790,99</div>
-                                        </div>
                                     </div>
-                                </div>
-
-                                <div className = "HAnuncio">
-                                    <div className = "Hproduto"> <img src = "/assets/images/CasaBarbie.png" alt = ""/> </div>
-                                    <div className = "Hdescricao">
-                                        <div className = "Htitulo">Casa da Barbie</div>
-                                        <div className = "Htempo">8 meses de uso</div>
-                                        <div className = "Hpreco">
-                                            <div className = "Hpde">De: R$ 400,00</div>
-                                            <div className = "Hppor">Por: R$ 320,99</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </Link>
+                                )}
                             </div>
+
+
                             
                         </div>
                     </div>
@@ -193,44 +213,30 @@ export default function Home(){
                                 <img className = "HRotacionada" src = "/assets/images/Seta.png" alt=""/> 
                                 <img src = "/assets/images/Seta.png" alt=""/> 
                             </div>
-                            <div className = "HCentro">
 
-                                <div className ="HAnuncio">
-                                    <div className = "Hproduto"> <img src = "/assets/images/Camiseta.png" alt = ""/> </div>
+
+                            
+                            <div className = "HCentro">
+                                {produtos.map((item)=>
+                                <Link to={{pathname: "/produto",
+                                state: item}}>
+                                    <div className ="HAnuncio">
+                                        <div className = "Hproduto"> <img src = {item.ds_imagem} alt = ""/> </div>
                                         <div className = "Hdescricao">
-                                            <div className = "Htitulo">Camiseta Levis</div>
-                                            <div className = "Htempo">4 meses de uso</div>
+                                            <div className = "Htitulo">{item.nm_produto}</div>
+                                            <div className = "Hdesc">{item.ds_produto}</div>
                                             <div className = "Hpreco">
-                                                <div className = "Hpde">De: R$ 110,00</div>
-                                                <div className = "Hppor">Por: R$ 52,99</div>
+                                                <div className = "Hpde">{item.vl_preco+item.nr_desconto}</div>
+                                                <div className = "Hppor">{item.vl_preco}</div>
                                             </div>
                                         </div>
-                                </div>
-
-                                <div className = "HAnuncioMeio">
-                                    <div className = "HProduto"> <img src = "/assets/images/Celular.png" alt = ""/> </div>
-                                    <div className = "HDescricao">
-                                        <div className = "HTitulo">Xiaomi Mi A2</div>
-                                        <div className = "HTempo">1 ano de uso</div>
-                                        <div className = "HPreco">
-                                            <div className = "HPde">De: R$ 920,00</div>
-                                            <div className = "HPpor">Por: R$ 790,99</div>
-                                        </div>
                                     </div>
-                                </div>
-
-                                <div className = "HAnuncio">
-                                    <div className = "Hproduto"> <img src = "/assets/images/CasaBarbie.png" alt = ""/> </div>
-                                    <div className = "Hdescricao">
-                                        <div className = "Htitulo">Casa da Barbie</div>
-                                        <div className = "Htempo">8 meses de uso</div>
-                                        <div className = "Hpreco">
-                                            <div className = "Hpde">De: R$ 400,00</div>
-                                            <div className = "Hppor">Por: R$ 320,99</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </Link>
+                                )}
                             </div>
+                            
+
+
                             
                         </div>
                     </div>

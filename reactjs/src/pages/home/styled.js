@@ -52,7 +52,7 @@ height: 100%;
     background-color: #fff;
     padding: 0.3em;
 
-    .HPesquisou{margin-left:0.3em;}
+    
     }
 
     
@@ -94,6 +94,7 @@ height: 100%;
         background-color: #B0BDC6;
         border-radius: 30px;
         height: 16em;
+        width: auto;
         
         .HSetas{
             width: 98%;
@@ -121,6 +122,8 @@ height: 100%;
         z-index: 1;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        
 
         .HAnuncio{
             width: 18em;
@@ -131,14 +134,16 @@ height: 100%;
             display: flex;
             flex-direction: row;
             align-items: center;
+            margin-right: 1em;
+           
             .Hproduto{
-                border: 1px solid #BCBF50;
                 height: 90%;
                 width: 40%;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center; 
+                >img{width:90px;height:90px;}
             }
 
             .Hdescricao,.Hpreco{
@@ -157,7 +162,7 @@ height: 100%;
                     color:#21953A;
                     font-weight: 550;
                 }
-                .Htempo{
+                .Hdesc{
                 font:0.9em Roboto;
                 }
             }
@@ -179,16 +184,16 @@ height: 100%;
             align-items: center;
 
             .HProduto{
-                border: 1px solid #BCBF50;
                 height: 90%;
                 width: 40%;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-
+                
             }
-            
+
+           
             .HDescricao,.HPreco{
                 display: flex;
                 flex-direction: column;

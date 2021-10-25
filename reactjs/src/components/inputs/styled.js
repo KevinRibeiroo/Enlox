@@ -71,7 +71,7 @@ background-position-x: 1em;
 
 const InputCadastrar = styled.input`
 width: 30em;
-height: 3em;
+height: 5em;
 
 
 display: flex;
@@ -84,7 +84,7 @@ outline: none;
     font-family: Stoke;
 font-style: normal;
 font-weight: normal;
-font-size: 20px;
+font-size: 1em;
 line-height: 45px;
 text-align: start;
 letter-spacing: 0.1em;
@@ -107,7 +107,7 @@ padding-left: 0.5em;
     font-family: Stoke;
 font-style: normal;
 font-weight: normal;
-font-size: 20px;
+font-size: 1em;
 line-height: 45px;
 text-align: start;
 letter-spacing: 0.1em;

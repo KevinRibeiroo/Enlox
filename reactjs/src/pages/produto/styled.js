@@ -245,6 +245,18 @@ background-color: transparent;
 .traco-produt {
     height: 55vh;
 }
+
+input[type="file"] {
+    display: none;
+}
+
+#imgPhoto {
+    max-width: 2em;
+}
+
+.foto img {
+    border-radius: 1em;
+}
 `
 
 

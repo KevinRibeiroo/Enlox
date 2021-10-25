@@ -1,7 +1,7 @@
 import Cabecalho from '../../components/cabecalho';
 import Rodape from '../../components/rodape';
-import {UContainer} from './styled'
-export default function CadastroDeUsuario(){
+import {UContainer} from '../cadastroUsuario1/styled.js'
+export default function CadastroDeUsuario3(){
     return(
         <UContainer>
             <Cabecalho/>
@@ -11,23 +11,19 @@ export default function CadastroDeUsuario(){
                 <img className="UAnimacao1" src='/assets/images/LinhaAnimada.svg' alt=''/>
                 <div className = "UTitulo">Cadastre-se</div>
                 <img className="UAnimacao2" src='/assets/images/LinhaAnimada.svg' alt=''/>
-                <div className = "UDados">Nome:
+                <div className = "UDados">Número:
                     <input type="text"/>
                 </div>
 
-                <div className = "UDados">CPF:
+                <div className = "UDados">Cvc:
                     <input type="text"/>
                 </div>
 
-                <div className = "UDados">Email:
+                <div className = "UDados">Banco:
                     <input type="text"/>
                 </div>
 
-                <div className = "UDados">Usuário:
-                    <input type="text"/>
-                </div>
-
-                <div className = "UDados">Senha:
+                <div className = "UDados">Bandeira:
                     <input type="text"/>
                 </div>
 

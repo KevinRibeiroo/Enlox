@@ -4,7 +4,7 @@ import { Conteudoprodut } from "./styled"
 import { InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal } from "../../components/inputs/styled"
 import {BotaoCdstr, InserirAnuncio} from '../../components/botoes/styled';
 
-export default function CadasdtrarProduto () {
+export default function CadastrarProduto () {
     return (
         <Conteudoprodut>
             <Cabecalho />

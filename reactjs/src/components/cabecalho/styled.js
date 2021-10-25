@@ -20,6 +20,10 @@ flex-direction: column;
     align-self: center;
     align-items: center;
 }
+
+.icon img {
+    width: 2.5em;
+}
 .icon-text {
     display: flex;
     align-self: center;
