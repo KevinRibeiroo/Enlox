@@ -94,6 +94,7 @@ height: 100%;
         background-color: #B0BDC6;
         border-radius: 30px;
         height: 16em;
+        width: auto;
         
         .HSetas{
             width: 98%;
@@ -121,6 +122,8 @@ height: 100%;
         z-index: 1;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        
 
         .HAnuncio{
             width: 18em;
