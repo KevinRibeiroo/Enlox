@@ -132,6 +132,7 @@ height: 100%;
             flex-direction: row;
             align-items: center;
             margin-right: 1em;
+           
             .Hproduto{
                 height: 90%;
                 width: 40%;
@@ -139,7 +140,7 @@ height: 100%;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center; 
-                >img{width:50px;height:50px;}
+                >img{width:90px;height:90px;}
             }
 
             .Hdescricao,.Hpreco{
