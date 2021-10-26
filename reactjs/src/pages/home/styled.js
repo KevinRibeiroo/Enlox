@@ -131,6 +131,8 @@ height: 100%;
             display: flex;
             flex-direction: row;
             align-items: center;
+            margin-right: 1em;
+           
             .Hproduto{
                 height: 90%;
                 width: 40%;
@@ -138,6 +140,7 @@ height: 100%;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center; 
+                >img{width:90px;height:90px;}
             }
 
             .Hdescricao,.Hpreco{
@@ -156,7 +159,7 @@ height: 100%;
                     color:#21953A;
                     font-weight: 550;
                 }
-                .Htempo{
+                .Hdesc{
                 font:0.9em Roboto;
                 }
             }
@@ -184,7 +187,7 @@ height: 100%;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-
+                
             }
 
            
