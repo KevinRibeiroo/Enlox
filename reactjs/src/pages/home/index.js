@@ -182,7 +182,7 @@ export default function Home(){
 
                             {produtos.map((x) => 
                             <Link to={{pathname: "/produto",
-                                        state: x}}>
+                                        state: x}} >
                                 <div className ="HAnuncio">
                                     <div className = "Hproduto"> <img style={{width: "7.5em"}} src ={x.ds_imagem} alt = ""/> </div>
                                         <div className = "Hdescricao">

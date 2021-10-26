@@ -3,8 +3,17 @@ import Cabecalho from "../../components/cabecalho"
 import { Conteudoprodut } from "./styled"
 import { InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal } from "../../components/inputs/styled"
 import {BotaoCdstr, InserirAnuncio} from '../../components/botoes/styled';
+import { useState } from "react";
 
 export default function CadastrarProduto () {
+
+
+    let file = document.getElementsByClassName('upload');
+    const [imgproduto, setImgproduto] = useState('');
+    console.log(file)
+
+
+    
     return (
         <Conteudoprodut>
             <Cabecalho />
@@ -43,7 +52,8 @@ export default function CadastrarProduto () {
                             <InputPreco placeholder="Preço(R$)" />
                         </div>
                         <div className="agp-input">
-                            <InputImage type="file" className="upload" />
+                            <InputImage type="file" className="upload"   accept="image/*" />
+
                         </div>
 
                         
