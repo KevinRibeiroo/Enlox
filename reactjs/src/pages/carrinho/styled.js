@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+
 const Container = styled.div`
 display: flex;
 flex-direction: column; 
@@ -7,6 +8,7 @@ flex-direction: column;
 .gab-meucarrinho {
     text-align: center;
     font-size: 1em;
+    font-family: Roboto-
 }
 
 .gab-btn-comprartodos > button {
