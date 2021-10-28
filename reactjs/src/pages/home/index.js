@@ -176,7 +176,7 @@ export default function Home(){
                                 <img src = "/assets/images/Seta.png" alt=""/> 
                             </div>
                           
-
+                            <div className = "HCentro">
                             {produtos.map((item) => 
                             <Link to={{pathname: "/produto",
                                         state: item}} >
@@ -194,7 +194,8 @@ export default function Home(){
                                 </Link>
                                 )}
                             </div>
-
+                            
+                       
 
                             
                         </div>
@@ -231,14 +232,14 @@ export default function Home(){
                                 </Link>
                                 )}
                             </div>
-                            
+                           </div> 
 
 
                             
                         </div>
                     </div>
                 </div>
-                
+           
     
 
             <Rodape />
