@@ -1,5 +1,9 @@
 import axios from "axios";
 
+
+
+
+
 const api = axios.create({
     baseURL: 'http://localhost:3030'
 })
@@ -60,4 +64,23 @@ export default class Api {
 
             return r.data;
         }
+
+        async listarChatUsu(id) {
+            const r  = await api.get(`/chat_usu/${id}`);
+
+            return r.data;
+        }
+
+        async inserirMsg(idUsu, idUsu2, msg) {
+            const r = await api.post(`/chat/${idUsu}/${idUsu2}`, {msg});
+
+            return r.data;
+        }
+
+        async listarMsg(idUsu, idUsu2) {
+            const r = await api.get(`/chat/${idUsu}/${idUsu2}`);
+
+            return r.data;
+        }
+
 }
