@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Carousel } from 'react-responsive-carousel';
 
 const api = new Api();
 
@@ -129,7 +130,7 @@ export default function Home(){
 
                 <div className = "HFaixa">
                     <div className = "HEspecificacao">Ofertas do Dia</div>
-                    <div>
+                    <div className = "HCar">
                         <div className = "HCarrossel">
 
                             <div className = "HSetas"> 
@@ -138,25 +139,46 @@ export default function Home(){
                             </div>
                             
                             
-                            
-                            <div className = "HCentro">
-                                {produtos.map((item)=>
-                                <Link to={{pathname: "/produto",
-                                state: item}}>
-                                    <div className ="HAnuncio">
-                                        <div className = "Hproduto"> <img src = {item.ds_imagem} alt = ""/> </div>
-                                        <div className = "Hdescricao">
-                                            <div className = "Htitulo">{item.nm_produto}</div>
-                                            <div className = "Hdesc">{item.ds_produto}</div>
-                                            <div className = "Hpreco">
-                                                <div className = "Hpde">{item.vl_preco+item.nr_desconto}</div>
-                                                <div className = "Hppor">{item.vl_preco}</div>
+                            <Carousel>
+                                <div className = "HCentro">
+                                    {produtos.map((item)=>
+                                    <Link to={{pathname: "/produto",
+                                    state: item}}>
+                                        <div className ="HAnuncio" >
+                                            <div className = "Hproduto"> <img src = {item.ds_imagem} alt = ""/> </div>
+                                            <div className = "Hdescricao">
+                                                <div className = "Htitulo">{item.nm_produto}</div>
+                                                <div className = "Hdesc">{item.ds_produto}</div>
+                                                <div className = "Hpreco">
+                                                    <div className = "Hpde">{item.vl_preco+item.nr_desconto}</div>
+                                                    <div className = "Hppor">{item.vl_preco}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </Link>
-                                )}
-                            </div>
+                                    )}
+                                </div>
+                            </Carousel>
+
+                                   
+                            <Carousel>
+                            {produtos.map((item)=>
+                                    <Link to={{pathname: "/produto",
+                                    state: item}}>
+                                        <div className ="HAnuncio" >
+                                            <div className = "Hproduto"> <img className="imagens" src={item.ds_imagem1} alt = ""/> </div>
+                                            <div className = "Hdescricao">
+                                                <div className = "Htitulo">{item.nm_produto}</div>
+                                                <div className = "Hdesc">{item.ds_produto}</div>
+                                                <div className = "Hpreco">
+                                                    <div className = "Hpde">{item.vl_preco+item.nr_desconto}</div>
+                                                    <div className = "Hppor">{item.vl_preco}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                    )}
+                            </Carousel>
                             
 
 
@@ -168,7 +190,7 @@ export default function Home(){
 
                 <div className = "HFaixa">
                     <div className = "HEspecificacao">Vistos Recentemente</div>
-                    <div>
+                    <div className = "HCar">
                         <div className = "HCarrossel">
                             <div className = "HSetas">
                              
@@ -184,7 +206,7 @@ export default function Home(){
                                 <Link to={{pathname: "/produto",
                                 state: item}}>
                                     <div className ="HAnuncio">
-                                        <div className = "Hproduto"> <img src = {item.ds_imagem} alt = ""/> </div>
+                                        <div className = "Hproduto"> <img src = {item.ds_imagem1} alt = ""/> </div>
                                         <div className = "Hdescricao">
                                             <div className = "Htitulo">{item.nm_produto}</div>
                                             <div className = "Hdesc">{item.ds_produto}</div>
@@ -207,7 +229,7 @@ export default function Home(){
 
                 <div className = "HFaixa">
                     <div className = "HEspecificacao">Recomendados</div>
-                    <div>
+                    <div className = "HCar">
                         <div className = "HCarrossel">
                             <div className = "HSetas"> 
                                 <img className = "HRotacionada" src = "/assets/images/Seta.png" alt=""/> 
@@ -248,3 +270,4 @@ export default function Home(){
         </HContainer>
     )
 }
+

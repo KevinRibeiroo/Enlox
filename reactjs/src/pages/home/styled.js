@@ -1,6 +1,8 @@
 
 import styled from 'styled-components';
 
+
+
 const HContainer = styled.div`
 width: 100%;
 height: 100%;
@@ -59,6 +61,8 @@ height: 100%;
 }
 .HFaixa{
     margin-bottom: 6em;
+    width: 100%;
+    .HCar{width:100%;}
 }
 
 .HCorpo{
@@ -71,14 +75,7 @@ height: 100%;
     animation: quicar 1s infinite;
     }
     
-    @keyframes quicar{
-    10%{}
-    50%{height:50px;
-    width:60px;
-    transform:translateY(240px);}
-    
   
-    }
     .HEspecificacao{
         margin-bottom: 2em;
         color:#fff;
@@ -86,6 +83,7 @@ height: 100%;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: #E78A1D;
     }
+    
     .HCarrossel{
         display: flex;
         flex-direction: row;
@@ -94,7 +92,7 @@ height: 100%;
         background-color: #B0BDC6;
         border-radius: 30px;
         height: 16em;
-        width: auto;
+        width: 100%;
         
         .HSetas{
             width: 98%;
@@ -122,7 +120,10 @@ height: 100%;
         z-index: 1;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        /*overflow: hidden;
+        overflow-x: scroll;
+        width: 100%;*/
+       
         
 
         .HAnuncio{
@@ -135,6 +136,8 @@ height: 100%;
             flex-direction: row;
             align-items: center;
             margin-right: 1em;
+            
+          
            
             .Hproduto{
                 height: 90%;
@@ -143,9 +146,9 @@ height: 100%;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center; 
-                >img{width:90px;height:90px;}
+                
             }
-
+            
             .Hdescricao,.Hpreco{
                 display: flex;
                 flex-direction: column;
