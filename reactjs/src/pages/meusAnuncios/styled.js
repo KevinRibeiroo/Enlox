@@ -54,6 +54,21 @@ a{
    
 }
 
+.editar  {
+    height: 40px;
+    width: 156px;
+    left: 1200px;
+    top: 960px;
+
+    margin-bottom: 1em;
+
+    background: rgba(79, 110, 146, 0.89);
+    color: #ffffff;
+    border-radius: 3px;
+    border: none;
+   
+}
+
 .butoes{
     margin-bottom: 1.5em;
     

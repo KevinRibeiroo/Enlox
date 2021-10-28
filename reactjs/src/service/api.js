@@ -48,12 +48,11 @@ export default class Api {
                 let r = await api.delete(`/produto/${id}`);
                 return r.data;
             }
-
-        // Editar produto    
-        async alterarProduto(id,nm,preco,descricao,desconto){
-            let r = await api.put(`/produto/${id}`,{nm,preco,descricao,desconto})
-            return r.data;
-        }   
+    
+            async alterar( id, nome, categoria, preco,  descProduto, estoque, img,) {
+                let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img, })
+                return r.data
+            } 
         
         
         async inserirChatUsu(id_comprador, id_vendedor) {
