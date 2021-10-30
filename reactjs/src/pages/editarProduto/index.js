@@ -24,7 +24,7 @@ export default function EditarProduto(){
                                             <input class="input" type="text" />
                                         </div> 
                                         <div class="agp-input">
-                                            <div class="corse-product"> Preço: </div>  
+                                            <div class="name-product"> Preço: </div>  
                                             <input class="input" type="text" />
                                         </div>
                                         <div class="agp-input">
@@ -38,16 +38,27 @@ export default function EditarProduto(){
                                         <div class="text">
                                           <div class="desc">Descrição:</div>
                                           <textarea class="descTextarea" type="text" ></textarea>
+                                          
                                         </div>
                                     </div>                                  
                                     </div>
                                     <div className="input-right">
-                                     <div class="agp-input" class="agp-img">
+                                     <div  className="agp-img">
                                        <div class="img-product"> Imagem: </div>  
-                                       <div class="img" type="text"/> 
+                                       <div class="box">
+                                        <div className="upload">
+                                             <div className= "icon"><img src="/assets/images/upload-icon-20631.png" alt=""/></div>
+                                            <div className="x"> 
+                                             <div className="arraste">arraste o seu arquivo </div> 
+                                             <div className="ou">ou</div>
+                                             <input type="file" accept=".png, .jpg, .jpeg" />
+                                            </div>
+                                               
+                                         </div>
+                                       </div>
                                      </div>
-                                    </div>
-                                     <div class="button-create"> <button> Salvar</button> </div>                             
+                                     <div class="button-create"> <button> Salvar</button> </div>  
+                                    </div>                        
                             </div>
                     </div>
                 </div>
