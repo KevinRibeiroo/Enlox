@@ -47,6 +47,8 @@ main {
     border-left: solid 1px;
     justify-content: space-between;
     width: 50em;
+
+    
 }
 
 .config-chat {
@@ -117,6 +119,8 @@ main {
    
       align-self: flex-end;
       padding: 0.5em 0.5em;
+
+    
   }
 
   .bta-config {
@@ -149,6 +153,7 @@ main {
   .msgs {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
   }
 
   .img-perfil {
