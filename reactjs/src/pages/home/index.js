@@ -4,8 +4,6 @@ import Cookies from "js-cookie";
 import {HContainer,HCarrossell} from './styled.js';
 import {useHistory} from 'react-router-dom';
 
-//import { HCarrossell } from "../../components/Carrossel/styled";
-import '../../components/Carrossel/Hcarousel';
 
 
 import Api from "../../service/api";
@@ -19,67 +17,12 @@ const api = new Api();
 
 
 
-
-
 export default function Home(){
 
  
 
-    var bibbox = document.querySelector('.hbox');
-    var setaEsq = document.querySelector('.HRotacionada');
-    
-    var nScroll = 100;
-    
-    
+    const [idCarrossel,setIdCarrossel] = useState();
 
-
-    //func para scrool p direita na seta
-    async function myDireita0(){
-       var n = document.querySelector('.hbox').offsetWidth;
-       var cont = document.querySelectorAll(HCarrossell)[0].scrollLeft+= parseInt(n);
-    }
-
-    //func para scrool p esquerda na seta
-    async function myEsquerda0(){
-        var n = document.querySelector('.hbox').offsetWidth;
-        var cont = document.querySelectorAll(HCarrossell)[0].scrollLeft-= parseInt(n);
-        
-    }
-
-
-
- //func para scrool p direita na seta
- async function myDireita1(){
-    var n = document.querySelector('.hbox').offsetWidth;
-    var cont = document.querySelectorAll(HCarrossell)[1].scrollLeft+= parseInt(n);
- }
-
- //func para scrool p esquerda na seta
- async function myEsquerda1(){
-     var n = document.querySelector('.hbox').offsetWidth;
-     var cont = document.querySelectorAll(HCarrossell)[1].scrollLeft-= parseInt(n);
-     
- }
-
-
-
- //func para scrool p direita na seta
- async function myDireita2(){
-    var n = document.querySelector('.hbox').offsetWidth;
-    var cont = document.querySelectorAll(HCarrossell)[2].scrollLeft+= parseInt(n);
- }
-
- //func para scrool p esquerda na seta
- async function myEsquerda2(){
-     var n = document.querySelector('.hbox').offsetWidth;
-     var cont = document.querySelectorAll(HCarrossell)[2].scrollLeft-= parseInt(n);
-     
- }
-
-
-    //até aqui pro carrossel funfar
-
-   
     const [produtos, setProdutos] = useState([]);
 
     const [nmProduto, setNmProduto] = useState('');
@@ -88,6 +31,34 @@ export default function Home(){
     const [avaliacao, setAvalicao] = useState(0);
     const [desconto, setDesconto] = useState(0);
     const [descricao, setDescricao] = useState('');
+
+
+    
+    var bibbox = document.querySelector('.hbox');
+    var setaEsq = document.querySelector('.HRotacionada');
+    
+    var nScroll = 100;
+    
+    
+
+    //func para scrool p direita na seta
+    async function myDireita(idCarrossel){
+        var n = document.querySelector('.hbox').offsetWidth;
+        document.querySelectorAll(HCarrossell)[idCarrossel].scrollLeft+= parseInt(n);
+        setIdCarrossel();
+       
+    }
+
+    //func para scrool p esquerda na seta
+    async function myEsquerda(idCarrossel){
+        var n = document.querySelector('.hbox').offsetWidth;
+        document.querySelectorAll(HCarrossell)[idCarrossel].scrollLeft-= parseInt(n);
+        setIdCarrossel();
+         
+    }
+    //até aqui pro carrossel funfar
+
+
 
 
 
@@ -111,7 +82,7 @@ export default function Home(){
     
    
     return(
-        <HContainer>
+       <HContainer>
             <Cabecalho/>
             <div className = "HSubCabecalho">
                 <div className = "HCategorias">
@@ -186,13 +157,13 @@ export default function Home(){
             <div className = "HCorpo">
 
 
-                <div className = "HFaixa craci1">
+                <div className = "HFaixa">
                     <div className = "HEspecificacao">Ofertas do Dia</div>
                     
                     <HCarrossell>
                     <div className = "HSetas"> 
-                            <img className = "HRotacionada" onClick={myEsquerda0} src = "/assets/images/Seta.png" alt=""/> 
-                            <img  onClick={myDireita0} src = "/assets/images/Seta.png" alt=""/> 
+                            <img className = "HRotacionada" onClick={() => myEsquerda(0)} src = "/assets/images/Seta.png" alt=""/> 
+                            <img  onClick={() => myDireita(0)} src = "/assets/images/Seta.png" alt=""/> 
                     </div>
                         
                         <div id="autoWidth" class="cs-hidden">
@@ -223,22 +194,19 @@ export default function Home(){
                                 
                                 </Link>
                             
-                            )}
-
-                                    
+                            )}      
                 
                         </div>
                     </HCarrossell>
                     
                 </div>
-
 
                 <div className = "HFaixa">
                     <div className = "HEspecificacao">Vistos Recentemente</div>
                     <HCarrossell>
                     <div className = "HSetas"> 
-                            <img className = "HRotacionada" onClick={myEsquerda1} src = "/assets/images/Seta.png" alt=""/> 
-                            <img  onClick={myDireita1} src = "/assets/images/Seta.png" alt=""/> 
+                            <img className = "HRotacionada" onClick={() => myEsquerda(1)} src = "/assets/images/Seta.png" alt=""/> 
+                            <img  onClick={() => myDireita(1)} src = "/assets/images/Seta.png" alt=""/> 
                     </div>
                         
                         <div id="autoWidth" class="cs-hidden">
@@ -275,15 +243,17 @@ export default function Home(){
                 
                         </div>
                     </HCarrossell>
-                </div>
+                
+            </div>
+
 
 
                 <div className = "HFaixa">
                     <div className = "HEspecificacao">Recomendados</div>
-                    <HCarrossell className="">
+                    <HCarrossell>
                     <div className = "HSetas"> 
-                            <img className = "HRotacionada" onClick={myEsquerda2} src = "/assets/images/Seta.png" alt=""/> 
-                            <img  onClick={myDireita2} src = "/assets/images/Seta.png" alt=""/> 
+                            <img className = "HRotacionada" onClick={() =>myEsquerda(2)} src = "/assets/images/Seta.png" alt=""/> 
+                            <img  onClick={() =>myDireita(2)} src = "/assets/images/Seta.png" alt=""/> 
                     </div>
                         
                         <div id="autoWidth" class="cs-hidden">
@@ -325,7 +295,7 @@ export default function Home(){
             </div>
 
             <Rodape />
-        </HContainer>
+            </HContainer>
     )
 }
 

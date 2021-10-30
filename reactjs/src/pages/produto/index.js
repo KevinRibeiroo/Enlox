@@ -1,13 +1,13 @@
 //import { Link } from "react-router-dom";
-import Cabecalho from "../../components/cabecalho";
+import Cabecalho, { usuLogado } from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
 import {Conteudo} from "./styled.js"
 import { InputFrete } from "../../components/inputs/styled";
 import { BotaoProduct } from "../../components/botoes/styled";
 import { useEffect, useState } from "react";
 //import { useState } from "react";
-import { usuLogado } from "../../components/cabecalho";
 
+import { Link } from "react-router-dom";
 
 
 
@@ -22,6 +22,9 @@ export default function Produto (props){
       const [produto, setProduto] = useState(props.location.state);
       const [usu, setUsu] = useState([]);
       
+      const [test43, setTest43] = useState(produto);
+
+      console.log(test43)
       let usuarioLogado = usuLogado() || {};
 
       const [idUsu] = useState(usuarioLogado.id_usuario);
@@ -38,14 +41,19 @@ export default function Produto (props){
 
     
     const InserirChat = async (id_compr, id_vendedor) => {
+        
         const r = await api.inserirChatUsu(idUsu, produto.id_usuario )
-        console.log(r);
+        
+
+
+        if (r.erro) {
+            return;
+        }
+
 
         if (r.error) {
             alert(`${r.error}`)
-        } else {
-            nav.push('/chat')
-        }
+        } 
     }
 
     console.log();
@@ -111,7 +119,8 @@ export default function Produto (props){
                             </div>
                             <div className="agp-botao">
                                 <BotaoProduct className="bta-info"> Comprar Agora </BotaoProduct>
-                                <BotaoProduct className="bta-info" onClick={InserirChat}><img src="/assets/images/chat.svg" alt="" /> <span>Negocie!</span></BotaoProduct>
+                                <BotaoProduct className="bta-info" onClick={InserirChat}><Link to = {{pathname: '/chat',
+                                                                                                      state: test43                }}><img src="/assets/images/chat.svg" alt="" /> <span>Negocie!</span></Link></BotaoProduct>
                             </div>
                         </div>
                     </div>
