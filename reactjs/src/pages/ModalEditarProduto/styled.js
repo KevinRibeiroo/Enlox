@@ -1,19 +1,33 @@
 
 import styled from 'styled-components';
 
-const Container = styled.div`
 
-display: flex;
+const Container = styled.div`
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    display: ${props => props.show === true ? 'flex' : 'none'};
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0);
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+
+    
+  .content {
     flex-direction: row;
-    max-width: 57.7em;
-    position: absolute;
+    max-width: 57.7em;  
+    padding-top: 1em;
     .new-student-box {
         display: flex;
         flex-direction: column;
         background-color: white;
         box-shadow: 0px 0px 4px 1px rgba(186, 186, 186, 0.25);
         padding: 2em;
-        height: 35em;
+        height: 30em;
             
     }
    
@@ -78,6 +92,7 @@ display: flex;
         border-radius: 5px;
         border: 1px solid #A8A8A8;        
       
+        
         width: 398px;
         height: 200px;
         left: 1071px;
@@ -149,15 +164,13 @@ display: flex;
         width: 5.5em;
         padding-left: 1em;
         font-weight: 800;
-        margin-right: 1em;
-        
-    
+        margin-right: 1em; 
     }
     
     .agp-img {
-    display:flex;
-    flex-direction: row;
-    margin-right: 12em;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1em;
     margin-left: 8em;
     margin-bottom: 17em;
     }
@@ -183,8 +196,8 @@ display: flex;
     }
     
     textarea{
-        width: 750px;
-        height: 154px;
+        width: 650px;
+        height: 144px;
         border-radius: 5px;
         top: 440px;
         left: 556px;
@@ -234,6 +247,16 @@ display: flex;
         transition: 2s;
     }
    
-`
+  }
 
+  animation: ${props => props.show === true ? 'show_animation' : 'none'} .3s forwards;
+  animation-delay: .1s;
+  
+  @keyframes show_animation {
+    100% {
+      background-color: rgba(0,0,0,0.6);
+    }
+  }
+  
+`
 export{Container};
