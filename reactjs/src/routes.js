@@ -7,7 +7,7 @@ import sobreNos from './pages/sobreNos';
 import MeusAnuncios from './pages/meusAnuncios';
 import Produto from './pages/produto';
 import politicaPrivacidade from './pages/políticaPrivacidade';
-import userRegistrado from './pages/homeRegistrado'
+import userRegistrado from './components/Carrossel/Hcarousel.js'
 import Perfil from './pages/perfil'
 import Chat from './pages/chat';
 import EditarProduto from './pages/editarProduto';
