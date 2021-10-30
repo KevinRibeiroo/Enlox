@@ -10,7 +10,7 @@ import politicaPrivacidade from './pages/políticaPrivacidade';
 import userRegistrado from './pages/homeRegistrado'
 import Perfil from './pages/perfil'
 import Chat from './pages/chat';
-import EditarProduto from './pages/editarProduto';
+import EditarProduto from './pages/ModalEditarProduto';
 import Branco from './pages/Branco';
 import CadastroDeUsuario1 from './pages/cadastroUsuario1';
 import CadastroDeUsuario2 from './pages/cadastroUsuario2';
