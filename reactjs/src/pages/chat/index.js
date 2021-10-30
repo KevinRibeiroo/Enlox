@@ -48,7 +48,7 @@ export default function Chat (props) {
     const listarMsg = async (id) => {
         const r = await api.listarMsg(idUsu, id);
 
-        setChat([r]);
+        setChat(r);
     }
 
     const enviarMsg = async (id, msg2) => {
@@ -57,10 +57,10 @@ export default function Chat (props) {
         console.log(r);
 
     
-
+        listarMsg(id);
     }
 
-
+    console.log(chat)
 
     /*{idUsu != chatUsu.id_usuario_comprador ? chatUsu.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsu.id_usuario_comprador_infoa_enl_usuario.nm_usuario }*/
       
@@ -110,19 +110,21 @@ export default function Chat (props) {
                             </div>
                         
                         <div className="box-chat">
-                        {chat.map((item) =>
+                        
                             <div className="msgs">
-                            
+                            {chat.map((item) =>
+                        
                             <div className="msg">{item.ds_mensagem} </div>
-                            <div className="msg2">Oxi tio sae dae</div>
-                           
-                            </div>
+         
+
                             )} 
+                            </div>
+                           
                             <div className="enviar-msg">
                                 <div className="emoji"><img src="/assets/images/emoji.svg" alt="" /></div>
                                 <div className="digit-msg"><InputChat value={msgText} onChange={(e) => setMsgText(e.target.value)} /></div>
                                 <div className="arquivo"><input type="file" className="document" /></div>
-                                <div className="enviar" ><button style={{border: "none", backgroundColor: "white"}} onClick={enviarMsg(3, msgText)} ><img src="/assets/images/msg.svg" alt="" /></button></div>
+                                <div className="enviar" ><button style={{border: "none", backgroundColor: "white"}} onClick={() => enviarMsg(usuario.id_usuario, msgText)} ><img src="/assets/images/msg.svg" alt="" /></button></div>
                             </div>
                             
                         </div>

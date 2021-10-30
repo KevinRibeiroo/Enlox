@@ -145,7 +145,7 @@ export default function Home(){
                                     <Link to={{pathname: "/produto",
                                     state: item}}>
                                         <div className ="HAnuncio" >
-                                            <div className = "Hproduto"> <img src = {item.ds_imagem} alt = ""/> </div>
+                                            <div className = "Hproduto"> <img src = {item.ds_imagem1} alt = ""/> </div>
                                             <div className = "Hdescricao">
                                                 <div className = "Htitulo">{item.nm_produto}</div>
                                                 <div className = "Hdesc">{item.ds_produto}</div>
@@ -203,7 +203,7 @@ export default function Home(){
                             <Link to={{pathname: "/produto",
                                         state: item}} >
                                 <div className ="HAnuncio">
-                                    <div className = "Hproduto"> <img style={{width: "7.5em"}} src={item.ds_imagem} alt = ""/> </div>
+                                    <div className = "Hproduto"> <img style={{width: "7.5em"}} src={item.ds_imagem1} alt = ""/> </div>
                                
                                         <div className = "Hdescricao">
                                             <div className = "Htitulo">{item.nm_produto}</div>
@@ -236,13 +236,13 @@ export default function Home(){
                             </div>
 
 
-                            
                             <div className = "HCentro">
-                                {produtos.map((item)=>
-                                <Link to={{pathname: "/produto",
-                                state: item}}>
-                                    <div className ="HAnuncio">
-                                        <div className = "Hproduto"> <img src={item.ds_imagem} alt = ""/> </div>
+                            {produtos.map((item) => 
+                            <Link to={{pathname: "/produto",
+                                        state: item}} >
+                                <div className ="HAnuncio">
+                                    <div className = "Hproduto"> <img style={{width: "7.5em"}} src={item.ds_imagem1} alt = ""/> </div>
+                               
                                         <div className = "Hdescricao">
                                             <div className = "Htitulo">{item.nm_produto}</div>
                                             <div className = "Hdesc">{item.ds_produto}</div>
