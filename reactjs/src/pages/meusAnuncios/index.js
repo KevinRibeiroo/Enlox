@@ -15,31 +15,32 @@ const api = new Api();
 export default function MeusAnuncios(){
 
     const [produto, setProduto] = useState([]);
-    console.log(produto)
-
+    
+    
+ 
     async function listar(){
 
         let r = await api.listarProduto();
         console.log(r);
         setProduto(r);
-
     }
-
-    useEffect(() => {
-        listar();
-    },   [])
 
     async function remover (id) {
 
         confirmAlert({
             title: 'Remover produto',
-            message: `Tem certeza que quer remover o produto ${ produto.ds_produto} ?`,
+            message: `Tem certeza que quer remover o produto ${ produto.nm_produto} ?`,
             buttons: [
                 {
                     label: 'Sim',
                     onClick: async() => {
                         let r = await api.removerProduto(id);           
+                        if(r.erro){
+                            console.log(`${r.erro}`);
+                        } else {
+                            console.log('removido')
                             listar();
+                        }
                     }
                 },
                 {
@@ -51,6 +52,9 @@ export default function MeusAnuncios(){
         listar();
     }
 
+    useEffect(() => {
+        listar();
+    },   [])
 
     return(
         <Container>
@@ -58,18 +62,18 @@ export default function MeusAnuncios(){
 
        {produto.map((item) => 
           <div className="agp">
-              <div className="img-agp"><img src={item.ds_imagem}/></div>
+             <div className="img-agp"><img src={item.ds_imagem} alt=""/></div>
               <div className="texto1"> 
                   <div className="nm_produto">{item.nm_produto}</div>
                   <div className="preço"> {item.vl_preco}</div>
                   </div>
                   <div className="premium">
                      <div className="texto"><b>Destacar anuncio</b></div>
-                     <div className="comoFunciona"> <Link to="/meusAnuncios"><b>Como funciona?</b></Link></div> 
+                     <div className="comoFunciona"> <Link to="/meusAnuncios" className="linkk"><b>Como funciona?</b></Link></div> 
                   </div>
 
                  <div className="butoes"> 
-                  <button /*onClick={ () => editar() }*/className="editar"> Editar </button>
+                  <div className="editar"><Link to = "/editarProduto">Editar</Link></div>
                   <button onClick={ () => remover(item.id_produto) } className="excluir"> Excluir </button>
                  </div>    
           </div>

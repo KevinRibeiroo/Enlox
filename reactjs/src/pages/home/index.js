@@ -7,9 +7,9 @@ import Api from "../../service/api";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-
+/*
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel'; */
 
 const api = new Api();
 
@@ -139,8 +139,7 @@ export default function Home(){
                             </div>
                             
                             
-                            <Carousel>
-                                <div className = "HCentro">
+                               <div className = "HCentro">
                                     {produtos.map((item)=>
                                     <Link to={{pathname: "/produto",
                                     state: item}}>
@@ -158,10 +157,9 @@ export default function Home(){
                                     </Link>
                                     )}
                                 </div>
-                            </Carousel>
-
+                            
                                    
-                            <Carousel>
+                     
                             {produtos.map((item)=>
                                     <Link to={{pathname: "/produto",
                                     state: item}}>
@@ -178,7 +176,7 @@ export default function Home(){
                                         </div>
                                     </Link>
                                     )}
-                            </Carousel>
+                       
                             
 
 
