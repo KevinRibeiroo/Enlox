@@ -203,6 +203,10 @@ scroll-behavior: smooth;
         
         }
         
+        .icon-carrosel {
+            color: black;
+            text-decoration: none;
+        }
         
 `
 

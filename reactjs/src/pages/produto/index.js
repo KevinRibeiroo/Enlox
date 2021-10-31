@@ -40,23 +40,15 @@ export default function Produto (props){
     }, []);
 
     
-    const InserirChat = async (id_compr, id_vendedor) => {
+    const InserirChat = async () => {
         
         const r = await api.inserirChatUsu(idUsu, produto.id_usuario )
         
 
-
-        if (r.erro) {
-            return;
-        }
-
-
-        if (r.error) {
-            alert(`${r.error}`)
-        } 
+        console.log(r)
     }
 
-    console.log();
+    console.log(usu);
 
     return (
     <Conteudo>
