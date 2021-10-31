@@ -79,7 +79,7 @@ export default function Home(){
         mostrarProduto();
     }, [])
   
-    
+    //HSeta atrapalhando o hover de hcomprar
    
     return(
        <HContainer>

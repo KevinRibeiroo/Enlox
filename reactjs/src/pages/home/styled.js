@@ -94,6 +94,7 @@ flex-direction: column;
 
 overflow-x: auto;
 overflow-y:hidden;
+scroll-behavior: smooth;
 
 
 ::-webkit-scrollbar{
@@ -185,9 +186,11 @@ overflow-y:hidden;
             flex-direction: row;
             justify-content: space-between;
             margin-top:7em;
+            
             > img{
                 background-color: #fff;
                 border-radius:50%;
+                //border:10px solid #B0BDC6;
                 padding: 2em;
             }
 
