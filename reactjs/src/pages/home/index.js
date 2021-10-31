@@ -43,7 +43,7 @@ export default function Home(){
 
     //func para scrool p direita na seta
     async function myDireita(idCarrossel){
-        var n = document.querySelector('.hbox').offsetWidth;
+        var n = document.querySelector('.hbox').offsetWidth * 3;
         document.querySelectorAll(HCarrossell)[idCarrossel].scrollLeft+= parseInt(n);
         setIdCarrossel();
        
@@ -51,7 +51,7 @@ export default function Home(){
 
     //func para scrool p esquerda na seta
     async function myEsquerda(idCarrossel){
-        var n = document.querySelector('.hbox').offsetWidth;
+        var n = document.querySelector('.cs-hidden').offsetWidth;
         document.querySelectorAll(HCarrossell)[idCarrossel].scrollLeft-= parseInt(n);
         setIdCarrossel();
          
@@ -213,9 +213,7 @@ export default function Home(){
                             
                             {produtos.map((item)=>
                                 <Link to={{pathname: "/produto", state: item}}>  
-                                <div class="item-a">
-                                
-
+                               
 
                                 <div className="hbox">
                                     <div className="himagem">
@@ -232,7 +230,7 @@ export default function Home(){
                                         <div className="hprecopor">R${item.vl_preco}</div>
                                     </div>
 
-                                </div>
+                                
                                 </div>
                                 
                                 </Link>

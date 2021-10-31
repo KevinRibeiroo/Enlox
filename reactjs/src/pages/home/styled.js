@@ -63,6 +63,7 @@ height: 100%;
 .HFaixa{
     margin-bottom: 6em;
     width: 100%;
+    
 }
 
 .HCorpo{
@@ -100,36 +101,39 @@ overflow-y:hidden;
 }
 
 
-
 .himagem{
     display:flex;
     justify-content: center;
     align-self:center;
-    width:200px;height:200px;
+    width:160px;height:160px;
+    
     position:relative;}
+    
     .himagem2{
-        width:200px;height:200px;
-        object-fit: cover;  
+        width:160px;height:160px;
+        object-fit: cover; 
+        margin-top: 1em; 
     }
     .hbox{
         display: flex;
         flex-direction: column;
-        width:22em;
-        max-height: 25em;//ver aqui
-        box-shadow: 2px 2px 30px rgba(0,0,0,0.3);
+        width:24em;
+        max-height: 22em;//ver aqui
+        box-shadow:inset 0 0 1em rgba(0,0,0,0.2);
         border:1px solid #BCBF50;
         border-radius: 10px;
         //overflow:hidden ;  
-        margin-right: 1em;
+        margin: 0em 2em;
         
         
     }
+    .himagem:hover{transform:scale(1.5);}
     .hdetalhes{
         display: flex;
         flex-direction:column;
         justify-content: center;
         align-items: center;
-        font:1.5em Roboto-Slab;
+        font:1.3em Roboto-Slab;
         padding:1em;
     }
     .hprecode{
@@ -145,8 +149,10 @@ overflow-y:hidden;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgba(92,92,236,0.6);
+        background-color: transparent;//rgba(92,92,236,0.6);
         visibility: hidden;
+        margin-top: 1em;
+        
     }
     .hcomprar{
         display: flex;
@@ -166,8 +172,9 @@ overflow-y:hidden;
         color:#B0BDC6;
         transition: all ease 0.2s;
     }
-    .himagem:hover .hsobreposicao{
+    .himagem:hover .hcomprar{
         visibility: visible;
+        
      }
      
      .HSetas{
@@ -189,7 +196,10 @@ overflow-y:hidden;
             }
         }
         .cs-hidden{display:flex;
-        flex-direction:row;}
+        flex-direction:row;
+        
+        }
+        
         
 `
 
