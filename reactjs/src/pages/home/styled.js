@@ -134,11 +134,21 @@ scroll-behavior: smooth;
         flex-direction:column;
         justify-content: center;
         align-items: center;
-        font:1.3em Roboto-Slab;
         padding:1em;
+    }
+    .htitulo{
+        font: 1em Roboto-Slab;
+        font-weight: 600;
     }
     .hprecode{
         text-decoration: line-through;
+        font: 0.8em Roboto-Slab;
+        color:red;
+    }
+
+    .hprecopor{
+        color: green;
+        font: 1.2em Roboto-Slab;
     }
     .hsobreposicao{
         position: absolute;

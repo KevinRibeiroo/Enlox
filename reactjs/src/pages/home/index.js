@@ -65,7 +65,6 @@ export default function Home(){
     async function mostrarProduto(){
         let r = await api.listarProduto();
         setProdutos(r);
-        console.log(r);
     }
 
     async function editarProduto(item){
