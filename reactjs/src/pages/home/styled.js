@@ -200,6 +200,10 @@ overflow-y:hidden;
         
         }
         
+        .icon-carrosel {
+            color: black;
+            text-decoration: none;
+        }
         
 `
 

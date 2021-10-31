@@ -169,7 +169,7 @@ export default function Home(){
                         <div id="autoWidth" class="cs-hidden">
                             
                             {produtos.map((item)=>
-                                <Link to={{pathname: "/produto", state: item}}>  
+                                <Link to={{pathname: "/produto", state: item}} className="icon-carrosel" >  
                                 <div class="item-a">
                                 
 
@@ -212,7 +212,7 @@ export default function Home(){
                         <div id="autoWidth" class="cs-hidden">
                             
                             {produtos.map((item)=>
-                                <Link to={{pathname: "/produto", state: item}}>  
+                                <Link to={{pathname: "/produto", state: item}} className="icon-carrosel" >  
                                
 
                                 <div className="hbox">
@@ -257,7 +257,7 @@ export default function Home(){
                         <div id="autoWidth" class="cs-hidden">
                             
                             {produtos.map((item)=>
-                                <Link to={{pathname: "/produto", state: item}}>  
+                                <Link to={{pathname: "/produto", state: item}} className="icon-carrosel">  
                                 <div class="item-a">
                                 
 
