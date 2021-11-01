@@ -23,12 +23,14 @@ export default function Home(){
 
     const [idCarrossel,setIdCarrossel] = useState();
 
-    const [produtos, setProdutos] = useState([]);
+    const [produtosDesc, setProdutosDesc] = useState([]);
+    const [produtosRec, setProdutosRec] = useState([]);
+    const [produtosRecom, setProdutosRecom] = useState([]);
 
     const [nmProduto, setNmProduto] = useState('');
     const [imgProduto, setImgProduto] = useState('');
     const [preco, setPreco] = useState(0);
-    const [avaliacao, setAvalicao] = useState(0);
+    const [avaliacao, setAvaliacao] = useState(0);
     const [desconto, setDesconto] = useState(0);
     const [descricao, setDescricao] = useState('');
 
@@ -59,13 +61,23 @@ export default function Home(){
     //até aqui pro carrossel funfar
 
 
-
-
-
     async function mostrarProduto(){
         let r = await api.listarProduto();
-        setProdutos(r);
-        console.log(r);
+        setProdutosDesc(r);
+    }
+
+
+    //mostrar produtos com desconto: Faixa de Ofertas do Dia
+    async function produtosOfertados(){
+        let r = await api.listarProduto();
+        var nova=[];
+        for(let i=0;i<r.length;i++){
+            if(r[i].nr_desconto!=0 && r[i].bt_ativo==true){nova.push(r[i])}
+       }
+       setProdutosDesc(nova);
+       console.log(nova);
+       return nova;
+        
     }
 
     async function editarProduto(item){
@@ -75,11 +87,18 @@ export default function Home(){
         setDesconto(item.nr_desconto);
     }
 
+    //lista apenas produtos com desconto
+    
+        
+
     useEffect(() => {
-        mostrarProduto();
+        //const q = produtos.map(i => i.nr_desconto)
+        
+        produtosOfertados();       
+        
     }, [])
   
-    
+    //HSeta atrapalhando o hover de hcomprar
    
     return(
        <HContainer>
@@ -168,7 +187,7 @@ export default function Home(){
                         
                         <div id="autoWidth" class="cs-hidden">
                             
-                            {produtos.map((item)=>
+                            {produtosDesc.map((item)=>
                                 <Link to={{pathname: "/produto", state: item}} className="icon-carrosel" >  
                                 <div class="item-a">
                                 
@@ -211,7 +230,7 @@ export default function Home(){
                         
                         <div id="autoWidth" class="cs-hidden">
                             
-                            {produtos.map((item)=>
+                            {produtosRec.map((item)=>
                                 <Link to={{pathname: "/produto", state: item}} className="icon-carrosel" >  
                                
 
@@ -256,7 +275,7 @@ export default function Home(){
                         
                         <div id="autoWidth" class="cs-hidden">
                             
-                            {produtos.map((item)=>
+                            {produtosRecom.map((item)=>
                                 <Link to={{pathname: "/produto", state: item}} className="icon-carrosel">  
                                 <div class="item-a">
                                 

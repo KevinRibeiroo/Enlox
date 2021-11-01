@@ -94,6 +94,7 @@ flex-direction: column;
 
 overflow-x: auto;
 overflow-y:hidden;
+scroll-behavior: smooth;
 
 
 ::-webkit-scrollbar{
@@ -133,11 +134,21 @@ overflow-y:hidden;
         flex-direction:column;
         justify-content: center;
         align-items: center;
-        font:1.3em Roboto-Slab;
         padding:1em;
+    }
+    .htitulo{
+        font: 1em Roboto-Slab;
+        font-weight: 600;
     }
     .hprecode{
         text-decoration: line-through;
+        font: 0.8em Roboto-Slab;
+        color:red;
+    }
+
+    .hprecopor{
+        color: green;
+        font: 1.2em Roboto-Slab;
     }
     .hsobreposicao{
         position: absolute;
@@ -185,9 +196,11 @@ overflow-y:hidden;
             flex-direction: row;
             justify-content: space-between;
             margin-top:7em;
+            
             > img{
                 background-color: #fff;
                 border-radius:50%;
+                //border:10px solid #B0BDC6;
                 padding: 2em;
             }
 
