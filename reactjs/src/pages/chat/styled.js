@@ -165,7 +165,8 @@ main {
 
   .img-perfil > img {
         width: 5.5em;
-        border-radius: 1.8em;
+        border-radius: 2.9em;
+        height: 5.5em;
   }
 
 
@@ -242,7 +243,8 @@ color: #000000;
 
   .foto-usuario img{
     width: 2.5em;
-    border-radius: 1em;
+    border-radius: 1.5em;
+    height: 2.5em;
   }
 `
 
