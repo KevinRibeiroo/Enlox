@@ -29,8 +29,8 @@ export default class Api {
 
 
 
-        async logar2(ds_email, ds_senha) {
-            const r = await api.post('/login2', {ds_email, ds_senha});
+        async logarr(ds_email, ds_senha) {
+            const r = await api.post('/login', {ds_email, ds_senha});
             return r.data;
         }
 
