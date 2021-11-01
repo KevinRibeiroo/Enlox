@@ -34,7 +34,7 @@ export default function Chat (props) {
         const r = await api.listarChatUsu(idUsu);
 
 
-           setChatUsu([r]);
+           setChatUsu(r);
             
     } 
 
@@ -60,7 +60,7 @@ export default function Chat (props) {
         listarMsg(id);
     }
 
-    console.log(chat)
+
     console.log(chatUsu)
 
     /*{idUsu != chatUsu.id_usuario_comprador ? chatUsu.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsu.id_usuario_comprador_infoa_enl_usuario.nm_usuario }*/
