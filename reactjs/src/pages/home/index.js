@@ -62,7 +62,7 @@ export default function Home(){
 
 
     async function mostrarProduto(){
-        let r = await api.listarProduto();
+        let r = await api.listarProdutoCategoria();
         setProdutosDesc(r);
     }
 
