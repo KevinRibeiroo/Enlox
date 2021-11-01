@@ -74,11 +74,19 @@ export default function Home(){
         for(let i=0;i<r.length;i++){
             if(r[i].nr_desconto!=0 && r[i].bt_ativo==true){nova.push(r[i])}
        }
+       /* ordem crescente descontos
+       var desconto = nova.map((i)=>i.nr_desconto);
+
+       function comparaNumeros(a,b) { if (a == b) return 0; if (a < b) return -1; if (a > b) return 1; }
+       desconto=desconto.sort(comparaNumeros);
+       console.log(desconto);
+       */
        setProdutosDesc(nova);
-       console.log(nova);
-       return nova;
-        
+       
+       //return nova;
     }
+
+    
 
     async function editarProduto(item){
         setNmProduto(item.nm_produto);
