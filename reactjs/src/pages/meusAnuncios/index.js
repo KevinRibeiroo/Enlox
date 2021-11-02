@@ -2,9 +2,9 @@
 import { Link } from "react-router-dom"
 import Cabecalho from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
+import Modal from "../ModalEditarProduto";
 import Container from './styled'
 
-import Modal from "../ModalEditarProduto";
 
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -18,14 +18,21 @@ const api = new Api();
 export default function MeusAnuncios(){
 
     const [produto, setProduto] = useState([]);
+    console.log(produto)
     const [exibirModal, setExibirModal] = useState({ show: false });
+    console.log(exibirModal)
     const [nome, setNome] = useState('')
+    console.log(nome)
     const [categoria, setCategoria] = useState('')
+    console.log(categoria)
     const [preco, setPreco] = useState('')
+    console.log(preco)
     const [descProduto, setDescProduto] = useState('')
+    console.log(descProduto)
     const [estoque, setEstoque] = useState('')
+    console.log(estoque)
     const [imagem, setImagem] = useState('')  
-    
+    console.log(imagem)
  
     async function listar(){
 
@@ -61,7 +68,7 @@ export default function MeusAnuncios(){
         listar();
     }
 
-    async function editar(item) {
+    async function editar (item) {
 
         setNome(item.nm_produto)
         setCategoria(item.nm_categoria)
@@ -70,7 +77,6 @@ export default function MeusAnuncios(){
         setEstoque(item.qtd_estoque)
         setImagem(item.ds_imagem)
     }
-
     useEffect(() => {
         listar();
     },   [])
@@ -131,7 +137,7 @@ export default function MeusAnuncios(){
                                          </div>
                                        </div>
                                      </div>
-                                     <div class="button-create"> <button onClick={ () => editar(item) }> Salvar</button> </div>
+                                     <div class="button-create"> <button /*onClick={ () => editar(item) }*/> Salvar</button> </div>
                                     </div>
                             </div>
                     </div>
@@ -139,7 +145,6 @@ export default function MeusAnuncios(){
                 </main>
         </div>
       </Modal>
-      
        {produto.map((item) => 
           <div className="agp">
              <div className="img-agp"><img src={item.ds_imagem} alt=""/></div>
@@ -161,7 +166,7 @@ export default function MeusAnuncios(){
           </div>
         )}
 
-            <Rodape />
+            <Rodape/>
      </Container>
      )}
      
