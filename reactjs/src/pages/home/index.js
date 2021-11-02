@@ -17,16 +17,18 @@ const api = new Api();
 
 
 
+
+
 export default function Home(){
-
     
-
+    
     const [idCarrossel,setIdCarrossel] = useState();
 
     const [produtosDesc, setProdutosDesc] = useState([]);
     const [produtosRec, setProdutosRec] = useState([]);
-    const [produtosRecom, setProdutosRecom] = useState([]);
+    const [produtosReco, setProdutosRecom] = useState([]);
     
+    const [idCateg, setIdCateg] =useState();
     
     const [nmProduto, setNmProduto] = useState('');
     const [imgProduto, setImgProduto] = useState('');
@@ -44,6 +46,7 @@ export default function Home(){
     
     
 
+   
     //func para scrool p direita na seta
     async function myDireita(idCarrossel){
         var n = document.querySelector('.hbox').offsetWidth * 3;
@@ -76,6 +79,7 @@ export default function Home(){
        desconto=desconto.sort(comparaNumeros);
        console.log(desconto);
        */
+      console.log(r)
        setProdutosDesc(nova);
        
     }
@@ -109,7 +113,7 @@ export default function Home(){
             <div className = "HSubCabecalho">
                 <div className = "HCategorias">
 
-                    <div className = "HEletronicos"><Link to= {{pathname:"/listagemProdutos",state:1}}>
+                    <div className = "HEletronicos"><Link to= {{pathname:"/listagemProdutos", state:1}} className="hlinks" >
                      
                         <div className = "HElipse">
                             <img src="/assets/images/Eletronicos.png" alt="" />
@@ -117,49 +121,49 @@ export default function Home(){
                         <div>ELETRÔNICOS</div></Link>
                     </div>
 
-                    <div className = "HMobilia"><Link to= {{pathname:"/listagemProdutos",state:2}}>
+                    <div className = "HMobilia"><Link to= {{pathname:"/listagemProdutos", state:2}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Mobília.png" alt="" />
                         </div>
                         <div>MOBÍLIA</div></Link>
                     </div>
 
-                    <div className = "HBeleza"><Link to= {{pathname:"/listagemProdutos",state:3}}>
+                    <div className = "HBeleza"><Link to= {{pathname:"/listagemProdutos",state:3}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Beleza.png" alt="" />
                         </div>
                         <div>BELEZA</div></Link>
                     </div>
 
-                    <div className = "HEsportes"><Link to= {{pathname:"/listagemProdutos",state:4}}>
+                    <div className = "HEsportes"><Link to= {{pathname:"/listagemProdutos",state:4}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Esportes.png" alt="" />
                         </div>
                         <div>ESPORTES</div></Link>
                     </div>
 
-                    <div className = "HConstrucao"><Link to= {{pathname:"/listagemProdutos",state:5}}>
+                    <div className = "HConstrucao"><Link to= {{pathname:"/listagemProdutos",state:5}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Construção.png" alt="" />
                         </div>
                         <div>CONSTRUÇÃO</div></Link>
                     </div>
 
-                    <div className = "HBrinquedos"><Link to= {{pathname:"/listagemProdutos",state:6}}>
+                    <div className = "HBrinquedos"><Link to= {{pathname:"/listagemProdutos",state:6}} className="hlinks" >
                         <div className = "HElipse Brinquedo">
                             <img src="/assets/images/Brinquedos.png" alt="" />
                         </div>
                         <div>BRINQUEDOS</div></Link>
                     </div>
 
-                    <div className = "HAutopecas"><Link to= {{pathname:"/listagemProdutos",state:7}}>
+                    <div className = "HAutopecas"><Link to= {{pathname:"/listagemProdutos",state:7}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Auto-peças.png" alt="" />
                         </div>
                         <div>AUTO-PEÇAS</div></Link>
                     </div>
 
-                    <div className = "HOutros"><Link to= {{pathname:"/listagemProdutos",state:7}}>
+                    <div className = "HOutros"><Link to= {{pathname:"/listagemProdutos",state:8}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Outros.png" alt="" />
                         </div>
@@ -256,5 +260,5 @@ export default function Home(){
             <Rodape />
             </HContainer>
     )
+    
 }
-

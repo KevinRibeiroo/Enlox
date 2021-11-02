@@ -25,8 +25,19 @@ height: 100%;
     padding-bottom: 2em;
     color:#fff;
     & img:hover{}
-    .HElipse{cursor: pointer;}
+    .HElipse{cursor: pointer;
+    display:flex;align-self:center;
+    margin-bottom: 0.5em;}
     }  
+  .hlinks{
+    font:1em Stoke-Regular;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color:#fff;
+   
+  }
   
 }
 
@@ -80,8 +91,6 @@ height: 100%;
         -webkit-text-stroke-color: #E78A1D;
     }
     
- 
-        
 
     
 }
