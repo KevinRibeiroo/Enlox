@@ -15,11 +15,16 @@ const api = new Api();
 
 
 
-
 export default function MeusAnuncios(){
 
     const [produto, setProduto] = useState([]);
-    const [exibirModal, setExibirModal] = useState({ show: false });    
+    const [exibirModal, setExibirModal] = useState({ show: false });
+    const [nome, setNome] = useState('')
+    const [categoria, setCategoria] = useState('')
+    const [preco, setPreco] = useState('')
+    const [descProduto, setDescProduto] = useState('')
+    const [estoque, setEstoque] = useState('')
+    const [imagem, setImagem] = useState('')  
     
  
     async function listar(){
@@ -56,6 +61,16 @@ export default function MeusAnuncios(){
         listar();
     }
 
+    async function editar(item) {
+
+        setNome(item.nm_produto)
+        setCategoria(item.nm_categoria)
+        setPreco(item.vl_preco)
+        setDescProduto(item.ds_produto)
+        setEstoque(item.qtd_estoque)
+        setImagem(item.ds_imagem)
+    }
+
     useEffect(() => {
         listar();
     },   [])
@@ -64,7 +79,7 @@ export default function MeusAnuncios(){
         <Container>
             <Cabecalho />
 
-            <Modal options={exibirModal}>
+     <Modal options={exibirModal}>
         <div>
         <main>
              <div className="conteudo">
@@ -80,23 +95,23 @@ export default function MeusAnuncios(){
                                     <div class="input-left">
                                         <div class="agp-input"> 
                                             <div class="name-product"> Nome: </div>
-                                            <input class="input" type="text" />
+                                            <input class="input" type="text"  value={nome} onChange={e => setNome(e.target.value)}/>
                                         </div> 
                                         <div class="agp-input">
                                             <div class="name-product"> Preço: </div>
-                                            <input class="input" type="text" />
+                                            <input class="input" type="text"  value={preco} onChange={e => setPreco(e.target.value)}/>
                                         </div>
                                         <div class="agp-input">
                                             <div class="number-product"> Categoria: </div>
-                                            <input class="input" type="text"  /> 
+                                            <input class="input" type="text"  value={categoria} onChange={e => setCategoria(e.target.value)} /> 
                                         </div>
                                         <div class="agp-input">
                                             <div class="number-product"> Estoque: </div>
-                                            <input class="input" type="text"/> 
+                                            <input class="input" type="text"  value={estoque} onChange={e => setEstoque(e.target.value)}/> 
                                         </div>
                                         <div class="text">
                                           <div class="desc">Descrição:</div>
-                                          <textarea class="descTextarea" type="text" ></textarea>
+                                          <textarea class="descTextarea" type="text"  value={descProduto} onChange={e => setDescProduto(e.target.value)} ></textarea>
 
                                         </div>
                                     </div>
@@ -110,13 +125,13 @@ export default function MeusAnuncios(){
                                             <div className="x"> 
                                              <div className="arraste">arraste o seu arquivo </div> 
                                              <div className="ou">ou</div>
-                                             <input type="file" accept=".png, .jpg, .jpeg" />
+                                             <input type="file" accept=".png, .jpg, .jpeg"  value={imagem} onChange={e => setImagem(e.target.value)}/>
                                             </div>
 
                                          </div>
                                        </div>
                                      </div>
-                                     <div class="button-create"> <button> Salvar</button> </div>
+                                     <div class="button-create"> <button onClick={ () => editar() }> Salvar</button> </div>
                                     </div>
                             </div>
                     </div>

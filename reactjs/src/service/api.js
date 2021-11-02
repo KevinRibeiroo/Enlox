@@ -48,12 +48,18 @@ export default class Api {
                 return r.data;
             }
 
+            async listarProdutoCategoria(id){
+                const r = await api.get(`/produtos/${id}`);
+
+                return r.data;
+            }
+
             async removerProduto(id){
                 let r = await api.delete(`/produto/${id}`);
                 return r.data;
             }
     
-            async alterar( id, nome, categoria, preco,  descProduto, estoque, img,) {
+            async editar( id, nome, categoria, preco,  descProduto, estoque, img,) {
                 let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img, })
                 return r.data
             } 
