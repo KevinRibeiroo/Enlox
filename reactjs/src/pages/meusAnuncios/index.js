@@ -131,7 +131,7 @@ export default function MeusAnuncios(){
                                          </div>
                                        </div>
                                      </div>
-                                     <div class="button-create"> <button onClick={ () => editar(item) }> Salvar</button> </div>
+                                     <div class="button-create"> <button onClick={ () => editar() }> Salvar</button> </div>
                                     </div>
                             </div>
                     </div>

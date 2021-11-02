@@ -20,6 +20,7 @@ import Compra from './pages/compra';
 import PrAnuncio from './pages/PrimeiroAnuncio';
 import CadastrarProduto from './pages/cadastrarProduto';
 
+import ListagemProdutos from './pages/listagemProdutos';
 
 
 
@@ -47,6 +48,7 @@ export default function Routes(){
                 <Route path="/compra" component={Compra} />
                 <Route path="/prAnuncio" component={PrAnuncio} />
                 <Route path="/cadastrarProduto" component={CadastrarProduto} />
+                <Route path="/listagemProdutos" component={ListagemProdutos}/>
             </Switch>
         </BrowserRouter>
     )
