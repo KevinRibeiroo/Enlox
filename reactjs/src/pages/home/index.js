@@ -19,7 +19,7 @@ const api = new Api();
 
 
 
-export default function Home(){
+export default function Home(props){
     
     
     const [idCarrossel,setIdCarrossel] = useState();
@@ -28,7 +28,7 @@ export default function Home(){
     const [produtosRec, setProdutosRec] = useState([]);
     const [produtosReco, setProdutosRecom] = useState([]);
     
-    const [idCateg, setIdCateg] =useState();
+    const [pesquisar, setPesquisar] =useState("");
     
     const [nmProduto, setNmProduto] = useState('');
     const [imgProduto, setImgProduto] = useState('');
@@ -79,13 +79,12 @@ export default function Home(){
        desconto=desconto.sort(comparaNumeros);
        console.log(desconto);
        */
-      console.log(r)
+      //console.log(r)
        setProdutosDesc(nova);
        
     }
 
     
-
     async function editarProduto(item){
         setNmProduto(item.nm_produto);
         setPreco(item.vl_preco);
@@ -93,10 +92,8 @@ export default function Home(){
         setDesconto(item.nr_desconto);
     }
 
-    //lista apenas produtos com desconto
     
-
-
+    
 
     useEffect(() => {
         //const q = produtos.map(i => i.nr_desconto)
@@ -173,11 +170,12 @@ export default function Home(){
                 </div>
                 <div className = "HPesquisar">
                     <div className = "HProcurando">
-                        <input type = "text" placeholder =  "Digite o que está procurando..."/>
+                        <input type = "text" value={pesquisar} onChange={(i) => setPesquisar(i.target.value) } placeholder =  "Digite o que está procurando..."/>
                     </div>
+                    <Link to= {{pathname:"/listagemProdutos",state:pesquisar}} className="hlinks" >
                     <div className = "HSimbolo">
                         <div className = "HLupa"><img src="/assets/images/Pesquisarp.svg" alt="" /></div>
-                    </div>
+                    </div></Link>
                 </div>
             </div>
 
@@ -185,7 +183,7 @@ export default function Home(){
 
 
                 <div className = "HFaixa">
-                    <div className = "HEspecificacao">Ofertas do Dia</div>
+                    <div className = "HEspecificacao">Ofertas Oferecidas</div>
                     
                     <HCarrossell>
                     <div className = "HSetas"> 

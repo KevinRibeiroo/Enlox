@@ -205,6 +205,7 @@ scroll-behavior: smooth;
             flex-direction: row;
             justify-content: space-between;
             margin-top:7em;
+            cursor: pointer;
             
             > img{
                 background-color: #fff;

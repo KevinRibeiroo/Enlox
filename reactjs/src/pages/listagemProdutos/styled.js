@@ -9,6 +9,7 @@ display: flex;
 flex-direction: row;
 padding: 2em;
 flex-wrap: wrap;
+
 .lbox{
         display: flex;
         flex-direction: column;
@@ -20,6 +21,7 @@ flex-wrap: wrap;
         //overflow:hidden ;  
         margin: 1em 2em;
         cursor: pointer;
+        
         
         
     }.limagem{

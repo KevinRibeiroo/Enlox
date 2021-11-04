@@ -13,7 +13,7 @@ import Chat from './pages/chat';
 import EditarProduto from './pages/ModalEditarProduto';
 import Branco from './pages/Branco';
 import CadastroDeUsuario1 from './pages/cadastroUsuario1';
-import CadastroDeUsuario2 from './pages/cadastroUsuario2';
+
 import CadastroDeUsuario3 from './pages/cadastroUsuario3';
 import Login from './pages/login';
 import Compra from './pages/compra';
@@ -42,7 +42,6 @@ export default function Routes(){
                 <Route path="/chat" component={Chat}/>
                 <Route path="/editarProduto" component={EditarProduto}/>
                 <Route path="/cadastroDeUsuario1" component={CadastroDeUsuario1} />
-                <Route path="/cadastroDeUsuario2" component={CadastroDeUsuario2} />
                 <Route path="/cadastroDeUsuario3" component={CadastroDeUsuario3} />
                 <Route path="/login" component={Login} />
                 <Route path="/compra" component={Compra} />

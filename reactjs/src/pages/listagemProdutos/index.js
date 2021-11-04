@@ -17,17 +17,54 @@ export default function ListagemProdutos(props){
     
     
     const [produtos, setProdutos] = useState([]);
+    
+    
+   
     const[idCategoria,setIdCategoria] = useState(props.location.state);
- 
-  
+    const[p,setP] = useState(props.location.state);//aqui estou recebendo a "variavel state"(na vdd é o estado) da página home
+    
       const mostrarProduto = async () => {
+       
+            //esse if usa os states nuemricos para pegar as categorias da home
+            if(typeof(idCategoria)==='number'){
+                const r = await api.listarProdutoCategoria(idCategoria);
+                console.log();
 
-        const r = await api.listarProdutoCategoria(idCategoria);
-        console.log();
-
-        setProdutos(r);
+                setProdutos(r);
+            }
+            else{//if(typeof(idCategoria)==='string')//esse else usa o state string para pegar a palavra da barra de pesquisa e listar apenas produtos com aquela palavra no titulo(nm_produto)
+                let listar = await api.listarProduto();
+                setProdutos(listar)
+                const nova = [];
+                for(let i=0;i<listar.length;i++){
+                    
+                    //o if abaixo verifica se o que foi escrito na barra de pesquisa
+                    //está contido no nome dos produtos
+                    if(listar[i].nm_produto.toLowerCase().includes(p.toLowerCase())){
+                        //listar = await api.listarProdutoCategoria(idCategoria[i])
+                        nova.push(listar[i]);
+                        console.log(listar[i])
+                         
+                    }
+                    
+                }
+                //EXEMPLO:SE BUSQUEI POR C ENTÃO TODOS OS PRODUTOS EM QUE C ESTIVER CONTIDO EM NM_PRODUTO IRÁ SER RETORNADO
+                setProdutos(nova)
+                if(nova.length==0){
+                    window.alert("Desculpe. Não encontramos nada parecido.")
+                }
+                
+                // foi amém
+                 //nem sei mais qual a lógica
+        
             
     } 
+
+        
+    }
+
+    //onClick={()=>barraPesquisa(pesquisar)}
+
 
     useEffect(()=>{
         mostrarProduto();
