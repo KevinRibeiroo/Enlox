@@ -26,6 +26,7 @@ export default function Cabecalho(){
 
     
     const nav = useHistory();
+    console.log(nav)
     let usuarioLogado = usuLogado() || {};
 
     const [idUsu] = useState(usuarioLogado.id_usuario);
@@ -36,6 +37,7 @@ export default function Cabecalho(){
 
     const listarPessoa = async () => {
         const r = await api.listarUsu(idUsu);
+        console.log(r)
     } 
 
     useEffect(() => {
