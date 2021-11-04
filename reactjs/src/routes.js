@@ -7,19 +7,20 @@ import sobreNos from './pages/sobreNos';
 import MeusAnuncios from './pages/meusAnuncios';
 import Produto from './pages/produto';
 import politicaPrivacidade from './pages/políticaPrivacidade';
-import userRegistrado from './pages/homeRegistrado'
+
 import Perfil from './pages/perfil'
 import Chat from './pages/chat';
-import EditarProduto from './pages/editarProduto';
+import EditarProduto from './pages/ModalEditarProduto';
 import Branco from './pages/Branco';
 import CadastroDeUsuario1 from './pages/cadastroUsuario1';
-import CadastroDeUsuario2 from './pages/cadastroUsuario2';
+
 import CadastroDeUsuario3 from './pages/cadastroUsuario3';
 import Login from './pages/login';
 import Compra from './pages/compra';
 import PrAnuncio from './pages/PrimeiroAnuncio';
 import CadastrarProduto from './pages/cadastrarProduto';
 
+import ListagemProdutos from './pages/listagemProdutos';
 
 
 
@@ -37,17 +38,16 @@ export default function Routes(){
                 <Route path="/meusAnuncios" component={MeusAnuncios}/>
                 <Route path="/produto" component={Produto}/>
                 <Route path="/politicaDePrivacidade" component={politicaPrivacidade}/>
-                <Route path="/userRegistrado" component={userRegistrado}/>
                 <Route path="/perfil" component={Perfil}/>
                 <Route path="/chat" component={Chat}/>
                 <Route path="/editarProduto" component={EditarProduto}/>
                 <Route path="/cadastroDeUsuario1" component={CadastroDeUsuario1} />
-                <Route path="/cadastroDeUsuario2" component={CadastroDeUsuario2} />
                 <Route path="/cadastroDeUsuario3" component={CadastroDeUsuario3} />
                 <Route path="/login" component={Login} />
                 <Route path="/compra" component={Compra} />
                 <Route path="/prAnuncio" component={PrAnuncio} />
                 <Route path="/cadastrarProduto" component={CadastrarProduto} />
+                <Route path="/listagemProdutos" component={ListagemProdutos}/>
             </Switch>
         </BrowserRouter>
     )

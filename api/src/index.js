@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import Sequelize from 'sequelize'
 
+
 const {Op, col} = Sequelize;
 
 
@@ -35,7 +36,6 @@ app.use(express.json());
 
         
         let r = await db.infoa_enl_usuario.create({
-            id_login: 1,
             nm_usuario: usu.nm_usuario,
             nm_nome: usu.nm_nome,
             ds_cpf: usu.ds_cpf,
@@ -43,17 +43,18 @@ app.use(express.json());
             nr_telefone: usu.nr_telefone,
             ds_email: usu.ds_email,
             ds_senha: usu.ds_senha,
-            dt_nascimento: Date.now(),
+            dt_nascimento: usu.nascimento,
             ds_cep:  usu.ds_cep,
             nr_casa: usu.nr_casa,
             ds_complemento: usu.ds_complemento,
-            ds_bairro: "vish",
-            ds_cidade: "eita",
+            ds_bairro: usu.bairro,
+            ds_cidade: usu.cidade,
             bt_sexo: 1,
-            img_foto: "https://preview.redd.it/3nywl0prkvr71.jpg?width=960&crop=smart&auto=webp&s=6db81feb5ec64b9572353402597423ae4617f8ff",
+            img_foto: usu.img,
             dt_cadastro: Date.now(),
             dt_alteracao: Date.now(),
-            bt_ativo: true
+            bt_ativo: true,
+            dt_ult_login:Date.now()
         });
 
         resp.send(r);
@@ -100,7 +101,31 @@ app.get('/usuario/:id', async (req, resp) => {
 
 
 
+app.get('/usuario', async (req, resp) => {
+    try {
+        let consul = await db.infoa_enl_usuario.findAll();
+        resp.send(consul);
+    } catch (error) {
+        resp.send({error: "erro ao listar "})
+    }
+})
 
+
+
+app.put('/usuario/:id', async (req, resp) => {
+    try {
+        let id = req.params.id;
+        const usu = req.body;
+
+        const r = await db.infoa_enl_usuario.update({img_foto: usu.img},{where: {id_usuario: id}})
+
+
+        resp.send(r);
+
+    } catch (error) {
+        resp.send({error: "erro ao alterar o usuario"})
+    }
+})
 
 
 
@@ -120,7 +145,7 @@ app.post('/produto/:id', async (req, resp) => {
 
 
         let r = await db.infoa_enl_produto.create({
-                id_categoria: 1,//categorias foram criadas; id de 1 a 7
+                id_categoria: 2,//categorias foram criadas; id de 1 a 7
                 id_usuario: id,
                 ds_imagem1: produto.img,
                 ds_imagem2: produto.img2,
@@ -132,7 +157,7 @@ app.post('/produto/:id', async (req, resp) => {
                 bt_ativo: true,
                 nr_media_avaliacao: 1,
                 nr_avaliacao: produto.nr_avaliacao,
-                nr_desconto: 1
+                nr_desconto: produto.desc
                 
         });
 
@@ -163,11 +188,26 @@ app.get('/produto/:id', async (req, resp) => {
 });
 
 
+//listar produto por categoria
+app.get('/produtos/:id',async (req,resp) =>{
+    try {
+        let id = req.params.id;
+        let r = await db.infoa_enl_produto.findAll({where:{id_categoria:id}});
+        resp.send(r);
+    } catch (error) {
+        resp.send({error:"Produto não encontrado."})
+        
+    }
+})
+
 
 
 app.get('/produto', async (req, resp) => {
     try {
-        let consul = await db.infoa_enl_produto.findAll();
+        let consul = await db.infoa_enl_produto.findAll({
+            order:[
+                ['nr_desconto','desc']]
+        });
 
 
         resp.send(consul);
@@ -231,7 +271,7 @@ app.get('/chat_usu/:id', async (req, resp) => {
     try {
         let id = req.params.id;
 
-        const list = await db.infoa_enl_chat_usuario.findOne({where: {[Op.or] : [{id_usuario_comprador: id}, {id_usuario_vendedor: id}]}, 
+        const list = await db.infoa_enl_chat_usuario.findAll({where: {[Op.or] : [{id_usuario_comprador: id}, {id_usuario_vendedor: id}]}, 
             include:[
                 {
                 model: db.infoa_enl_usuario,
@@ -281,12 +321,21 @@ app.post('/chat_usu/:id_comprador/:id_vendedor', async (req, resp) => {
 });
 
 
+app.delete('/chat_usu/:id', async (req, resp) => {
+    try {
+        let id = req.params.id;
+
+
+        const del = await db.infoa_enl_chat.destroy({where:{[Op.or] : [{id_usuario_comprador: id}, {id_usuario_vendedor: id}]} })
+    } catch (error) {
+        
+    }
+})
 
 
 
 
-
-app.post('/login2', async (req, resp) => {
+app.post('/login', async (req, resp) => {
     try {
         let login = req.body;
 
@@ -296,6 +345,11 @@ app.post('/login2', async (req, resp) => {
                 ds_senha: login.ds_senha
             }, raw: true});
 
+
+        let lastLogin = await db.infoa_enl_usuario.update({dt_ult_login: Date.now()}, 
+        {where: {
+            id_usuario: logar.id_usuario
+        }})
         resp.send(logar);
 
     } catch (error) {
@@ -367,8 +421,8 @@ app.post('/chat/:id/:id2', async (req, resp) => {
 app.get('/chat/:id/:id2', async (req, resp) => {
     try {
         let id_chat_usu = await db.infoa_enl_chat_usuario.findOne({
-            where: {id_usuario_comprador: req.params.id, id_usuario_vendedor: req.params.id2}
-        });
+            where: { [Op.or]: [{id_usuario_comprador: req.params.id, id_usuario_vendedor: req.params.id2}, {id_usuario_comprador: req.params.id2, id_usuario_vendedor: req.params.id}]
+        }});
 
         let chat = await db.infoa_enl_chat.findAll({where: {id_chat_usuario: id_chat_usu.id_chat_usuario},
             include: [

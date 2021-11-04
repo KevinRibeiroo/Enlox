@@ -25,10 +25,10 @@ export default function Login () {
 
 
         const logar = async () => {
-            const r = await api.logar2(email, senha);
+            const r = await api.logarr(email, senha);
             console.log(email)
             console.log(r)
-
+            console.log(senha)
             
             if(r.error) {
                 alert(`${r.error}`)

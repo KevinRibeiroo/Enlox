@@ -32,19 +32,20 @@ a{
     margin-left: 7em;
     margin-top: 3em;
 }
-.butoes{
+.botoes{
     display: flex;
     flex-direction: column;
     margin-left: 17em;
     margin-top: 3em;
 }
 
-.butoes button {
+.botoes button {
     height: 40px;
     width: 156px;
     left: 1200px;
     top: 960px;
 
+    cursor: pointer;
     margin-bottom: 1em;
 
     background: rgba(79, 110, 146, 0.89);
