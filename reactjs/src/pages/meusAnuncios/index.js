@@ -11,7 +11,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import Api from '../../service/api';
 import { useState, React, useEffect } from 'react';
-import EditarProduto from "../ModalEditarProduto";
 const api = new Api();
 
 
