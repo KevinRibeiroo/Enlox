@@ -18,11 +18,13 @@ const api = new Api();
 export default function Produto (props){
 
         const nav = useHistory();
+        console.log(nav)
+       
      
-      const [produto, setProduto] = useState(props.location.state);
+      const [produto] = useState(props.location.state);
       const [usu, setUsu] = useState([]);
       
-      const [test43, setTest43] = useState(produto);
+      const [test43] = useState(produto);
 
       console.log(test43)
       let usuarioLogado = usuLogado() || {};
@@ -30,13 +32,13 @@ export default function Produto (props){
       const [idUsu] = useState(usuarioLogado.id_usuario);
 
     
-      const mostrarUsuario = async (id) => {
-        const r = await api.listarUsu(id);
+      const mostrarUsuario = async () => {
+        const r = await api.listarUsu(produto.id_usuario);
         setUsu(r);
     }
 
     useEffect(() => {
-        mostrarUsuario(produto.id_usuario);
+        mostrarUsuario();
     }, []);
 
     

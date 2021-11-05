@@ -9,7 +9,7 @@ export default function CadastrarProduto () {
 
 
     let file = document.getElementsByClassName('upload');
-    const [imgproduto, setImgproduto] = useState('');
+    //const [imgproduto, setImgproduto] = useState('');
     console.log(file)
 
 

@@ -255,7 +255,8 @@ input[type="file"] {
 }
 
 .foto img {
-    border-radius: 1em;
+    border-radius: 2em;
+    height: 3.5em;
 }
 `
 
