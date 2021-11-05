@@ -15,7 +15,6 @@ export default function Index(){
            <Link to="/politicaDePrivacidade"><b>♏Tela politica De Privacidade  </b></Link>
            <Link to="/userRegistrado"><b>♏Tela userRegistrado   </b></Link>
            <Link to="/perfil"><b>♏Tela perfil   </b></Link>
-           <Link to="/editarProduto"><b>♏Tela Editar Produto   </b></Link>
            <Link to="/cadastroDeUsuario1"><b>♏Tela Cadastrar Novo Usuário-Pessoal   </b></Link>
            <Link to="/cadastroDeUsuario2"><b>♏Tela Cadastrar Novo Usuário-Endereço   </b></Link>
            <Link to="/cadastroDeUsuario3"><b>♏Tela Cadastrar Novo Usuário-Pagamento   </b></Link>

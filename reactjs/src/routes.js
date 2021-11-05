@@ -10,7 +10,6 @@ import politicaPrivacidade from './pages/políticaPrivacidade';
 
 import Perfil from './pages/perfil'
 import Chat from './pages/chat';
-import EditarProduto from './pages/ModalEditarProduto';
 import Branco from './pages/Branco';
 import CadastroDeUsuario1 from './pages/cadastroUsuario1';
 import CadastroDeUsuario2 from './pages/cadastroUsuario2';
@@ -20,6 +19,7 @@ import Compra from './pages/compra';
 import PrAnuncio from './pages/PrimeiroAnuncio';
 import CadastrarProduto from './pages/cadastrarProduto';
 
+import ListagemProdutos from './pages/listagemProdutos';
 
 
 
@@ -39,7 +39,6 @@ export default function Routes(){
                 <Route path="/politicaDePrivacidade" component={politicaPrivacidade}/>
                 <Route path="/perfil" component={Perfil}/>
                 <Route path="/chat" component={Chat}/>
-                <Route path="/editarProduto" component={EditarProduto}/>
                 <Route path="/cadastroDeUsuario1" component={CadastroDeUsuario1} />
                 <Route path="/cadastroDeUsuario2" component={CadastroDeUsuario2} />
                 <Route path="/cadastroDeUsuario3" component={CadastroDeUsuario3} />
@@ -47,6 +46,7 @@ export default function Routes(){
                 <Route path="/compra" component={Compra} />
                 <Route path="/prAnuncio" component={PrAnuncio} />
                 <Route path="/cadastrarProduto" component={CadastrarProduto} />
+                <Route path="/listagemProdutos" component={ListagemProdutos}/>
             </Switch>
         </BrowserRouter>
     )

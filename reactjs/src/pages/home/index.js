@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import {HContainer,HCarrossell} from './styled.js';
 import {useHistory} from 'react-router-dom';
 
-
+import {CarrosselComp} from '../../components/carrossel';
 
 import Api from "../../service/api";
 
@@ -19,14 +19,15 @@ const api = new Api();
 
 export default function Home(){
 
- 
+    
 
     const [idCarrossel,setIdCarrossel] = useState();
 
     const [produtosDesc, setProdutosDesc] = useState([]);
     const [produtosRec, setProdutosRec] = useState([]);
     const [produtosRecom, setProdutosRecom] = useState([]);
-
+    
+    
     const [nmProduto, setNmProduto] = useState('');
     const [imgProduto, setImgProduto] = useState('');
     const [preco, setPreco] = useState(0);
@@ -61,12 +62,6 @@ export default function Home(){
     //até aqui pro carrossel funfar
 
 
-    async function mostrarProduto(){
-        let r = await api.listarProduto();
-        setProdutosDesc(r);
-    }
-
-
     //mostrar produtos com desconto: Faixa de Ofertas do Dia
     async function produtosOfertados(){
         let r = await api.listarProduto();
@@ -83,7 +78,6 @@ export default function Home(){
        */
        setProdutosDesc(nova);
        
-       //return nova;
     }
 
     
@@ -97,7 +91,8 @@ export default function Home(){
 
     //lista apenas produtos com desconto
     
-        
+
+
 
     useEffect(() => {
         //const q = produtos.map(i => i.nr_desconto)
@@ -106,7 +101,7 @@ export default function Home(){
         
     }, [])
   
-    //HSeta atrapalhando o hover de hcomprar
+    //HSeta atrapalhando o hover de class hcomprar
    
     return(
        <HContainer>
@@ -114,60 +109,61 @@ export default function Home(){
             <div className = "HSubCabecalho">
                 <div className = "HCategorias">
 
-                    <div className = "HEletronicos">
+                    <div className = "HEletronicos"><Link to= {{pathname:"/listagemProdutos",state:1}}>
+                     
                         <div className = "HElipse">
                             <img src="/assets/images/Eletronicos.png" alt="" />
                         </div>
-                        <div>ELETRÔNICOS</div>
+                        <div>ELETRÔNICOS</div></Link>
                     </div>
 
-                    <div className = "HMobilia">
+                    <div className = "HMobilia"><Link to= {{pathname:"/listagemProdutos",state:2}}>
                         <div className = "HElipse">
                             <img src="/assets/images/Mobília.png" alt="" />
                         </div>
-                        <div>MOBÍLIA</div>
+                        <div>MOBÍLIA</div></Link>
                     </div>
 
-                    <div className = "HBeleza">
+                    <div className = "HBeleza"><Link to= {{pathname:"/listagemProdutos",state:3}}>
                         <div className = "HElipse">
                             <img src="/assets/images/Beleza.png" alt="" />
                         </div>
-                        <div>BELEZA</div>
+                        <div>BELEZA</div></Link>
                     </div>
 
-                    <div className = "HEsportes">
+                    <div className = "HEsportes"><Link to= {{pathname:"/listagemProdutos",state:4}}>
                         <div className = "HElipse">
                             <img src="/assets/images/Esportes.png" alt="" />
                         </div>
-                        <div>ESPORTES</div>
+                        <div>ESPORTES</div></Link>
                     </div>
 
-                    <div className = "HConstrucao">
+                    <div className = "HConstrucao"><Link to= {{pathname:"/listagemProdutos",state:5}}>
                         <div className = "HElipse">
                             <img src="/assets/images/Construção.png" alt="" />
                         </div>
-                        <div>CONSTRUÇÃO</div>
+                        <div>CONSTRUÇÃO</div></Link>
                     </div>
 
-                    <div className = "HBrinquedos">
+                    <div className = "HBrinquedos"><Link to= {{pathname:"/listagemProdutos",state:6}}>
                         <div className = "HElipse Brinquedo">
                             <img src="/assets/images/Brinquedos.png" alt="" />
                         </div>
-                        <div>BRINQUEDOS</div>
+                        <div>BRINQUEDOS</div></Link>
                     </div>
 
-                    <div className = "HAutopecas">
+                    <div className = "HAutopecas"><Link to= {{pathname:"/listagemProdutos",state:7}}>
                         <div className = "HElipse">
                             <img src="/assets/images/Auto-peças.png" alt="" />
                         </div>
-                        <div>AUTO-PEÇAS</div>
+                        <div>AUTO-PEÇAS</div></Link>
                     </div>
 
-                    <div className = "HOutros">
+                    <div className = "HOutros"><Link to= {{pathname:"/listagemProdutos",state:7}}>
                         <div className = "HElipse">
                             <img src="/assets/images/Outros.png" alt="" />
                         </div>
-                        <div>OUTROS</div>
+                        <div>OUTROS</div></Link>
                     </div>
                     
                 </div>
@@ -197,27 +193,7 @@ export default function Home(){
                             
                             {produtosDesc.map((item)=>
                                 <Link to={{pathname: "/produto", state: item}} className="icon-carrosel" >  
-                                <div class="item-a">
-                                
-
-
-                                <div className="hbox">
-                                    <div className="himagem">
-                                        
-                                        <img className="himagem2" src={item.ds_imagem1} alt="touch"/>
-                                        <div className="hsobreposicao">
-                                            <div className="hcomprar">Comprar</div>
-                                        </div>
-                                    </div>
-                    
-                                    <div className="hdetalhes">
-                                        <div className="htitulo">{item.nm_produto}</div>
-                                        <div className="hprecode">R${parseFloat(item.vl_preco) + parseFloat(item.nr_desconto)}</div>
-                                        <div className="hprecopor">R${item.vl_preco}</div>
-                                    </div>
-
-                                </div>
-                                </div>
+                                <CarrosselComp info={item}/>
                                 
                                 </Link>
                             
@@ -238,33 +214,13 @@ export default function Home(){
                         
                         <div id="autoWidth" class="cs-hidden">
                             
-                            {produtosRec.map((item)=>
+                            {produtosDesc.map((item)=>
                                 <Link to={{pathname: "/produto", state: item}} className="icon-carrosel" >  
-                               
-
-                                <div className="hbox">
-                                    <div className="himagem">
-                                        
-                                        <img className="himagem2" src={item.ds_imagem1} alt="touch"/>
-                                        <div className="hsobreposicao">
-                                            <div className="hcomprar">Comprar</div>
-                                        </div>
-                                    </div>
-                    
-                                    <div className="hdetalhes">
-                                        <div className="htitulo">{item.nm_produto}</div>
-                                        <div className="hprecode">R${parseFloat(item.vl_preco) + parseFloat(item.nr_desconto)}</div>
-                                        <div className="hprecopor">R${item.vl_preco}</div>
-                                    </div>
-
-                                
-                                </div>
+                                <CarrosselComp info={item}/>
                                 
                                 </Link>
                             
-                            )}
-
-                                    
+                            )}      
                 
                         </div>
                     </HCarrossell>
@@ -277,41 +233,19 @@ export default function Home(){
                     <div className = "HEspecificacao">Recomendados</div>
                     <HCarrossell>
                     <div className = "HSetas"> 
-                            <img className = "HRotacionada" onClick={() =>myEsquerda(2)} src = "/assets/images/Seta.png" alt=""/> 
-                            <img  onClick={() =>myDireita(2)} src = "/assets/images/Seta.png" alt=""/> 
+                            <img className = "HRotacionada" onClick={() => myEsquerda(2)} src = "/assets/images/Seta.png" alt=""/> 
+                            <img  onClick={() => myDireita(2)} src = "/assets/images/Seta.png" alt=""/> 
                     </div>
                         
                         <div id="autoWidth" class="cs-hidden">
                             
-                            {produtosRecom.map((item)=>
-                                <Link to={{pathname: "/produto", state: item}} className="icon-carrosel">  
-                                <div class="item-a">
-                                
-
-
-                                <div className="hbox">
-                                    <div className="himagem">
-                                        
-                                        <img className="himagem2" src={item.ds_imagem1} alt="touch"/>
-                                        <div className="hsobreposicao">
-                                            <div className="hcomprar">Comprar</div>
-                                        </div>
-                                    </div>
-                    
-                                    <div className="hdetalhes">
-                                        <div className="htitulo">{item.nm_produto}</div>
-                                        <div className="hprecode">R${parseFloat(item.vl_preco) + parseFloat(item.nr_desconto)}</div>
-                                        <div className="hprecopor">R${item.vl_preco}</div>
-                                    </div>
-
-                                </div>
-                                </div>
+                            {produtosDesc.map((item)=>
+                                <Link to={{pathname: "/produto", state: item}} className="icon-carrosel" >  
+                                <CarrosselComp info={item}/>
                                 
                                 </Link>
                             
-                            )}
-
-                                    
+                            )}      
                 
                         </div>
                     </HCarrossell>

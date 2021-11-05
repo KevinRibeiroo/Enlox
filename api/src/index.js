@@ -178,6 +178,18 @@ app.get('/produto/:id', async (req, resp) => {
 });
 
 
+//listar produto por categoria
+app.get('/produtos/:id',async (req,resp) =>{
+    try {
+        let id = req.params.id;
+        let r = await db.infoa_enl_produto.findAll({where:{id_categoria:id}});
+        resp.send(r);
+    } catch (error) {
+        resp.send({error:"Produto não encontrado."})
+        
+    }
+})
+
 
 
 app.get('/produto', async (req, resp) => {
@@ -310,7 +322,7 @@ app.delete('/chat_usu/:id', async (req, resp) => {
 
 
 
-app.post('/login2', async (req, resp) => {
+app.post('/login', async (req, resp) => {
     try {
         let login = req.body;
 
@@ -320,6 +332,11 @@ app.post('/login2', async (req, resp) => {
                 ds_senha: login.ds_senha
             }, raw: true});
 
+
+        let lastLogin = await db.infoa_enl_usuario.update({dt_ult_login: Date.now()}, 
+        {where: {
+            id_usuario: logar.id_usuario
+        }})
         resp.send(logar);
 
     } catch (error) {
