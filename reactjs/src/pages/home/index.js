@@ -1,8 +1,11 @@
 import Cabecalho from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
+
 //import Cookies from "js-cookie";
 import {HContainer,HCarrossell} from './styled.js';
 //import {useHistory} from 'react-router-dom';
+
+
 
 import {CarrosselComp} from '../../components/carrossel';
 
@@ -25,6 +28,8 @@ export default function Home(props){
      const [idCarrossel,setIdCarrossel] = useState();
      console.log(idCarrossel)
 
+
+
     const [produtosDesc, setProdutosDesc] = useState([]);
     //const [produtosRec, setProdutosRec] = useState([]);
     //const [produtosReco, setProdutosRecom] = useState([]);
@@ -32,22 +37,36 @@ export default function Home(props){
     const [pesquisar, setPesquisar] =useState("");
     
     const [nmProduto, setNmProduto] = useState('');
+
     console.log(nmProduto)
    // const [imgProduto, setImgProduto] = useState('');
     const [preco, setPreco] = useState(0);
     console.log(preco)
    // const [avaliacao, setAvaliacao] = useState(0);
+
+    //const [imgProduto, setImgProduto] = useState('');
+    //const [avaliacao, setAvaliacao] = useState(0);
+
     const [desconto, setDesconto] = useState(0);
     console.log(desconto)
     const [descricao, setDescricao] = useState('');
     console.log(descricao)
 
-
+    console.log(preco);
+    console.log(nmProduto);
+    console.log(desconto);
+    console.log(descricao);
     
+
     // var bibbox = document.querySelector('.hbox');
     // var setaEsq = document.querySelector('.HRotacionada');
     
     // var nScroll = 100;
+
+    /*var bibbox = document.querySelector('.hbox');
+    var setaEsq = document.querySelector('.HRotacionada');
+    
+    var nScroll = 100;*/
     
     
 
@@ -97,8 +116,10 @@ export default function Home(props){
         setDesconto(item.nr_desconto);
     }
 
-    
     console.log(editarProduto)
+
+    
+
 
     useEffect(() => {
         //const q = produtos.map(i => i.nr_desconto)

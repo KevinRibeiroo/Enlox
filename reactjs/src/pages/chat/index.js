@@ -23,11 +23,14 @@ export default function Chat (props) {
 
     //const [msg, setMsg] = useState([]);
 
-    const [ usuario, setUsuario ] = useState(props.location.state);
-    console.log(setUsuario)
+
+    const [ usuario ] = useState(props.location.state);
 
     const [chat, setChat] = useState([]);
 
+
+
+    
 
 
     const listarUsuChats = async () => {
@@ -39,12 +42,11 @@ export default function Chat (props) {
             
     } 
 
-
-  
     useEffect(() => {
        listarUsuChats();
-    }, [])
+    })
 
+    
     
     const listarMsg = async (id) => {
         const r = await api.listarMsg(idUsu, id);

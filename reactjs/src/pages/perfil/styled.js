@@ -20,6 +20,8 @@ const Container = styled.div`
 .gab-logo {
     margin-top: 4em;
     margin-left: 3em;
+
+    cursor: pointer;
 }
 
 .gab-btn-sair {

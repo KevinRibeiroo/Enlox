@@ -5,6 +5,7 @@ import {Conteudo} from "./styled.js"
 import { InputFrete } from "../../components/inputs/styled";
 import { BotaoProduct } from "../../components/botoes/styled";
 import { useEffect, useState } from "react";
+import Cookie from 'js-cookie';
 //import { useState } from "react";
 
 import { Link } from "react-router-dom";
@@ -32,14 +33,17 @@ export default function Produto (props){
       const [idUsu] = useState(usuarioLogado.id_usuario);
 
     
-      const mostrarUsuario = async () => {
-        const r = await api.listarUsu(produto.id_usuario);
-        setUsu(r);
-    }
+
+     
 
     useEffect(() => {
-        mostrarUsuario();
-    }, []);
+        mostrarUsuario(produto.id_usuario);
+    });
+
+    const mostrarUsuario = async (id) => {
+        const r = await api.listarUsu(id);
+        setUsu(r);
+    }
 
     
     const InserirChat = async () => {
@@ -52,6 +56,17 @@ export default function Produto (props){
 
     console.log(usu);
 
+    function comprar() {
+        let carrinho = Cookie.get('carrinho');
+    carrinho = carrinho !== undefined 
+                ? JSON.parse(carrinho) 
+                : [];
+                if (carrinho.some(item => item.id_produto === produto.id_produto) === false)
+                carrinho.push({...produto, qtd:1});
+                Cookie.set('carrinho', JSON.stringify(carrinho));
+                nav.push('/carrinho');
+            }
+
     return (
     <Conteudo>
         <main>
@@ -63,7 +78,7 @@ export default function Produto (props){
                         <div className="produt">
                             <div className="title"><h2 >{produto.nm_produto}</h2></div>
                             <div className="imgs-produt">
-                                <div className="img-principal"><img src={produto.ds_imagem} alt="" style={{width: "13em", height: "auto"}}/></div>
+                                <div className="img-principal"><img src={produto.ds_imagem1} alt="" style={{width: "13em", height: "auto"}}/></div>
                                 <div className="seta"><img src="/assets/images/Seta.png" alt="" /></div>
                                 <div className="agp-produt">
                                 <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
@@ -112,7 +127,7 @@ export default function Produto (props){
                                 </div>
                             </div>
                             <div className="agp-botao">
-                                <BotaoProduct className="bta-info"> Comprar Agora </BotaoProduct>
+                                <BotaoProduct className="bta-info" onClick={comprar} > Comprar Agora </BotaoProduct>
                                 <BotaoProduct className="bta-info" onClick={InserirChat}><Link to = {{pathname: '/chat',
                                                                                                       state: test43                }}><img src="/assets/images/chat.svg" alt="" /> <span>Negocie!</span></Link></BotaoProduct>
                             </div>

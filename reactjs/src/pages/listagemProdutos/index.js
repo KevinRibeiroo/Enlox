@@ -68,7 +68,7 @@ export default function ListagemProdutos(props){
 
     useEffect(()=>{
         mostrarProduto();
-    },[])
+    },)
 
     return(
         <LContainer>
