@@ -35,15 +35,16 @@ export default function Cabecalho(){
 
 
 
-    const listarPessoa = async () => {
-        const r = await api.listarUsu(idUsu);
-        console.log(r)
-    } 
+   
 
     useEffect(() => {
         listarPessoa()
     }, [])
         
+    const listarPessoa = async () => {
+        const r = await api.listarUsu(idUsu);
+        console.log(r)
+    } 
 
    
 

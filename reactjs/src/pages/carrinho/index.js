@@ -21,7 +21,7 @@ export default function Carrinho() {
     }
 
     function removerProduto(id) {
-        let carrinho = produtos.filter(item => item.id !== id)
+        let carrinho = produtos.filter(item => item.id_produto !== id)
         Cookie.set('carrinho', JSON.stringify(carrinho))
         
         setProdutos([...carrinho])

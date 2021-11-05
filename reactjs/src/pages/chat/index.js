@@ -29,6 +29,9 @@ export default function Chat (props) {
 
 
 
+    
+
+
     const listarUsuChats = async () => {
 
         const r = await api.listarChatUsu(idUsu);
@@ -38,12 +41,11 @@ export default function Chat (props) {
             
     } 
 
-
-  
     useEffect(() => {
        listarUsuChats();
     }, [])
 
+    
     
     const listarMsg = async (id) => {
         const r = await api.listarMsg(idUsu, id);
@@ -81,7 +83,7 @@ export default function Chat (props) {
                                     <div className="nm-produt">{usuario.nm_produto}</div>
 
                                     
-                                    <div className="nm-vendedor">{idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>
+                                    <div className="nm-vendedor">{idUsu == X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>
                                    
                                   
 
@@ -100,7 +102,7 @@ export default function Chat (props) {
                                     <div className="foto-usuario"><img src={idUsu == X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
                                     <div className="foto-usuario"><img src={idUsu != X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
                                 </div>
-                                <div className="nm-vendedor2" title={idUsu != X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}>{X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.length > 20 || X.id_usuario_comprador_infoa_enl_usuario.nm_usuario.length > 20 ? idUsu != X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...' : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...'
+                                <div className="nm-vendedor2" title={idUsu != X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}>{X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.length > 20 || X.id_usuario_comprador_infoa_enl_usuario.nm_usuario.length > 20 ? idUsu !== X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...' : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...'
                                 : idUsu != X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>
                                 
                                 </div>
