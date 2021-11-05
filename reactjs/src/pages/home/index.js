@@ -1,8 +1,11 @@
 import Cabecalho from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
-import Cookies from "js-cookie";
+
+//import Cookies from "js-cookie";
 import {HContainer,HCarrossell} from './styled.js';
-import {useHistory} from 'react-router-dom';
+//import {useHistory} from 'react-router-dom';
+
+
 
 import {CarrosselComp} from '../../components/carrossel';
 
@@ -17,33 +20,57 @@ const api = new Api();
 
 
 
-export default function Home(){
 
+
+export default function Home(props){
     
+    
+     const [idCarrossel,setIdCarrossel] = useState();
+     console.log(idCarrossel)
 
-    const [idCarrossel,setIdCarrossel] = useState();
+
 
     const [produtosDesc, setProdutosDesc] = useState([]);
-    const [produtosRec, setProdutosRec] = useState([]);
-    const [produtosRecom, setProdutosRecom] = useState([]);
+    //const [produtosRec, setProdutosRec] = useState([]);
+    //const [produtosReco, setProdutosRecom] = useState([]);
     
+    const [pesquisar, setPesquisar] =useState("");
     
     const [nmProduto, setNmProduto] = useState('');
-    const [imgProduto, setImgProduto] = useState('');
+
+    console.log(nmProduto)
+   // const [imgProduto, setImgProduto] = useState('');
     const [preco, setPreco] = useState(0);
-    const [avaliacao, setAvaliacao] = useState(0);
+    console.log(preco)
+   // const [avaliacao, setAvaliacao] = useState(0);
+
+    //const [imgProduto, setImgProduto] = useState('');
+    //const [avaliacao, setAvaliacao] = useState(0);
+
     const [desconto, setDesconto] = useState(0);
+    console.log(desconto)
     const [descricao, setDescricao] = useState('');
+    console.log(descricao)
 
-
+    console.log(preco);
+    console.log(nmProduto);
+    console.log(desconto);
+    console.log(descricao);
     
-    var bibbox = document.querySelector('.hbox');
+
+    // var bibbox = document.querySelector('.hbox');
+    // var setaEsq = document.querySelector('.HRotacionada');
+    
+    // var nScroll = 100;
+
+    /*var bibbox = document.querySelector('.hbox');
     var setaEsq = document.querySelector('.HRotacionada');
     
-    var nScroll = 100;
+    var nScroll = 100;*/
     
     
 
+   
     //func para scrool p direita na seta
     async function myDireita(idCarrossel){
         var n = document.querySelector('.hbox').offsetWidth * 3;
@@ -67,7 +94,7 @@ export default function Home(){
         let r = await api.listarProduto();
         var nova=[];
         for(let i=0;i<r.length;i++){
-            if(r[i].nr_desconto!=0 && r[i].bt_ativo==true){nova.push(r[i])}
+            if(r[i].nr_desconto!==0 && r[i].bt_ativo===true){nova.push(r[i])}
        }
        /* ordem crescente descontos
        var desconto = nova.map((i)=>i.nr_desconto);
@@ -76,12 +103,12 @@ export default function Home(){
        desconto=desconto.sort(comparaNumeros);
        console.log(desconto);
        */
-       setProdutosDesc(nova);
+      //console.log(r)
+       setProdutosDesc(r);
        
     }
 
     
-
     async function editarProduto(item){
         setNmProduto(item.nm_produto);
         setPreco(item.vl_preco);
@@ -89,9 +116,9 @@ export default function Home(){
         setDesconto(item.nr_desconto);
     }
 
-    //lista apenas produtos com desconto
-    
+    console.log(editarProduto)
 
+    
 
 
     useEffect(() => {
@@ -109,7 +136,7 @@ export default function Home(){
             <div className = "HSubCabecalho">
                 <div className = "HCategorias">
 
-                    <div className = "HEletronicos"><Link to= {{pathname:"/listagemProdutos",state:1}}>
+                    <div className = "HEletronicos"><Link to= {{pathname:"/listagemProdutos", state:1}} className="hlinks" >
                      
                         <div className = "HElipse">
                             <img src="/assets/images/Eletronicos.png" alt="" />
@@ -117,49 +144,49 @@ export default function Home(){
                         <div>ELETRÔNICOS</div></Link>
                     </div>
 
-                    <div className = "HMobilia"><Link to= {{pathname:"/listagemProdutos",state:2}}>
+                    <div className = "HMobilia"><Link to= {{pathname:"/listagemProdutos", state:2}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Mobília.png" alt="" />
                         </div>
                         <div>MOBÍLIA</div></Link>
                     </div>
 
-                    <div className = "HBeleza"><Link to= {{pathname:"/listagemProdutos",state:3}}>
+                    <div className = "HBeleza"><Link to= {{pathname:"/listagemProdutos",state:3}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Beleza.png" alt="" />
                         </div>
                         <div>BELEZA</div></Link>
                     </div>
 
-                    <div className = "HEsportes"><Link to= {{pathname:"/listagemProdutos",state:4}}>
+                    <div className = "HEsportes"><Link to= {{pathname:"/listagemProdutos",state:4}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Esportes.png" alt="" />
                         </div>
                         <div>ESPORTES</div></Link>
                     </div>
 
-                    <div className = "HConstrucao"><Link to= {{pathname:"/listagemProdutos",state:5}}>
+                    <div className = "HConstrucao"><Link to= {{pathname:"/listagemProdutos",state:5}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Construção.png" alt="" />
                         </div>
                         <div>CONSTRUÇÃO</div></Link>
                     </div>
 
-                    <div className = "HBrinquedos"><Link to= {{pathname:"/listagemProdutos",state:6}}>
+                    <div className = "HBrinquedos"><Link to= {{pathname:"/listagemProdutos",state:6}} className="hlinks" >
                         <div className = "HElipse Brinquedo">
                             <img src="/assets/images/Brinquedos.png" alt="" />
                         </div>
                         <div>BRINQUEDOS</div></Link>
                     </div>
 
-                    <div className = "HAutopecas"><Link to= {{pathname:"/listagemProdutos",state:7}}>
+                    <div className = "HAutopecas"><Link to= {{pathname:"/listagemProdutos",state:7}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Auto-peças.png" alt="" />
                         </div>
                         <div>AUTO-PEÇAS</div></Link>
                     </div>
 
-                    <div className = "HOutros"><Link to= {{pathname:"/listagemProdutos",state:7}}>
+                    <div className = "HOutros"><Link to= {{pathname:"/listagemProdutos",state:8}} className="hlinks" >
                         <div className = "HElipse">
                             <img src="/assets/images/Outros.png" alt="" />
                         </div>
@@ -169,11 +196,12 @@ export default function Home(){
                 </div>
                 <div className = "HPesquisar">
                     <div className = "HProcurando">
-                        <input type = "text" placeholder =  "Digite o que está procurando..."/>
+                        <input type = "text" value={pesquisar} onChange={(i) => setPesquisar(i.target.value) } placeholder =  "Digite o que está procurando..."/>
                     </div>
+                    <Link to= {{pathname:"/listagemProdutos",state:pesquisar}} className="hlinks" >
                     <div className = "HSimbolo">
                         <div className = "HLupa"><img src="/assets/images/Pesquisarp.svg" alt="" /></div>
-                    </div>
+                    </div></Link>
                 </div>
             </div>
 
@@ -181,7 +209,7 @@ export default function Home(){
 
 
                 <div className = "HFaixa">
-                    <div className = "HEspecificacao">Ofertas do Dia</div>
+                    <div className = "HEspecificacao">Ofertas Oferecidas</div>
                     
                     <HCarrossell>
                     <div className = "HSetas"> 
@@ -256,5 +284,5 @@ export default function Home(){
             <Rodape />
             </HContainer>
     )
+    
 }
-

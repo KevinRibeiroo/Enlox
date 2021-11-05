@@ -12,10 +12,10 @@ const api = axios.create({
 export default class Api {
 
 
-
-
-        async cadastrarUsuario(nm_usuario, ds_cpf, ds_email, ds_senha, ds_cep, nr_casa, ds_complemento) {
-            const r = await api.post('/usuario', {nm_usuario, ds_cpf,  ds_email, ds_senha, ds_cep, nr_casa, ds_complemento})
+   
+    
+        async cadastrarUsuario(nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,nascimento, ds_cep, nr_casa, bairro,cidade) {
+            const r = await api.post('/usuario', {nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,nascimento, ds_cep, nr_casa, bairro,cidade})
             return r.data;
         }
 
@@ -59,8 +59,8 @@ export default class Api {
                 return r.data;
             }
     
-            async editar( id, nome, categoria, preco,  descProduto, estoque, img,) {
-                let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img, })
+            async editar( id, nome, categoria, preco,  descProduto, estoque, img) {
+                let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img })
                 return r.data
             } 
         

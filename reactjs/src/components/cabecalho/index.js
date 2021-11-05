@@ -26,6 +26,8 @@ export default function Cabecalho(){
 
     
     const nav = useHistory();
+    console.log(nav);
+
     let usuarioLogado = usuLogado() || {};
 
     const [idUsu] = useState(usuarioLogado.id_usuario);
@@ -34,14 +36,14 @@ export default function Cabecalho(){
 
 
 
-    const listarPessoa = async () => {
-        const r = await api.listarUsu(idUsu);
-    } 
-
     useEffect(() => {
         listarPessoa()
-    }, [])
+    })
         
+    const listarPessoa = async () => {
+        const r = await api.listarUsu(idUsu);
+        console.log(r)
+    } 
 
    
 
@@ -53,7 +55,7 @@ export default function Cabecalho(){
 
                 {Cookies.get('usuario-logado') === undefined   ? <div className="icons-cabecalho"><Link to = "/login" className="navegacao"> <div className="icon"><img src="/assets/images/foto.svg" alt="" /></div>
                 <div className="icon-text"> Login </div></Link></div>
-                :<div className="icons-cabecalho"><Link to = "/perfil" className="navegacao"> <div className="icon"><img src={imgUsu} alt="" style={{borderRadius: "1em", width: "2.9em"}} /></div>
+                :<div className="icons-cabecalho"><Link to = "/perfil" className="navegacao"> <div className="icon"><img src={imgUsu} alt="" style={{borderRadius: "2.3em", width: "3.3em"}} /></div>
                 <div className="icon-text"> {nmUsu != null && nmUsu.length >= 15 ? nmUsu.substr(0, 15) + '...' : nmUsu}</div></Link></div>}
                 
                 <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/task 1.svg" alt="" /> </div>

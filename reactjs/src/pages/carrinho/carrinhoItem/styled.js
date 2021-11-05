@@ -84,6 +84,7 @@ const Container = styled.div `
     color: #353535;
 }
 
+
 .gab-btn-comprar > button {
     width: 200px;
     height: 52px;
@@ -101,6 +102,7 @@ const Container = styled.div `
     font-weight: normal;
     font-size: 24px;
     line-height: 32px;
+    
 
     color: #FFFFFF;
 }
@@ -109,6 +111,7 @@ const Container = styled.div `
     margin-top: 2em;
     margin-left: 5em;
     align-self:center;
+    cursor: pointer;
 }
 
 .gab-imgli > img {

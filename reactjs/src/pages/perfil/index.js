@@ -15,7 +15,9 @@ export default function Perfil() {
 
 
 
-
+    const home = async() => {
+       nav.push('/home')
+    }
 
 
     const nav = useHistory();
@@ -33,7 +35,7 @@ export default function Perfil() {
         <Container>
     <div className='gab-pai'>
         <div className='gab-cabec'>
-            <div className='gab-logo'> <img src='/assets/images/logo.svg' alt='' /></div>
+            <div className='gab-logo' onClick={home}> <img src='/assets/images/logo.svg' alt='' /></div>
             <div className='gab-btn-sair' onClick={logoof}> <img src='/assets/images/sair.svg' alt='' /></div>
         </div>
         <div className='gab-conteudo'>

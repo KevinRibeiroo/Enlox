@@ -5,6 +5,7 @@ import {Conteudo} from "./styled.js"
 import { InputFrete } from "../../components/inputs/styled";
 import { BotaoProduct } from "../../components/botoes/styled";
 import { useEffect, useState } from "react";
+import Cookie from 'js-cookie';
 //import { useState } from "react";
 
 import { Link } from "react-router-dom";
@@ -18,11 +19,13 @@ const api = new Api();
 export default function Produto (props){
 
         const nav = useHistory();
+        console.log(nav)
+       
      
-      const [produto, setProduto] = useState(props.location.state);
+      const [produto] = useState(props.location.state);
       const [usu, setUsu] = useState([]);
       
-      const [test43, setTest43] = useState(produto);
+      const [test43] = useState(produto);
 
       console.log(test43)
       let usuarioLogado = usuLogado() || {};
@@ -30,14 +33,17 @@ export default function Produto (props){
       const [idUsu] = useState(usuarioLogado.id_usuario);
 
     
-      const mostrarUsuario = async (id) => {
-        const r = await api.listarUsu(id);
-        setUsu(r);
-    }
+
+     
 
     useEffect(() => {
         mostrarUsuario(produto.id_usuario);
-    }, []);
+    });
+
+    const mostrarUsuario = async (id) => {
+        const r = await api.listarUsu(id);
+        setUsu(r);
+    }
 
     
     const InserirChat = async () => {
@@ -50,6 +56,17 @@ export default function Produto (props){
 
     console.log(usu);
 
+    function comprar() {
+        let carrinho = Cookie.get('carrinho');
+    carrinho = carrinho !== undefined 
+                ? JSON.parse(carrinho) 
+                : [];
+                if (carrinho.some(item => item.id_produto === produto.id_produto) === false)
+                carrinho.push({...produto, qtd:1});
+                Cookie.set('carrinho', JSON.stringify(carrinho));
+                nav.push('/carrinho');
+            }
+
     return (
     <Conteudo>
         <main>
@@ -61,13 +78,13 @@ export default function Produto (props){
                         <div className="produt">
                             <div className="title"><h2 >{produto.nm_produto}</h2></div>
                             <div className="imgs-produt">
-                                <div className="img-principal"><img src={produto.ds_imagem} alt="" style={{width: "13em", height: "auto"}}/></div>
+                                <div className="img-principal"><img src={produto.ds_imagem1} alt="" style={{width: "13em", height: "auto"}}/></div>
                                 <div className="seta"><img src="/assets/images/Seta.png" alt="" /></div>
                                 <div className="agp-produt">
-                                <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
-                                <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
-                                <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
-                                <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img src={produto.ds_imagem1} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img src={produto.ds_imagem2} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img src={produto.ds_imagem3} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img src={produto.ds_imagem4} className="icon-produt" alt="" /></div>
                             </div>
                             </div>
                             <div className="preco"><div className="title-preco"> Preço: </div> <span>R$ {produto.vl_preco}</span> </div>
@@ -110,8 +127,9 @@ export default function Produto (props){
                                 </div>
                             </div>
                             <div className="agp-botao">
-                                <BotaoProduct className="bta-info"> Comprar Agora </BotaoProduct>
-                                <BotaoProduct className="bta-info" onClick={InserirChat}><Link to = {{pathname: '/chat',
+                                <BotaoProduct className="bta-info" > <Link to={{pathname:"/compra", state: produto}}> Comprar Agora </Link></BotaoProduct>
+                                <BotaoProduct className="bta-info" onClick={comprar} > Adicionar ao Carrinho </BotaoProduct>
+                                <BotaoProduct className="bta-info" onClick={InserirChat}><Link className="vamo-negociar" to = {{pathname: '/chat',
                                                                                                       state: test43                }}><img src="/assets/images/chat.svg" alt="" /> <span>Negocie!</span></Link></BotaoProduct>
                             </div>
                         </div>

@@ -1,8 +1,7 @@
 import{Carrossel} from './styled.js';
 
 export default function CarrosselComp(props) {
-
-
+  
     return(
         <Carrossel>
         <div class="item-a">

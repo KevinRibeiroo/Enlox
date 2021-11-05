@@ -45,12 +45,12 @@ export default function MeusAnuncios(){
 
         confirmAlert({
             title: 'Remover produto',
-            message: `Tem certeza que quer remover o produto ${ produto.nm_produto} ?`,
+            message: `Tem certeza que quer remover o produto ${id.nm_produto} ?`,
             buttons: [
                 {
                     label: 'Sim',
                     onClick: async() => {
-                        let r = await api.removerProduto(id);           
+                        let r = await api.removerProduto(id.id_produto);           
                         if(r.erro){
                             console.log(`${r.erro}`);
                         } else {
@@ -68,14 +68,16 @@ export default function MeusAnuncios(){
         listar();
     }
 
+<<<<<<< HEAD
     async function editar (item) {
+=======
+ 
 
-        setNome(item.nm_produto)
-        setCategoria(item.nm_categoria)
-        setPreco(item.vl_preco)
-        setDescProduto(item.ds_produto)
-        setEstoque(item.qtd_estoque)
-        setImagem(item.ds_imagem)
+    const editarProduto = async (id) => {
+        const r = await api.editar(id, nome, categoria, preco, descProduto, estoque, imagem)
+>>>>>>> de2fd6130704a05e798ca4ea94f19fbc29aab0cd
+
+        console.log(r)
     }
     useEffect(() => {
         listar();
@@ -137,7 +139,11 @@ export default function MeusAnuncios(){
                                          </div>
                                        </div>
                                      </div>
+<<<<<<< HEAD
                                      <div class="button-create"> <button /*onClick={ () => editar(item) }*/> Salvar</button> </div>
+=======
+                                     <div class="button-create"> <button onClick={ () => editarProduto(produto.id_produto) }> Salvar</button> </div>
+>>>>>>> de2fd6130704a05e798ca4ea94f19fbc29aab0cd
                                     </div>
                             </div>
                     </div>
@@ -147,7 +153,7 @@ export default function MeusAnuncios(){
       </Modal>
        {produto.map((item) => 
           <div className="agp">
-             <div className="img-agp"><img src={item.ds_imagem} alt=""/></div>
+             <div className="img-agp"><img src={item.ds_imagem1} alt=""/></div>
               <div className="texto1"> 
                   <div className="nm_produto">{item.nm_produto}</div>
                   <div className="preço"> {item.vl_preco}</div>
@@ -161,7 +167,7 @@ export default function MeusAnuncios(){
                   <button onClick={() => setExibirModal({ show: true })}>
                     editar
                   </button>
-                  <button onClick={ () => remover(item.id_produto) } className="excluir"> Excluir </button>
+                  <button onClick={ () => remover(item) } className="excluir"> Excluir </button>
                  </div>    
           </div>
         )}
