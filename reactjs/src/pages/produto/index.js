@@ -20,10 +20,10 @@ export default function Produto (props){
 
         const nav = useHistory();
      
-      const [produto, setProduto] = useState(props.location.state);
+      const [produto] = useState(props.location.state);
       const [usu, setUsu] = useState([]);
       
-      const [test43, setTest43] = useState(produto);
+      const [test43] = useState(produto);
 
       console.log(test43)
       let usuarioLogado = usuLogado() || {};
@@ -35,7 +35,7 @@ export default function Produto (props){
 
     useEffect(() => {
         mostrarUsuario(produto.id_usuario);
-    }, []);
+    });
 
     const mostrarUsuario = async (id) => {
         const r = await api.listarUsu(id);
@@ -75,7 +75,7 @@ export default function Produto (props){
                         <div className="produt">
                             <div className="title"><h2 >{produto.nm_produto}</h2></div>
                             <div className="imgs-produt">
-                                <div className="img-principal"><img src={produto.ds_imagem} alt="" style={{width: "13em", height: "auto"}}/></div>
+                                <div className="img-principal"><img src={produto.ds_imagem1} alt="" style={{width: "13em", height: "auto"}}/></div>
                                 <div className="seta"><img src="/assets/images/Seta.png" alt="" /></div>
                                 <div className="agp-produt">
                                 <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>

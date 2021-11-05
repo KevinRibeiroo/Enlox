@@ -1,8 +1,8 @@
 import Cabecalho from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
-import Cookies from "js-cookie";
+
 import {HContainer,HCarrossell} from './styled.js';
-import {useHistory} from 'react-router-dom';
+
 
 import {CarrosselComp} from '../../components/carrossel';
 
@@ -24,25 +24,32 @@ export default function Home(props){
     
     const [idCarrossel,setIdCarrossel] = useState();
 
+
+    console.log(idCarrossel);
+
+
     const [produtosDesc, setProdutosDesc] = useState([]);
-    const [produtosRec, setProdutosRec] = useState([]);
-    const [produtosReco, setProdutosRecom] = useState([]);
+    //const [produtosRec, setProdutosRec] = useState([]);
+    //const [produtosReco, setProdutosRecom] = useState([]);
     
     const [pesquisar, setPesquisar] =useState("");
     
     const [nmProduto, setNmProduto] = useState('');
-    const [imgProduto, setImgProduto] = useState('');
+    //const [imgProduto, setImgProduto] = useState('');
     const [preco, setPreco] = useState(0);
-    const [avaliacao, setAvaliacao] = useState(0);
+    //const [avaliacao, setAvaliacao] = useState(0);
     const [desconto, setDesconto] = useState(0);
     const [descricao, setDescricao] = useState('');
 
-
+    console.log(preco);
+    console.log(nmProduto);
+    console.log(desconto);
+    console.log(descricao);
     
-    var bibbox = document.querySelector('.hbox');
+    /*var bibbox = document.querySelector('.hbox');
     var setaEsq = document.querySelector('.HRotacionada');
     
-    var nScroll = 100;
+    var nScroll = 100;*/
     
     
 
@@ -70,7 +77,7 @@ export default function Home(props){
         let r = await api.listarProduto();
         var nova=[];
         for(let i=0;i<r.length;i++){
-            if(r[i].nr_desconto!=0 && r[i].bt_ativo==true){nova.push(r[i])}
+            if(r[i].nr_desconto!==0 && r[i].bt_ativo===true){nova.push(r[i])}
        }
        /* ordem crescente descontos
        var desconto = nova.map((i)=>i.nr_desconto);
@@ -92,7 +99,7 @@ export default function Home(props){
         setDesconto(item.nr_desconto);
     }
 
-    
+    console.log(editarProduto);
     
 
     useEffect(() => {

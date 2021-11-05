@@ -20,8 +20,8 @@ export default function ListagemProdutos(props){
     
     
    
-    const[idCategoria,setIdCategoria] = useState(props.location.state);
-    const[p,setP] = useState(props.location.state);//aqui estou recebendo a "variavel state"(na vdd é o estado) da página home
+    const[idCategoria] = useState(props.location.state);
+    const[p] = useState(props.location.state);//aqui estou recebendo a "variavel state"(na vdd é o estado) da página home
     
       const mostrarProduto = async () => {
        
@@ -50,7 +50,7 @@ export default function ListagemProdutos(props){
                 }
                 //EXEMPLO:SE BUSQUEI POR C ENTÃO TODOS OS PRODUTOS EM QUE C ESTIVER CONTIDO EM NM_PRODUTO IRÁ SER RETORNADO
                 setProdutos(nova)
-                if(nova.length==0){
+                if(nova.length===0){
                     window.alert("Desculpe. Não encontramos nada parecido.")
                 }
                 
@@ -68,7 +68,7 @@ export default function ListagemProdutos(props){
 
     useEffect(()=>{
         mostrarProduto();
-    },[])
+    },)
 
     return(
         <LContainer>

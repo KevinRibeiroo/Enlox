@@ -4,7 +4,7 @@ import { Conteudo } from "./styled";
 import { InputChat } from "../../components/inputs/styled";
 import { useEffect, useState } from "react";
 import Api from "../../service/api";
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 
 const api = new Api();
 
@@ -21,9 +21,9 @@ export default function Chat (props) {
 
     const [chatUsu, setChatUsu] = useState([]);
 
-    const [msg, setMsg] = useState([]);
+    //const [msg, setMsg] = useState([]);
 
-    const [ usuario, setUsuario ] = useState(props.location.state);
+    const [ usuario ] = useState(props.location.state);
 
     const [chat, setChat] = useState([]);
 
@@ -43,7 +43,7 @@ export default function Chat (props) {
 
     useEffect(() => {
        listarUsuChats();
-    }, [])
+    })
 
     
     
@@ -78,12 +78,12 @@ export default function Chat (props) {
                                 
                           
                            
-                                <div className="img-perfil"><img src={idUsu == X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
+                                <div className="img-perfil"><img src={idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
                                 <div className="text">
                                     <div className="nm-produt">{usuario.nm_produto}</div>
 
                                     
-                                    <div className="nm-vendedor">{idUsu == X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>
+                                    <div className="nm-vendedor">{idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>
                                    
                                   
 
@@ -99,11 +99,11 @@ export default function Chat (props) {
                             <div className="config-chat">
                                 <div className="perfil-chat">
                                 <div className="imgs-perfil">
-                                    <div className="foto-usuario"><img src={idUsu == X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
-                                    <div className="foto-usuario"><img src={idUsu != X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
+                                    <div className="foto-usuario"><img src={idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
+                                    <div className="foto-usuario"><img src={idUsu !== X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
                                 </div>
-                                <div className="nm-vendedor2" title={idUsu != X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}>{X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.length > 20 || X.id_usuario_comprador_infoa_enl_usuario.nm_usuario.length > 20 ? idUsu !== X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...' : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...'
-                                : idUsu != X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>
+                                <div className="nm-vendedor2" title={idUsu !== X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}>{X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.length > 20 || X.id_usuario_comprador_infoa_enl_usuario.nm_usuario.length > 20 ? idUsu !== X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...' : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...'
+                                : idUsu !== X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>
                                 
                                 </div>
                                 <div className="agp-config">
