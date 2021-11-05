@@ -15,7 +15,7 @@ a{
 }
 
 .img-agp img{
-    max-width: 200px;
+    max-width: 1em;
     max-height: 10em;
     border: solid;
     border-width: 1.8px;
@@ -26,12 +26,14 @@ a{
     display: flex;
     flex-direction: column;
     font-size: 17.37px;
+    width: 20em;
     margin: 3em 5em 0em 1em;
 }
 
 .premium{
     margin-left: 7em;
     margin-top: 3em;
+    max-width: 20em;
 }
 .botoes{
     display: flex;
