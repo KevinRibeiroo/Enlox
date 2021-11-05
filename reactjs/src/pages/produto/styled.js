@@ -258,6 +258,11 @@ input[type="file"] {
     border-radius: 2em;
     height: 3.5em;
 }
+
+.vamo-negociar{
+    font-family: Roboto Slab-Bold;
+    color: white;
+}
 `
 
 
