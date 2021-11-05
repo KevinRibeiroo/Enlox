@@ -1,10 +1,14 @@
 
+import { useState } from "react";
 import Cabecalho from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
 
 import {Container} from './styled.js';
 
-export default function Compra(){
+export default function Compra(props){
+     const [produto] = useState([props.location.state]);
+
+   
     return(
         <Container>
             <Cabecalho/>
@@ -40,7 +44,7 @@ export default function Compra(){
                                         <div className="img-principal"><img alt="" src="/assets/images/geladeira.svg"/></div>
                                         <div className="seta"><img alt="" src="/assets/images/seta.png"/></div>
                                             <div className="agp-min">   
-                                                <div className="little-img"><img alt="" src="/assets/images/geladeira.svg"/></div>
+                                                <div className="little-img"><img alt="" src={produto.ds_imagem1} /></div>
                                                 <div className="little-img"><img alt="" src="/assets/images/geladeira.svg"/></div>
                                                 <div className="little-img"><img alt="" src="/assets/images/geladeira.svg"/></div>
                                                 <div className="little-img"><img alt="" src="/assets/images/geladeira.svg"/></div>
