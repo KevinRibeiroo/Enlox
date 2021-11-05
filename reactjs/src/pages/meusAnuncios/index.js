@@ -11,6 +11,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import Api from '../../service/api';
 import { useState, React, useEffect } from 'react';
+import EditarProduto from "../ModalEditarProduto";
 const api = new Api();
 
 
@@ -61,14 +62,12 @@ export default function MeusAnuncios(){
         listar();
     }
 
-    async function editar(item) {
+ 
 
-        setNome(item.nm_produto)
-        setCategoria(item.nm_categoria)
-        setPreco(item.vl_preco)
-        setDescProduto(item.ds_produto)
-        setEstoque(item.qtd_estoque)
-        setImagem(item.ds_imagem)
+    const editarProduto = async (id) => {
+        const r = await api.editar(id, nome, categoria, preco, descProduto, estoque, imagem)
+
+        console.log(r)
     }
 
     useEffect(() => {
@@ -131,7 +130,7 @@ export default function MeusAnuncios(){
                                          </div>
                                        </div>
                                      </div>
-                                     <div class="button-create"> <button onClick={ () => editar() }> Salvar</button> </div>
+                                     <div class="button-create"> <button onClick={ () => editarProduto(produto.id_produto) }> Salvar</button> </div>
                                     </div>
                             </div>
                     </div>
