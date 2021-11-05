@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Container from './styled'
 
-
 export default function CarrinhoItem(props) {
 
 
@@ -27,7 +26,7 @@ export default function CarrinhoItem(props) {
                 </div>
                 <div className='gab-btnprod'>
                 <div className='gab-btn-remover' onClick={remove}><img src='/assets/images/lixo.svg' alt='' /> Remover produto </div>
-                <div className='gab-btn-comprar'><button>Comprar agora</button> </div>
+                <div className='gab-btn-comprar'><button>Comprar agora</button></div>
                 </div>            
             </div> 
             </Container>

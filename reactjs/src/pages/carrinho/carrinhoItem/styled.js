@@ -84,6 +84,7 @@ const Container = styled.div `
     color: #353535;
 }
 
+
 .gab-btn-comprar > button {
     width: 200px;
     height: 52px;
