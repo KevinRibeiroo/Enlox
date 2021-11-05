@@ -81,10 +81,10 @@ export default function Produto (props){
                                 <div className="img-principal"><img src={produto.ds_imagem1} alt="" style={{width: "13em", height: "auto"}}/></div>
                                 <div className="seta"><img src="/assets/images/Seta.png" alt="" /></div>
                                 <div className="agp-produt">
-                                <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
-                                <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
-                                <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
-                                <div className="produt-min"><img src="/assets/images/microondas.jpg" className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img src={produto.ds_imagem1} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img src={produto.ds_imagem2} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img src={produto.ds_imagem3} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img src={produto.ds_imagem4} className="icon-produt" alt="" /></div>
                             </div>
                             </div>
                             <div className="preco"><div className="title-preco"> Preço: </div> <span>R$ {produto.vl_preco}</span> </div>
@@ -127,8 +127,9 @@ export default function Produto (props){
                                 </div>
                             </div>
                             <div className="agp-botao">
-                                <BotaoProduct className="bta-info" onClick={comprar} > Comprar Agora </BotaoProduct>
-                                <BotaoProduct className="bta-info" onClick={InserirChat}><Link to = {{pathname: '/chat',
+                                <BotaoProduct className="bta-info" > Comprar Agora </BotaoProduct>
+                                <BotaoProduct className="bta-info" onClick={comprar} > Adicionar ao Carrinho </BotaoProduct>
+                                <BotaoProduct className="bta-info" onClick={InserirChat}><Link className="vamo-negociar" to = {{pathname: '/chat',
                                                                                                       state: test43                }}><img src="/assets/images/chat.svg" alt="" /> <span>Negocie!</span></Link></BotaoProduct>
                             </div>
                         </div>

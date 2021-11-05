@@ -16,6 +16,7 @@ a{
 
 .img-agp img{
     max-width: 200px;
+    max-height: 10em;
     border: solid;
     border-width: 1.8px;
     border-radius: 10px;

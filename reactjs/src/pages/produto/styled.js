@@ -199,7 +199,7 @@ margin-right: 0.7em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 11vh;
+    height: 13vh;
     align-self: center;
 }
 
@@ -262,7 +262,8 @@ input[type="file"] {
 .vamo-negociar{
     font-family: Roboto Slab-Bold;
     color: white;
-}
+    text-decoration: none;
+} 
 `
 
 
