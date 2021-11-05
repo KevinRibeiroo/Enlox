@@ -11,7 +11,6 @@ import politicaPrivacidade from './pages/políticaPrivacidade';
 import Perfil from './pages/perfil'
 import Chat from './pages/chat';
 import EditarProduto from './pages/ModalEditarProduto';
-import Branco from './pages/Branco';
 import CadastroDeUsuario1 from './pages/cadastroUsuario1';
 
 import CadastroDeUsuario3 from './pages/cadastroUsuario3';
@@ -30,7 +29,6 @@ export default function Routes(){
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact={true} component={Branco} />
                 <Route path="/home" exact={true} component={Home} />
                 <Route path="/carrinho" component={Carrinho} />
                 <Route path="/termosServiço" component={TermosServiço}/>
@@ -43,7 +41,7 @@ export default function Routes(){
                 <Route path="/editarProduto" component={EditarProduto}/>
                 <Route path="/cadastroDeUsuario1" component={CadastroDeUsuario1} />
                 <Route path="/cadastroDeUsuario3" component={CadastroDeUsuario3} />
-                <Route path="/login" component={Login} />
+                <Route path="/" exact={true} component={Login} />
                 <Route path="/compra" component={Compra} />
                 <Route path="/prAnuncio" component={PrAnuncio} />
                 <Route path="/cadastrarProduto" component={CadastrarProduto} />

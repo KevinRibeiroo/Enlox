@@ -104,7 +104,7 @@ export default function Home(props){
        console.log(desconto);
        */
       //console.log(r)
-       setProdutosDesc(nova);
+       setProdutosDesc(r);
        
     }
 
