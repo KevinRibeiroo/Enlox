@@ -91,7 +91,7 @@ export default class Api {
 
 
         async listarChatEspecifico(idChat){
-            const r = await api.get(`/chat_usu/${idChat}`);
+            const r = await api.get(`/chat_usu2/${idChat}`);
 
             return r.data;
         }

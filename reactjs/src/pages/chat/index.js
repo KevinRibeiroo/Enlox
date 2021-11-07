@@ -52,7 +52,7 @@ export default function Chat (props) {
         const r = await api.listarChatEspecifico(idChatUsu);
 
         setChatUsuEspecifico(r);
-    
+        console.log(r)
     }
 
     useEffect(() => {
@@ -75,7 +75,7 @@ export default function Chat (props) {
     }
 
 
-  
+    console.log(idChatUsu)
 
     /*{idUsu != chatUsu.id_usuario_comprador ? chatUsu.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsu.id_usuario_comprador_infoa_enl_usuario.nm_usuario }*/
       
@@ -86,7 +86,7 @@ export default function Chat (props) {
                     <div className="container-chat">
                         <div className="conversas">
                         {chatUsu.map((X) => 
-                            <div className="conversa" onClick={() =>  setIdChatUsu(X.id_chat_usuario)}>
+                            <div className="conversa" onClick={() => setIdChatUsu(X.id_chat_usuario)}>
                                 
                           
                            
