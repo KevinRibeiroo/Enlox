@@ -1,13 +1,13 @@
 import { Container } from "./styled"
 import { Link } from "react-router-dom"
 import Cookies from "js-cookie";
-import Api from "../../service/api";
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router";
+//import Api from "../../service/api";
+import { useState } from "react";
+//import { useHistory } from "react-router";
 
 
 
-const api = new Api();
+//const api = new Api();
 
 function usuLogado(){
     if (Cookies.get('usuario-logado') !== undefined){
@@ -25,26 +25,19 @@ let usuarioLogado = JSON.parse(logado);
 export default function Cabecalho(){
 
     
-    const nav = useHistory();
+    //const nav = useHistory();
     
 
     let usuarioLogado = usuLogado() || {};
 
-    const [idUsu] = useState(usuarioLogado.id_usuario);
+    //const [idUsu] = useState(usuarioLogado.id_usuario);
     const [nmUsu] = useState(usuarioLogado.nm_usuario)
     const [imgUsu] = useState(usuarioLogado.img_foto)
 
 
 
-    useEffect(() => {
-        listarPessoa()
-    })
-        
-    const listarPessoa = async () => {
-        const r = await api.listarUsu(idUsu);
-        
-    } 
-
+   
+ 
    
 
     return (

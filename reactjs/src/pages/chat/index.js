@@ -70,7 +70,7 @@ export default function Chat (props) {
 
 
 
-    
+        console.log(r);
         listarMsg(id);
     }
 
