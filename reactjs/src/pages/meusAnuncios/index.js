@@ -68,17 +68,15 @@ export default function MeusAnuncios(){
         listar();
     }
 
-<<<<<<< HEAD
-    async function editar (item) {
-=======
+   
  
 
     const editarProduto = async (id) => {
         const r = await api.editar(id, nome, categoria, preco, descProduto, estoque, imagem)
->>>>>>> de2fd6130704a05e798ca4ea94f19fbc29aab0cd
 
         console.log(r)
     }
+    
     useEffect(() => {
         listar();
     },   [])
@@ -139,11 +137,8 @@ export default function MeusAnuncios(){
                                          </div>
                                        </div>
                                      </div>
-<<<<<<< HEAD
-                                     <div class="button-create"> <button /*onClick={ () => editar(item) }*/> Salvar</button> </div>
-=======
+                                     
                                      <div class="button-create"> <button onClick={ () => editarProduto(produto.id_produto) }> Salvar</button> </div>
->>>>>>> de2fd6130704a05e798ca4ea94f19fbc29aab0cd
                                     </div>
                             </div>
                     </div>
@@ -175,4 +170,4 @@ export default function MeusAnuncios(){
             <Rodape/>
      </Container>
      )}
-     
+      

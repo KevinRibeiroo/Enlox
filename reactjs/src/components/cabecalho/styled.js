@@ -22,7 +22,7 @@ flex-direction: column;
 }
 
 .icon img {
-    height: 3.7em;
+    height: 3em;
 }
 .icon-text {
     display: flex;

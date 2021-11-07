@@ -28,9 +28,11 @@ export default function Chat (props) {
 
     const [chat, setChat] = useState([]);
 
-
+    const [idChatUsu, setIdChatUsu] = useState('');
 
     
+
+    const [chatUsuEspecifico, setChatUsuEspecifico] = useState([]);
 
 
     const listarUsuChats = async () => {
@@ -46,7 +48,16 @@ export default function Chat (props) {
        listarUsuChats();
     })
 
+    const listarChatEspecif = async () => {
+        const r = await api.listarChatEspecifico(idChatUsu);
+
+        setChatUsuEspecifico(r);
     
+    }
+
+    useEffect(() => {
+        listarChatEspecif()
+    })
     
     const listarMsg = async (id) => {
         const r = await api.listarMsg(idUsu, id);
@@ -57,14 +68,14 @@ export default function Chat (props) {
     const enviarMsg = async (id, msg2) => {
         const r = await api.inserirMsg(idUsu, id, msg2);
 
-        console.log(r);
+
 
     
         listarMsg(id);
     }
 
 
-    console.log(chatUsu)
+  
 
     /*{idUsu != chatUsu.id_usuario_comprador ? chatUsu.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsu.id_usuario_comprador_infoa_enl_usuario.nm_usuario }*/
       
@@ -75,7 +86,7 @@ export default function Chat (props) {
                     <div className="container-chat">
                         <div className="conversas">
                         {chatUsu.map((X) => 
-                            <div className="conversa">
+                            <div className="conversa" onClick={() =>  setIdChatUsu(X.id_chat_usuario)}>
                                 
                           
                            
@@ -94,7 +105,7 @@ export default function Chat (props) {
                             </div>
                             )} 
                         </div>
-                        {chatUsu.map((X) => 
+                        {chatUsuEspecifico.map((X) => 
                         <div className="chat">
                         
                             <div className="config-chat">

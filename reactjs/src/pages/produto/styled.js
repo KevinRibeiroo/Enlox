@@ -199,7 +199,7 @@ margin-right: 0.7em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 13vh;
+    height: 7.5em;
     align-self: center;
 }
 

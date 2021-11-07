@@ -127,7 +127,7 @@ export default function Produto (props){
                                 </div>
                             </div>
                             <div className="agp-botao">
-                                <BotaoProduct className="bta-info" > <Link to={{pathname:"/compra", state: produto}}> Comprar Agora </Link></BotaoProduct>
+                                <BotaoProduct className="bta-info" > <Link className="vamo-negociar"  to={{pathname:"/compra", state: produto}}> Comprar Agora </Link></BotaoProduct>
                                 <BotaoProduct className="bta-info" onClick={comprar} > Adicionar ao Carrinho </BotaoProduct>
                                 <BotaoProduct className="bta-info" onClick={InserirChat}><Link className="vamo-negociar" to = {{pathname: '/chat',
                                                                                                       state: test43                }}><img src="/assets/images/chat.svg" alt="" /> <span>Negocie!</span></Link></BotaoProduct>

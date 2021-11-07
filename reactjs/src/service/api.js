@@ -89,4 +89,10 @@ export default class Api {
             return r.data;
         }
 
+
+        async listarChatEspecifico(idChat){
+            const r = await api.get(`/chat_usu/${idChat}`);
+
+            return r.data;
+        }
 }
