@@ -35,6 +35,7 @@ const Container = styled.div `
     flex-direction: column;
     justify-content: space-between;
     float: right;
+    padding-right: 3em;
 }
 
 .gab-imagemprod > img {
@@ -42,7 +43,10 @@ const Container = styled.div `
     height: 80%;
     padding-top: 1em;
     padding-left: 5.5em;
+    max-width: 20em;
 }
+
+
 
 .gab-tit {
     width: 249px;
@@ -55,6 +59,7 @@ const Container = styled.div `
     font-weight: bold;
     font-size: 28px;
     line-height: 37px;
+    padding-right: 4em;
 
     color: #353535;
 }
@@ -65,11 +70,12 @@ const Container = styled.div `
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
+    max-width: 10em;
 
     color: #000000;
 }
 
-.gab-tit3 {
+.gab-tit3  {
     width: 327px;
     height: 49px;
     left: 223px;
@@ -78,8 +84,9 @@ const Container = styled.div `
     font-family: Roboto Slab;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 1em;
     line-height: 21px;
+    max-width: 0.5em;
 
     color: #353535;
 }
