@@ -4,7 +4,10 @@ import { Conteudo } from "./styled";
 import { InputChat } from "../../components/inputs/styled";
 import { useEffect, useState } from "react";
 import Api from "../../service/api";
-//import Cookies from "js-cookie";
+import Cookies from "js-cookie";
+import { useHistory } from "react-router";
+
+
 
 const api = new Api();
 
@@ -13,6 +16,15 @@ const api = new Api();
 
 
 export default function Chat (props) {
+
+    const nav = useHistory();
+
+
+
+    if (Cookies.get('usuario-logado') === undefined) {
+      nav.push('/');
+    }
+
 
     let usuarioLogado = usuLogado() || {};
     const [ idUsu ] = useState(usuarioLogado.id_usuario);
@@ -57,6 +69,7 @@ export default function Chat (props) {
 
     useEffect(() => {
         listarChatEspecif()
+       
     })
     
     const listarMsg = async (id) => {

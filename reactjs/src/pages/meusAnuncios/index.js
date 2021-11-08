@@ -5,10 +5,10 @@ import Rodape from "../../components/rodape"
 import Modal from "../ModalEditarProduto";
 import Container from './styled'
 
-
+import Cookies from "js-cookie";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-
+import { useHistory } from "react-router";
 import Api from '../../service/api';
 import { useState, React, useEffect } from 'react';
 const api = new Api();
@@ -16,6 +16,18 @@ const api = new Api();
 
 
 export default function MeusAnuncios(){
+
+
+
+    const nav = useHistory();
+
+
+
+    if (Cookies.get('usuario-logado') === undefined) {
+      nav.push('/');
+    }
+
+
 
     const [produto, setProduto] = useState([]);
     console.log(produto)

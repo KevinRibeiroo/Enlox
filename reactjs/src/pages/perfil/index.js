@@ -29,7 +29,13 @@ export default function Perfil() {
     }
 
 
+ 
 
+
+
+    if (Cookies.get('usuario-logado') === undefined) {
+      nav.push('/');
+    }
 
     return (
         <Container>

@@ -14,8 +14,8 @@ import Api from "../../service/api";
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-
+//import { useHistory } from "react-router";
+//import Cookies from "js-cookie";
 const api = new Api();
 
 
@@ -24,7 +24,9 @@ const api = new Api();
 
 export default function Home(props){
     
+  
     
+  
      const [idCarrossel,setIdCarrossel] = useState();
      console.log(idCarrossel)
 

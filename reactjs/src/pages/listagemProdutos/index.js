@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react'
 import Cabecalho from '../../components/cabecalho'
 import Rodape from '../../components/rodape' 
 import Api from '../../service/api';
-
+//import Cookies from 'js-cookie';
 import{Link} from 'react-router-dom';
-
+//import { useHistory } from 'react-router';
 import{LContainer, LConteudo} from './styled';
 
 const api = new Api();
@@ -15,6 +15,9 @@ const api = new Api();
 
 export default function ListagemProdutos(props){
     
+
+    
+
     
     const [produtos, setProdutos] = useState([]);
     

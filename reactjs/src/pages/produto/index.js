@@ -10,7 +10,7 @@ import Cookie from 'js-cookie';
 
 import { Link } from "react-router-dom";
 
-
+import Cookies from "js-cookie";
 
 import Api from "../../service/api";
 import { useHistory } from "react-router";
@@ -47,6 +47,10 @@ export default function Produto (props){
 
     
     const InserirChat = async () => {
+        if (Cookies.get('usuario-logado') === undefined) {
+            nav.push('/');
+            alert('para começar um chat é necessario estar logado')
+          }
         
         const r = await api.inserirChatUsu(idUsu, produto.id_usuario )
         
@@ -65,6 +69,7 @@ export default function Produto (props){
                 carrinho.push({...produto, qtd:1});
                 Cookie.set('carrinho', JSON.stringify(carrinho));
                 nav.push('/carrinho');
+
             }
 
     return (

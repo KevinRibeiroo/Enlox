@@ -4,8 +4,23 @@ import Cabecalho from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
 
 import {Container} from './styled.js';
+import { useHistory } from "react-router";
+import Cookies from "js-cookie";
 
 export default function Compra(props){
+
+
+
+
+    const nav = useHistory();
+
+
+
+    if (Cookies.get('usuario-logado') === undefined) {
+      nav.push('/');
+    }
+
+
      const [produto] = useState([props.location.state]);
 
    

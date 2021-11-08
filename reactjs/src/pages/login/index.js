@@ -7,6 +7,7 @@ import Api from "../../service/api"
 import { useState } from "react"
 import Cookies from 'js-cookie'
 import { useHistory } from "react-router"
+//import { usuLogado } from "../../components/cabecalho"
 
 
 
@@ -38,7 +39,7 @@ export default function Login () {
             }
         }
 
-
+    
     return (
        <StyledLogin>
            <main>

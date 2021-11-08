@@ -38,7 +38,7 @@ export default function Cabecalho(){
 
    
  
-   
+   console.log(Cookies.get('usuario-logado'))
 
     return (
         <header style={{backgroundColor: "#E7E6E1"}}>
@@ -46,7 +46,7 @@ export default function Cabecalho(){
                 <div className="icons-cabecalho"><Link to = "/home" className="navegacao"><div className="icon"><img src="/assets/images/casa 1.svg" alt="" /></div>
                 <div className="icon-text">Início</div></Link></div>
 
-                {Cookies.get('usuario-logado') === undefined   ? <div className="icons-cabecalho"><Link to = "/login" className="navegacao"> <div className="icon"><img src="/assets/images/foto.svg" alt="" /></div>
+                {Cookies.get('usuario-logado') === undefined   ? <div className="icons-cabecalho"><Link to = "/" className="navegacao"> <div className="icon"><img src="/assets/images/foto.svg" alt="" /></div>
                 <div className="icon-text"> Login </div></Link></div>
                 :<div className="icons-cabecalho"><Link to = "/perfil" className="navegacao"> <div className="icon"><img src={imgUsu} alt="" style={{borderRadius: "2.3em", width: "3.3em"}} /></div>
                 <div className="icon-text"> {nmUsu != null && nmUsu.length >= 15 ? nmUsu.substr(0, 15) + '...' : nmUsu}</div></Link></div>}
