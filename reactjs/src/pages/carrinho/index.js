@@ -36,7 +36,7 @@ export default function Carrinho() {
             <div className='gab-retfundo'>
 
             {produtos.map(item =>    
-            <CarrinhoItem key={item.id}
+            <CarrinhoItem key={item.id_produto}
             info={item}
             remover={removerProduto}  />
             )}
