@@ -1,13 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Container from './styled'
+import Api from '../../../service/api'
+
+const api = new Api()
 
 export default function CarrinhoItem(props) {
 
 
     const [produto] = useState(props.info)
+    const [usuario, setUsuario] = useState([])
 
     function remove() {
             props.remover(produto.id_produto)
+    }
+
+    useEffect(() => {
+        mostrarUsu(produto.id_usuario)
+    })
+    const mostrarUsu = async(id) =>  {
+    const g = await api.listarUsu(id)
+    
+    setUsuario(g )
     }
 
     return (
@@ -17,9 +30,9 @@ export default function CarrinhoItem(props) {
                 <div className='gab-descprod'>
                     <ul>
                         <li><span className='gab-tit'>{produto.nm_produto}</span></li>
-                        <li><span className='gab-tit2'>Status:</span>{produto.bt_ativo} </li>
+                        <li><span className='gab-tit2'>Status: </span>{produto.bt_ativo} </li>
                         <li><span classname='gab-imgli'> </span></li>
-                        <li><span className='gab-tit2'>Vendido por:</span>{produto.id_usuario} </li>
+                        <li><span className='gab-tit2'>Vendido por: </span>{usuario.nm_usuario} </li>
                         <li><span className='gab-tit'>Preço: {produto.vl_preco}</span></li>
                         <li><span className='gab-tit3'>{produto.ds_produto} </span></li>
                     </ul>
