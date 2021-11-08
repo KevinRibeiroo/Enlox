@@ -5,7 +5,8 @@ import axios from "axios";
 
 
 const api = axios.create({
-    baseURL: 'https://enloxx.herokuapp.com'
+    //baseURL: 'https://enloxx.herokuapp.com'
+    baseURL: 'http://localhost:3030'
 })
 
 
@@ -83,8 +84,8 @@ export default class Api {
             return r.data;
         }
 
-        async listarMsg(idUsu, idUsu2) {
-            const r = await api.get(`/chat/${idUsu}/${idUsu2}`);
+        async listarMsg(idUsu) {
+            const r = await api.get(`/chat/${idUsu}`);
 
             return r.data;
         }
