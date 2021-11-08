@@ -35,7 +35,7 @@ export default function Login () {
                 alert(`${r.error}`)
             } else {
                 Cookies.set('usuario-logado' ,JSON.stringify(r));
-                nav.push('/home')
+                nav.push('/')
             }
         }
 

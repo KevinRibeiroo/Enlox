@@ -38,7 +38,7 @@ export default function Cabecalho(){
 
    
  
-   console.log(Cookies.get('usuario-logado'))
+//    console.log(Cookies.get('usuario-logado'))
 
     return (
         <header style={{backgroundColor: "#E7E6E1"}}>

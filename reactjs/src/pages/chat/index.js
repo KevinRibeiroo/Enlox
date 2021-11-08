@@ -58,13 +58,13 @@ export default function Chat (props) {
 
     useEffect(() => {
        listarUsuChats();
-    })
+    }, [])
 
 
     useEffect(() => {
         listarChatEspecif()
        
-    })
+    },[idChatUsu] )
 
     const listarChatEspecif = async () => {
         const r = await api.listarChatEspecifico(idChatUsu);
@@ -75,25 +75,34 @@ export default function Chat (props) {
 
 
     
-    const listarMsg = async (id) => {
-        const r = await api.listarMsg(idUsu, id);
+    const listarMsgs = async (id) => {
+
+        console.log('listar msgs id: ' + id)
+        const r = await api.listarMsg(id);
 
         setChat(r);
     }
 
-    const enviarMsg = async (id, msg2) => {
-        const r = await api.inserirMsg(idUsu, id, msg2);
+    const enviarMsg = async  (msg2) => {
+        const r = await api.inserirMsg(idUsu, idChatUsu, msg2);
 
 
 
-        console.log(r);
-        listarMsg(id);
+        // console.log(r);
+        listarMsgs(idUsu);
+    }
+
+    const setarIdChatUsu = async (id) => {
+        setIdChatUsu(id);
+
+
+        listarMsgs(id)
     }
 
 
-    console.log(idChatUsu)
-    console.log(chatUsuEspecifico)
-
+    // console.log(idChatUsu)
+    // console.log(chatUsuEspecifico)
+    // console.log(chat)
     /*{idUsu != chatUsu.id_usuario_comprador ? chatUsu.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsu.id_usuario_comprador_infoa_enl_usuario.nm_usuario }*/
       
     return (
@@ -103,7 +112,7 @@ export default function Chat (props) {
                     <div className="container-chat">
                         <div className="conversas">
                         {chatUsu.map((X) => 
-                            <div className="conversa" onClick={() => setIdChatUsu(X.id_chat_usuario)}>
+                            <div className="conversa" onClick={() => setarIdChatUsu(X.id_chat_usuario)}>
                                 
                           
                            
@@ -157,7 +166,7 @@ export default function Chat (props) {
                                 <div className="emoji"><img src="/assets/images/emoji.svg" alt="" /></div>
                                 <div className="digit-msg"><InputChat value={msgText} onChange={(e) => setMsgText(e.target.value)} /></div>
                                 <div className="arquivo"><input type="file" className="document" /></div>
-                                <div className="enviar" ><button style={{border: "none", backgroundColor: "white"}} onClick={() => enviarMsg(usuario.id_usuario, msgText)} ><img src="/assets/images/msg.svg" alt="" /></button></div>
+                                <div className="enviar" ><button style={{border: "none", backgroundColor: "white"}} onClick={() => enviarMsg(msgText)} ><img src="/assets/images/msg.svg" alt="" /></button></div>
                             </div>
                             
                         </div>
