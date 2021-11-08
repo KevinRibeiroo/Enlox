@@ -22,7 +22,7 @@ export default function Chat (props) {
 
 
     if (Cookies.get('usuario-logado') === undefined) {
-      nav.push('/');
+      nav.push('/login');
     }
 
 
@@ -60,6 +60,12 @@ export default function Chat (props) {
        listarUsuChats();
     })
 
+
+    useEffect(() => {
+        listarChatEspecif()
+       
+    })
+
     const listarChatEspecif = async () => {
         const r = await api.listarChatEspecifico(idChatUsu);
 
@@ -67,10 +73,7 @@ export default function Chat (props) {
         
     }
 
-    useEffect(() => {
-        listarChatEspecif()
-       
-    })
+
     
     const listarMsg = async (id) => {
         const r = await api.listarMsg(idUsu, id);
