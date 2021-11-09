@@ -60,9 +60,9 @@ export default class Api {
                 return r.data;
             }
     
-            async editar( id, nome, categoria, preco,  descProduto, estoque, img) {
-                let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img })
-                return r.data
+            async editar( id, nome, categoria, preco,  descProduto) {
+              const r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto })
+                return r.data;
             } 
         
         

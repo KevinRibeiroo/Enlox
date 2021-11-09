@@ -22,7 +22,14 @@ export default function Compra(props){
 
 
      const [produto] = useState([props.location.state]);
+     const [cartao, setCartao] = useState('')
 
+/*
+     async function editar(item) 
+
+        setCartao()
+    }
+*/
    
     return(
         <Container>
@@ -50,35 +57,38 @@ export default function Compra(props){
                         <div className="btn-comprar"><button>confirmar compra</button></div>
                     </div>
                 </div>
+
+                {produto.map((item) => 
                     <div className="fx2">
                         <div className="agp-fx2">
                                     <div className="agp-texto2">
-                                        <div className="title"><h2>Geladeira Frigobar</h2></div>
+                                        <div className="title"><h2>{item.nm_produto}</h2></div>
                                     </div>
                                     <div className="agp-img">
-                                        <div className="img-principal"><img alt="" src="/assets/images/geladeira.svg"/></div>
+                                        <div className="img-principal"><img alt="" src={item.ds_imagem1}/></div>
                                         <div className="seta"><img alt="" src="/assets/images/seta.png"/></div>
                                             <div className="agp-min">   
-                                                <div className="little-img"><img alt="" src={produto.ds_imagem1} /></div>
-                                                <div className="little-img"><img alt="" src="/assets/images/geladeira.svg"/></div>
-                                                <div className="little-img"><img alt="" src="/assets/images/geladeira.svg"/></div>
-                                                <div className="little-img"><img alt="" src="/assets/images/geladeira.svg"/></div>
+                                                <div className="little-img"><img alt="" src={item.ds_imagem1} /></div>
+                                                <div className="little-img"><img alt="" src={item.ds_imagem2} /></div>
+                                                <div className="little-img"><img alt="" src={item.ds_imagem3} /></div>
+                                                <div className="little-img"><img alt="" src={item.ds_imagem4} /></div>
                                             </div>   
                                     </div>
-                                    <div className="preco"><div className="title-preco"> Preço: </div> <span>R$ 1381.09</span> </div>
-                                    <div className="desc-product">Geledeira frigobar 2020, usada e em otimo estado</div>
+                                    <div className="preco"><div className="title-preco"> Preço: </div> <span>R$ {item.vl_preco}</span> </div>
+                                    <div className="desc-product">{item.ds_produto}</div>
 
 
                                 <div className="agp-total">
-                                    <div className="x"><div className="title-agp"> Produto </div> <span>R$ 1.381.09</span> </div>
+                                    <div className="x"><div className="title-agp"> Produto </div> <span>R$ {item.vl_preco}</span> </div>
                                     <div className="frete"><div className="title-frete"> Frete </div> <span>gratis</span> </div>
-                                    <div className="x"><div className="title-agp"> SubTotal</div> <span>R$ 1381.09</span> </div>
+                                    <div className="x"><div className="title-agp"> SubTotal</div> <span>R$ {item.vl_preco}</span> </div>
                                     <hr/>
-                                    <div className="total"><div className="title-total"> Total </div> <span>4x de R$ 345.25 </span> </div>
+                                    <div className="total"><div className="title-total"> Total </div> <span>{item.vl_preco} </span> </div>
                                 </div>
                         </div>
                     </div>
-                </div>
+                )}
+                </div> 
             <Rodape />
         </Container>
     )

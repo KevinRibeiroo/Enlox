@@ -44,11 +44,17 @@ export default function MeusAnuncios(){
     console.log(preco)
     const [descProduto, setDescProduto] = useState('')
     console.log(descProduto)
-    const [estoque, setEstoque] = useState('')
-    console.log(estoque)
     const [imagem, setImagem] = useState('')  
     console.log(imagem)
+    const [imagem2, setImagem2] = useState('')  
+    console.log(imagem2)
+    const [imagem3, setImagem3] = useState('')  
+    console.log(imagem3)
+    const [imagem4, setImagem4] = useState('')  
+    console.log(imagem4)
+    const [idProduto, setIdProduto] = useState('')  
  
+
     async function listar(){
 
         let r = await api.listarMeusprodutos(idUsu);
@@ -84,12 +90,28 @@ export default function MeusAnuncios(){
     }
 
    
- 
+    async function editar(item) {
+        setExibirModal({ show: true })
 
-    const editarProduto = async (id) => {
-        const r = await api.editar(id, nome, categoria, preco, descProduto, estoque, imagem)
+        setNome(item.nm_produto)
+        setCategoria(item.id_categoria)
+        setPreco(item.vl_preco)
+        setDescProduto(item.ds_produto)
+        
+        setImagem(item.ds_imagem2)
+        setIdProduto(item.id_produto)
+
+        
+      
+    }
+
+
+    const editarProduto = async () => {
+        const r = await api.editar(idProduto, nome, categoria, preco, descProduto)
 
         console.log(r)
+
+        listar()
     }
     
     useEffect(() => {
@@ -126,10 +148,7 @@ export default function MeusAnuncios(){
                                             <div class="number-product"> Categoria: </div>
                                             <input class="input" type="text"  value={categoria} onChange={e => setCategoria(e.target.value)} /> 
                                         </div>
-                                        <div class="agp-input">
-                                            <div class="number-product"> Estoque: </div>
-                                            <input class="input" type="text"  value={estoque} onChange={e => setEstoque(e.target.value)}/> 
-                                        </div>
+                                      
                                         <div class="text">
                                           <div class="desc">Descrição:</div>
                                           <textarea class="descTextarea" type="text"  value={descProduto} onChange={e => setDescProduto(e.target.value)} ></textarea>
@@ -146,14 +165,14 @@ export default function MeusAnuncios(){
                                             <div className="x"> 
                                              <div className="arraste">arraste o seu arquivo </div> 
                                              <div className="ou">ou</div>
-                                             <input type="file" accept=".png, .jpg, .jpeg"  value={imagem} onChange={e => setImagem(e.target.value)}/>
+                                             <input type="file" accept=".png, .jpg, .jpeg"/>
                                             </div>
 
                                          </div>
                                        </div>
                                      </div>
                                      
-                                     <div class="button-create"> <button onClick={ () => editarProduto(produto.id_produto) }> Salvar</button> </div>
+                                     <div class="button-create"> <button onClick={ () => editarProduto()}> Salvar</button> </div>
                                     </div>
                             </div>
                     </div>
@@ -173,10 +192,13 @@ export default function MeusAnuncios(){
                      <div className="comoFunciona"> <Link to="/meusAnuncios" className="linkk"><b>Como funciona?</b></Link></div> 
                   </div>
 
-                 <div className="botoes"> 
-                  <button onClick={() => setExibirModal({ show: true })}>
+                 <div className="botoes" >
+                  <button onClick={ () => editar(item)} > 
+                  
                     editar
+       
                   </button>
+                  
                   <button onClick={ () => remover(item) } className="excluir"> Excluir </button>
                  </div>    
           </div>
