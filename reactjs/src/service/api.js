@@ -49,6 +49,17 @@ export default class Api {
                 return r.data;
             }
 
+
+            //ver isso daqui
+            async listarProdutoComDesconto() {
+                const r = await api.get('/produto');
+
+                return r.data;
+            }
+
+
+           
+
             async listarProdutoCategoria(id){
                 const r = await api.get(`/produtos/${id}`);
 

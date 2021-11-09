@@ -146,8 +146,8 @@ export default function Chat (props) {
                                 
                                 </div>
                                 <div className="agp-config">
-                                    <div className="bta-config"> Vizualisar perfil</div>
-                                    <div className="bta-config"> Vizualisar produto</div>
+                                    <div className="bta-config"> Vizualizar perfil</div>
+                                    <div className="bta-config"> Vizualizar produto</div>
                                 </div>
                             </div>
                         
