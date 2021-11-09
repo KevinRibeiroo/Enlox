@@ -96,4 +96,11 @@ export default class Api {
 
             return r.data;
         }
+
+
+           async listarMeusprodutos(id) {
+               const r =await api.get(`/produtoss/${id}`)
+                return r.data;
+         }
+
 }
