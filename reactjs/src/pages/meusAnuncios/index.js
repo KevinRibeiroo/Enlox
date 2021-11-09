@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom"
-import Cabecalho from "../../components/cabecalho"
+import Cabecalho, { usuLogado } from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
 import Modal from "../ModalEditarProduto";
 import Container from './styled'
@@ -21,6 +21,9 @@ export default function MeusAnuncios(){
 
     const nav = useHistory();
 
+
+    let usuarioLogado = usuLogado() || {};
+    const [ idUsu ] = useState(usuarioLogado.id_usuario);
 
 
     if (Cookies.get('usuario-logado') === undefined) {
@@ -48,7 +51,7 @@ export default function MeusAnuncios(){
  
     async function listar(){
 
-        let r = await api.listarProduto();
+        let r = await api.listarMeusprodutos(idUsu);
         console.log(r);
         setProduto(r);
     }
@@ -91,7 +94,7 @@ export default function MeusAnuncios(){
     
     useEffect(() => {
         listar();
-    },   [])
+    },      [])
 
     return(
         <Container>
