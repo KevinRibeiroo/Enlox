@@ -35,7 +35,7 @@ export default function CarrinhoItem(props) {
                         <li><span className='gab-tit2'>Status: </span>{produto.bt_ativo} </li>
                         <li><span className='gab-tit2'>Vendido por: </span>{usuario.nm_usuario} </li>
                         <li><span className='gab-tit'>Preço: {produto.vl_preco}</span></li>
-                        <li><span className='gab-tit3'>{produto.ds_produto !== null && produto.lenght >= 10 ? produto.substr(0, 10) + '...' : produto.ds_produto } </span></li>
+                        <li><span className='gab-tit3'>{produto.ds_produto} </span></li>
                     </ul>
                 </div>
                 <div className='gab-btnprod'>

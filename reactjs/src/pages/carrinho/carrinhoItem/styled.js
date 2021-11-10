@@ -10,10 +10,10 @@ const Container = styled.div `
     flex-direction: row;
     
     margin-top: 3em;
-    margin-left: -5.5em;
+    margin-left: -4.7em;
     margin-right: 2em;
     margin-bottom: 2em;
-    position: relative;
+    justify-content: space-evenly;
 
     height: 200px;
     width: 120%;
@@ -59,7 +59,6 @@ const Container = styled.div `
     font-weight: bold;
     font-size: 28px;
     line-height: 37px;
-    padding-right: 4em;
 
     color: #353535;
 }
