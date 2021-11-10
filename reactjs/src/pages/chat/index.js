@@ -89,7 +89,7 @@ export default function Chat (props) {
 
 
         // console.log(r);
-        listarMsgs(idUsu);
+        listarMsgs(idChatUsu);
     }
 
     const setarIdChatUsu = async (id) => {
@@ -146,8 +146,8 @@ export default function Chat (props) {
                                 
                                 </div>
                                 <div className="agp-config">
-                                    <div className="bta-config"> Vizualisar perfil</div>
-                                    <div className="bta-config"> Vizualisar produto</div>
+                                    <div className="bta-config"> Vizualizar perfil</div>
+                                    <div className="bta-config"> Vizualizar produto</div>
                                 </div>
                             </div>
                         
@@ -156,7 +156,7 @@ export default function Chat (props) {
                             <div className="msgs">
                             {chat.map((item) =>
                         
-                            <div className="msg">{item.ds_mensagem} </div>
+                            <div className={item.id_usuario !== idUsu ? "msg2" : "msg"}>{item.ds_mensagem} </div>
          
 
                             )} 

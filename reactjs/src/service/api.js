@@ -49,6 +49,17 @@ export default class Api {
                 return r.data;
             }
 
+
+            //ver isso daqui
+            async listarProdutoComDesconto() {
+                const r = await api.get('/produto');
+
+                return r.data;
+            }
+
+
+           
+
             async listarProdutoCategoria(id){
                 const r = await api.get(`/produtos/${id}`);
 
@@ -60,9 +71,9 @@ export default class Api {
                 return r.data;
             }
     
-            async editar( id, nome, categoria, preco,  descProduto, estoque, img) {
-                let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img })
-                return r.data
+            async editar( id, nome, categoria, preco,  descProduto) {
+              const r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto })
+                return r.data;
             } 
         
         
@@ -96,4 +107,11 @@ export default class Api {
 
             return r.data;
         }
+
+
+           async listarMeusprodutos(id) {
+               const r =await api.get(`/produtoss/${id}`)
+                return r.data;
+         }
+
 }
