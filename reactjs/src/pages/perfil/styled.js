@@ -43,11 +43,29 @@ const Container = styled.div`
     border-style: solid;
     border-color: #E78A1D;
     height: 4em;
+    
 
     font-weight: bold;
     font-size: 1em;
 
     line-height: 4em;
+}
+
+.gab-nome > span {
+    -webkit-text-stroke: 1px black; 
+
+ color:  #E78A1D;
+
+}
+
+.gab-sobrenome > span {
+    -webkit-text-stroke: 1px black;
+    color:  #E78A1D;
+}
+
+.gab-cpf > span {
+    -webkit-text-stroke: 1px black;
+    color: #E78A1D;
 }
 
 .gab-img1 > img{
@@ -63,6 +81,7 @@ const Container = styled.div`
     vertical-align: middle;
     margin-right: 2em;
     margin-left: 1.2em;
+    border-radius: 50%;
 }
 
 .gab-verif {
@@ -78,8 +97,9 @@ const Container = styled.div`
 .gab-foto >img {
     margin-top: -8em;
     margin-left: -2em;
-    width: 18em;
-    height: 18em;
+    width: 16em;
+    height: 16em;
+    border-radius: 50%;
 }
 
 .gab-info {
