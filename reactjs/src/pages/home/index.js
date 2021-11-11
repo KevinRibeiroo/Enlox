@@ -1,3 +1,4 @@
+
 import Cabecalho from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
 
@@ -104,7 +105,6 @@ export default function Home(props){
        
        /* ordem crescente descontos
        var desconto = nova.map((i)=>i.nr_desconto);
-
        function comparaNumeros(a,b) { if (a == b) return 0; if (a < b) return -1; if (a > b) return 1; }
        desconto=desconto.sort(comparaNumeros);
        console.log(desconto);
