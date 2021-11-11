@@ -8,7 +8,8 @@ import { useState } from "react"
 import Cookies from 'js-cookie'
 import { useHistory } from "react-router"
 //import { usuLogado } from "../../components/cabecalho"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -32,7 +33,7 @@ export default function Login () {
             console.log(senha)
             
             if(r.error) {
-                alert(`${r.error}`)
+                toast.error(`${r.error}`)
             } else {
                 Cookies.set('usuario-logado' ,JSON.stringify(r));
                 nav.push('/')
@@ -42,6 +43,7 @@ export default function Login () {
     
     return (
        <StyledLogin>
+           <ToastContainer />
            <main>
                <div className="container-login">
                    <div className="login">
