@@ -107,7 +107,7 @@ export default function Chat (props) {
     /*{idUsu != chatUsu.id_usuario_comprador ? chatUsu.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsu.id_usuario_comprador_infoa_enl_usuario.nm_usuario }*/
       
     console.log(chatUsu)
-    if (chatUsu == []) {
+    if (chatUsu.length !== 0) {
     return (
             <Conteudo>
                 <ToastContainer />
@@ -186,7 +186,9 @@ export default function Chat (props) {
                 </main>
 
             </Conteudo>
-    )} else {
+    )} 
+    
+   else if (chatUsu.length === 0) {
         return <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}><div style={{width: "100%"}}><Cabecalho /></div> <h1>vc ainda não possui chats</h1> 
          <img style={{width: "17em"}} src="https://c.tenor.com/U2i5zqRo5bkAAAAM/sad-cry.gif" alt="" /></div>
     }
