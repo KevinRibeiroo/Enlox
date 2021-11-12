@@ -1,73 +1,145 @@
-import Cabecalho from "../../components/cabecalho"
+import Cabecalho, { usuLogado } from "../../components/cabecalho"
 
 import { Conteudoprodut } from "./styled"
-import { InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal } from "../../components/inputs/styled"
+import { InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal, InputImg } from "../../components/inputs/styled"
 import {BotaoCdstr, InserirAnuncio} from '../../components/botoes/styled';
+import { useState } from "react";
+import axios from "axios";
+import Api from "../../service/api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useHistory } from "react-router";
+
+
+
+const api = new Api();
 //import { useState } from "react";
 
 export default function CadastrarProduto () {
 
 
+
+    /*async function cadastrarProduto() {
+        let formData = new FormData();
+
+        formData.append('imgPrincipal', imgPrincipal);
+        formData.append('nmproduto', nmProduto);
+        formData.append('desc', desc);
+        formData.append('preco', preco);
+
+
+        let resp = await axios.post('https://enloxx.herokuapp.com/produto', formData, {
+            headers: {
+                "content-type": "multipart/form-data"
+            }
+        });
+    }
+
+
     let file = document.getElementsByClassName('upload');
     //const [imgproduto, setImgproduto] = useState('');
     console.log(file)
+*/
+    const [nmProduto, setNmProduto] = useState('');
+    const [desc, setDesc] = useState('');
+    const [preco, setPreco] = useState('');
+    const [idCategoria, setIdCategoria] = useState(0)
+    const [imgPrincipal, setImgPrincipal] = useState('')
+    const {testinho, setTestinho} = useState('');
 
+    const nav = useHistory();
 
+    const [img1, setImg1] = useState('');
+    const [img2, setImg2] = useState('');
+    const [img3, setImg3] = useState('');
+    const [img4, setImg4] = useState('');
+
+    let usuarioLogado = usuLogado() || {};
+
+    async function inserirProduto() {
+        const r = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria,img1,img2,img3,img4,nmProduto, preco, desc );
+
+        if(r.error){
+            toast.error(`${r.error}`)
+        } else {
+            nav.push('/')
+        }
+    }
+
+    /*
+    function preview() {
+        if(imgPrincipal) {
+             return URL.createObjectURL(imgPrincipal);
+             
+        }
+
+     
+    }
     
+    function selectFile() {
+        let input = document.getElementsByClassName("upload");
+        input.click();
+    }
+
+    console.log(preview())*/
+
+    console.log(usuarioLogado.id_usuario)
     return (
         <Conteudoprodut>
+            <ToastContainer />
             <Cabecalho />
                 <div className="container">
                 <div className="title-pag">
                 Insira seu proprio anuncio
                 </div>
                     <div className="conteudo-cdstr">
-                        <InputCadastrar placeholder="Insira o nome do produto"/>
-                        <TextareDesc placeholder="Insira descrição do produto"/>
+                        <InputCadastrar placeholder="Insira o nome do produto" value={nmProduto} onChange={(e) => setNmProduto(e.target.value)} />
+                        <TextareDesc placeholder="Insira descrição do produto" value={desc} onChange={(e) => setDesc(e.target.value)}/>
                     
 
                         <div className="agp-input">
                             <div className="label">Escolha sua categoria</div>
                          
                             <div className="agp-botao">
-                                <BotaoCdstr>Eletronicos</BotaoCdstr>
-                                <BotaoCdstr>Mobilia</BotaoCdstr>
-                                <BotaoCdstr>Beleza</BotaoCdstr>
-                                <BotaoCdstr>Esportes</BotaoCdstr>
-                                <BotaoCdstr>Construções</BotaoCdstr>
-                                <BotaoCdstr>Brinquedos</BotaoCdstr>
-                                <BotaoCdstr>Auto-Peças</BotaoCdstr>
+                                <BotaoCdstr onClick={() => setIdCategoria(1)}>Eletronicos</BotaoCdstr>
+                                <BotaoCdstr onClick={() => setIdCategoria(2)}>Mobilia</BotaoCdstr>
+                                <BotaoCdstr onClick={() => setIdCategoria(3)}>Beleza</BotaoCdstr>
+                                <BotaoCdstr onClick={() => setIdCategoria(4)}>Esportes</BotaoCdstr>
+                                <BotaoCdstr onClick={() => setIdCategoria(5)}>Construções</BotaoCdstr>
+                                <BotaoCdstr onClick={() => setIdCategoria(6)}>Brinquedos</BotaoCdstr>
+                                <BotaoCdstr onClick={() => setIdCategoria(7)} >Auto-Peças</BotaoCdstr>
                                 <BotaoCdstr style={{borderBottom: "none"}}>Outros</BotaoCdstr>
                             </div>
                         </div>
-                        <div className="agp-input">
-                            <div className="label">Tipo</div>
-                            <InputTipo placeholder="Selecione">
-                                <option>oi</option>
-                            </InputTipo>
-                        </div>
+                        
                         
                         <div className="agp-input">
-                            <div className="label">Tipo</div>
-                            <InputPreco placeholder="Preço(R$)" />
+                            <div className="label">Preço</div>
+                            <InputPreco placeholder="Preço(R$)" value={preco} onChange={(e) => setPreco(e.target.value)} />
                         </div>
                         <div className="agp-input">
-                            <InputImage type="file" className="upload"   accept="image/*" />
-
+                        <div className="label">Imagem 1</div>
+                            <InputImg placeholder="insira a url da imagem" value={img1} onChange={e => setImg1(e.target.value)} />
+                            <div className="label">Imagem 2</div>
+                            <InputImg placeholder="insira a url da imagem" value={img2} onChange={e => setImg2(e.target.value)} />
+                            <div className="label">Imagem 3</div>
+                            <InputImg placeholder="insira a url da imagem" value={img3} onChange={e => setImg3(e.target.value)} />
+                            <div className="label">Imagem 4</div>
+                            <InputImg placeholder="insira a url da imagem" value={img4} onChange={e => setImg4(e.target.value)} />
                         </div>
 
                         
-                        <div className="agp-input">
-                            <div className="label">Localização</div>
-                            <InputLocal placeholder="Localização do produto" />
-                        </div>
+                        
 
 
-                        <InserirAnuncio style={{alignSelf: "flex-end"}}> Inserir Anuncio</InserirAnuncio>
+                        <InserirAnuncio style={{alignSelf: "flex-end"}} onClick={() => inserirProduto()}> Inserir Anuncio</InserirAnuncio>
                     </div>
 
         </div>
           
         </Conteudoprodut>
     )
+
+    //<InputImage type="file" className="upload"   accept="image/*" onChange={e => setImgPrincipal(e.target.files[0])}/>
+    //<img src={preview()} alt="" />
 }

@@ -51,8 +51,8 @@ export default function Cabecalho(){
                 :<div className="icons-cabecalho"><Link to = "/perfil" className="navegacao"> <div className="icon"><img src={imgUsu} alt="" style={{borderRadius: "2.3em", width: "3.3em"}} /></div>
                 <div className="icon-text"> {nmUsu != null && nmUsu.length >= 15 ? nmUsu.substr(0, 15) + '...' : nmUsu}</div></Link></div>}
                 
-                <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/task 1.svg" alt="" /> </div>
-                <div className="icon-text">Planos</div></div>
+                <div className="icons-cabecalho"><Link to = "/cadastrarProduto" className="navegacao"><div className="icon"><img src="/assets/images/produto.svg" alt="" /> </div>
+                <div className="icon-text">Anunciar</div></Link></div>
                 <Link to = "/" className="navegacao"><div> <img src="/assets/images/logo.svg" alt="" /> </div></Link>
                 <div className="icons-cabecalho"><Link to = "/meusAnuncios" className="navegacao"><div className="icon"><img src="/assets/images/megaphone 1.svg" alt="" /> </div>
                 <div className="icon-text">Meus anúncios</div></Link></div>

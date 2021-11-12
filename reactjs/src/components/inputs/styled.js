@@ -236,4 +236,18 @@ outline: none;
 padding-left: 1em;
 `
 
-export { InputFrete,    InputChat, InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal, InputLogin}
+
+const InputImg = styled.input`
+width: 30em;
+height: 3em;
+
+
+display: flex;
+
+background: rgba(60, 60, 60, 0.1);
+border: none;
+outline: none;
+border-radius: 1em;
+`
+
+export { InputFrete,    InputChat, InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal, InputLogin, InputImg}

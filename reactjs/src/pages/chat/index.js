@@ -120,7 +120,7 @@ export default function Chat (props) {
                            
                                 <div className="img-perfil"><img src={idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
                                 <div className="text">
-                                    <div className="nm-produt">{usuario.nm_produto}</div>
+                                    <div className="nm-produt">Não adiconaram o campo do id_produto pra puxar o nm_produto</div>
 
                                     
                                     <div className="nm-vendedor">{idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>

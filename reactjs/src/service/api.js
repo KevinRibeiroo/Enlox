@@ -35,11 +35,7 @@ export default class Api {
     }
 
 
-        async cadastrarProduto(id, nm, preco, descricao, avaliacao, img ){
-            const r = await api.post(`/produto/${id}`, {nm, preco, descricao, avaliacao, img});
-
-            return r.data;
-        }
+   
 
 
         async listarProduto() {
@@ -103,6 +99,12 @@ export default class Api {
 
   async listarCategorias(id) {
       const r = await api.get(`/categoria/${id}`);
+      return r.data;
+  }
+
+
+  async cadastrarProduto(id1, id2, img,img2,img3,img4,nm_produto, vl_preco, ds_produto){
+      const r = await api.post(`/produto/${id1}/${id2}`, {img,img2,img3,img4,nm_produto, vl_preco, ds_produto})
       return r.data;
   }
 
