@@ -28,7 +28,9 @@ const Container = styled.div`
     margin-top: 3em;
     margin-right: 3em;
 }
-
+.gab-email > span {
+    color: gray;
+}
 .gab-conteudo {
     display: flex;
     flex-direction: row;
@@ -43,13 +45,16 @@ const Container = styled.div`
     border-style: solid;
     border-color: #E78A1D;
     height: 4em;
-    
-
+    border-bottom: white;
+    padding-left: 10px;
+    padding-right: 10px;
     font-weight: bold;
     font-size: 1em;
 
     line-height: 4em;
 }
+
+
 
 .gab-nome > span {
     -webkit-text-stroke: 1px black; 

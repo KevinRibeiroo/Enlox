@@ -79,13 +79,7 @@ export default function Perfil() {
                     <div className='gab-sobrenome'><span>NOME:</span> {usuario.nm_nome}  </div>
                     <div className='gab-cpf'><span>CPF:</span>  {usuario.ds_cpf} </div>
                 </div>
-                <div className='gab-planos'>
-                    <div className='gab-plano-imagem'> <img src='/assets/images/plano.svg' alt='' />  </div>
-                    <div className='gab-plano-texto'>
-                        <div className='gab-text1'>Plano premium</div>
-                        <div className='gab-text2'>Atualize agora</div>
-                    </div>
-                </div>
+                
             </div>
             <div>
                 <div className='gab-endereco'>
@@ -94,7 +88,7 @@ export default function Perfil() {
                         <th>MEUS ENDEREÇOS</th>
                     </tr>
                     <tr>
-                       <td className='gab-celula'> | {usuario.ds_cep}</td>
+                       <td className='gab-celula'> | {usuario.nm_rua + ", Nº" + usuario.nr_casa}</td>
                     </tr>
                    
                     </table>

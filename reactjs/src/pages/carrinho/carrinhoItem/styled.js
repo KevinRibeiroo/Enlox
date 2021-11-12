@@ -39,11 +39,14 @@ const Container = styled.div `
 }
 
 .gab-imagemprod > img {
-    width: 80%;
-    height: 80%;
-    padding-top: 1em;
-    padding-left: 5.5em;
-    max-width: 20em;
+    width: 9em;
+    height: 7em;
+    margin-top: 2.5em;
+    margin-left: 5.5em;
+    max-width: 9em; 
+    border-style: solid;
+    border-color: #E78A1D;
+    border-radius: 10%;
 }
 
 
