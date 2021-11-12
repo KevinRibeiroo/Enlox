@@ -14,6 +14,12 @@ import Cookies from "js-cookie";
 
 import Api from "../../service/api";
 import { useHistory } from "react-router";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const api = new Api();
 
 export default function Produto (props){
@@ -54,7 +60,9 @@ export default function Produto (props){
         
         const r = await api.inserirChatUsu(idUsu, produto.id_usuario )
         
-
+          if(r.error){
+              toast.dark(`${r.error}`);
+          }
         console.log(r)
     }
 
@@ -74,6 +82,7 @@ export default function Produto (props){
 
     return (
     <Conteudo>
+        <ToastContainer />
         <main>
             <Cabecalho />
            

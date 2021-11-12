@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import Api from "../../service/api";
 import Cookies from "js-cookie";
 import { useHistory } from "react-router";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const api = new Api();
@@ -107,6 +108,7 @@ export default function Chat (props) {
       
     return (
             <Conteudo>
+                <ToastContainer />
                 <main>
                     <Cabecalho />
                     <div className="container-chat">
