@@ -58,8 +58,8 @@ export default function Cabecalho(){
                 <div className="icon-text">Meus anúncios</div></Link></div>
                 <div className="icons-cabecalho"><Link to="/carrinho" className="navegacao"><div className="icon"><img src="/assets/images/carrinho.svg" alt="" /></div>
                 <div className="icon-text">Carrinho</div></Link></div>
-                <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/Pesquisar.svg" alt="" /></div>
-                <div className="icon-text">Pesquisar</div></div>
+                <div className="icons-cabecalho"><Link to = "/chat" className="navegacao"><div className="icon"><img src="/assets/images/chatt.svg" alt="" /></div>
+                <div className="icon-text">Chat</div></Link></div>
             </Container>
         </header>
     )

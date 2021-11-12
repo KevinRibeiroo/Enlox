@@ -38,20 +38,25 @@ export default function Produto (props){
 
       const [idUsu] = useState(usuarioLogado.id_usuario);
 
-    
+        const [categoria, setCategoria] = useState([])
 
      
 
     useEffect(() => {
         mostrarUsuario(produto.id_usuario);
-    });
+    }, []);
 
     const mostrarUsuario = async (id) => {
         const r = await api.listarUsu(id);
         setUsu(r);
     }
 
-    
+        const listarCategoria = async () => {
+            const r = await api.listarCategorias(produto.id_categoria);
+            console.log(r);
+            setCategoria(r);
+        }
+
     const InserirChat = async () => {
         if (Cookies.get('usuario-logado') === undefined) {
             nav.push('/');
@@ -66,7 +71,7 @@ export default function Produto (props){
         console.log(r)
     }
 
-    console.log(usu);
+    console.log(produto.id_categoria);
 
     function comprar() {
         let carrinho = Cookie.get('carrinho');
@@ -79,6 +84,12 @@ export default function Produto (props){
                 nav.push('/carrinho');
 
             }
+
+
+        useEffect(() => {
+            listarCategoria()
+        }, [categoria])
+        console.log(categoria)
 
     return (
     <Conteudo>
@@ -129,7 +140,7 @@ export default function Produto (props){
                             <div className="agp-info">
                                 <div className="info-product">
                                     <div className="title-info">Categoria:</div>
-                                    <div className="desc-info">Geladeira</div>
+                                    <div className="desc-info">{categoria.nm_categoria}</div>
                                 </div>
                                 <div className="info-product">
                                     <div className="title-info">Produto:</div>

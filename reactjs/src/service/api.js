@@ -101,4 +101,9 @@ export default class Api {
          return r.data;
   }
 
+  async listarCategorias(id) {
+      const r = await api.get(`/categoria/${id}`);
+      return r.data;
+  }
+
         }
