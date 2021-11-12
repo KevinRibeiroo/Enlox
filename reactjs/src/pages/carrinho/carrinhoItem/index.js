@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import Container from './styled'
 import Api from '../../../service/api'
+import { useHistory } from 'react-router-dom'
 
 const api = new Api()
 
 export default function CarrinhoItem(props) {
 
+    const nav = useHistory();
 
     const [produto] = useState(props.info)
     const [usuario, setUsuario] = useState([])
@@ -29,10 +31,8 @@ export default function CarrinhoItem(props) {
                 <div className='gab-imagemprod'><img src={produto.ds_imagem1} alt='' /> </div>
                 <div className='gab-descprod'>
                     <ul>
-                        <li><span className='gab-tit'>{produto.nm_produto}</span></li>
-                        <li><span className='gab-tit2'>Status: 
-                    </span>{produto.bt_ativo} </li>
-                        <li><span classname='gab-imgli'> </span></li>
+                        <li><span className='gab-tit' >{produto.nm_produto}</span></li>
+                        <li><span className='gab-tit2'>Status: </span>{produto.bt_ativo} </li>
                         <li><span className='gab-tit2'>Vendido por: </span>{usuario.nm_usuario} </li>
                         <li><span className='gab-tit'>Preço: {produto.vl_preco}</span></li>
                         <li><span className='gab-tit3'>{produto.ds_produto} </span></li>

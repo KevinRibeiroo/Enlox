@@ -5,10 +5,10 @@ export default class infob_apn_tb_adm extends Model {
   static init(sequelize, DataTypes) {
   super.init({
     ID_ADM: {
-      autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     DS_COD: {
       type: DataTypes.STRING(100),

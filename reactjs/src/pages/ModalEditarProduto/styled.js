@@ -162,7 +162,7 @@ const Container = styled.div`
         font-size: 18px;
         color: #615858;
         width: 5.5em;
-        padding-left: 1em;
+        padding-left: 0em;
         font-weight: 800;
         margin-right: 1em; 
     }
@@ -188,9 +188,9 @@ const Container = styled.div`
         display: flex;
         flex-direction: row;
         align-self: center;
-        margin-top: 1em;
+        margin-top: 3.5em;
         justify-content: center;
-        margin-right: 12em;
+        margin-right: 15em;
         margin-left: 0em;
        
     }

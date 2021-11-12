@@ -5,7 +5,8 @@ import axios from "axios";
 
 
 const api = axios.create({
-    baseURL: 'https://enloxx.herokuapp.com'
+    //baseURL: 'https://enloxx.herokuapp.com'
+    baseURL: 'http://localhost:3030'
 })
 
 
@@ -48,51 +49,10 @@ export default class Api {
                 return r.data;
             }
 
-            async listarProdutoCategoria(id){
-                const r = await api.get(`/produtos/${id}`);
+
+            //ver isso daqui
+            async listarProdutoComDesconto() {
+                const r = await api.get('/produto');
 
                 return r.data;
-            }
-
-            async removerProduto(id){
-                let r = await api.delete(`/produto/${id}`);
-                return r.data;
-            }
-    
-            async editar( id, nome, categoria, preco,  descProduto, estoque, img) {
-                let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img })
-                return r.data
-            } 
-        
-        
-        async inserirChatUsu(id_comprador, id_vendedor) {
-            const r = await api.post(`/chat_usu/${id_comprador}/${id_vendedor}`);
-
-            return r.data;
-        }
-
-        async listarChatUsu(id) {
-            const r  = await api.get(`/chat_usu/${id}`);
-
-            return r.data;
-        }
-
-        async inserirMsg(idUsu, idUsu2, msg) {
-            const r = await api.post(`/chat/${idUsu}/${idUsu2}`, {msg});
-
-            return r.data;
-        }
-
-        async listarMsg(idUsu, idUsu2) {
-            const r = await api.get(`/chat/${idUsu}/${idUsu2}`);
-
-            return r.data;
-        }
-
-
-        async listarChatEspecifico(idChat){
-            const r = await api.get(`/chat_usu2/${idChat}`);
-
-            return r.data;
-        }
-}
+            }}

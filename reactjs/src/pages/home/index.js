@@ -93,11 +93,15 @@ export default function Home(props){
 
     //mostrar produtos com desconto: Faixa de Ofertas do Dia
     async function produtosOfertados(){
-        let r = await api.listarProduto();
+        const r = await api.listarProduto();
         var nova=[];
         for(let i=0;i<r.length;i++){
-            if(r[i].nr_desconto!==0 && r[i].bt_ativo===true){nova.push(r[i])}
+            
+            if(r[i].nr_desconto ^ 0 & r[i].bt_ativo ){
+                nova.push(r[i])   
+            }
        }
+       
        /* ordem crescente descontos
        var desconto = nova.map((i)=>i.nr_desconto);
 
@@ -105,9 +109,8 @@ export default function Home(props){
        desconto=desconto.sort(comparaNumeros);
        console.log(desconto);
        */
-      //console.log(r)
-       setProdutosDesc(r);
-       
+      
+       setProdutosDesc(nova);
     }
 
     
@@ -118,7 +121,7 @@ export default function Home(props){
         setDesconto(item.nr_desconto);
     }
 
-    console.log(editarProduto)
+    //console.log(editarProduto)
 
     
 

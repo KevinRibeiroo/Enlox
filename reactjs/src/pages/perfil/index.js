@@ -1,22 +1,44 @@
 import Container from './styled.js'
 import Cookies from 'js-cookie'
 import { useHistory } from 'react-router'
+import Api from '../../service/api'
+import { useEffect, useState } from 'react';
+
+const api = new Api();
+
+function usuLogado(){
+    if (Cookies.get('usuario-logado') !== undefined){
+let logado = Cookies.get('usuario-logado');
 
 
 
+let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
 
-
-
-
+}
+}
 
 
 export default function Perfil() {
 
+    let ususLogado = usuLogado() || {}
+   
 
+    const [usuario, setUsuario]= useState([])
+    const [idUsu] = useState(ususLogado.id_usuario)
+   
 
+   
+
+    const getUsu = async() =>   {
+        let g= await api.listarUsu(idUsu)
+        setUsuario(g)
+    } 
+
+    useEffect(getUsu);
 
     const home = async() => {
-       nav.push('/home')
+       nav.push('/')
     }
 
 
@@ -46,16 +68,16 @@ export default function Perfil() {
         </div>
         <div className='gab-conteudo'>
             <div className='gab-form1'>
-                <div className='gab-email'>EMAIL: gabs@gmail.com <span>Alterar email</span> </div>
-                <div className='gab-numero'>NÚMERO: 40028922 <span className='gab-img1'><img src='/assets/images/verificado.svg' alt=''  /></span> <span className='gab-verif'>VERIFICADO</span></div>
-                <div className='gab-conect'><span className='gab-img2'><img src='/assets/images/silas.png' alt='' /></span>Silas</div>
+                <div className='gab-email'>EMAIL: {usuario.ds_email}  <span>Alterar email</span> </div>
+                <div className='gab-numero'>NÚMERO: {usuario.nr_celular} <span className='gab-img1'><img src='/assets/images/verificado.svg' alt=''  /></span> <span className='gab-verif'>VERIFICADO</span></div>
+                <div className='gab-conect'><span className='gab-img2'><img src={usuario.img_foto} alt='' /></span>{usuario.nm_usuario}</div>
             </div>
             <div gab-form2>
-                <div className='gab-foto'> <img src='/assets/images/silas.png' alt='' /> </div>
+                <div className='gab-foto'> <img src={usuario.img_foto} alt='' /> </div>
                 <div className='gab-info'>
-                    <div className='gab-nome'>NOME: <input></input></div>
-                    <div className='gab-sobrenome'>SOBRENOME: <input></input></div>
-                    <div className='gab-cpf'>CPF: <input></input></div>
+                    <div className='gab-nome'><span>NICK DE USUÁRIO:</span> {usuario.nm_usuario}  </div>
+                    <div className='gab-sobrenome'><span>NOME:</span> {usuario.nm_nome}  </div>
+                    <div className='gab-cpf'><span>CPF:</span>  {usuario.ds_cpf} </div>
                 </div>
                 <div className='gab-planos'>
                     <div className='gab-plano-imagem'> <img src='/assets/images/plano.svg' alt='' />  </div>
@@ -72,11 +94,9 @@ export default function Perfil() {
                         <th>MEUS ENDEREÇOS</th>
                     </tr>
                     <tr>
-                       <td className='gab-celula'> | Rua Henriqueta Salvadore Giacometti</td>
+                       <td className='gab-celula'> | {usuario.ds_cep}</td>
                     </tr>
-                    <tr>
-                       <td className='gab-celula'> | Rua Henriqueta Salvadore Giacometti</td>
-                    </tr>
+                   
                     </table>
                 </div>
                 <div className='gab-enderecoa'>
@@ -88,4 +108,4 @@ export default function Perfil() {
     </div>
     </Container>   
     )
-}
+    }

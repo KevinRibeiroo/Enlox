@@ -14,7 +14,63 @@ app.use(cors());
 app.use(express.json());
 
 
+app.get('/vistorecentemente', async (req, resp) => {
+    const { id } = req.query;
+    try {
+        const r = await db.infoa_enl_visto_recentemente.findAll({
+            raw: true,
+            where: { 'id_usuario': id },
+            order: [['dt_visualizacao', 'desc']],
+            limit: 10,
+            include: [
+                {
+                    model: db.infoa_enl_produto,
+                    as: 'id_produto_infoa_enl_produto',
+                    required: true,
+                    //attributes: []
+                }
+            ],
+            attributes: []
+        })
 
+        const result = r.map(item => { return {
+            "id_produto": item.id_produto_infoa_enl_produto.id_produto,
+            "id_categoria": item.id_produto_infoa_enl_produto.id_categoria,
+            "id_usuario": item.id_produto_infoa_enl_produto.id_usuario,
+            "ds_imagem1": item.id_produto_infoa_enl_produto.ds_imagem1,
+            "ds_imagem2": item.id_produto_infoa_enl_produto.ds_imagem2,
+            "ds_imagem3": item.id_produto_infoa_enl_produto.ds_imagem3,
+            "ds_imagem4": item.id_produto_infoa_enl_produto.ds_imagem4,
+            "nm_produto": item.id_produto_infoa_enl_produto.nm_produto,
+            "vl_preco": item.id_produto_infoa_enl_produto.vl_preco,
+            "ds_produto": item.id_produto_infoa_enl_produto.ds_produto,
+            "bt_ativo": item.id_produto_infoa_enl_produto.bt_ativo,
+            "nr_media_avaliacao": item.id_produto_infoa_enl_produto.nr_media_avaliacao,
+            "nr_avaliacao": item.id_produto_infoa_enl_produto.nr_avaliacao,
+            "nr_desconto": item.id_produto_infoa_enl_produto.nr_desconto
+        }})
+
+        resp.send(r);
+    } catch (e) {
+        console.log(e);
+        resp.send({ error: 'Deu ruimmmm'})
+    }
+})
+
+app.post('/vistorecentemente', async (req, resp) => {
+    const { usuario, produto } = req.body;
+    try {
+        const r = await db.infoa_enl_visto_recentemente.create({
+            id_usuario: usuario,
+            id_produto: produto,
+            dt_visualizacao: Date.now()
+        })
+        resp.sendStatus(200);
+    } catch (e) {
+        resp.send({ error: 'Deu ruim'})
+    }
+
+})
 
 
 
@@ -40,13 +96,11 @@ app.use(express.json());
             nm_nome: usu.nm_nome,
             ds_cpf: usu.ds_cpf,
             nr_celular: usu.nr_celular,
-            nr_telefone: usu.nr_telefone,
             ds_email: usu.ds_email,
             ds_senha: usu.ds_senha,
             dt_nascimento: usu.nascimento,
             ds_cep:  usu.ds_cep,
             nr_casa: usu.nr_casa,
-            ds_complemento: usu.ds_complemento,
             ds_bairro: usu.bairro,
             ds_cidade: usu.cidade,
             bt_sexo: 1,
@@ -54,7 +108,8 @@ app.use(express.json());
             dt_cadastro: Date.now(),
             dt_alteracao: Date.now(),
             bt_ativo: true,
-            dt_ult_login:Date.now()
+            dt_ult_login:Date.now(),
+            nm_rua:usu.rua
         });
 
         resp.send(r);
@@ -174,11 +229,11 @@ app.post('/produto/:id', async (req, resp) => {
 
 // listar  os produttoos
 
-app.get('/produto/:id', async (req, resp) => {
+app.get('/produtoss/:id', async (req, resp) => {
     try {
         let id = req.params.id;
 
-        let list = await db.infoa_enl_produto.findOne({where: {id_usuario: id}});
+        let list = await db.infoa_enl_produto.findAll({where: {id_usuario: id}});
 
 
         resp.send(list);
@@ -362,17 +417,37 @@ app.post('/login', async (req, resp) => {
     try {
         let login = req.body;
 
+       
+
+        
+
         let logar = await db.infoa_enl_usuario.findOne({
             where: {
                 ds_email: login.ds_email,
                 ds_senha: login.ds_senha
             }, raw: true});
 
+            if (login.ds_email === "" || login.ds_senha === "") {
+                return resp.send({error: "Não pode inserir campos vazios"})
+            }
+            if (logar.ds_senha === null){
+                return resp.send({error: "Senha incorreta"})
+            }
+            if (logar === null){
+                return resp.send({error: "Senha ou Email incorretos"})
+            }
+            
+           
 
         let lastLogin = await db.infoa_enl_usuario.update({dt_ult_login: Date.now()}, 
         {where: {
             id_usuario: logar.id_usuario
         }})
+
+
+       
+        
+
         resp.send(logar);
 
     } catch (error) {
@@ -420,15 +495,18 @@ app.post('/chat/:id/:id2', async (req, resp) => {
         //let consul = await db.infoa_enl_chat.findOne({where: {id_usuario: id}})
 
         
-        let id_chat_usu = await db.infoa_enl_chat_usuario.findOne({
-            where: {id_usuario_comprador: id, id_usuario_vendedor: req.params.id2}
-        });
+        //let id_chat_usu = await db.infoa_enl_chat_usuario.findOne({
+            //where: {id_usuario_comprador: id, id_usuario_vendedor: req.params.id2}
+        //});
 
         let r = await db.infoa_enl_chat.create({
             id_usuario: id,
-            id_chat_usuario: id_chat_usu.id_chat_usuario,
+            id_chat_usuario: req.params.id2,
             ds_mensagem: chat.msg,
             dt_mensagem: new Date()
+        }, 
+        {
+            where: {id_chat_usuario: req.params.id2}
         });
 
 
@@ -441,13 +519,13 @@ app.post('/chat/:id/:id2', async (req, resp) => {
 
 
 
-app.get('/chat/:id/:id2', async (req, resp) => {
+app.get('/chat/:id', async (req, resp) => {
     try {
-        let id_chat_usu = await db.infoa_enl_chat_usuario.findOne({
-            where: { [Op.or]: [{id_usuario_comprador: req.params.id, id_usuario_vendedor: req.params.id2}, {id_usuario_comprador: req.params.id2, id_usuario_vendedor: req.params.id}]
-        }});
+        //let id_chat_usu = await db.infoa_enl_chat_usuario.findOne({
+          //  where: { [Op.or]: [{id_usuario_comprador: req.params.id, id_usuario_vendedor: req.params.id2}, {id_usuario_comprador: req.params.id2, id_usuario_vendedor: req.params.id}]
+        //}});
 
-        let chat = await db.infoa_enl_chat.findAll({where: {id_chat_usuario: id_chat_usu.id_chat_usuario},
+        let chat = await db.infoa_enl_chat.findAll({where: {id_chat_usuario: req.params.id},
             include: [
                 {
                     model: db.infoa_enl_chat_usuario,

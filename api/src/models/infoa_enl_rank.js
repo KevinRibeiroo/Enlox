@@ -5,18 +5,14 @@ export default class infoa_enl_rank extends Model {
   static init(sequelize, DataTypes) {
   super.init({
     id_rank: {
-      autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     id_produto: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'infoa_enl_produto',
-        key: 'id_produto'
-      }
+      allowNull: false
     },
     qtd_clique: {
       type: DataTypes.DECIMAL(6,2),
