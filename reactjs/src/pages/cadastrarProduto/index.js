@@ -108,7 +108,7 @@ export default function CadastrarProduto () {
                                 <BotaoCdstr onClick={() => setIdCategoria(5)}>Construções</BotaoCdstr>
                                 <BotaoCdstr onClick={() => setIdCategoria(6)}>Brinquedos</BotaoCdstr>
                                 <BotaoCdstr onClick={() => setIdCategoria(7)} >Auto-Peças</BotaoCdstr>
-                                <BotaoCdstr style={{borderBottom: "none"}}>Outros</BotaoCdstr>
+                                <BotaoCdstr onClick={() => setIdCategoria(8)} style={{borderBottom: "none"}}>Outros</BotaoCdstr>
                             </div>
                         </div>
                         
