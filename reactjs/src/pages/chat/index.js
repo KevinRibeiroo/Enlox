@@ -106,13 +106,18 @@ export default function Chat (props) {
     // console.log(chat)
     /*{idUsu != chatUsu.id_usuario_comprador ? chatUsu.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsu.id_usuario_comprador_infoa_enl_usuario.nm_usuario }*/
       
+    console.log(chatUsu)
+    if (chatUsu == []) {
     return (
             <Conteudo>
                 <ToastContainer />
                 <main>
+                
                     <Cabecalho />
+   
                     <div className="container-chat">
-                        <div className="conversas">
+                  
+                      <div className="conversas">
                         {chatUsu.map((X) => 
                             <div className="conversa" onClick={() => setarIdChatUsu(X.id_chat_usuario)}>
                                 
@@ -179,6 +184,10 @@ export default function Chat (props) {
                 
                 <Rodape />
                 </main>
+
             </Conteudo>
-    )
+    )} else {
+        return <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}><div style={{width: "100%"}}><Cabecalho /></div> <h1>vc ainda não possui chats</h1> 
+         <img style={{width: "17em"}} src="https://c.tenor.com/U2i5zqRo5bkAAAAM/sad-cry.gif" alt="" /></div>
+    }
 }
