@@ -19,27 +19,18 @@ export default function CadastrarProduto () {
 
 
 
-    /*async function cadastrarProduto() {
-        let formData = new FormData();
-
-        formData.append('imgPrincipal', imgPrincipal);
-        formData.append('nmproduto', nmProduto);
-        formData.append('desc', desc);
-        formData.append('preco', preco);
+    async function cadastrarProdutoo() {
+        
 
 
-        let resp = await axios.post('https://enloxx.herokuapp.com/produto', formData, {
-            headers: {
-                "content-type": "multipart/form-data"
-            }
-        });
+        let resp = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria, imgPrincipal, nmProduto, preco, desc );
     }
 
 
     let file = document.getElementsByClassName('upload');
     //const [imgproduto, setImgproduto] = useState('');
     console.log(file)
-*/
+
     const [nmProduto, setNmProduto] = useState('');
     const [desc, setDesc] = useState('');
     const [preco, setPreco] = useState('');
@@ -59,6 +50,8 @@ export default function CadastrarProduto () {
     async function inserirProduto() {
         const r = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria,img1,img2,img3,img4,nmProduto, preco, desc );
 
+
+   
         if(r.error){
             toast.error(`${r.error}`)
         } else {
@@ -66,7 +59,7 @@ export default function CadastrarProduto () {
         }
     }
 
-    /*
+    
     function preview() {
         if(imgPrincipal) {
              return URL.createObjectURL(imgPrincipal);
@@ -81,7 +74,7 @@ export default function CadastrarProduto () {
         input.click();
     }
 
-    console.log(preview())*/
+    console.log(preview())
 
     console.log(usuarioLogado.id_usuario)
     return (
@@ -118,21 +111,16 @@ export default function CadastrarProduto () {
                             <InputPreco placeholder="Preço(R$)" value={preco} onChange={(e) => setPreco(e.target.value)} />
                         </div>
                         <div className="agp-input">
-                        <div className="label">Imagem 1</div>
-                            <InputImg placeholder="insira a url da imagem" value={img1} onChange={e => setImg1(e.target.value)} />
-                            <div className="label">Imagem 2</div>
-                            <InputImg placeholder="insira a url da imagem" value={img2} onChange={e => setImg2(e.target.value)} />
-                            <div className="label">Imagem 3</div>
-                            <InputImg placeholder="insira a url da imagem" value={img3} onChange={e => setImg3(e.target.value)} />
-                            <div className="label">Imagem 4</div>
-                            <InputImg placeholder="insira a url da imagem" value={img4} onChange={e => setImg4(e.target.value)} />
+                        <InputImage type="file" className="upload"   accept="image/*" onChange={e => setImgPrincipal(e.target.files[0])}/>
+    <img src={preview()} alt="" />
+                      
                         </div>
 
                         
                         
 
 
-                        <InserirAnuncio style={{alignSelf: "flex-end"}} onClick={() => inserirProduto()}> Inserir Anuncio</InserirAnuncio>
+                        <InserirAnuncio style={{alignSelf: "flex-end"}} onClick={() => cadastrarProdutoo()}> Inserir Anuncio</InserirAnuncio>
                     </div>
 
         </div>
@@ -140,6 +128,12 @@ export default function CadastrarProduto () {
         </Conteudoprodut>
     )
 
-    //<InputImage type="file" className="upload"   accept="image/*" onChange={e => setImgPrincipal(e.target.files[0])}/>
-    //<img src={preview()} alt="" />
+    /*  <div className="label">Imagem 1</div>
+    <InputImg placeholder="insira a url da imagem" value={img1} onChange={e => setImg1(e.target.value)} />
+    <div className="label">Imagem 2</div>
+    <InputImg placeholder="insira a url da imagem" value={img2} onChange={e => setImg2(e.target.value)} />
+    <div className="label">Imagem 3</div>
+    <InputImg placeholder="insira a url da imagem" value={img3} onChange={e => setImg3(e.target.value)} />
+    <div className="label">Imagem 4</div>
+    <InputImg placeholder="insira a url da imagem" value={img4} onChange={e => setImg4(e.target.value)} />*/
 }
