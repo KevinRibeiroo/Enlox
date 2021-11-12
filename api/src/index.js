@@ -109,7 +109,7 @@ app.post('/vistorecentemente', async (req, resp) => {
             dt_alteracao: Date.now(),
             bt_ativo: true,
             dt_ult_login:Date.now(),
-            nm_rua:usu.rua
+            nm_rua: usu.rua
         });
 
         resp.send(r);
@@ -188,19 +188,31 @@ app.put('/usuario/:id', async (req, resp) => {
 
 
 // inserir um produto 
+/*
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'uploads/')
+    },
+    filename: function(req, file, cb) {
+        const unique = Date.now() + "-" +  Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + "-" + unique + path.extraname(file.originalname))
+    }
+})
 
-
-app.post('/produto/:id', async (req, resp) => {
+const upload = multer({storage: storage})
+*/
+app.post('/produto/:id/:id2',/*upload.single('imgPrincipal') ,*/ async (req, resp) => {
     try {
         
         let produto = req.body;
         let id = req.params.id;
-       
+        //const {path} = req.file;
+
         let filter = await db.infoa_enl_produto.findOne({where: {nm_produto: produto.nm_produto}});
 
 
         let r = await db.infoa_enl_produto.create({
-                id_categoria: 2,//categorias foram criadas; id de 1 a 7
+                id_categoria: req.params.id2,//categorias foram criadas; id de 1 a 7
                 id_usuario: id,
                 ds_imagem1: produto.img,
                 ds_imagem2: produto.img2,
@@ -211,8 +223,8 @@ app.post('/produto/:id', async (req, resp) => {
                 ds_produto: produto.ds_produto,
                 bt_ativo: true,
                 nr_media_avaliacao: 1,
-                nr_avaliacao: produto.nr_avaliacao,
-                nr_desconto: produto.desc
+                nr_avaliacao: 1,
+                nr_desconto: 10
                 
         });
 
@@ -224,7 +236,10 @@ app.post('/produto/:id', async (req, resp) => {
     }
 });
 
-
+app.get('/produtinho', async(req, resp) => {
+    let dirname = path.resolve();
+    resp.sendFile(req.query.imagem, {root: path.join(dirname)})
+})
 
 
 // listar  os produttoos
@@ -337,7 +352,7 @@ app.get('/chat_usu/:id', async (req, resp) => {
                     model: db.infoa_enl_usuario,
                     as: "id_usuario_comprador_infoa_enl_usuario" , 
                     required: true
-                } 
+                }
             ]})
 
 
@@ -355,21 +370,33 @@ app.post('/chat_usu/:id_comprador/:id_vendedor', async (req, resp) => {
         let id_comprador = req.params.id_comprador;
         let id_vendedor = req.params.id_vendedor;
 
+
+
+        if (id_comprador === id_vendedor){
+            return resp.send({error: "Não se pode iniciar um chat consigo msm"})
+        }
+       
+
         const consul = await db.infoa_enl_chat_usuario.findOne({where: { id_usuario_comprador: id_comprador,
             id_usuario_vendedor: id_vendedor}});
 
+       
+        if (consul != null) {
 
-        if (consul != null)
+            
+
+
             return resp.send({erro: 'já existe essse chat'});    
-        
+        }
 
         let r = await db.infoa_enl_chat_usuario.create({
             id_usuario_comprador: id_comprador,
             id_usuario_vendedor: id_vendedor
         });
 
-
+     
         resp.send(r);
+    
     } catch (error) {
         resp.send({error: "erro ao inserir os usuarios no chat"})
     }
@@ -381,7 +408,8 @@ app.delete('/chat_usu/:id', async (req, resp) => {
         let id = req.params.id;
 
 
-        const del = await db.infoa_enl_chat.destroy({where:{[Op.or] : [{id_usuario_comprador: id}, {id_usuario_vendedor: id}]} })
+        const del = await db.infoa_enl_chat_usuario.destroy({where:{id_chat_usuario: id} })
+        resp.sendStatus(200);
     } catch (error) {
         
     }
@@ -427,12 +455,12 @@ app.post('/login', async (req, resp) => {
                 ds_senha: login.ds_senha
             }, raw: true});
 
+            
+            
             if (login.ds_email === "" || login.ds_senha === "") {
                 return resp.send({error: "Não pode inserir campos vazios"})
             }
-            if (logar.ds_senha === null){
-                return resp.send({error: "Senha incorreta"})
-            }
+          
             if (logar === null){
                 return resp.send({error: "Senha ou Email incorretos"})
             }
@@ -475,9 +503,9 @@ app.post('/categoria', async (req, resp) => {
 
 
 
-app.get('/categoria', async (req, resp) => {
+app.get('/categoria/:id', async (req, resp) => {
     try {
-        let consul = await db.infoa_enl_categoria.findAll();
+        let consul = await db.infoa_enl_categoria.findOne({where: {id_categoria: req.params.id}});
 
 
         resp.send(consul);
@@ -547,6 +575,12 @@ app.get('/chat/:id', async (req, resp) => {
         resp.send({error: "erro ao ler mensagens"})
     }
 })
+
+
+
+
+
+
 
 
 app.listen(process.env.PORT,

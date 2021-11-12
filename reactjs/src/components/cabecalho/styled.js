@@ -66,6 +66,8 @@ text-align: center;
 
 
 color: #000000;
+
+cursor: pointer;
 }
 
 .icon-text {
