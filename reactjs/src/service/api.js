@@ -117,7 +117,7 @@ export default class Api {
               "Content-Type": "multipart/form-data"
           }
       } )
-     console.log(r.data);
+    return r.data;
   }
 
   async listarUpload(){

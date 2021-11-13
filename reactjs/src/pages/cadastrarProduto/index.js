@@ -24,12 +24,13 @@ export default function CadastrarProduto () {
 
 
         let resp = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria, imgPrincipal, nmProduto, preco, desc );
+        console.log(resp)
     }
 
 
     let file = document.getElementsByClassName('upload');
     //const [imgproduto, setImgproduto] = useState('');
-    console.log(file)
+
 
     const [nmProduto, setNmProduto] = useState('');
     const [desc, setDesc] = useState('');
