@@ -24,7 +24,7 @@ export default function CadastrarProduto () {
         
 
 
-        const resp = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria);
+        const resp = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria, imgPrincipal, nmProduto, preco, desc);
         console.log(resp)
     }
 
