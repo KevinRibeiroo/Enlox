@@ -16,9 +16,12 @@ export default function Carrinho() {
         let carrinho = Cookie.get('carrinho')
         carrinho = carrinho !== undefined
         ? JSON.parse(carrinho)
-        : [] 
+        : []
         setProdutos(carrinho)
     }
+
+
+
 
     function removerProduto(id) {
         let carrinho = produtos.filter(item => item.id_produto !== id)
@@ -41,7 +44,7 @@ export default function Carrinho() {
             remover={removerProduto}  />
             )}
                  </div>
-             <Rodape></Rodape>
+             <Rodape />
             </Container>          
     
     )

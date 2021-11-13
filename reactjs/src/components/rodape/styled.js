@@ -9,6 +9,7 @@ justify-content: space-between;
 height: 12vh;
 
 
+
 .sobre-empresa {
     display: flex;
     flex-direction: row;
