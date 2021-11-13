@@ -19,11 +19,12 @@ export default function CadastrarProduto () {
 
 
 
+
     async function cadastrarProdutoo() {
         
 
 
-        let resp = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria, imgPrincipal, nmProduto, preco, desc );
+        const resp = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria);
         console.log(resp)
     }
 
@@ -48,7 +49,7 @@ export default function CadastrarProduto () {
 
     let usuarioLogado = usuLogado() || {};
 
-    async function inserirProduto() {
+    /*async function inserirProduto() {
         const r = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria,img1,img2,img3,img4,nmProduto, preco, desc );
 
 
@@ -58,7 +59,7 @@ export default function CadastrarProduto () {
         } else {
             nav.push('/')
         }
-    }
+    }*/
 
     
     function preview() {
@@ -66,7 +67,7 @@ export default function CadastrarProduto () {
              return URL.createObjectURL(imgPrincipal);
              
         }
-
+     
      
     }
     
@@ -76,6 +77,8 @@ export default function CadastrarProduto () {
     }
 
     console.log(preview())
+
+   
 
     console.log(usuarioLogado.id_usuario)
     return (

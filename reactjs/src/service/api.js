@@ -103,20 +103,20 @@ export default class Api {
   }
 
 
-  async cadastrarProduto(id1, id2, imgPrincipal, nmProduto, preco, desc ){
+  async cadastrarProduto(id1, id2/*, imgPrincipal, nmProduto, preco, desc*/ ){
 
-    let formData = new FormData();
+   /* let formData = new FormData();
 
         formData.append('imgPrincipal', imgPrincipal);
         formData.append('nmproduto', nmProduto);
         formData.append('desc', desc);
-        formData.append('preco', preco); 
+        formData.append('preco', preco); */
 
-      const r = await api.post(`/produto/${id1}/${id2}`, formData, {
+      const r = await api.post(`/produto/${id1}/${id2}`/*, formData, {
           headers: {
               "Content-Type": "multipart/form-data"
           }
-      } )
+      }*/ )
     return r.data;
   }
 
