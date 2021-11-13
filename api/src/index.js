@@ -2,6 +2,8 @@ import db from './db.js';
 import express from 'express';
 import cors from 'cors';
 import Sequelize from 'sequelize'
+import multer from 'multer';
+import path from 'path';
 
 
 const {Op, col} = Sequelize;
@@ -188,25 +190,25 @@ app.put('/usuario/:id', async (req, resp) => {
 
 
 // inserir um produto 
-/*
+
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, 'uploads/')
     },
     filename: function(req, file, cb) {
         const unique = Date.now() + "-" +  Math.round(Math.random() * 1E9);
-        cb(null, file.fieldname + "-" + unique + path.extraname(file.originalname))
+        cb(null, file.fieldname + "-" + unique + path.extname(file.originalname))
     }
-})
+});
 
-const upload = multer({storage: storage})
-*/
-app.post('/produto/:id/:id2',/*upload.single('imgPrincipal') ,*/ async (req, resp) => {
+const upload = multer({storage: storage}); 
+
+app.post('/produto/:id/:id2',  async (req, resp) => {
     try {
         
         let produto = req.body;
         let id = req.params.id;
-        //const {path} = req.file;
+        //const { path } = req.file;
 
         let filter = await db.infoa_enl_produto.findOne({where: {nm_produto: produto.nm_produto}});
 
@@ -214,13 +216,13 @@ app.post('/produto/:id/:id2',/*upload.single('imgPrincipal') ,*/ async (req, res
         let r = await db.infoa_enl_produto.create({
                 id_categoria: req.params.id2,//categorias foram criadas; id de 1 a 7
                 id_usuario: id,
-                ds_imagem1: produto.img,
-                ds_imagem2: produto.img2,
-                ds_imagem3: produto.img3,
-                ds_imagem4: produto.img4,
-                nm_produto: produto.nm_produto,
-                vl_preco: produto.vl_preco,
-                ds_produto: produto.ds_produto,
+                ds_imagem1: "hj",
+                ds_imagem2: "a",
+                ds_imagem3: "a",
+                ds_imagem4: "a",
+                nm_produto: "12etgsa",
+                vl_preco: 10,
+                ds_produto: "qual é",
                 bt_ativo: true,
                 nr_media_avaliacao: 1,
                 nr_avaliacao: 1,
@@ -232,7 +234,7 @@ app.post('/produto/:id/:id2',/*upload.single('imgPrincipal') ,*/ async (req, res
         resp.send(r);
         
     } catch (error) {
-        resp.send({error: "Erro ao inserir o produto meu cumpadrade"})
+        resp.send({error: "Erro ao inserir o produto."})
     }
 });
 
@@ -377,8 +379,9 @@ app.post('/chat_usu/:id_comprador/:id_vendedor', async (req, resp) => {
         }
        
 
-        const consul = await db.infoa_enl_chat_usuario.findOne({where: { id_usuario_comprador: id_comprador,
-            id_usuario_vendedor: id_vendedor}});
+        const consul = await db.infoa_enl_chat_usuario.findOne({where: {[Op.or]: [{id_usuario_comprador: id_comprador,
+            id_usuario_vendedor: id_vendedor}, {id_usuario_comprador: id_vendedor,
+                id_usuario_vendedor: id_comprador}]}});
 
        
         if (consul != null) {
