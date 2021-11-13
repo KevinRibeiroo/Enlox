@@ -48,7 +48,7 @@ export default function Cabecalho(){
 
                 {Cookies.get('usuario-logado') === undefined   ? <div className="icons-cabecalho"><Link to = "/login" className="navegacao"> <div className="icon"><img src="/assets/images/user.svg" alt="" /></div>
                 <div className="icon-text"> Login </div></Link></div>
-                :<div className="icons-cabecalho"><Link to = "/perfil" className="navegacao"> <div className="icon"><img src={imgUsu} alt="" style={{borderRadius: "2.3em", width: "3.3em"}} /></div>
+                :<div className="icons-cabecalho"><Link to = "/perfil" className="navegacao"> <div className="icon"><img src={imgUsu} alt="" style={{borderRadius: "50%", width: "3em"}} /></div>
                 <div className="icon-text"> {nmUsu != null && nmUsu.length >= 15 ? nmUsu.substr(0, 15) + '...' : nmUsu}</div></Link></div>}
                 
                 <div className="icons-cabecalho"><Link to = "/cadastrarProduto" className="navegacao"><div className="icon"><img src="/assets/images/produto.svg" alt="" /> </div>

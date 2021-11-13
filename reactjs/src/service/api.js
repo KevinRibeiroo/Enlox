@@ -125,4 +125,15 @@ export default class Api {
       return r.data;
   }
 
+  async  editarFoto(id, foto) {
+    let formData = new formData();
+    formData.append('foto', foto)
+
+    let resp = await api.put(`/usuario/${id}`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+        
+    })
+    console.log(resp.data) }
         }

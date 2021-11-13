@@ -26,8 +26,8 @@ export default function Perfil() {
 
     const [usuario, setUsuario]= useState([])
     const [idUsu] = useState(ususLogado.id_usuario)
-   
-
+    const [foto, setFoto] = useState('')
+    console.log(idUsu)
    
 
     const getUsu = async() =>   {
@@ -35,7 +35,7 @@ export default function Perfil() {
         setUsuario(g)
     } 
 
-    useEffect(getUsu);
+    useEffect(() => {getUsu()}, []);
 
     const home = async() => {
        nav.push('/')
@@ -51,18 +51,11 @@ export default function Perfil() {
     }
 
 
-    async function editarFoto(id) {
-        let formData = new formData();
-        formData.append('foto', usuario.img_foto)
-
-        let resp = await api.post('/usuario/:id', formData, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-            
-        })
-        console.log(resp) }
+    async function editPic() {
+        let gab = await api.editarFoto(idUsu, foto)
+    }
  
+       
     
 
     if (Cookies.get('usuario-logado') === undefined) {
@@ -86,13 +79,13 @@ export default function Perfil() {
                 <div className='gab-foto'>
                     <label for='file-input'>
                     <img src={usuario.img_foto} alt='' />
-                    <img src='/assets/images/editar.png' alt='' className='imgbraba' />
+                    <img src='/assets/images/editar.png' alt='' className='imgbraba'  />
                     </label>
 
-                    <input id='file-input' type='file' />
+                    <input id='file-input' type='file'  onChange={e => setFoto(e.target.files[0])}/>
                 </div>
                 <div className='gab-info'>
-                    <div className='gab-nome'><span>NICK DE USUÁRIO:</span> {usuario.nm_usuario}  </div>
+                    <div className='gab-nome'  onClick={() => editPic()} ><span>NICK DE USUÁRIO:</span> {usuario.nm_usuario}  </div>
                     <div className='gab-sobrenome'><span>NOME:</span> {usuario.nm_nome}  </div>
                     <div className='gab-cpf'><span>CPF:</span>  {usuario.ds_cpf} </div>
                 </div>
