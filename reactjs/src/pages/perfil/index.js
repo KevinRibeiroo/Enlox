@@ -51,9 +51,19 @@ export default function Perfil() {
     }
 
 
+    async function editarFoto(id) {
+        let formData = new formData();
+        formData.append('foto', usuario.img_foto)
+
+        let resp = await api.post('/usuario/:id', formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+            
+        })
+        console.log(resp) }
  
-
-
+    
 
     if (Cookies.get('usuario-logado') === undefined) {
       nav.push('/');
@@ -73,7 +83,14 @@ export default function Perfil() {
                 <div className='gab-conect'><span className='gab-img2'><img src={usuario.img_foto} alt='' /></span>{usuario.nm_usuario}</div>
             </div>
             <div gab-form2>
-                <div className='gab-foto'> <img src={usuario.img_foto} alt='' /> </div>
+                <div className='gab-foto'>
+                    <label for='file-input'>
+                    <img src={usuario.img_foto} alt='' />
+                    <img src='/assets/images/editar.png' alt='' className='imgbraba' />
+                    </label>
+
+                    <input id='file-input' type='file' />
+                </div>
                 <div className='gab-info'>
                     <div className='gab-nome'><span>NICK DE USUÁRIO:</span> {usuario.nm_usuario}  </div>
                     <div className='gab-sobrenome'><span>NOME:</span> {usuario.nm_nome}  </div>

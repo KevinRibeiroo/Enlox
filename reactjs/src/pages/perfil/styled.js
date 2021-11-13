@@ -87,6 +87,9 @@ const Container = styled.div`
     margin-right: 2em;
     margin-left: 1.2em;
     border-radius: 50%;
+
+    border-style: dotted;
+    border-color: #E78A1D;
 }
 
 .gab-verif {
@@ -99,12 +102,30 @@ const Container = styled.div`
     align-items: center;
 }
 
-.gab-foto >img {
+.gab-foto > label > img {
     margin-top: -8em;
     margin-left: -2em;
     width: 16em;
     height: 16em;
     border-radius: 50%;
+
+    
+    border-style: solid;
+    border-color: #E78A1D;
+}
+
+.gab-foto .imgbraba {
+    display: none;
+    margin-left: -16em;
+}
+
+.gab-foto:hover .imgbraba {
+    display: inline;
+    cursor: pointer;
+}
+
+input[type='file']{
+    display: none;
 }
 
 .gab-info {
@@ -198,6 +219,37 @@ const Container = styled.div`
     font-size: 1.4em;
 }
 
+.imgbraba {
+  animation: fadeIn 0.3s;
+  -webkit-animation: fadeIn 0.3s;
+  -moz-animation: fadeIn 0.3s;
+  -o-animation: fadeIn 0.3s;
+  -ms-animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
 `
 
 export default Container
