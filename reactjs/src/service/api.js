@@ -112,7 +112,7 @@ export default class Api {
         formData.append('desc', desc);
         formData.append('preco', preco); 
 
-      const r = await api.post(`/produto/${id1}/${id2}`, formData, {
+      const r = await axios.post(`https://enloxx.herokuapp.com/produto/${id1}/${id2}`, formData, {
           headers: {
               "Content-Type": "multipart/form-data"
           }
