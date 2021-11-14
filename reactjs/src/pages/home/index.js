@@ -1,3 +1,4 @@
+
 import Cabecalho from "../../components/cabecalho";
 import Rodape from "../../components/rodape";
 
@@ -14,6 +15,7 @@ import Api from "../../service/api";
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 //import { useHistory } from "react-router";
 //import Cookies from "js-cookie";
 const api = new Api();
@@ -24,8 +26,12 @@ const api = new Api();
 
 export default function Home(props){
     
-  
-    
+    const [produtoss, setProdutoss] = useState([]);
+
+    async function listarImg() {
+    const resp = await api.listarUpload();
+        setProdutoss(...resp.data);
+    }
   
      const [idCarrossel,setIdCarrossel] = useState();
      console.log(idCarrossel)
@@ -104,7 +110,6 @@ async function produtosOfertados(){
     
        /* ordem crescente descontos
        var desconto = nova.map((i)=>i.nr_desconto);
-
        function comparaNumeros(a,b) { if (a == b) return 0; if (a < b) return -1; if (a > b) return 1; }
        desconto=desconto.sort(comparaNumeros);
        console.log(desconto);

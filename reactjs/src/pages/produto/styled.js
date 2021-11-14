@@ -48,6 +48,10 @@ main {
    
 }
 
+.bta-info {
+    cursor: pointer;
+}
+
 .title {
     font-family: Roboto Slab-Bold;
     font-style: normal;
@@ -223,6 +227,8 @@ background-color: transparent;
     //height: 40vh;
     flex-direction: column;
     justify-content: center;
+
+    cursor: pointer;
 }
 
 .nm-perfil {
@@ -264,6 +270,12 @@ input[type="file"] {
     color: white;
     text-decoration: none;
 } 
+
+.produt-min img{
+    height: 4em;
+
+    cursor: pointer;
+}
 `
 
 

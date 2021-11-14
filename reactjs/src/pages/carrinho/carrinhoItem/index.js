@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Container from './styled'
 import Api from '../../../service/api'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const api = new Api()
 
@@ -40,7 +40,7 @@ export default function CarrinhoItem(props) {
                 </div>
                 <div className='gab-btnprod'>
                 <div className='gab-btn-remover' onClick={remove}><img src='/assets/images/lixo.svg' alt='' /> Remover produto </div>
-                <div className='gab-btn-comprar'><button>Comprar agora</button></div>
+                <Link  to={{pathname:"/compra", state: produto}}><div className='gab-btn-comprar'>  <button>Comprar agora</button></div> </Link>
                 </div>            
             </div> 
             </Container>

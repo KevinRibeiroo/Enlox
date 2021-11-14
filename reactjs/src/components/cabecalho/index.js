@@ -48,18 +48,18 @@ export default function Cabecalho(){
 
                 {Cookies.get('usuario-logado') === undefined   ? <div className="icons-cabecalho"><Link to = "/login" className="navegacao"> <div className="icon"><img src="/assets/images/user.svg" alt="" /></div>
                 <div className="icon-text"> Login </div></Link></div>
-                :<div className="icons-cabecalho"><Link to = "/perfil" className="navegacao"> <div className="icon"><img src={imgUsu} alt="" style={{borderRadius: "2.3em", width: "3.3em"}} /></div>
+                :<div className="icons-cabecalho"><Link to = "/perfil" className="navegacao"> <div className="icon"><img src={imgUsu} alt="" style={{borderRadius: "50%", width: "3em"}} /></div>
                 <div className="icon-text"> {nmUsu != null && nmUsu.length >= 15 ? nmUsu.substr(0, 15) + '...' : nmUsu}</div></Link></div>}
                 
-                <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/task 1.svg" alt="" /> </div>
-                <div className="icon-text">Planos</div></div>
+                <div className="icons-cabecalho"><Link to = "/cadastrarProduto" className="navegacao"><div className="icon"><img src="/assets/images/produto.svg" alt="" /> </div>
+                <div className="icon-text">Anunciar</div></Link></div>
                 <Link to = "/" className="navegacao"><div> <img src="/assets/images/logo.svg" alt="" /> </div></Link>
                 <div className="icons-cabecalho"><Link to = "/meusAnuncios" className="navegacao"><div className="icon"><img src="/assets/images/megaphone 1.svg" alt="" /> </div>
                 <div className="icon-text">Meus anúncios</div></Link></div>
                 <div className="icons-cabecalho"><Link to="/carrinho" className="navegacao"><div className="icon"><img src="/assets/images/carrinho.svg" alt="" /></div>
                 <div className="icon-text">Carrinho</div></Link></div>
-                <div className="icons-cabecalho"><div className="icon"><img src="/assets/images/Pesquisar.svg" alt="" /></div>
-                <div className="icon-text">Pesquisar</div></div>
+                <div className="icons-cabecalho"><Link to = "/chat" className="navegacao"><div className="icon"><img src="/assets/images/chatt.svg" alt="" /></div>
+                <div className="icon-text">Chat</div></Link></div>
             </Container>
         </header>
     )

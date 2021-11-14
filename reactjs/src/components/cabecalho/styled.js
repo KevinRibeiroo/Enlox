@@ -21,9 +21,10 @@ flex-direction: column;
     align-items: center;
 }
 
-.icon img {
+.icon  img {
     height: 3em;
-}
+    }
+    
 .icon-text {
     display: flex;
     align-self: center;
@@ -66,6 +67,8 @@ text-align: center;
 
 
 color: #000000;
+
+cursor: pointer;
 }
 
 .icon-text {
