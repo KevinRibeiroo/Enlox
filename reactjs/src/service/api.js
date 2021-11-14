@@ -129,14 +129,19 @@ export default class Api {
   }
 
   async  editarFoto(id, foto) {
-    let formData = new formData();
+    let formData = new FormData();
     formData.append('foto', foto)
 
-    let resp = await api.put(`/usuario/${id}`, formData, {
+    let resp = await api.put(`/usuario/${id}`, {
         headers: {
             "Content-Type": "multipart/form-data"
         }
         
     })
-    console.log(resp.data) }
+    return(resp.data) }
+
+    async listarFoto(){
+        const r = await api.get('/usuariozim');
+        return r.data;
+    }
         }

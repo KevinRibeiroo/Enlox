@@ -30,6 +30,20 @@ export default function Perfil() {
     console.log(idUsu)
    
 
+    function preview() {
+        if(foto) {
+             return URL.createObjectURL(foto);    
+        }
+    }
+    
+    function selectFile() {
+        let input = document.getElementsById("file-input");
+        input.click();
+    }
+
+    console.log(preview())
+
+
     const getUsu = async() =>   {
         let g= await api.listarUsu(idUsu)
         setUsuario(g)
@@ -82,10 +96,10 @@ export default function Perfil() {
                     <img src='/assets/images/editar.png' alt='' className='imgbraba'  />
                     </label>
 
-                    <input id='file-input' type='file'  onChange={e => setFoto(e.target.files[0])}/>
+                    <input id='file-input' type='file'  onClick={() => editPic()} onChange={e => setFoto(e.target.files[0])}/>
                 </div>
                 <div className='gab-info'>
-                    <div className='gab-nome'  onClick={() => editPic()} ><span>NICK DE USUÁRIO:</span> {usuario.nm_usuario}  </div>
+                    <div className='gab-nome'  ><span>NICK DE USUÁRIO:</span> {usuario.nm_usuario}  </div>
                     <div className='gab-sobrenome'><span>NOME:</span> {usuario.nm_nome}  </div>
                     <div className='gab-cpf'><span>CPF:</span>  {usuario.ds_cpf} </div>
                 </div>
