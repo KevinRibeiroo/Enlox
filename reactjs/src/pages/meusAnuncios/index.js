@@ -98,7 +98,10 @@ export default function MeusAnuncios(){
         setPreco(item.vl_preco)
         setDescProduto(item.ds_produto)
         
-        setImagem(item.ds_imagem2)
+        setImagem(item.ds_imagem)
+        setImagem2(item.ds_imagem2)
+        setImagem3(item.ds_imagem3)
+        setImagem4(item.ds_imagem4)
         setIdProduto(item.id_produto)
 
         
@@ -116,7 +119,7 @@ export default function MeusAnuncios(){
     
     useEffect(() => {
         listar();
-    },      [])
+    },      )
 
     return(
         <Container>

@@ -22,7 +22,7 @@ export default function Compra(props){
 
 
      const [produto] = useState([props.location.state]);
-     const [cartao, setCartao] = useState('')
+     //const [cartao, setCartao] = useState('')
 
 /*
      async function editar(item) 
