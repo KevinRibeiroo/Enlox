@@ -35,11 +35,7 @@ export default class Api {
     }
 
 
-        async cadastrarProduto(id, nm, preco, descricao, avaliacao, img ){
-            const r = await api.post(`/produto/${id}`, {nm, preco, descricao, avaliacao, img});
-
-            return r.data;
-        }
+   
 
 
         async listarProduto() {
@@ -93,7 +89,43 @@ export default class Api {
     async listarChatEspecifico(idChat){
         const r = await api.get(`/chat_usu2/${idChat}`);
 
-                return r.data;
-            }}
-        
-        
+        return r.data;
+    }
+
+    async listarMeusprodutos(id) {
+        const r =await api.get(`/produtoss/${id}`)
+         return r.data;
+  }
+
+  async listarCategorias(id) {
+      const r = await api.get(`/categoria/${id}`);
+      return r.data;
+  }
+
+
+  async cadastrarProduto(id1, id2, imgPrincipal , nmProduto, preco, desc ){
+
+    let formData = new FormData();
+    formData.append('desc', desc);
+        formData.append('imgPrincipal', imgPrincipal);
+        formData.append('nmproduto', nmProduto);
+       
+        formData.append('preco', preco); 
+
+      const r = await api.post(`/produto/${id1}/${id2}`, formData,  {
+          headers: {
+              "Content-Type": "multipart/form-data"
+          }
+      } )
+
+     
+
+    return r.data;
+  }
+
+  async listarUpload(){
+      const r = await api.get('/produtinho');
+      return r.data;
+  }
+
+        }

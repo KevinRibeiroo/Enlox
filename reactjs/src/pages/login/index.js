@@ -37,9 +37,10 @@ export default function Login () {
             } else {
                 Cookies.set('usuario-logado' ,JSON.stringify(r));
                 nav.push('/')
-            }
-        }
+            }}
 
+
+          
     
     return (
        <StyledLogin>
@@ -62,7 +63,9 @@ export default function Login () {
                            
                        </div>
                    </div>
-                   <div className="botao-login"><BotaoLogin onClick={logar}> Entrar </BotaoLogin> </div>
+                   
+
+                   <div className="botao-login" id='btn-logar'    ><BotaoLogin onClick={logar}> Entrar </BotaoLogin> </div>
 
                    <div className="text-login">Não tenho conta.Quero me <span><Link to = "/cadastroDeUsuario1" className="cdstr"> Cadastrar </Link> </span></div>
 

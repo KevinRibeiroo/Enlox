@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export default function rodape(){
     return (
-        <footer style={{backgroundColor: "#E7E6E1", }}>
+           <footer style={{backgroundColor: "#E7E6E1", }}>
             <Rodape>
                 <div className="sobre-empresa"><Link to = "/politicaDePrivacidade" className="navegacao"><div className="info">Política de Privacidade</div></Link>
                 <div className="info">Política de Cookies</div>

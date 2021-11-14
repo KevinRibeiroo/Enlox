@@ -14,6 +14,12 @@ import Cookies from "js-cookie";
 
 import Api from "../../service/api";
 import { useHistory } from "react-router";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const api = new Api();
 
 export default function Produto (props){
@@ -24,7 +30,7 @@ export default function Produto (props){
      
       const [produto] = useState(props.location.state);
       const [usu, setUsu] = useState([]);
-      
+      const [trocarImg, setTrocarImg] = useState(0)
       const [test43] = useState(produto);
 
       console.log(test43)
@@ -32,20 +38,25 @@ export default function Produto (props){
 
       const [idUsu] = useState(usuarioLogado.id_usuario);
 
-    
+        const [categoria, setCategoria] = useState([])
 
      
 
     useEffect(() => {
         mostrarUsuario(produto.id_usuario);
-    });
+    }, []);
 
     const mostrarUsuario = async (id) => {
         const r = await api.listarUsu(id);
         setUsu(r);
     }
 
-    
+        const listarCategoria = async () => {
+            const r = await api.listarCategorias(produto.id_categoria);
+            console.log(r);
+            setCategoria(r);
+        }
+
     const InserirChat = async () => {
         if (Cookies.get('usuario-logado') === undefined) {
             nav.push('/');
@@ -54,11 +65,13 @@ export default function Produto (props){
         
         const r = await api.inserirChatUsu(idUsu, produto.id_usuario )
         
-
+          if(r.error){
+              toast.dark(`${r.error}`);
+          }
         console.log(r)
     }
 
-    console.log(usu);
+    console.log(produto.id_categoria);
 
     function comprar() {
         let carrinho = Cookie.get('carrinho');
@@ -72,8 +85,15 @@ export default function Produto (props){
 
             }
 
+
+        useEffect(() => {
+            listarCategoria()
+        }, [])
+        console.log(categoria)
+
     return (
     <Conteudo>
+        <ToastContainer />
         <main>
             <Cabecalho />
            
@@ -83,13 +103,14 @@ export default function Produto (props){
                         <div className="produt">
                             <div className="title"><h2 >{produto.nm_produto}</h2></div>
                             <div className="imgs-produt">
-                                <div className="img-principal"><img src={produto.ds_imagem1} alt="" style={{width: "13em", height: "auto"}}/></div>
-                                <div className="seta"><img src="/assets/images/Seta.png" alt="" /></div>
+                                <div className="img-principal"><img  onClick={() => setTrocarImg(0)} src={trocarImg === 0 ? produto.ds_imagem1 : trocarImg === 1 
+                                ? produto.ds_imagem2 : trocarImg === 2 ? produto.ds_imagem3 : trocarImg === 3 ? produto.ds_imagem4 : produto.ds_imagem1} alt="" style={{width: "13em", height: "auto"}}/></div>
+                              
                                 <div className="agp-produt">
-                                <div className="produt-min"><img src={produto.ds_imagem1} className="icon-produt" alt="" /></div>
-                                <div className="produt-min"><img src={produto.ds_imagem2} className="icon-produt" alt="" /></div>
-                                <div className="produt-min"><img src={produto.ds_imagem3} className="icon-produt" alt="" /></div>
-                                <div className="produt-min"><img src={produto.ds_imagem4} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img onClick={() => setTrocarImg(0)} src={produto.ds_imagem1} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img onClick={() => setTrocarImg(1)} src={trocarImg === 1 ? produto.ds_imagem1 :produto.ds_imagem2} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img onClick={() => setTrocarImg(2)} src={trocarImg === 2 ? produto.ds_imagem1 :produto.ds_imagem3} className="icon-produt" alt="" /></div>
+                                <div className="produt-min"><img onClick={() => setTrocarImg(3)} src={trocarImg === 3 ? produto.ds_imagem1 :produto.ds_imagem4} className="icon-produt" alt="" /></div>
                             </div>
                             </div>
                             <div className="preco"><div className="title-preco"> Preço: </div> <span>R$ {produto.vl_preco}</span> </div>
@@ -120,7 +141,7 @@ export default function Produto (props){
                             <div className="agp-info">
                                 <div className="info-product">
                                     <div className="title-info">Categoria:</div>
-                                    <div className="desc-info">Geladeira</div>
+                                    <div className="desc-info">{categoria.nm_categoria}</div>
                                 </div>
                                 <div className="info-product">
                                     <div className="title-info">Produto:</div>
