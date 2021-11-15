@@ -128,7 +128,7 @@ export default function Home(props){
         setDesconto(item.nr_desconto);
     }
 
-    //console.log(editarProduto)
+    console.log(editarProduto)
 
     
 

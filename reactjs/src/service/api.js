@@ -58,10 +58,11 @@ export default class Api {
             return r.data;
         }
 
-        async editar( id, nome, categoria, preco,  descProduto, estoque, img) {
-            let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img })
+
+        async alterar( id, nome, categoria, preco, descProduto) {
+            let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto})
             return r.data
-        } 
+        }
     
     
     async inserirChatUsu(id_comprador, id_vendedor) {

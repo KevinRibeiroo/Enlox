@@ -48,6 +48,8 @@ const Container = styled.div`
 
 .btn-comprar{
     align-self: center;
+    cursor: pointer;
+   
 }
 
 .aaa{
@@ -98,6 +100,7 @@ const Container = styled.div`
     border: none !important;
     color: #47A1EF;
     font-size: 17px;
+    cursor: pointer;
     margin-right: 0.5em;
 }
 
@@ -114,6 +117,7 @@ const Container = styled.div`
     font-style: normal;
     font-weight: 500;
     font-size: 21px;
+    cursor: pointer;
     line-height: 32px;
     background: #B0BDC6;
     border-radius: 57px;
@@ -135,7 +139,7 @@ const Container = styled.div`
     font-size: 1.3em;
     line-height: 47px;
 
-    color: #353535;
+    color: #000000;
 }
 
 .dentro{
@@ -161,7 +165,7 @@ const Container = styled.div`
     font-size: 1.4em;
    
 
-    color: #353535;
+    color: #000000;
     align-items: center;
     justify-content: space-between;
     width: 9.5em;
@@ -179,7 +183,7 @@ const Container = styled.div`
     font-size: 1.4em;
  
 
-    color: #353535;
+    color: #000000;
 }
 
 .imgs-product {
@@ -202,6 +206,10 @@ const Container = styled.div`
     
 }
 
+span{
+    color: #262626;
+}
+
 .frete {
     display: flex;
     font-family: Roboto-Slab;
@@ -209,7 +217,7 @@ const Container = styled.div`
     font-size: 1em;
    
 
-    color: #353535;
+    color: #000000;
     align-items: center;
     justify-content: space-between;
 
@@ -228,7 +236,7 @@ const Container = styled.div`
     font-size: 1.2em;
  
 
-    color: #353535;
+    color: #000000;
 }
 
 .x {
@@ -239,7 +247,7 @@ const Container = styled.div`
     font-size: 1.1em;
    
 
-    color: #353535;
+    color: #000000;
     align-items: center;
     justify-content: space-between;
 
@@ -258,7 +266,7 @@ const Container = styled.div`
     font-size: 1.1em;
    
 
-    color: #353535;
+    color: #000000;
     align-items: center;
     justify-content: space-between;
 
@@ -278,6 +286,7 @@ const Container = styled.div`
 .little-img img{
     width: 3em;
      height: auto;
+     cursor: pointer;
 }
 
 .img-principal{
