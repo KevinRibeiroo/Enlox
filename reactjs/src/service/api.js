@@ -155,7 +155,7 @@ export default class Api {
  }
 
     async listarFoto(){
-        const r = await api.get('/usuariozim');
+        const r = await api.get('/usuariozin');
         return r.data;
     }
         }

@@ -9,14 +9,12 @@ const api = new Api();
 function usuLogado(){
     if (Cookies.get('usuario-logado') !== undefined){
 let logado = Cookies.get('usuario-logado');
-
-
-
 let usuarioLogado = JSON.parse(logado);
     return usuarioLogado;
+}}
 
-}
-}
+
+
 
 
 export default function Perfil() {
@@ -27,11 +25,15 @@ export default function Perfil() {
     const [usuario, setUsuario]= useState([])
     const [idUsu] = useState(ususLogado.id_usuario)
     const [foto, setFoto] = useState('')
-    const [fotinha] = useState(ususLogado.img_foto)
+    const [fotinha, setFotinha] = useState(ususLogado.img_foto)
     console.log(idUsu)
-   
+    
 
-    function preview() {
+    async function listUsu(id) {
+        let r = await api.listarUsu(idUsu)
+    }
+
+    function preview(img) {
         if(foto) {
              return URL.createObjectURL(foto);    
         } else {
@@ -75,13 +77,21 @@ export default function Perfil() {
         console.log(gab)
     }
  
-    function pegarImg() {
-        if (foto.includes('http')) 
-        return foto
-
-        else 
-        return `localhost:3030/usuariozim?image=${usuario.img_foto}`
+    async function listarImg() {
+        let gab = await api.listarFoto()
+        setFoto()
+        return gab 
     }
+
+    function pegarImg() {
+
+        if (foto.includes('http'))
+        return foto
+        else 
+        return `http://localhost:3030/usuariozin?imagem=${usuario.img_foto}`
+    }
+
+    console.log(foto)
     
 
     if (Cookies.get('usuario-logado') === undefined) {
@@ -99,7 +109,7 @@ export default function Perfil() {
             <div className='gab-form1'>
                 <div className='gab-email'>EMAIL: {usuario.ds_email}  <span>Alterar email</span> </div>
                 <div className='gab-numero'>NÚMERO: {usuario.nr_celular} <span className='gab-img1'><img src='/assets/images/verificado.svg' alt=''  /></span> <span className='gab-verif'>VERIFICADO</span></div>
-                <div className='gab-conect'><span className='gab-img2'><img src={usuario.img_foto} alt='' /></span>{usuario.nm_usuario}</div>
+                <div className='gab-conect'><span className='gab-img2'><img src={preview()} alt='' /></span>{usuario.nm_usuario}</div>
             </div>
             <div gab-form2>
                 <div className='gab-foto'>
@@ -142,3 +152,5 @@ export default function Perfil() {
     </Container>   
     )
     }
+
+    
