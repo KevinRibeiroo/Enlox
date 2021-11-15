@@ -40,7 +40,11 @@ export default function Login () {
             }}
 
 
-          
+const entrar = (event) => {
+            if (event.key === 'Enter') {
+                logar();
+            }
+        }
     
     return (
        <StyledLogin>
@@ -54,18 +58,18 @@ export default function Login () {
                    <div className="agp-inputs-login">
                        <div className="agp-inputs">
                            <div className="label-login">Login</div>
-                                <InputLogin placeholder="Escreva seu nome de usuario ou email"   value={email} onChange={e => setEmail(e.target.value)} />
+                                <InputLogin placeholder="Escreva seu nome de usuario ou email"  type="email" value={email} onChange={e => setEmail(e.target.value)} />
                            </div>
                       
                        <div className="agp-inputs">
                            <div className="label-login">Senha</div>
-                                <InputLogin placeholder="Escreva sua senha" value={senha} onChange={e => setSenha(e.target.value)} />
+                                <InputLogin placeholder="Escreva sua senha" type="password" value={senha} onChange={e => setSenha(e.target.value)} onKeyPress={entrar} />
                            
                        </div>
                    </div>
                    
 
-                   <div className="botao-login" id='btn-logar'    ><BotaoLogin onClick={logar}> Entrar </BotaoLogin> </div>
+                   <div className="botao-login" id='btn-logar'    ><BotaoLogin onClick={() => logar()} > Entrar </BotaoLogin> </div>
 
                    <div className="text-login">Não tenho conta.Quero me <span><Link to = "/cadastroDeUsuario1" className="cdstr"> Cadastrar </Link> </span></div>
 
