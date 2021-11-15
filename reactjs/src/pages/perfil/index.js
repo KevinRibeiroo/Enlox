@@ -80,7 +80,7 @@ export default function Perfil() {
         return foto
 
         else 
-        return `localhost:3030/usuariozin?image=${usuario.img_foto}`
+        return `localhost:3030/usuariozim?image=${usuario.img_foto}`
     }
     
 
