@@ -5,17 +5,20 @@ import axios from "axios";
 
 
 const api = axios.create({
-    //baseURL: 'https://enloxx.herokuapp.com'
-    baseURL: 'http://localhost:3030'
+//    baseURL: 'https://enloxx.herokuapp.com'
+baseURL: 'http://localhost:3030'
 })
 
 
 export default class Api {
 
 
+    //async listarVistoRecente()
+
+
    
-    async cadastrarUsuario(nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,nascimento, ds_cep, nr_casa, bairro,cidade) {
-        const r = await api.post('/usuario', {nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,nascimento, ds_cep, nr_casa, bairro,cidade})
+    async cadastrarUsuario(nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,dt_nascimento, ds_cep, nr_casa,ds_cidade,nm_rua) {
+        const r = await api.post('/usuario', {nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha, ds_cep, nr_casa,ds_cidade,nm_rua})
         return r.data;
     }
 
@@ -55,10 +58,11 @@ export default class Api {
             return r.data;
         }
 
-        async editar( id, nome, categoria, preco,  descProduto, estoque, img) {
-            let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img })
+
+        async alterar( id, nome, categoria, preco, descProduto) {
+            let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto})
             return r.data
-        } 
+        }
     
     
     async inserirChatUsu(id_comprador, id_vendedor) {
@@ -105,11 +109,16 @@ export default class Api {
 
   async cadastrarProduto(id1, id2, imgPrincipal , nmProduto, preco, desc ){
 
-    let formData = new FormData();
-    formData.append('desc', desc);
-        formData.append('imgPrincipal', imgPrincipal);
+        let formData = new FormData();
+
+        //const r32 = [imgPrincipal]
+       //const r45 = []
+        formData.append('desc', desc);
+        formData.append('imgPrincipal', imgPrincipal[0]);
+        formData.append('imgPrincipal', imgPrincipal[1]);
+        formData.append('imgPrincipal', imgPrincipal[2]);
+        formData.append('imgPrincipal', imgPrincipal[3]);
         formData.append('nmproduto', nmProduto);
-       
         formData.append('preco', preco); 
 
       const r = await api.post(`/produto/${id1}/${id2}`, formData,  {
@@ -119,7 +128,9 @@ export default class Api {
       } )
 
      
-
+      console.log(imgPrincipal);
+      console.log(preco)
+      
     return r.data;
   }
 

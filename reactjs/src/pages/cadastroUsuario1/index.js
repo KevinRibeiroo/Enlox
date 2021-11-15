@@ -3,18 +3,19 @@ import Rodape from '../../components/rodape';
 import {UContainer} from './styled'
 import Api from '../../service/api';
 import { useState } from 'react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const api = new Api();
 
 export default function CadastroDeUsuario1(){
 
     const[nome,setNome] = useState('');
-    const [cpf, setCpf] = useState('');
+    const [cpf, setCpf] = useState(0);
     const [email, setEmail] = useState('');
-    const [celular, setCelular] = useState('');
+    const [celular, setCelular] = useState(0);
     const [nasc,setNasc] = useState('');
-    const [usuario, setUsuario] = useState();
+    const [usuario, setUsuario] = useState('');
     const [senha, setSenha] = useState('');
     const [rua, setRua]= useState('');
     const[num, setNum]= useState(0);
@@ -26,26 +27,32 @@ export default function CadastroDeUsuario1(){
             let r = await api.cadastrarUsuario(usuario,nome,cpf,celular,email,senha,nasc,cep,num,bairro,cidade)
             console.log(r)
 
+
+            if (r.error){
+                toast.error(`${r.error}`)
+            } else {
              Clean();
+            }
     }
 
     function Clean(){
         setNome('');
-        setCpf('');
+        setCpf(0);
         setEmail('');
         setCelular('');
-        setNasc();
+        setNasc('');
         setUsuario('');
         setSenha('');
         setRua('');
-        setNum();
+        setNum(0);
         setBairro('');
         setCidade('');
-        setCep();
+        setCep(0);
     }
 
     return(
         <UContainer>
+            <ToastContainer />
             <Cabecalho />
             <div className = "UAzul"></div>
             <div className = "UBranco"></div>

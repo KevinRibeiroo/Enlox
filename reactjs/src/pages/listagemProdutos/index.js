@@ -53,9 +53,7 @@ export default function ListagemProdutos(props){
                 }
                 //EXEMPLO:SE BUSQUEI POR C ENTÃO TODOS OS PRODUTOS EM QUE C ESTIVER CONTIDO EM NM_PRODUTO IRÁ SER RETORNADO
                 setProdutos(nova)
-                if(nova.length===0){
-                    window.alert("Desculpe. Não encontramos nada parecido.")
-                }
+                
                 
                 // foi amém
                  //nem sei mais qual a lógica

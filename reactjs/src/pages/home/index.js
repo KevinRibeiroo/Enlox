@@ -28,10 +28,7 @@ export default function Home(props){
     
     const [produtoss, setProdutoss] = useState([]);
 
-    async function listarImg() {
-    const resp = await api.listarUpload();
-        setProdutoss(...resp.data);
-    }
+    
   
      const [idCarrossel,setIdCarrossel] = useState();
      console.log(idCarrossel)
@@ -98,23 +95,25 @@ export default function Home(props){
 
 
     //mostrar produtos com desconto: Faixa de Ofertas do Dia
-async function produtosOfertados(){
-    const r = await api.listarProduto();
-    var nova=[];
-    for(let i=0;i<r.length;i++){
-        
-        if(r[i].nr_desconto ^ 0 & r[i].bt_ativo ){
-            nova.push(r[i])   
-        }
-    }
-    
+    async function produtosOfertados(){
+        const r = await api.listarProduto();
+        var nova=[];
+        for(let i=0;i<r.length;i++){
+            
+            if(r[i].nr_desconto !== "0.00" && r[i].bt_ativo){
+                nova.push(r[i])   
+                
+            }
+       }
+       
        /* ordem crescente descontos
        var desconto = nova.map((i)=>i.nr_desconto);
        function comparaNumeros(a,b) { if (a == b) return 0; if (a < b) return -1; if (a > b) return 1; }
        desconto=desconto.sort(comparaNumeros);
        console.log(desconto);
        */
-      
+      console.log("desconto")
+      console.log(nova)
        setProdutosDesc(nova);
     }
 

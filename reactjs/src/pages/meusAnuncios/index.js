@@ -5,12 +5,17 @@ import Rodape from "../../components/rodape"
 import Modal from "../ModalEditarProduto";
 import Container from './styled'
 
+
 import Cookies from "js-cookie";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { useHistory } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
 import Api from '../../service/api';
 import { useState, React, useEffect } from 'react';
+import rodape from "../../components/rodape";
+
+
 const api = new Api();
 
 
@@ -27,40 +32,40 @@ export default function MeusAnuncios(){
 
 
     if (Cookies.get('usuario-logado') === undefined) {
-      nav.push('/');
+      nav.push('/login');     
     }
 
 
 
     const [produto, setProduto] = useState([]);
-    console.log(produto)
+    const [loading, setLoading] = useState(true);
+    const [pagina, setPagina] = useState(1);
+    const [totalPaginas, setTotalPaginas] = useState (0);
     const [exibirModal, setExibirModal] = useState({ show: false });
-    console.log(exibirModal)
     const [nome, setNome] = useState('')
-    console.log(nome)
     const [categoria, setCategoria] = useState('')
-    console.log(categoria)
     const [preco, setPreco] = useState('')
-    console.log(preco)
     const [descProduto, setDescProduto] = useState('')
-    console.log(descProduto)
     const [imagem, setImagem] = useState('')  
-    console.log(imagem)
     const [imagem2, setImagem2] = useState('')  
-    console.log(imagem2)
     const [imagem3, setImagem3] = useState('')  
-    console.log(imagem3)
     const [imagem4, setImagem4] = useState('')  
-    console.log(imagem4)
     const [idProduto, setIdProduto] = useState('')  
  
 
     async function listar(){
+        setLoading(true);
 
-        let r = await api.listarMeusprodutos(idUsu);
+        let r = await api.listarMeusprodutos( idUsu );
         console.log(r);
         setProduto(r);
+        setTotalPaginas(r);
+
+        setLoading(false);
     }
+    
+    
+
 
     async function remover (id) {
 
@@ -98,30 +103,32 @@ export default function MeusAnuncios(){
         setPreco(item.vl_preco)
         setDescProduto(item.ds_produto)
         
-        setImagem(item.ds_imagem)
+        setImagem(item.ds_imagem1)
         setImagem2(item.ds_imagem2)
         setImagem3(item.ds_imagem3)
         setImagem4(item.ds_imagem4)
         setIdProduto(item.id_produto)
-
-        
-      
     }
 
 
+
+   
+
+
     const editarProduto = async () => {
-        const r = await api.editar(idProduto, nome, categoria, preco, descProduto)
+        let r = await api.alterar(idProduto, nome, categoria, preco, descProduto)
 
         console.log(r)
 
-        listar()
+        listar();
     }
     
     useEffect(() => {
         listar();
-    },      )
+    }, )
 
-    return(
+  
+    return(        
         <Container>
             <Cabecalho />
 
@@ -183,7 +190,8 @@ export default function MeusAnuncios(){
                 </main>
         </div>
       </Modal>
-       {produto.map((item) => 
+      
+      {produto.map((item) => 
           <div className="agp">
              <div className="img-agp"><img src={item.ds_imagem1} alt=""/></div>
               <div className="texto1"> 
@@ -210,4 +218,5 @@ export default function MeusAnuncios(){
             <Rodape/>
      </Container>
      )}
+
       
