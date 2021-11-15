@@ -103,8 +103,9 @@ export default function Home(props){
         var nova=[];
         for(let i=0;i<r.length;i++){
             
-            if(r[i].nr_desconto !== 0 && r[i].bt_ativo){
+            if(r[i].nr_desconto !== "0.00" && r[i].bt_ativo){
                 nova.push(r[i])   
+                
             }
        }
        
@@ -114,7 +115,7 @@ export default function Home(props){
        desconto=desconto.sort(comparaNumeros);
        console.log(desconto);
        */
-      console.log("ugsdgydgye")
+      console.log("desconto")
       console.log(nova)
        setProdutosDesc(nova);
     }

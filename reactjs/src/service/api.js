@@ -13,9 +13,12 @@ const api = axios.create({
 export default class Api {
 
 
+    //async listarVistoRecente()
+
+
    
-    async cadastrarUsuario(nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,nascimento, ds_cep, nr_casa, bairro,cidade) {
-        const r = await api.post('/usuario', {nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,nascimento, ds_cep, nr_casa, bairro,cidade})
+    async cadastrarUsuario(nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,dt_nascimento, ds_cep, nr_casa,ds_cidade,nm_rua) {
+        const r = await api.post('/usuario', {nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,dt_nascimento, ds_cep, nr_casa,ds_cidade,nm_rua})
         return r.data;
     }
 
