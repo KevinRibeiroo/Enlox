@@ -50,9 +50,7 @@ export default function CadastrarProduto () {
 
 
     const [img1, setImg1] = useState([]);
-    const [img2, setImg2] = useState([]);
-    const [img3, setImg3] = useState('');
-    const [img4, setImg4] = useState('');
+
 
     let usuarioLogado = usuLogado() || {};
 
@@ -101,8 +99,7 @@ export default function CadastrarProduto () {
 
    //console.log(img1.length)
    
-
-    console.log(img2)
+    console.log("imagem 1")
     console.log(img1)
 
     setInterval(() => {
@@ -110,6 +107,7 @@ export default function CadastrarProduto () {
     }, 5)
     //console.log(usuarioLogado.id_usuario)
     return (
+        
         <Conteudoprodut>
             <ToastContainer />
             <Cabecalho />
