@@ -1,5 +1,5 @@
 import Container from './styled.js'
-import Cookies from 'js-cookie'
+import Cookies, { set } from 'js-cookie'
 import { useHistory } from 'react-router'
 import Api from '../../service/api'
 import { useEffect, useState } from 'react';
@@ -27,15 +27,20 @@ export default function Perfil() {
     const [usuario, setUsuario]= useState([])
     const [idUsu] = useState(ususLogado.id_usuario)
     const [foto, setFoto] = useState('')
+    const [fotinha] = useState(ususLogado.img_foto)
     console.log(idUsu)
    
 
     function preview() {
         if(foto) {
              return URL.createObjectURL(foto);    
+        } else {
+            return pegarImg()
         }
     }
+
     
+
     function selectFile() {
         let input = document.getElementsById("file-input");
         input.click();
@@ -66,10 +71,17 @@ export default function Perfil() {
 
 
     async function editPic() {
-        let gab = await api.editarFoto(idUsu, foto)
+        let gab = await api.editarFoto(usuario.id_usuario, foto)
+        console.log(gab)
     }
  
-       
+    function pegarImg() {
+        if (foto.includes('http')) 
+        return foto
+
+        else 
+        return `localhost:3030/usuariozin?image=${usuario.img_foto}`
+    }
     
 
     if (Cookies.get('usuario-logado') === undefined) {
@@ -91,12 +103,15 @@ export default function Perfil() {
             </div>
             <div gab-form2>
                 <div className='gab-foto'>
-                    <label for='file-input'>
-                    <img src={usuario.img_foto} alt='' />
+                    <label for='file-input' >
+                    <img src={preview()} alt='' />
                     <img src='/assets/images/editar.png' alt='' className='imgbraba'  />
                     </label>
-
-                    <input id='file-input' type='file'  onClick={() => editPic()} onChange={e => setFoto(e.target.files[0])}/>
+                   
+                    <input id='file-input' type='file' accept='image/*'  onChange={e => setFoto(e.target.files[0])} />
+                </div>
+                <div>
+                    <button onClick={() => editPic()} > SALVAR FOTO DE PERFIL</button>
                 </div>
                 <div className='gab-info'>
                     <div className='gab-nome'  ><span>NICK DE USUÁRIO:</span> {usuario.nm_usuario}  </div>
