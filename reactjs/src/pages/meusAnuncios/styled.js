@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+/*import styled from 'styled-components'
 
 const Container = styled.div`
 
@@ -84,7 +84,10 @@ a{
     width: 50%;
 }
 
-
-
+.paginacao {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+  }
 `
-export default Container 
+export default Container */
