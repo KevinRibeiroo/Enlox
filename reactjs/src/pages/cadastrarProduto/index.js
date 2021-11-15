@@ -94,6 +94,11 @@ export default function CadastrarProduto () {
         input.click();
     }
     
+    function asdklsajkl() {
+        return () => {
+            const r = "oi";
+        }
+    }
 
         //console.log(Preview())
       // useEffect(() => {console.log('test')}, [img1])

@@ -9,6 +9,7 @@ import { useState } from 'react';
 import mask from 'react-input-mask';
 
 import axios from 'axios';
+import { toast } from 'react-toastify';
 const api = new Api();
 
 
@@ -36,7 +37,12 @@ export default function CadastroUsuario() {
             
             console.log(r)
 
-             Clean();
+            if (r.error){
+                toast.error(`${r.error}`);
+            } else {
+                 Clean();
+            }
+             
     }
 
     function Clean(){
