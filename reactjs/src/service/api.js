@@ -105,11 +105,16 @@ export default class Api {
 
   async cadastrarProduto(id1, id2, imgPrincipal , nmProduto, preco, desc ){
 
-    let formData = new FormData();
-    formData.append('desc', desc);
-        formData.append('imgPrincipal', imgPrincipal);
+        let formData = new FormData();
+
+        //const r32 = [imgPrincipal]
+       //const r45 = []
+        formData.append('desc', desc);
+        formData.append('imgPrincipal', imgPrincipal[0]);
+        formData.append('imgPrincipal', imgPrincipal[1]);
+        formData.append('imgPrincipal', imgPrincipal[2]);
+        formData.append('imgPrincipal', imgPrincipal[3]);
         formData.append('nmproduto', nmProduto);
-       
         formData.append('preco', preco); 
 
       const r = await api.post(`/produto/${id1}/${id2}`, formData,  {
@@ -119,7 +124,9 @@ export default class Api {
       } )
 
      
-
+      console.log(imgPrincipal);
+      console.log(preco)
+      
     return r.data;
   }
 

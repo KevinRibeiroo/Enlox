@@ -3,13 +3,13 @@ import Cabecalho, { usuLogado } from "../../components/cabecalho"
 import { Conteudoprodut } from "./styled"
 import { InputCadastrar, TextareDesc, InputTipo, InputPreco, InputImage, InputLocal, InputImg } from "../../components/inputs/styled"
 import {BotaoCdstr, InserirAnuncio} from '../../components/botoes/styled';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Api from "../../service/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from "react-router";
-
+import { Link } from "react-router-dom";
 
 
 const api = new Api();
@@ -18,14 +18,22 @@ const api = new Api();
 export default function CadastrarProduto () {
 
 
-
+    
+    const nav = useHistory();
 
     async function cadastrarProdutoo() {
         
 
+        
 
-        const resp = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria, imgPrincipal, nmProduto, preco, desc);
+        const resp = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria, img1, nmProduto, preco, desc);
         console.log(resp)
+
+        if (resp.error) {
+            toast.error(`${resp.error}`);
+        } else {
+            nav.push("/meusAnuncios");
+        }
     }
 
 
@@ -40,14 +48,16 @@ export default function CadastrarProduto () {
     const [imgPrincipal, setImgPrincipal] = useState('')
     const {testinho, setTestinho} = useState('');
 
-    const nav = useHistory();
 
-    const [img1, setImg1] = useState('');
-    const [img2, setImg2] = useState('');
+    const [img1, setImg1] = useState([]);
+    const [img2, setImg2] = useState([]);
     const [img3, setImg3] = useState('');
     const [img4, setImg4] = useState('');
 
     let usuarioLogado = usuLogado() || {};
+
+
+
 
     /*async function inserirProduto() {
         const r = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria,img1,img2,img3,img4,nmProduto, preco, desc );
@@ -62,31 +72,50 @@ export default function CadastrarProduto () {
     }*/
 
     
-    function preview() {
-        if(imgPrincipal) {
-             return URL.createObjectURL(imgPrincipal);
-             
-        }
-     
-     
-    }
+    function Preview() {
+       
+
+
+        if(img1) {
+
     
+            
+             return img1.map((x) => URL.createObjectURL(x));
+            
+        }
+    
+    
+    }
+ 
+    
+  
     function selectFile() {
         let input = document.getElementsByClassName("upload");
         input.click();
     }
+    
 
-    console.log(preview())
+        //console.log(Preview())
+      // useEffect(() => {console.log('test')}, [img1])
+        
 
+   //console.log(img1.length)
    
 
-    console.log(usuarioLogado.id_usuario)
+    console.log(img2)
+    console.log(img1)
+
+    setInterval(() => {
+      Preview()
+    }, 5)
+    //console.log(usuarioLogado.id_usuario)
     return (
         <Conteudoprodut>
             <ToastContainer />
             <Cabecalho />
                 <div className="container">
                 <div className="title-pag">
+                    
                 Insira seu proprio anuncio
                 </div>
                     <div className="conteudo-cdstr">
@@ -112,12 +141,15 @@ export default function CadastrarProduto () {
                         
                         <div className="agp-input">
                             <div className="label">Preço</div>
-                            <InputPreco placeholder="Preço(R$)" value={preco} onChange={(e) => setPreco(e.target.value)} />
+                            <InputPreco placeholder="Preço(R$)" value={preco} onChange={(e) => setPreco(e.target.value)} multiple />
                         </div>
                         <div className="agp-input">
-                        <InputImage type="file" className="upload"   accept="image/*" onChange={e => setImgPrincipal(e.target.files[0])}/>
-    <img src={preview()} alt="" />
-                      
+                        <InputImage type="file" className="upload" accept="image/*"  onChange={e => img1.push(e.target.files[0])}/>
+              
+                        {Preview().map((x) => 
+    <img src={x} style={{width: "8em", height:"8em", borderRadius: "1em"}} alt="" />
+                        )}
+                        
                         </div>
 
                         

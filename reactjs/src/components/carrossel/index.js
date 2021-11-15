@@ -1,7 +1,22 @@
 import{Carrossel} from './styled.js';
 
+
+
+
+function listarImg(img) {
+     
+    if (img.includes('http'))
+      return img
+
+    else
+        return `http://localhost:3030/produtinho?imagem=${img}`
+
+}
+
 export default function CarrosselComp(props) {
   
+
+
     return(
         <Carrossel>
         <div class="item-a">
@@ -11,7 +26,7 @@ export default function CarrosselComp(props) {
         <div className="hbox">
             <div className="himagem">
                 
-                <img className="himagem2" src={props.info.ds_imagem1} alt="touch"/>
+                <img className="himagem2" src={listarImg(props.info.ds_imagem1)} alt="touch"/>
                 <div className="hsobreposicao">
                     <div className="hcomprar">Comprar</div>
                 </div>
@@ -30,3 +45,4 @@ export default function CarrosselComp(props) {
     
 }
 export {CarrosselComp}
+export {listarImg}

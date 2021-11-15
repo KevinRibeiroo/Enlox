@@ -28,10 +28,7 @@ export default function Home(props){
     
     const [produtoss, setProdutoss] = useState([]);
 
-    async function listarImg() {
-    const resp = await api.listarUpload();
-        setProdutoss(...resp.data);
-    }
+    
   
      const [idCarrossel,setIdCarrossel] = useState();
      console.log(idCarrossel)

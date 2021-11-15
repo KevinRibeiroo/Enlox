@@ -69,7 +69,7 @@ main {
     color: #353535;
     align-items: center;
     justify-content: space-between;
-    width: 9.5em;
+    width: 8.2em;
 
     height: 2.5em;
 }
@@ -110,7 +110,7 @@ main {
     color: #353535;
 
     width: 13em;
-   text-align: center;
+   text-align: left;
    
   white-space: nowrap;
   overflow: hidden;
