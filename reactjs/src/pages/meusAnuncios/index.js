@@ -1,4 +1,4 @@
-
+/*
 import { Link } from "react-router-dom"
 import Cabecalho, { usuLogado } from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
@@ -62,10 +62,10 @@ export default function MeusAnuncios(){
         setLoading(true);
         
         const resp = await api.listarMeusprodutos(
-          (idUsu + pagina) 
+          (idUsu ) 
            );
-          setProduto([...resp/*.data.items*/]);
-          setTotalPaginas(resp/*.data.totalPaginas*/);
+          setProduto([...resp.data.items]);
+          setTotalPaginas(resp.data.totalPaginas);
 
         setLoading(false);
     }
@@ -240,6 +240,4 @@ export default function MeusAnuncios(){
 
             <Rodape/>
      </Container>
-     )}
-
-      
+          )}*/

@@ -1,4 +1,4 @@
-import ContentLoader from 'react-content-loader'
+/*import ContentLoader from 'react-content-loader'
 
 const Loader = props => (
   <ContentLoader viewBox="0 0 900 507" height={507} width={900} {...props}>
@@ -30,4 +30,4 @@ const Loader = props => (
   </ContentLoader>
 )
 
-export { Loader };
+export { Loader };*/

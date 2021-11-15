@@ -1,4 +1,4 @@
-
+/*
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -13,7 +13,8 @@ const Container = styled.div`
     border: 1px solid #c4c4c4;
     border-left: none;
     width: 3em;
-    height: 3em;
+    height: 2.5em;
+    margin-bottom: 2em;
     
     cursor: pointer;
     user-select: none;
@@ -76,4 +77,4 @@ export default function Paginas(props) {
         </div>
       </Container>
     )
-  }
+  }*/
