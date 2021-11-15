@@ -48,6 +48,10 @@ main {
    
 }
 
+.bta-info {
+    cursor: pointer;
+}
+
 .title {
     font-family: Roboto Slab-Bold;
     font-style: normal;

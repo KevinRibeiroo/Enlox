@@ -111,6 +111,8 @@ const Container = styled.div `
     font-weight: normal;
     font-size: 24px;
     line-height: 32px;
+
+    cursor: pointer;
     
 
     color: #FFFFFF;

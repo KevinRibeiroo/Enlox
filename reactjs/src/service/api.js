@@ -55,10 +55,11 @@ export default class Api {
             return r.data;
         }
 
-        async editar( id, nome, categoria, preco,  descProduto, estoque, img) {
-            let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto, estoque, img })
+
+        async alterar( id, nome, categoria, preco, descProduto) {
+            let r = await api.put(`/produto/${id}`, { nome, categoria, preco, descProduto})
             return r.data
-        } 
+        }
     
     
     async inserirChatUsu(id_comprador, id_vendedor) {
@@ -135,4 +136,20 @@ export default class Api {
       return r.data;
   }
 
+  async  editarFoto(id, foto) {
+    let formData = new FormData();
+    formData.append('foto', foto)
+
+    let resp = await api.put(`/usuario/${id}`, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+        
+    })
+    return(resp.data) }
+
+    async listarFoto(){
+        const r = await api.get('/usuariozim');
+        return r.data;
+    }
         }
