@@ -1,4 +1,4 @@
-/*
+
 import { Link } from "react-router-dom"
 import Cabecalho, { usuLogado } from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
@@ -61,10 +61,9 @@ export default function MeusAnuncios(){
     async function listar(){
         setLoading(true);
         
-        const resp = await api.listarMeusprodutos(
-          (idUsu ) 
-           );
-          setProduto([...resp.data.items]);
+        const resp = await axios.get(`http://localhost:3030/produtoss/${idUsu}?page=` + pagina);
+       
+          setProduto([{...resp.data.items}]);
           setTotalPaginas(resp.data.totalPaginas);
 
         setLoading(false);
@@ -201,7 +200,7 @@ export default function MeusAnuncios(){
       
 <div className="container-produtos">
         <div className="produtos">
-          {loading && <Loader/>}
+          {loading }
 
           {!loading &&
           produto.map((item) => 
@@ -240,4 +239,6 @@ export default function MeusAnuncios(){
 
             <Rodape/>
      </Container>
-          )}*/
+     )}
+
+      

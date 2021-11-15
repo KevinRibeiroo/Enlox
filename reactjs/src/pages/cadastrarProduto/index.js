@@ -50,7 +50,7 @@ export default function CadastrarProduto () {
 
 
     const [img1, setImg1] = useState([]);
-
+    const [tl, setTl] = useState(0);
 
     let usuarioLogado = usuLogado() || {};
 
@@ -92,11 +92,7 @@ export default function CadastrarProduto () {
         input.click();
     }
     
-    function asdklsajkl() {
-        return () => {
-            const r = "oi";
-        }
-    }
+    
 
         //console.log(Preview())
       // useEffect(() => {console.log('test')}, [img1])
@@ -111,6 +107,9 @@ export default function CadastrarProduto () {
       Preview()
     }, 5)
     //console.log(usuarioLogado.id_usuario)
+
+
+ 
     return (
         
         <Conteudoprodut>
@@ -144,10 +143,10 @@ export default function CadastrarProduto () {
                         
                         <div className="agp-input">
                             <div className="label">Preço</div>
-                            <InputPreco placeholder="Preço(R$)" value={preco} onChange={(e) => setPreco(e.target.value)} multiple />
+                            <InputPreco placeholder="Preço(R$)" type="number" required value={preco} onChange={(e) => setPreco(e.target.value)}  />
                         </div>
                         <div className="agp-input">
-                        <InputImage type="file" className="upload" accept="image/*"  onChange={e => img1.push(e.target.files[0])}/>
+                        <InputImage type="file" className="upload" accept="image/*"  onChange={e => img1.push(e.target.files[0])} multiple />
               
                         {Preview().map((x) => 
     <img src={x} style={{width: "8em", height:"8em", borderRadius: "1em"}} alt="" />

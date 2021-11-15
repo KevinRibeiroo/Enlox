@@ -93,7 +93,7 @@ export default function CadastroUsuario() {
                             <div className="CRow">
                                 <div className="CColumn">
                                     <div>Cep:<input type="text" value={cep} onChange={e => setCep(e.target.value)}/></div>
-                                    <div>Rua:<input type="tel" value={rua} onChange={e => setRua(e.target.value)}/></div>
+                                    <div>Rua:<input type="text" value={rua} onChange={e => setRua(e.target.value)}/></div>
                                 </div>
 
                                 <div className="CColumn">
