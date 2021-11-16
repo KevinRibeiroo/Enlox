@@ -17,7 +17,7 @@ export default class Api {
 
 
    
-    async cadastrarUsuario(nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha,dt_nascimento, ds_cep, nr_casa,ds_cidade,nm_rua) {
+    async cadastrarUsuario(nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha, ds_cep, nr_casa,ds_cidade,nm_rua) {
         const r = await api.post('/usuario', {nm_usuario,nm_nome, ds_cpf,nr_celular, ds_email, ds_senha, ds_cep, nr_casa,ds_cidade,nm_rua})
         return r.data;
     }

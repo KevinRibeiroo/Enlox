@@ -61,11 +61,10 @@ export default function MeusAnuncios(){
     async function listar(){
         setLoading(true);
         
-        const resp = await api.listarMeusprodutos(
-          (idUsu + pagina) 
-           );
-          setProduto([...resp/*.data.items*/]);
-          setTotalPaginas(resp/*.data.totalPaginas*/);
+        const resp = await axios.get(`http://localhost:3030/produtoss/${idUsu}?page=` + pagina);
+       
+          setProduto([{...resp.data.items}]);
+          setTotalPaginas(resp.data.totalPaginas);
 
         setLoading(false);
     }

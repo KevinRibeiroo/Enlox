@@ -1,33 +1,22 @@
-/*import ContentLoader from 'react-content-loader'
+import ContentLoader from 'react-content-loader'
+import React from "react"
 
-const Loader = props => (
-  <ContentLoader viewBox="0 0 900 507" height={507} width={900} {...props}>
-    <rect x="30" y="60" rx="0" ry="0" width="200" height="120" />
-    <rect x="30" y="189" rx="0" ry="0" width="200" height="15" />
-    <rect x="30" y="211" rx="0" ry="0" width="140" height="15" />
-    <rect x="243" y="60" rx="0" ry="0" width="200" height="120" />
-    <rect x="243" y="189" rx="0" ry="0" width="200" height="15" />
-    <rect x="243" y="211" rx="0" ry="0" width="140" height="15" />
-    <rect x="455" y="60" rx="0" ry="0" width="200" height="120" />
-    <rect x="455" y="189" rx="0" ry="0" width="200" height="15" />
-    <rect x="455" y="211" rx="0" ry="0" width="140" height="15" />
-    <rect x="667" y="60" rx="0" ry="0" width="200" height="120" />
-    <rect x="667" y="188" rx="0" ry="0" width="200" height="15" />
-    <rect x="667" y="209" rx="0" ry="0" width="140" height="15" />
-    <rect x="30" y="280" rx="0" ry="0" width="130" height="23" />
-    <rect x="30" y="320" rx="0" ry="0" width="200" height="120" />
-    <rect x="30" y="450" rx="0" ry="0" width="200" height="15" />
-    <rect x="30" y="474" rx="0" ry="0" width="140" height="15" />
-    <rect x="243" y="320" rx="0" ry="0" width="200" height="120" />
-    <rect x="455" y="320" rx="0" ry="0" width="200" height="120" />
-    <rect x="667" y="320" rx="0" ry="0" width="200" height="120" />
-    <rect x="243" y="450" rx="0" ry="0" width="200" height="15" />
-    <rect x="455" y="450" rx="0" ry="0" width="200" height="15" />
-    <rect x="667" y="450" rx="0" ry="0" width="200" height="15" />
-    <rect x="243" y="474" rx="0" ry="0" width="140" height="15" />
-    <rect x="455" y="474" rx="0" ry="0" width="140" height="15" />
-    <rect x="667" y="474" rx="0" ry="0" width="140" height="15" />
+const Loader = (props) => (
+  <ContentLoader 
+    speed={2}
+    width={400}
+    height={160}
+    viewBox="0 0 400 160"
+    backgroundColor="#999999"
+    foregroundColor="#f2b854"
+    {...props}
+  >
+    <rect x="295" y="14" rx="3" ry="3" width="88" height="12" /> 
+    <rect x="10" y="5" rx="3" ry="3" width="115" height="58" /> 
+    <rect x="295" y="37" rx="3" ry="3" width="88" height="12" /> 
+    <rect x="170" y="11" rx="0" ry="0" width="74" height="35" /> 
+    <rect x="12" y="76" rx="0" ry="0" width="109" height="10" />
   </ContentLoader>
 )
 
-export { Loader };*/
+export { Loader };

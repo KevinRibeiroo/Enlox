@@ -9,36 +9,37 @@ import { useState } from 'react';
 /*import mask from 'react-input-mask';*/
 
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const api = new Api();
 
 
 export default function CadastroUsuario() {
     
     const[nome,setNome] = useState('');
-    const [cpf, setCpf] = useState(null);
+    const [cpf, setCpf] = useState(0);
     const [email, setEmail] = useState('');
-    const [celular, setCelular] = useState(null);
+    const [celular, setCelular] = useState(0);
     const [nasc,setNasc] = useState('');
     const [usuario, setUsuario] = useState('');
     const [senha, setSenha] = useState('');
     const [rua, setRua]= useState('');
-    const[num, setNum]= useState(null);
+    const[num, setNum]= useState(0);
     const[cidade,setCidade]= useState('');
-    const[cep,setCep]= useState(null);
+    const[cep,setCep]= useState(0);
     //const[img,setImg]= useState('');
-   
+    
 
     const[cepp,setCepp]=useState('');
     const[local,setLocal]=useState({});
 
     const inserirUsuario = async () => {
-            let r = await api.cadastrarUsuario(usuario,nome,cpf,celular,email,senha,nasc,cep,num,cidade,rua)
-            
-            console.log(r)
 
+            let r = await api.cadastrarUsuario(usuario,nome,cpf,celular,email,senha,cep,num,cidade,rua)
+            console.log(nasc)
             if (r.error){
                 toast.error(`${r.error}`);
+                console.log(r)
             } else {
                  Clean();
             }
@@ -49,14 +50,14 @@ export default function CadastroUsuario() {
         setNome('');
         setCpf(0);
         setEmail('');
-        setCelular(null);
+        setCelular(0);
         setNasc('');
         setUsuario('');
         setSenha('');
         setRua('');
-        setNum(null);
+        setNum(0);
         setCidade('');
-        setCep(null);
+        setCep(0);
         //setImg('');
     }
 
@@ -70,6 +71,7 @@ export default function CadastroUsuario() {
 
     return(
         <CContainer>
+            <ToastContainer />
             <Cabecalho/>
                 <div className="CCorpo">
                     <div className = "CBox">
@@ -84,7 +86,7 @@ export default function CadastroUsuario() {
 
                                 <div className="CColumn">
                                     <div>Celular:<input type="tel"value={celular} onChange={e => setCelular(e.target.value)}/></div>
-                                    <div>Nascimento:<input type="date" value={nasc} onChange={e => setNasc(e.target.value)}/></div>
+                                    <div>Nascimento:<input type="date" value={nasc}  /></div>
                                 </div>
                                 
                             </div>
