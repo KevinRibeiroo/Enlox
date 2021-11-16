@@ -9,6 +9,10 @@ import Api from '../../service/api';
 import{Link} from 'react-router-dom';
 //import { useHistory } from 'react-router';
 import{LContainer, LConteudo} from './styled';
+import { listarImg } from "../../components/carrossel";
+
+
+
 
 const api = new Api();
 
@@ -83,7 +87,7 @@ export default function ListagemProdutos(props){
                     <div className="lbox">
                         <div className="limagem">
                             
-                            <img className="limagem2" src={i.ds_imagem1} alt="touch"/>
+                            <img className="limagem2" src={listarImg(i.ds_imagem1)} alt="touch"/>
                             <div className="lsobreposicao">
                                 <div className="lcomprar">Comprar</div>
                             </div>

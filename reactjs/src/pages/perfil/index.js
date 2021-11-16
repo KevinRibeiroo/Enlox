@@ -80,6 +80,9 @@ export default function Perfil() {
     async function editPic() {
         let gab = await api.editarFoto(usuario.id_usuario, foto)
         console.log(gab)
+
+        let login = await api.logarr(ususLogado.ds_email, ususLogado.ds_senha);
+        Cookies.set('usuario-logado', JSON.stringify(login));
     }
  
     async function listarImg() {

@@ -24,17 +24,25 @@ export default function CadastrarProduto () {
     async function cadastrarProdutoo() {
         
 
-        
+        if (img1.length >= 4) {
+            toast.error('Tanto o minimo quanto o maximo de imagens que podem ser postadas são de no maximo 4.')
+        }
+
+        if (nmProduto === '' || preco === '' || desc === ''){
+            toast.error('Não é possivel inserir campos nulos')
+        }
 
         const resp = await api.cadastrarProduto(usuarioLogado.id_usuario, idCategoria, img1, nmProduto, preco, desc);
-        console.log(resp)
+       
 
         if (resp.error) {
             toast.error(`${resp.error}`);
         } else {
             nav.push("/meusAnuncios");
         }
+
     }
+
 
 
     let file = document.getElementsByClassName('upload');
@@ -100,8 +108,7 @@ export default function CadastrarProduto () {
 
    //console.log(img1.length)
    
-    console.log("imagem 1")
-    console.log(img1)
+    
 
     setInterval(() => {
       Preview()
@@ -146,11 +153,9 @@ export default function CadastrarProduto () {
                             <InputPreco placeholder="Preço(R$)" type="number" required value={preco} onChange={(e) => setPreco(e.target.value)}  />
                         </div>
                         <div className="agp-input">
-                        <InputImage type="file" className="upload" accept="image/*"  onChange={e => img1.push(e.target.files[0])} multiple />
+                        <InputImage type="file" className="upload" accept="image/*"  onChange={img1.length <= 4  ? e => img1.push(e.target.files[0]) : ''} multiple />
               
-                        {Preview().map((x) => 
-    <img src={x} style={{width: "8em", height:"8em", borderRadius: "1em"}} alt="" />
-                        )}
+                     
                         
                         </div>
 
