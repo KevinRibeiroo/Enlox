@@ -27,19 +27,21 @@ width: 42em;
 border: none;
 height: 3em;
 outline: none;
-text-align: center;
-padding: 0.5em 0.5em;
-overflow-y: scroll;
+text-align: left;
+padding: 0.5em 1.2em;
+
 resize: none;
 
 
-background-image: url('/assets/images/Digite uma mensagem.svg');
-background-repeat: no-repeat;
-background-position-y: center;
-background-position-x: 1em;
-:focus {
-    background-image: none;
-}
+font-family: Stoke;
+font-style: normal;
+font-weight: normal;
+font-size: 0.8em;
+line-height: 23px;
+text-align: start;
+letter-spacing: 0.1em;
+
+color: #000000;
 
 /* width */
 ::-webkit-scrollbar {

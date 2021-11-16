@@ -5,8 +5,8 @@ import axios from "axios";
 
 
 const api = axios.create({
-//    baseURL: 'https://enloxx.herokuapp.com'
-baseURL: 'http://localhost:3030'
+    baseURL: 'https://enloxx.herokuapp.com'
+//baseURL: 'http://localhost:3030'
 })
 
 

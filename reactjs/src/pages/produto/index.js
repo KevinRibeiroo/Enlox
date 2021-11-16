@@ -23,6 +23,13 @@ import axios from "axios";
 const api = new Api();
 
 export default function Produto (props){
+    function pegarImg(img) {
+
+        if (img.includes('http'))
+        return img
+        else 
+        return `http://localhost:3030/usuariozin?imagem=${img}`
+    }  
 
         const nav = useHistory();
         console.log(nav)
@@ -48,14 +55,14 @@ export default function Produto (props){
 
      
 
-    useEffect(() => {
-        mostrarUsuario(produto.id_usuario);
-    }, []);
+   
 
-    const mostrarUsuario = async (id) => {
-        const r = await api.listarUsu(id);
-        setUsu(r);
+    const mostrarUsuario = async () => {
+        const r = await api.listarUsu(produto.id_usuario);
+        setUsu([r]);
     }
+
+  
 
         const listarCategoria = async () => {
             const r = await api.listarCategorias(produto.id_categoria);
@@ -117,16 +124,14 @@ export default function Produto (props){
 
 
       
-    function pegarImg() {
-
-        if (usuarioLogado.img_foto.includes('http'))
-        return usuarioLogado.img_foto
-        else 
-        return `http://localhost:3030/usuariozin?imagem=${usuarioLogado.img_foto}`
-    }  
+    
+    useEffect(() => {
+        mostrarUsuario();
+    },[]);
         
 console.log(vlCep)
 console.log(loc)
+console.log(usu)
     return (
     <Conteudo>
         <ToastContainer />
@@ -171,8 +176,11 @@ console.log(loc)
                         
                         <div><hr className="traco-produt"></hr></div>
                         <div className="container-info">
+                        {usu.map((x) => 
                             <div className="perfil">
-                                <div className="foto"><img src={pegarImg()} alt="" style={{width: "3.5em"}} /></div>
+                           
+                                <div className="foto"><img src={listarImg(x.img_foto)} alt="" style={{width: "3.5em"}} /></div>
+                            
                                 <div className="avaliacao">
                                 <img src="/assets/images/estrela-completa.svg" alt="" />
                                 <img src="/assets/images/estrela-completa.svg" alt="" />
@@ -180,8 +188,9 @@ console.log(loc)
                                 <img src="/assets/images/estrela-metade.svg" alt="" />
                                 <img src="/assets/images/estrela-vazia.svg" alt="" />
                             </div>
-                            <div className="nm-perfil">{usu.nm_usuario}</div>
+                            <div className="nm-perfil">{x.nm_usuario}</div>
                             </div>
+                            )}
                             <div className="agp-info">
                                 <div className="info-product">
                                     <div className="title-info">Categoria:</div>
