@@ -158,4 +158,10 @@ export default class Api {
         const r = await api.get('/usuariozin');
         return r.data;
     }
+
+    async alterarEmail(id, email) {
+        const r = await api.put(`/usuarioo/${id}`, email)
+        return r.data
+    }
+
         }

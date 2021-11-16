@@ -31,6 +31,11 @@ const Container = styled.div`
 .gab-email > span {
     color: gray;
 }
+
+.gab-endereco > span {
+    color: gray;
+}
+
 .gab-conteudo {
     display: flex;
     flex-direction: row;
@@ -38,7 +43,7 @@ const Container = styled.div`
 }
 
 .gab-form1 {
-    margin-top: 5em;
+    margin-top: 1em;
     margin-left: 2em;
 }
 .gab-form1 > div{
@@ -54,6 +59,10 @@ const Container = styled.div`
     line-height: 4em;
 }
 
+.gab-email > img {
+    width: 16px;
+    height: 16px;
+}
 
 
 .gab-nome > span {

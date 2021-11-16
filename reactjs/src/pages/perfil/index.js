@@ -26,8 +26,9 @@ export default function Perfil() {
     const [idUsu] = useState(ususLogado.id_usuario)
     const [foto, setFoto] = useState('')
     const [fotinha, setFotinha] = useState(ususLogado.img_foto)
+    const [email, setEmail] = useState('')
     console.log(idUsu)
-    
+    console.log(email)
 
     async function listUsu(id) {
         let r = await api.listarUsu(idUsu)
@@ -71,6 +72,10 @@ export default function Perfil() {
         nav.push('/login')
     }
 
+    async function editEmail() {
+        let resp = await api.alterarEmail(usuario.id_usuario, email)
+        console.log(resp)
+    }
 
     async function editPic() {
         let gab = await api.editarFoto(usuario.id_usuario, foto)
@@ -107,9 +112,10 @@ export default function Perfil() {
         </div>
         <div className='gab-conteudo'>
             <div className='gab-form1'>
-                <div className='gab-email'>EMAIL: {usuario.ds_email}  <span>Alterar email</span> </div>
+                <div className='gab-email'>EMAIL: {usuario.ds_email} <input type="text"  onChange={e => setEmail(e.target.value)} placeholder="Alterar Email"></input> <img src='/assets/images/iconalterar.png' alt='' onClick={editEmail} /> </div>
                 <div className='gab-numero'>NÚMERO: {usuario.nr_celular} <span className='gab-img1'><img src='/assets/images/verificado.svg' alt=''  /></span> <span className='gab-verif'>VERIFICADO</span></div>
                 <div className='gab-conect'><span className='gab-img2'><img src={preview()} alt='' /></span>{usuario.nm_usuario}</div>
+                <div className='gab-email'>ENDEREÇO: {usuario.nm_rua + ", Nº" + usuario.nr_casa} <input type='text' placeholder='Alterar endereço'></input> </div>
             </div>
             <div gab-form2>
                 <div className='gab-foto'>
@@ -134,7 +140,7 @@ export default function Perfil() {
                 <div className='gab-endereco'>
                     <table>
                     <tr>
-                        <th>MEUS ENDEREÇOS</th>
+                        <th>MEUS CARTÕES</th>
                     </tr>
                     <tr>
                        <td className='gab-celula'> | {usuario.nm_rua + ", Nº" + usuario.nr_casa}</td>
@@ -143,7 +149,7 @@ export default function Perfil() {
                     </table>
                 </div>
                 <div className='gab-enderecoa'>
-                    <div className='gab-end1'>ADICIONAR NOVO</div>
+                    <div className='gab-end1'>ADICIONAR CARTÃO</div>
                     <div className='gab-endsvg'><img src='/assets/images/mais.svg' alt='' /> </div> 
                 </div>
             </div>
