@@ -18,7 +18,7 @@ import { useHistory } from "react-router";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { listarImg } from "../../components/carrossel";
-
+import axios from "axios";
 
 const api = new Api();
 
@@ -32,6 +32,12 @@ export default function Produto (props){
       const [usu, setUsu] = useState([]);
       const [trocarImg, setTrocarImg] = useState(0)
       const [test43] = useState(produto);
+
+
+      const [mostarMais, setMostrar] = useState(0);
+      const [loc, setLoc] = useState({});
+      const [vlCep, setVlCep] = useState('');
+      const [cep, setCep] = useState(false);
 
       console.log(test43)
       let usuarioLogado = usuLogado() || {};
@@ -91,6 +97,36 @@ export default function Produto (props){
         }, [])
         console.log(categoria)
 
+        async function buscarCep() {
+            let r1 = vlCep.length
+    
+            if (r1 === 8)
+                setCep(true)
+    
+            const resp = await axios.get(`https://viacep.com.br/ws/${vlCep}/json/`);
+            setLoc(resp.data);
+
+
+            if(loc.localidade === 'São Paulo'){
+                setVlCep('R$ 35.58')
+            }
+            else {
+                setVlCep('R$45.58')
+            }
+        }
+
+
+      
+    function pegarImg() {
+
+        if (usuarioLogado.img_foto.includes('http'))
+        return usuarioLogado.img_foto
+        else 
+        return `http://localhost:3030/usuariozin?imagem=${usuarioLogado.img_foto}`
+    }  
+        
+console.log(vlCep)
+console.log(loc)
     return (
     <Conteudo>
         <ToastContainer />
@@ -115,20 +151,28 @@ export default function Produto (props){
                             </div>
                             <div className="preco"><div className="title-preco"> Preço: </div> <span>R$ {produto.vl_preco}</span> </div>
                             <div>
+                                { mostarMais === 0 ?
+                                <div>
                                 <div className="desc-produt">{produto.ds_produto}</div>
-                                <div > <button style={{border: "hidden"}} className="mais">Mostrar mais </button></div>
+                                <div > <button style={{border: "hidden"}} className="mais" onClick={() => setMostrar(1)} >Mostrar mais </button></div>
+                                </div>
+                                : <div>
+                                <div>{produto.ds_produto}</div>
+                                <div > <button style={{border: "hidden"}} className="mais" onClick={() => setMostrar(0)}>Mostrar menos </button></div>
+                                </div>
+                                }   
                             </div>
                             <div className="agp-frete">
                                 <div className="title-frete">Calcular Frete:</div>
-                                <div className="input-frete"><InputFrete  name="oiiiiiiiii"/></div>
-                                <div className="botao-frete"><button className="bta-frete"> Calcular </button></div>
+                                <div className="input-frete"><InputFrete placeholder="Inserir CEP" value={vlCep} onChange={e => setVlCep(e.target.value)} /></div>
+                                <div className="botao-frete"><button className="bta-frete" onClick={() => buscarCep()} > Calcular </button></div>
                             </div>
                         </div>
                         
                         <div><hr className="traco-produt"></hr></div>
                         <div className="container-info">
                             <div className="perfil">
-                                <div className="foto"><img src={usu.img_foto} alt="" style={{width: "3.5em"}} /></div>
+                                <div className="foto"><img src={pegarImg()} alt="" style={{width: "3.5em"}} /></div>
                                 <div className="avaliacao">
                                 <img src="/assets/images/estrela-completa.svg" alt="" />
                                 <img src="/assets/images/estrela-completa.svg" alt="" />

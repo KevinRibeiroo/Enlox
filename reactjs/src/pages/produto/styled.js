@@ -73,7 +73,7 @@ main {
     color: #353535;
     align-items: center;
     justify-content: space-between;
-    width: 8.2em;
+    width: 9.2em;
 
     height: 2.5em;
 }
@@ -229,6 +229,7 @@ background-color: transparent;
     justify-content: center;
 
     cursor: pointer;
+    margin-right: 0.8em;
 }
 
 .nm-perfil {

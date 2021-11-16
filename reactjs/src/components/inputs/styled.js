@@ -12,13 +12,12 @@ border: none;
 height: 1.9em;
 outline: none;
 
-background-image: url('/assets/images/inserir CEP.svg');
-background-repeat: no-repeat;
-background-position-y: center;
-background-position-x: 1em;
-:focus {
-    background-image: none;
+
+
+::placeholder{
+  color: black;
 }
+
 `
 
 const InputChat = styled.textarea`
