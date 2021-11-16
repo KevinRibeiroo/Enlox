@@ -64,6 +64,16 @@ const Container = styled.div`
     height: 16px;
 }
 
+.gab-numero > img {
+    width: 16px;
+    height: 16px;
+}
+
+.gab-conect > img {
+    width: 16px;
+    height: 16px;
+}
+
 
 .gab-nome > span {
     -webkit-text-stroke: 1px black; 

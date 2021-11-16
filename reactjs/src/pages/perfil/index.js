@@ -27,6 +27,8 @@ export default function Perfil() {
     const [foto, setFoto] = useState('')
     const [fotinha, setFotinha] = useState(ususLogado.img_foto)
     const [email, setEmail] = useState('')
+    const [num, setNum] = useState('')
+    const [nick, setNick] = useState('')
     console.log(idUsu)
     console.log(email)
 
@@ -77,6 +79,16 @@ export default function Perfil() {
         console.log(resp)
     }
 
+    async function editNumero() {
+        let resp = await api.alterarNumero(usuario.id_usuario, num)
+        console.log(resp)
+    }
+
+    async function editNome() {
+        let resp = await api.alterarNick(usuario.id_usuario, nick)
+        console.log(resp)
+    }
+
     async function editPic() {
         let gab = await api.editarFoto(usuario.id_usuario, foto)
         console.log(gab)
@@ -115,9 +127,9 @@ export default function Perfil() {
         </div>
         <div className='gab-conteudo'>
             <div className='gab-form1'>
-                <div className='gab-email'>EMAIL: {usuario.ds_email} <input type="text"  onChange={e => setEmail(e.target.value)} placeholder="Alterar Email"></input> <img src='/assets/images/iconalterar.png' alt='' onClick={editEmail} /> </div>
-                <div className='gab-numero'>NÚMERO: {usuario.nr_celular} <span className='gab-img1'><img src='/assets/images/verificado.svg' alt=''  /></span> <span className='gab-verif'>VERIFICADO</span></div>
-                <div className='gab-conect'><span className='gab-img2'><img src={preview()} alt='' /></span>{usuario.nm_usuario}</div>
+                <div className='gab-email'>EMAIL: {usuario.ds_email} <input type="text"  onChange={e => setEmail(e.target.value)} placeholder="Alterar Email"></input> <img src='/assets/images/iconalterar.png' alt='' onClick={() => editEmail()} /> </div>
+                <div className='gab-numero'>NÚMERO: {usuario.nr_celular} <span className='gab-img1'><img src='/assets/images/verificado.svg' alt=''  /></span> <span className='gab-verif'>VERIFICADO</span> <input type="text"  onChange={e => setNum(e.target.value)} placeholder="Alterar Número"></input> <img src='/assets/images/iconalterar.png' alt='' onClick={() => editNumero()} /> </div>
+                <div className='gab-conect'><span className='gab-img2'><img src={preview()} alt='' /></span>{usuario.nm_usuario} <input type="text"  onChange={e => setNick(e.target.value)} placeholder="Alterar Nome de usuário"></input> <img src='/assets/images/iconalterar.png' alt='' onClick={() => editNome()} /> </div>
                 <div className='gab-email'>ENDEREÇO: {usuario.nm_rua + ", Nº" + usuario.nr_casa} <input type='text' placeholder='Alterar endereço'></input> </div>
             </div>
             <div gab-form2>
