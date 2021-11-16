@@ -158,4 +158,25 @@ export default class Api {
         const r = await api.get('/usuariozin');
         return r.data;
     }
+
+    async alterarEmail(id, email) {
+        const r = await api.put(`/usuarioEmail/${id}`, {email} )
+        return r.data
+    }
+
+    async alterarNumero(id, num) {
+        const r = await api.put(`/usuarioNumero/${id}`, {num} )
+        return r.data
+    }
+
+    async alterarNick(id, nick) {
+        const r = await api.put(`/usuarioNick/${id}`, {nick} )
+        return r.data
+    } 
+
+    async alterarEndereco(id, endereco) {
+        const r = await api.put(`/usuarioEndereco/${id}`, {endereco} )
+        return r.data
+    } 
+
         }
