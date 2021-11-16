@@ -9,7 +9,7 @@ function listarImg(img) {
       return img
 
     else
-        return `http://localhost:3030/produtinho?imagem=${img}`
+        return `https://enloxx.herokuapp/produtinho?imagem=${img}`
 
 }
 
