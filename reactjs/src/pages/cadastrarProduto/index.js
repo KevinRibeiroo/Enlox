@@ -44,6 +44,7 @@ export default function CadastrarProduto () {
     }
 
 
+
     let file = document.getElementsByClassName('upload');
     //const [imgproduto, setImgproduto] = useState('');
 
