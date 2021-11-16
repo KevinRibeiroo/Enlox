@@ -118,7 +118,7 @@ export default function Chat (props) {
                     <div className="container-chat">
                   
                       <div className="conversas">
-                        {chatUsu.map((X) => 
+                        {!chatUsu ? '' : chatUsu.map((X) => 
                             <div className="conversa" onClick={() => setarIdChatUsu(X.id_chat_usuario)}>
                                 
                           
@@ -138,7 +138,7 @@ export default function Chat (props) {
                             </div>
                             )} 
                         </div>
-                       {chatUsuEspecifico === null ? <div></div>
+                       {!chatUsuEspecifico ? <div></div>
                        :
                         <div className="chat">
                         
