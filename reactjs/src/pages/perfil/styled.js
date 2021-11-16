@@ -55,23 +55,26 @@ const Container = styled.div`
     padding-right: 10px;
     font-weight: bold;
     font-size: 1em;
-
     line-height: 4em;
 }
+
 
 .gab-email > img {
     width: 16px;
     height: 16px;
+    cursor: pointer;
 }
 
 .gab-numero > img {
     width: 16px;
     height: 16px;
+    cursor: pointer;
 }
 
 .gab-conect > img {
     width: 16px;
     height: 16px;
+    cursor: pointer;
 }
 
 

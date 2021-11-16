@@ -174,4 +174,9 @@ export default class Api {
         return r.data
     } 
 
+    async alterarEndereco(id, endereco) {
+        const r = await api.put(`/usuarioEndereco/${id}`, {endereco} )
+        return r.data
+    } 
+
         }

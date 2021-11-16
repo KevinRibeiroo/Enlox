@@ -29,6 +29,7 @@ export default function Perfil() {
     const [email, setEmail] = useState('')
     const [num, setNum] = useState('')
     const [nick, setNick] = useState('')
+    const [endereco, setEndereco] = useState('')
     console.log(idUsu)
     console.log(email)
 
@@ -89,6 +90,11 @@ export default function Perfil() {
         console.log(resp)
     }
 
+    async function editEnd() {
+        let resp = await api.alterarEndereco(usuario.id_usuario, endereco)
+        console.log(resp)
+    }
+
     async function editPic() {
         let gab = await api.editarFoto(usuario.id_usuario, foto)
         console.log(gab)
@@ -130,7 +136,7 @@ export default function Perfil() {
                 <div className='gab-email'>EMAIL: {usuario.ds_email} <input type="text"  onChange={e => setEmail(e.target.value)} placeholder="Alterar Email"></input> <img src='/assets/images/iconalterar.png' alt='' onClick={() => editEmail()} /> </div>
                 <div className='gab-numero'>NÚMERO: {usuario.nr_celular} <span className='gab-img1'><img src='/assets/images/verificado.svg' alt=''  /></span> <span className='gab-verif'>VERIFICADO</span> <input type="text"  onChange={e => setNum(e.target.value)} placeholder="Alterar Número"></input> <img src='/assets/images/iconalterar.png' alt='' onClick={() => editNumero()} /> </div>
                 <div className='gab-conect'><span className='gab-img2'><img src={preview()} alt='' /></span>{usuario.nm_usuario} <input type="text"  onChange={e => setNick(e.target.value)} placeholder="Alterar Nome de usuário"></input> <img src='/assets/images/iconalterar.png' alt='' onClick={() => editNome()} /> </div>
-                <div className='gab-email'>ENDEREÇO: {usuario.nm_rua + ", Nº" + usuario.nr_casa} <input type='text' placeholder='Alterar endereço'></input> </div>
+                <div className='gab-email'>ENDEREÇO: {usuario.nm_rua} <input type='text' onChange={e => setEndereco(e.target.value)} placeholder="Alterar Endereço"></input> <img src='/assets/images/iconalterar.png' alt='' onClick={() => editEnd()} /> </div>
             </div>
             <div gab-form2>
                 <div className='gab-foto'>
