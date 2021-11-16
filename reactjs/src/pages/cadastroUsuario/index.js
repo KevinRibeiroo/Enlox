@@ -32,16 +32,24 @@ export default function CadastroUsuario() {
 
     const[cepp,setCepp]=useState('');
     const[local,setLocal]=useState({});
+    
+    const dataFormat = async()=>{
+        var data = new Date(parseInt(nasc.substring(0,4)), parseInt(nasc.substring(5,7)), parseInt(nasc.substring(8,10)) );
+        //console.log(data)
+        //setNasc(data);
+    }
+    
 
     const inserirUsuario = async () => {
-
+            
             let r = await api.cadastrarUsuario(usuario,nome,cpf,celular,email,senha,cep,num,cidade,rua)
-            console.log(nasc)
+            
             if (r.error){
                 toast.error(`${r.error}`);
                 console.log(r)
             } else {
                  Clean();
+                 
             }
              
     }
@@ -68,6 +76,13 @@ export default function CadastroUsuario() {
     }
 
 
+    const entrar = (event) => {
+        if (event.key === 'Enter') {
+            inserirUsuario();
+        }
+    }
+
+
 
     return(
         <CContainer>
@@ -86,7 +101,7 @@ export default function CadastroUsuario() {
 
                                 <div className="CColumn">
                                     <div>Celular:<input type="tel"value={celular} onChange={e => setCelular(e.target.value)}/></div>
-                                    <div>Nascimento:<input type="date" value={nasc}  /></div>
+                                    <div>Nascimento:<input type="date" value={nasc} onChange={e => setNasc(e.target.value)} /></div>
                                 </div>
                                 
                             </div>
@@ -114,7 +129,7 @@ export default function CadastroUsuario() {
                                 </div>
 
                                 <div className="CColumn">
-                                    <div>Senha:<input type="password" value={senha} onChange={e => setSenha(e.target.value)}/></div>
+                                    <div>Senha:<input type="password" value={senha} onChange={e => setSenha(e.target.value)} onKeyPress={entrar}/></div>
                                     <div>Foto de Perfil:<input type="file" /></div>
                                 </div>
                                 
