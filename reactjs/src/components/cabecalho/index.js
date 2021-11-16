@@ -52,7 +52,7 @@ export default function Cabecalho(){
         if (usuarioLogado.img_foto.includes('http'))
         return usuarioLogado.img_foto
         else 
-        return `http://localhost:3030/usuariozin?imagem=${usuarioLogado.img_foto}`
+        return `https://enloxx.herokuapp.com/usuariozin?imagem=${usuarioLogado.img_foto}`
     }
 
 //    console.log(Cookies.get('usuario-logado'))
