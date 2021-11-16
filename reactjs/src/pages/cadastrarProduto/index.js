@@ -24,7 +24,7 @@ export default function CadastrarProduto () {
     async function cadastrarProdutoo() {
         
 
-        if (img1.length >= 4) {
+        if (img1.length > 4) {
             toast.error('Tanto o minimo quanto o maximo de imagens que podem ser postadas são de no maximo 4.')
         }
 
@@ -155,7 +155,9 @@ export default function CadastrarProduto () {
                         <div className="agp-input">
                         <InputImage type="file" className="upload" accept="image/*"  onChange={img1.length <= 4  ? e => img1.push(e.target.files[0]) : ''} multiple />
               
-                     
+                        {Preview().map((x) => 
+    <img src={x} style={{width: "8em", height:"8em", borderRadius: "1em"}} alt="" />
+                        )}
                         
                         </div>
 
