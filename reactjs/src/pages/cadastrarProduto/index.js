@@ -28,7 +28,7 @@ export default function CadastrarProduto () {
             toast.error('Tanto o minimo quanto o maximo de imagens que podem ser postadas são de no maximo 4.')
         }
 
-        if (nmProduto === '' || preco === '' || desc === ''){
+        if (nmProduto === null || preco === null || desc === null){
             toast.error('Não é possivel inserir campos nulos')
         }
 
