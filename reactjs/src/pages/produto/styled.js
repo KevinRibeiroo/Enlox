@@ -230,6 +230,7 @@ background-color: transparent;
 
     cursor: pointer;
     margin-right: 0.8em;
+    max-height: 6em;
 }
 
 .nm-perfil {
