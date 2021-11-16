@@ -4,6 +4,8 @@ import Cabecalho, { usuLogado } from "../../components/cabecalho"
 import Rodape from "../../components/rodape"
 import Modal from "../ModalEditarProduto";
 import Container from './styled'
+import Paginas from "./pagina";
+import { Loader } from "./loader";
 
 
 import Cookies from "js-cookie";
@@ -14,6 +16,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import Api from '../../service/api';
 import { useState, React, useEffect } from 'react';
 import rodape from "../../components/rodape";
+import axios from "axios";
 
 
 const api = new Api();
@@ -21,6 +24,8 @@ const api = new Api();
 
 
 export default function MeusAnuncios(){
+
+
 
 
 
@@ -55,17 +60,20 @@ export default function MeusAnuncios(){
 
     async function listar(){
         setLoading(true);
-
-        let r = await api.listarMeusprodutos( idUsu );
-        console.log(r);
-        setProduto(r);
-        setTotalPaginas(r);
+        
+        const resp = await axios.get(`http://localhost:3030/produtoss/${idUsu}?page=` + pagina);
+       
+          setProduto([{...resp.data.items}]);
+          setTotalPaginas(resp.data.totalPaginas);
 
         setLoading(false);
     }
-    
-    
 
+    
+    function irPara(pagina) {
+        setPagina(pagina);
+      } 
+    
 
     async function remover (id) {
 
@@ -111,10 +119,6 @@ export default function MeusAnuncios(){
     }
 
 
-
-   
-
-
     const editarProduto = async () => {
         let r = await api.alterar(idProduto, nome, categoria, preco, descProduto)
 
@@ -123,9 +127,12 @@ export default function MeusAnuncios(){
         listar();
     }
     
-    useEffect(() => {
+ 
+    
+      useEffect(() => {
         listar();
-    }, )
+      }, [pagina]);
+    
 
   
     return(        
@@ -191,8 +198,13 @@ export default function MeusAnuncios(){
         </div>
       </Modal>
       
-      {produto.map((item) => 
-          <div className="agp">
+<div className="container-produtos">
+        <div className="produtos">
+          {loading }
+
+          {!loading &&
+          produto.map((item) => 
+           <div className="agp">
              <div className="img-agp"><img src={item.ds_imagem1} alt=""/></div>
               <div className="texto1"> 
                   <div className="nm_produto">{item.nm_produto}</div>
@@ -214,6 +226,16 @@ export default function MeusAnuncios(){
                  </div>    
           </div>
         )}
+        </div>
+        </div>
+
+        <div className="paginacao">
+          <Paginas
+            totalPaginas={totalPaginas}
+            pagina={pagina}
+            onPageChange={irPara}
+          />
+        </div>
 
             <Rodape/>
      </Container>

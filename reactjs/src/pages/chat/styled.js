@@ -46,7 +46,7 @@ main {
     height: 70vh;
     border-left: solid 1px;
     justify-content: space-between;
-    width: 50em;
+    width: 44em;
 
     
 }
@@ -114,7 +114,7 @@ main {
      max-height: 10em;
       max-width: 20em;
 
-      margin: 3em 1em;
+      margin: 0.5em 2em;
    
       align-self: flex-end;
       padding: 0.5em 0.5em;
@@ -142,10 +142,11 @@ main {
      max-height: 10em;
       max-width: 20em;
 
-      margin: 3em 1em;
+      margin: 0.5em 2em;
    
       align-self: flex-start;
       padding: 0.5em 0.5em;
+      
   }
 
 
@@ -153,6 +154,7 @@ main {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    padding-bottom: 0.7em;
   }
 
   .img-perfil {

@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 import { useHistory } from "react-router";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { listarImg } from "../../components/carrossel";
 
 const api = new Api();
 
@@ -21,7 +21,7 @@ export default function Chat (props) {
     const nav = useHistory();
 
 
-
+   
     if (Cookies.get('usuario-logado') === undefined) {
       nav.push('/login');
     }
@@ -84,7 +84,7 @@ export default function Chat (props) {
         setChat(r);
     }
 
-    const enviarMsg = async  (msg2) => {
+    const enviarMsg = async (msg2) => {
         const r = await api.inserirMsg(idUsu, idChatUsu, msg2);
 
 
@@ -106,6 +106,15 @@ export default function Chat (props) {
     // console.log(chat)
     /*{idUsu != chatUsu.id_usuario_comprador ? chatUsu.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsu.id_usuario_comprador_infoa_enl_usuario.nm_usuario }*/
       
+
+    const enviarr = (event) => {
+        if (event.key === 'Control') {
+            enviarMsg(msgText);
+            console.log(enviarMsg(msgText))
+        }
+    }
+
+
     console.log(chatUsu)
     if (chatUsu.length !== 0) {
     return (
@@ -171,7 +180,7 @@ export default function Chat (props) {
                            
                             <div className="enviar-msg">
                                 <div className="emoji"><img src="/assets/images/emoji.svg" alt="" /></div>
-                                <div className="digit-msg"><InputChat value={msgText} onChange={(e) => setMsgText(e.target.value)} /></div>
+                                <div className="digit-msg"><InputChat onKeyPress={enviarr} value={msgText} onChange={(e) => setMsgText(e.target.value)} /></div>
                                 <div className="arquivo"><input type="file" className="document" /></div>
                                 <div className="enviar" ><button style={{border: "none", backgroundColor: "white"}} onClick={() => enviarMsg(msgText)} ><img src="/assets/images/msg.svg" alt="" /></button></div>
                             </div>

@@ -6,7 +6,7 @@ import Api from '../../service/api';
 import { useState } from 'react';
 
 
-import mask from 'react-input-mask';
+/*import mask from 'react-input-mask';*/
 
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -95,7 +95,7 @@ export default function CadastroUsuario() {
                             <div className="CRow">
                                 <div className="CColumn">
                                     <div>Cep:<input type="text" value={cep} onChange={e => setCep(e.target.value)}/></div>
-                                    <div>Rua:<input type="tel" value={rua} onChange={e => setRua(e.target.value)}/></div>
+                                    <div>Rua:<input type="text" value={rua} onChange={e => setRua(e.target.value)}/></div>
                                 </div>
 
                                 <div className="CColumn">
