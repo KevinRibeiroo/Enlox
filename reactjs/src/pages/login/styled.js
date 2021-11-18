@@ -103,7 +103,14 @@ letter-spacing: 0.1em;
 
 }
 
-
+.esqueci{height:2em!important;
+    font-family: Snippet-Regular;
+    cursor:pointer;}
+.esqueci:hover{
+    background-color: rgba(79,110,146,0.89);
+}
+.e{text-decoration:none;
+color:black;}
 .logar-fora {
 
 

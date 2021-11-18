@@ -13,6 +13,10 @@ const api = axios.create({
 export default class Api {
 
 
+  
+
+
+
     //async listarVistoRecente()
 
 
@@ -38,6 +42,12 @@ export default class Api {
     }
 
 
+
+      //enviar codigo de acesso ao email
+      async recuperarSenha(ds_email){
+        const r = await api.post('/esqueciASenha',{ds_email})
+        return r.data;
+    }
    
 
 
