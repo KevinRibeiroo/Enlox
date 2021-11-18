@@ -12,7 +12,7 @@ main {
     flex-direction: column;
 
 
-    height: 120vh;
+    height: 130vh;
     justify-content: space-between;
 }
 
@@ -21,10 +21,10 @@ main {
     flex-direction: column;
     
     align-self: center;
-    width: 75vw;
+    width: 90vw;
     background-color: rgba(188, 191, 80, 0.6);
     
-    height: 85vh;
+    height: 95vh;
     justify-content: center;
 }
 
@@ -33,8 +33,8 @@ main {
     background: #ECF6FE;
     border: 1px solid #4F6E92;
     box-sizing: border-box;
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 93%;
 
     align-self: center;
     justify-content: space-around;
@@ -45,7 +45,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-   
+
+    width: 28em;
 }
 
 .bta-info {
@@ -113,12 +114,31 @@ main {
 
     color: #353535;
 
-    width: 13em;
+    width: 15em;
    text-align: left;
    
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+}
+
+
+.desc-produt2 {
+    
+    font-family: Roboto-Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 26px;
+
+    color: #353535;
+
+    width: 28em;
+   text-align: left;
+   
+ 
+
 }
 
 .agp-frete {
@@ -128,6 +148,7 @@ main {
 
     width: 25vw;
     align-items: center;
+    align-self: flex-start;
 }
 .bta-frete {
     background: #34D231;
@@ -150,9 +171,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 50vh;
+    height: 60vh;
     background: #FFFFFF;
-    width: 21vw;
+    width: 26vw;
    
 }
 
@@ -167,7 +188,7 @@ main {
 .agp-info {
     display: flex;
     flex-direction: column;
-    align-self: flex-start;
+    align-self: center;
     
     margin-left: 2em;
 }
@@ -180,8 +201,9 @@ main {
 .title-info {
     font-family: Roboto Slab-Bold;
     
-    width: 7em;
+    width: 7.5em;
     color: #353535;
+    font-size: 1.1em;
 }
 
 .bta-info {

@@ -155,6 +155,8 @@ main {
     flex-direction: column;
     overflow-y: scroll;
     padding-bottom: 0.7em;
+
+   
   }
 
   .img-perfil {
