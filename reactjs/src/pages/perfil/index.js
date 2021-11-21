@@ -114,7 +114,7 @@ export default function Perfil() {
         if (foto.includes('http'))
         return foto
         else 
-        return `https://enloxx.herokuapp/usuariozin?imagem=${usuario.img_foto}`
+        return `https://localhost/usuariozin?imagem=${usuario.img_foto}`
     }
 
     console.log(foto)
