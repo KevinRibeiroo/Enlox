@@ -11,19 +11,52 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const api = new Api();
 
-export default function Resetar() {
-    const [email,setEmail]=useState('');
-    
-    const nav = useHistory();
+export default function Resetar(props) {
+    const [codigo,setCodigo]=useState('');
+    const [validado,setValidado]=useState(false);
+    const [novaSenha, setNovaSenha] = useState('');
 
-    async function recuperar() {
-        const r = await api.recuperarSenha(email)
-        if(r.data.status==="ok"){
-            nav.push('/resetar')
-           
-        }else{toast.error(`${r.error}`)}
+
+    const nav = useHistory();
+    
+    async function validarCodigo() {
+        const r = await api.inserirCodigo(props.location.state.email,codigo);
+        if(r.error){
+            setValidado(false);
+            toast.error(`${r.error}`);
+            
+        }else{ 
+            console.log(props.location.state.email)        
+            setValidado(true);
+            toast.dark("Código validado com sucesso.")
+        }
     }
 
+
+    async function alterarSenha() {
+        const r = await api.mudarSenha(codigo,props.location.state.email,novaSenha);
+
+        if (r.error) {
+            toast.error(`${r.error}`); 
+          } else {
+            alert("Senha alterada com sucesso.");
+            nav.push('/login');
+          }
+
+    }
+    const entrar = (event) => {
+        if (event.key === 'Enter') {
+            validarCodigo()
+        }
+    }
+
+    const entrarFinal = (event) => {
+        if (event.key === 'Enter') {
+            alterarSenha()
+        }
+    }
+
+    
     
     return(
         <RContainer>
@@ -31,14 +64,26 @@ export default function Resetar() {
             <div className="RBox">
                 <Link className="RDefinir" to = "/"><div className="imagem"> <img src="/assets/images/logo.svg" alt=""/></div></Link>
                 <div className = "RTitulo">Recuperação de Senha</div>
-                <div className = "RDigite">Digite seu email:<input type="text" value={email} onChange={e => setEmail(e.target.value)}/></div>
-                <div className="REnvie" onClick= {recuperar}>Enviar</div>
-                <div className="RTexto">** Dentro de alguns instantes, a Enlox enviará um código de acesso.</div>
+                <div className = "RDigite">Digite o código:<input type="text" value={codigo} onChange={e => setCodigo(e.target.value)} onKeyPress={entrar}/></div>
+                <div className="REnvie" onClick= {validarCodigo}>Enviar</div>
+                <div className="RTexto">** Digite o código de acesso no campo acima enviado ao seu email.</div>
             </div>
+
+            <br/>
+
+
+            {validado && 
+
+                <div className="RBox">
+                    <Link className="RDefinir" to = "/"><div className="imagem"> <img src="/assets/images/logo.svg" alt=""/></div></Link>
+                    <div className = "RTitulo">Altere sua senha</div>
+                    <div className = "RDigite">Nova senha:<input type="text" value={novaSenha} onChange={e => setNovaSenha(e.target.value)} onKeyPress={entrarFinal}/></div>
+                    <div className="REnvie" onClick= {alterarSenha}>Alterar</div>
+                </div>
+
+            }
 
             <Rodape/>
         </RContainer>
     )
-  
-    
-}
+        }

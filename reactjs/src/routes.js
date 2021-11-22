@@ -8,7 +8,7 @@ import MeusAnuncios from './pages/meusAnuncios';
 import Produto from './pages/produto';
 import politicaPrivacidade from './pages/políticaPrivacidade';
 import recuperacaoSenha from './pages/recuperacaoSenha';
-import reset from  './pages/resetar';
+import Resetar from  './pages/resetar';
 import Perfil from './pages/perfil'
 import Chat from './pages/chat';
 
@@ -37,7 +37,7 @@ export default function Routes(){
                 <Route path="/produto" component={Produto}/>
                 <Route path="/politicaDePrivacidade" component={politicaPrivacidade}/>
                 <Route path="/recuperacaoSenha" component={recuperacaoSenha}/>
-                <Route path="/resetar" component={reset}/>
+                <Route path="/resetar" component={Resetar}/>
                 <Route path="/perfil" component={Perfil}/>
                 <Route path="/chat" component={Chat}/>
                 <Route path="/cadastroDeUsuario1" component={CadastroDeUsuario} />

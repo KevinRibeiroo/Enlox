@@ -16,14 +16,30 @@ export default function RecuperacaoSenha() {
     
     const nav = useHistory();
 
+
+    
     async function recuperar() {
-        const r = await api.recuperarSenha(email)
-        if(r.data.status==="ok"){
-            nav.push('/resetar')
-           console.log("foi")
-        }else{toast.error(`${r.error}`)}
+        
+       let r = await api.recuperarSenha(email)
+        console.log(email)
+
+        if(r.error){
+            toast.error(`${r.error}`) 
+            
+        }else{       
+            nav.push('/resetar',{email:email})
+            console.log(email)
+            
+        }
+        console.log(r)
     }
 
+
+    const entrar = (event) => {
+        if (event.key === 'Enter') {
+            recuperar();
+        }
+    }
     
     return(
         <RContainer>
@@ -31,7 +47,7 @@ export default function RecuperacaoSenha() {
             <div className="RBox">
                 <Link className="RDefinir" to = "/"><div className="imagem"> <img src="/assets/images/logo.svg" alt=""/></div></Link>
                 <div className = "RTitulo">Recuperação de Senha</div>
-                <div className = "RDigite">Digite seu email:<input type="text" value={email} onChange={e => setEmail(e.target.value)}/></div>
+                <div className = "RDigite">Digite seu email:<input type="text" value={email} onChange={e => setEmail(e.target.value)} onKeyPress={entrar}/></div>
                 <div className="REnvie" onClick= {recuperar}>Enviar</div>
                 <div className="RTexto">** Dentro de alguns instantes, a Enlox enviará um código de acesso.</div>
             </div>

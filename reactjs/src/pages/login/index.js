@@ -72,7 +72,7 @@ const entrar = (event) => {
                    <div className="botao-login" id='btn-logar'    ><BotaoLogin onClick={() => logar()} > Entrar </BotaoLogin> </div>
 
                    <div className="text-login">Não tenho conta.Quero me <span><Link to = "/cadastroDeUsuario1" className="cdstr"> Cadastrar </Link> </span></div>
-                   <div className="logar-fora esqueci"><Link className="e" to= "/recuperacaoSenha">Esqueci a senha</Link></div>
+                   <Link className="e" to= "/recuperacaoSenha"> <div className="logar-fora esqueci">Esqueci a senha</div></Link>
                    <div className="logar-fora"><BotaoGoogle>Entrar com gmail </BotaoGoogle></div>
                 </div>
             </div>

@@ -5,8 +5,8 @@ import axios from "axios";
 
 
 const api = axios.create({
-    baseURL: 'https://enloxx.herokuapp.com'
-//baseURL: 'http://localhost:3030'
+//    baseURL: 'https://enloxx.herokuapp.com'
+baseURL: 'http://localhost:3030'
 })
 
 
@@ -45,11 +45,22 @@ export default class Api {
 
       //enviar codigo de acesso ao email
       async recuperarSenha(ds_email){
-        const r = await api.post('/esqueciASenha',{ds_email})
+        const r = await api.post('/esqueciASenha',{ds_email});
         return r.data;
     }
    
 
+
+    async inserirCodigo(ds_email,ds_codigo){
+        const r = await api.post('/validarCodigo',{ds_email,ds_codigo});
+        return r.data;
+    }
+
+
+    async mudarSenha(ds_codigo,ds_email,senhaAlterada){
+        const r = await api.put(`/resetarSenha`,{ds_codigo,ds_email,senhaAlterada})
+        return r.data;
+    }
 
         async listarProduto() {
             const r = await api.get('/produto');

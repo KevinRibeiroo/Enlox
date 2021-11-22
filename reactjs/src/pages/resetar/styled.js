@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const RContainer = styled.div`
 height: 100vh;
-background-color:rgb(238,170,68,73%);
+background-color:rgb(188,191,80,60%);
 display: flex;
 flex-direction: column;
 .RBox{height:70%; width: 40%; background-color:#fff;
