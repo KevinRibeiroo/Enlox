@@ -23,6 +23,13 @@ import axios from "axios";
 const api = new Api();
 
 export default function Produto (props){
+    function pegarImg(img) {
+
+        if (img.includes('http'))
+        return img
+        else 
+        return `http://localhost:3030/usuariozin?imagem=${img}`
+    }  
 
         const nav = useHistory();
         console.log(nav)
@@ -35,7 +42,7 @@ export default function Produto (props){
 
 
       const [mostarMais, setMostrar] = useState(0);
-      const [loc, setLoc] = useState({});
+      const [loc, setLoc] = useState([]);
       const [vlCep, setVlCep] = useState('');
       const [cep, setCep] = useState(false);
 
@@ -48,14 +55,14 @@ export default function Produto (props){
 
      
 
-    useEffect(() => {
-        mostrarUsuario(produto.id_usuario);
-    }, []);
+   
 
-    const mostrarUsuario = async (id) => {
-        const r = await api.listarUsu(id);
-        setUsu(r);
+    const mostrarUsuario = async () => {
+        const r = await api.listarUsu(produto.id_usuario);
+        setUsu([r]);
     }
+
+  
 
         const listarCategoria = async () => {
             const r = await api.listarCategorias(produto.id_categoria);
@@ -93,11 +100,12 @@ export default function Produto (props){
 
 
         useEffect(() => {
-            listarCategoria()
+            listarCategoria();
         }, [])
         console.log(categoria)
 
         async function buscarCep() {
+
             let r1 = vlCep.length
     
             if (r1 === 8)
@@ -106,27 +114,38 @@ export default function Produto (props){
             const resp = await axios.get(`https://viacep.com.br/ws/${vlCep}/json/`);
             setLoc(resp.data);
 
+            
 
-            if(loc.localidade === 'São Paulo'){
-                setVlCep('R$ 35.58')
-            }
-            else {
-                setVlCep('R$45.58')
-            }
+            
         }
 
-
-      
-    function pegarImg() {
-
-        if (usuarioLogado.img_foto.includes('http'))
-        return usuarioLogado.img_foto
-        else 
-        return `http://localhost:3030/usuariozin?imagem=${usuarioLogado.img_foto}`
-    }  
+        function valorCep() {
+        if(loc.uf === 'SP' || loc.uf !== 'SP'){
+            
+            if(loc.length === 0){
+               return setVlCep('');
+            }
+            if (loc.uf !== 'SP'){
+               return setVlCep('R$45.58')
+            }
+            setVlCep('R$ 35.58')
+        }
         
-console.log(vlCep)
-console.log(loc)
+        
+    }
+    
+    useEffect(() => {
+        mostrarUsuario();
+        valorCep();
+    },[loc]);
+        
+    const enviarCep = (event) => {
+        if (event.key === 'Enter') {
+            buscarCep();
+        }
+    }
+
+    console.log(loc)
     return (
     <Conteudo>
         <ToastContainer />
@@ -157,22 +176,25 @@ console.log(loc)
                                 <div > <button style={{border: "hidden"}} className="mais" onClick={() => setMostrar(1)} >Mostrar mais </button></div>
                                 </div>
                                 : <div>
-                                <div>{produto.ds_produto}</div>
+                                <div className="desc-produt2">{produto.ds_produto}</div>
                                 <div > <button style={{border: "hidden"}} className="mais" onClick={() => setMostrar(0)}>Mostrar menos </button></div>
                                 </div>
                                 }   
                             </div>
                             <div className="agp-frete">
                                 <div className="title-frete">Calcular Frete:</div>
-                                <div className="input-frete"><InputFrete placeholder="Inserir CEP" value={vlCep} onChange={e => setVlCep(e.target.value)} /></div>
+                                <div className="input-frete"><InputFrete placeholder="Inserir CEP" value={vlCep} onChange={e => setVlCep(e.target.value)} onKeyPress={enviarCep} /></div>
                                 <div className="botao-frete"><button className="bta-frete" onClick={() => buscarCep()} > Calcular </button></div>
                             </div>
                         </div>
                         
                         <div><hr className="traco-produt"></hr></div>
                         <div className="container-info">
+                        {usu.map((x) => 
                             <div className="perfil">
-                                <div className="foto"><img src={pegarImg()} alt="" style={{width: "3.5em"}} /></div>
+                           
+                                <div className="foto"><img src={listarImg(x.img_foto)} alt="" style={{width: "3.5em"}} /></div>
+                            
                                 <div className="avaliacao">
                                 <img src="/assets/images/estrela-completa.svg" alt="" />
                                 <img src="/assets/images/estrela-completa.svg" alt="" />
@@ -180,8 +202,9 @@ console.log(loc)
                                 <img src="/assets/images/estrela-metade.svg" alt="" />
                                 <img src="/assets/images/estrela-vazia.svg" alt="" />
                             </div>
-                            <div className="nm-perfil">{usu.nm_usuario}</div>
+                            <div className="nm-perfil">{x.nm_usuario}</div>
                             </div>
+                            )}
                             <div className="agp-info">
                                 <div className="info-product">
                                     <div className="title-info">Categoria:</div>

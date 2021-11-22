@@ -24,11 +24,11 @@ export default function CadastrarProduto () {
     async function cadastrarProdutoo() {
         
 
-        if (img1.length >= 4) {
+        if (img1.length > 4) {
             toast.error('Tanto o minimo quanto o maximo de imagens que podem ser postadas são de no maximo 4.')
         }
 
-        if (nmProduto === '' || preco === '' || desc === ''){
+        if (nmProduto === null || preco === null || desc === null){
             toast.error('Não é possivel inserir campos nulos')
         }
 
@@ -58,10 +58,10 @@ export default function CadastrarProduto () {
 
 
     const [img1, setImg1] = useState([]);
-    const [tl, setTl] = useState(0);
+    const [tl, setTl] = useState([]);
 
     let usuarioLogado = usuLogado() || {};
-
+    const [kk, setKk] = useState(0)
 
 
 
@@ -80,16 +80,15 @@ export default function CadastrarProduto () {
     
     function Preview() {
        
-
+        
 
         if(img1) {
 
     
-            
+           
              return img1.map((x) => URL.createObjectURL(x));
             
         }
-    
     
     }
  
@@ -110,12 +109,16 @@ export default function CadastrarProduto () {
    
     
 
-    setInterval(() => {
+    /*setInterval(() => {
       Preview()
-    }, 5)
+    }, 5)*/
     //console.log(usuarioLogado.id_usuario)
 
+  function setar() {
+      setTl(Preview());
+  }
 
+    console.log(tl)
  
     return (
         
@@ -153,9 +156,11 @@ export default function CadastrarProduto () {
                             <InputPreco placeholder="Preço(R$)" type="number" required value={preco} onChange={(e) => setPreco(e.target.value)}  />
                         </div>
                         <div className="agp-input">
-                        <InputImage type="file" className="upload" accept="image/*"  onChange={img1.length <= 4  ? e => img1.push(e.target.files[0]) : ''} multiple />
+                        <InputImage type="file" className="upload" accept="image/*" onClick={() => setTl(Preview())}  onChange={img1.length <    4  ? e => img1.push(e.target.files[0]) : ''} multiple />
               
-                     
+                        {Preview().map((x) => 
+    <img src={x} style={{width: "8em", height:"8em", borderRadius: "1em"}} alt="" />
+                        )}
                         
                         </div>
 

@@ -71,7 +71,7 @@ export default function Chat (props) {
         const r = await api.listarChatEspecifico(idChatUsu);
 
         setChatUsuEspecifico(r);
-        
+      
     }
 
 
@@ -91,6 +91,7 @@ export default function Chat (props) {
 
         // console.log(r);
         listarMsgs(idChatUsu);
+        setMsgText('');
     }
 
     const setarIdChatUsu = async (id) => {
@@ -108,14 +109,20 @@ export default function Chat (props) {
       
 
     const enviarr = (event) => {
-        if (event.key === 'Control') {
+        if(event.which === 13 && !event.shiftKey) {
+            event.preventDefault();
+        
             enviarMsg(msgText);
-            console.log(enviarMsg(msgText))
         }
     }
 
 
     console.log(chatUsu)
+   
+   
+
+
+
     if (chatUsu.length !== 0) {
     return (
             <Conteudo>
@@ -132,7 +139,7 @@ export default function Chat (props) {
                                 
                           
                            
-                                <div className="img-perfil"><img src={idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
+                                <div className="img-perfil"><img src={listarImg(idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto)} alt="" /></div>
                                 <div className="text">
                                     <div className="nm-produt">cade o nome do produto?</div>
 
@@ -154,8 +161,8 @@ export default function Chat (props) {
                             <div className="config-chat">
                                 <div className="perfil-chat">
                                 <div className="imgs-perfil">
-                                    <div className="foto-usuario"><img src={idUsu === chatUsuEspecifico.id_usuario_comprador ? chatUsuEspecifico.id_usuario_vendedor_infoa_enl_usuario.img_foto : chatUsuEspecifico.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
-                                    <div className="foto-usuario"><img src={idUsu !== chatUsuEspecifico.id_usuario_comprador ? chatUsuEspecifico.id_usuario_vendedor_infoa_enl_usuario.img_foto : chatUsuEspecifico.id_usuario_comprador_infoa_enl_usuario.img_foto} alt="" /></div>
+                                    <div className="foto-usuario"><img src={listarImg(idUsu === chatUsuEspecifico.id_usuario_comprador ? chatUsuEspecifico.id_usuario_vendedor_infoa_enl_usuario.img_foto : chatUsuEspecifico.id_usuario_comprador_infoa_enl_usuario.img_foto)} alt="" /></div>
+                                    <div className="foto-usuario"><img src={listarImg(idUsu !== chatUsuEspecifico.id_usuario_comprador ? chatUsuEspecifico.id_usuario_vendedor_infoa_enl_usuario.img_foto : chatUsuEspecifico.id_usuario_comprador_infoa_enl_usuario.img_foto)} alt="" /></div>
                                 </div>
                                 <div className="nm-vendedor2" title={idUsu !== chatUsuEspecifico.id_usuario_comprador ? chatUsuEspecifico.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsuEspecifico.id_usuario_comprador_infoa_enl_usuario.nm_usuario}>{chatUsuEspecifico.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.length > 20 || chatUsuEspecifico.id_usuario_comprador_infoa_enl_usuario.nm_usuario.length > 20 ? idUsu !== chatUsuEspecifico.id_usuario_comprador ? chatUsuEspecifico.id_usuario_vendedor_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...' : chatUsuEspecifico.id_usuario_comprador_infoa_enl_usuario.nm_usuario.substr(0, 20) + '...'
                                 : idUsu !== chatUsuEspecifico.id_usuario_comprador ? chatUsuEspecifico.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : chatUsuEspecifico.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>
