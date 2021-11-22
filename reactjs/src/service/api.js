@@ -178,5 +178,10 @@ export default class Api {
         const r = await api.put(`/usuarioEndereco/${id}`, {endereco} )
         return r.data
     } 
+    async inserirCartao(usu) {
+        const r = await api.post(`/chat_usu/${usu}`);
+
+        return r.data;
+    }
 
         }
