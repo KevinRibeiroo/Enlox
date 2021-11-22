@@ -42,7 +42,7 @@ export default function Produto (props){
 
 
       const [mostarMais, setMostrar] = useState(0);
-      const [loc, setLoc] = useState({});
+      const [loc, setLoc] = useState([]);
       const [vlCep, setVlCep] = useState('');
       const [cep, setCep] = useState(false);
 
@@ -100,11 +100,12 @@ export default function Produto (props){
 
 
         useEffect(() => {
-            listarCategoria()
+            listarCategoria();
         }, [])
         console.log(categoria)
 
         async function buscarCep() {
+
             let r1 = vlCep.length
     
             if (r1 === 8)
@@ -113,25 +114,38 @@ export default function Produto (props){
             const resp = await axios.get(`https://viacep.com.br/ws/${vlCep}/json/`);
             setLoc(resp.data);
 
+            
 
-            if(loc.localidade === 'São Paulo'){
-                setVlCep('R$ 35.58')
-            }
-            else {
-                setVlCep('R$45.58')
-            }
+            
         }
 
-
-      
+        function valorCep() {
+        if(loc.uf === 'SP' || loc.uf !== 'SP'){
+            
+            if(loc.length === 0){
+               return setVlCep('');
+            }
+            if (loc.uf !== 'SP'){
+               return setVlCep('R$45.58')
+            }
+            setVlCep('R$ 35.58')
+        }
+        
+        
+    }
     
     useEffect(() => {
         mostrarUsuario();
-    },[]);
+        valorCep();
+    },[loc]);
         
-console.log(vlCep)
-console.log(loc)
-console.log(usu)
+    const enviarCep = (event) => {
+        if (event.key === 'Enter') {
+            buscarCep();
+        }
+    }
+
+    console.log(loc)
     return (
     <Conteudo>
         <ToastContainer />
@@ -162,14 +176,14 @@ console.log(usu)
                                 <div > <button style={{border: "hidden"}} className="mais" onClick={() => setMostrar(1)} >Mostrar mais </button></div>
                                 </div>
                                 : <div>
-                                <div>{produto.ds_produto}</div>
+                                <div className="desc-produt2">{produto.ds_produto}</div>
                                 <div > <button style={{border: "hidden"}} className="mais" onClick={() => setMostrar(0)}>Mostrar menos </button></div>
                                 </div>
                                 }   
                             </div>
                             <div className="agp-frete">
                                 <div className="title-frete">Calcular Frete:</div>
-                                <div className="input-frete"><InputFrete placeholder="Inserir CEP" value={vlCep} onChange={e => setVlCep(e.target.value)} /></div>
+                                <div className="input-frete"><InputFrete placeholder="Inserir CEP" value={vlCep} onChange={e => setVlCep(e.target.value)} onKeyPress={enviarCep} /></div>
                                 <div className="botao-frete"><button className="bta-frete" onClick={() => buscarCep()} > Calcular </button></div>
                             </div>
                         </div>

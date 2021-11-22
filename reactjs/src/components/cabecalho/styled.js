@@ -23,6 +23,8 @@ flex-direction: column;
 
 .icon  img {
     height: 3em;
+
+    
     }
     
 .icon-text {
@@ -74,6 +76,8 @@ cursor: pointer;
 .icon-text {
     font-family: stroke;
 }
+
+
 `
 
 export {Container}

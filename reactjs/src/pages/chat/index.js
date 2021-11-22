@@ -71,7 +71,7 @@ export default function Chat (props) {
         const r = await api.listarChatEspecifico(idChatUsu);
 
         setChatUsuEspecifico(r);
-        
+      
     }
 
 
@@ -109,14 +109,20 @@ export default function Chat (props) {
       
 
     const enviarr = (event) => {
-        if (event.key === 'Control') {
+        if(event.which === 13 && !event.shiftKey) {
+            event.preventDefault();
+        
             enviarMsg(msgText);
-            console.log(enviarMsg(msgText))
         }
     }
 
 
     console.log(chatUsu)
+   
+   
+
+
+
     if (chatUsu.length !== 0) {
     return (
             <Conteudo>
