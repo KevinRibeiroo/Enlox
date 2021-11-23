@@ -141,7 +141,7 @@ export default function Chat (props) {
                            
                                 <div className="img-perfil"><img src={listarImg(idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.img_foto : X.id_usuario_comprador_infoa_enl_usuario.img_foto)} alt="" /></div>
                                 <div className="text">
-                                    <div className="nm-produt">cade o nome do produto?</div>
+                                    <div className="nm-produt"></div>
 
                                     
                                     <div className="nm-vendedor">{idUsu === X.id_usuario_comprador ? X.id_usuario_vendedor_infoa_enl_usuario.nm_usuario : X.id_usuario_comprador_infoa_enl_usuario.nm_usuario}</div>
@@ -169,8 +169,8 @@ export default function Chat (props) {
                                 
                                 </div>
                                 <div className="agp-config">
-                                    <div className="bta-config"> Vizualizar perfil</div>
-                                    <div className="bta-config"> Vizualizar produto</div>
+                                    <div className="bta-config"> Visualizar perfil</div>
+                                    <div className="bta-config"> Visualizar produto</div>
                                 </div>
                             </div>
                         
@@ -197,8 +197,9 @@ export default function Chat (props) {
 }
                  
                 </div>
-                
+                <div style={{marginTop: "20em"}}>
                 <Rodape />
+                </div>
                 </main>
 
             </Conteudo>

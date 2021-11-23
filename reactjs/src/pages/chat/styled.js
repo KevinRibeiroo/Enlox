@@ -13,8 +13,11 @@ main {
     display: flex;
     flex-direction: column;
     
-    height: 120vh;
+    height: auto;
+    max-height: 300vh;
 }
+
+
 .container-chat {
     display: flex;
 
