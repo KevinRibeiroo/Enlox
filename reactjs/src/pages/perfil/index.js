@@ -41,7 +41,7 @@ export default function Perfil() {
         if(foto) {
              return URL.createObjectURL(foto);    
         } else {
-            return pegarImg()
+            return pegarImg(img)
         }
     }
 
@@ -113,8 +113,11 @@ export default function Perfil() {
 
         if (foto.includes('http'))
         return foto
-        else 
-        return `https://localhost/usuariozin?imagem=${usuario.img_foto}`
+        else {
+            console.log(usuario.img_foto)
+            return `http://localhost:3030/usuariozin?imagem=${usuario.img_foto}`
+        }
+        
     }
 
     console.log(foto)
