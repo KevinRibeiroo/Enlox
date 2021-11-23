@@ -130,7 +130,6 @@ export default function CadastroUsuario() {
 
                                 <div className="CColumn">
                                     <div>Senha:<input type="password" value={senha} onChange={e => setSenha(e.target.value)} onKeyPress={entrar}/></div>
-                                    <div>Foto de Perfil:<input type="file" /></div>
                                 </div>
                                 
                             </div>
