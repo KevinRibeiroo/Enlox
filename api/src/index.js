@@ -4,7 +4,8 @@ import cors from 'cors';
 import Sequelize from 'sequelize'
 import multer from 'multer';
 import path from 'path';
-
+import enviarEmail from './email.js';
+import { send } from 'process';
 
 const {Op, col} = Sequelize;
 
@@ -129,6 +130,7 @@ app.post('/vistorecentemente', async (req, resp) => {
             ds_bairro: "Conceição",
             dt_ult_login:Date.now(),
             nm_rua: usu.nm_rua
+            //ds_codigo:usu.ds_codigo
         });
         
     
@@ -321,18 +323,25 @@ app.put('/usuarioEndereco/:id', async (req, resp) => {
 
 
 
+app.post('/cartao/:id', async (req, resp) => {
+    try {
+        let {nrCartao, nrCvc, dtVal} = req.body;
+     
+        let id = req.params.id;
+    
+        const r = await db.infoa_enl_cartao_credito.create({
+            id_usuario: id,
+            nr_cartao: nrCartao, 
+            nr_cvc: nrCvc, 
+            dt_validade: Date.now()
+        });
+  
+        resp.sendStatus(200);
+    } catch (error) {
+        resp.send({ error: 'Deu ruim'})
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 // inserir um produto 
@@ -409,7 +418,7 @@ app.get('/produtoss/:id', async (req, resp) => {
         let page = req.query.page || 0;
         if (page <= 0) page = 1;
       
-        const itemsPerPage = 8;
+        const itemsPerPage = 5;
         const skipItems    = (page-1) * itemsPerPage;
 
         let list = await db.infoa_enl_produto.findAll(
@@ -653,22 +662,37 @@ app.post('/login', async (req, resp) => {
 
 
 app.post('/esqueciASenha', async(req, resp)=>{
+    try {
+        
+  
+    let usu = await db.infoa_enl_usuario.findOne({where:{
+        ds_email: req.body.ds_email
+    }})
+    
+        if(!usu){
+            resp.send({error:"Email inválido."})
+        }
+    
+        let code = Math.floor(Math.random() * (9999 - 1000) ) + 1000;
+  
+        await db.infoa_enl_usuario.update({
+          ds_codigo: code
+        },{
+            where:{id_usuario:usu.id_usuario}
+        })
+        enviarEmail(usu.ds_email,'Recuperação de Senha',`
+        <h2>Recuperação de Senha</h2>
+        </br>
+        <p>Olá, ${usu.nm_nome}. Utilize o código abaixo para recuperar sua senha e aproveitar os produtos Enlox.</p>
+        <p>Código: <b>${code}</b></p>
+        `
+        )
+        resp.sendStatus(200)
+    } catch (error) {
+        resp.send({error:"Errado"})
+    }
 
-  const usu = await db.infoa_enl_usuario.findOne({where:{
-      ds_email: req.body.email
-  }})
 
-  if(!usu){
-      resp.send({error:"Email inválido."})
-  }else{
-      let code = Math.floor(Math.random() * (9999 - 1000) ) + 1000;
-
-      await db.infoa_enl_usuario.update({
-        ds_codigo: code
-      },{
-          where:{id_usuario:usu.id_usuario}
-      })
-  }
 });
 
 
@@ -676,20 +700,55 @@ app.post('/esqueciASenha', async(req, resp)=>{
 app.post('/validarCodigo', async(req, resp)=>{
     try {
         
-    } catch (error) {
-        
+    
+    const usu = await db.infoa_enl_usuario.findOne({where:{
+        ds_email: req.body.ds_email
+    }})
+  
+    if(!usu){
+        resp.send({error:"Email inválido."})
     }
+    if(usu.ds_codigo !== req.body.ds_codigo){
+        resp.send({error:"Código inválido."})
+    }
+    resp.sendStatus(200)
+} catch (error) {
+        resp.send({error:"Erro"})
+}
 });
+
 
 
 
 app.put('/resetarSenha', async(req, resp)=>{
     try {
         
-    } catch (error) {
-        
+   
+    const usu = await db.infoa_enl_usuario.findOne({where:{
+        ds_email: req.body.ds_email
+    }})
+  
+    if(!usu){
+        resp.send({error:"Email inválido."})
     }
+    if(usu.ds_codigo !== req.body.ds_codigo || usu.ds_codigo === '' ){
+        resp.send({error:"Código inválido."})
+    }
+
+    await db.infoa_enl_usuario.update({
+        ds_senha: req.body.senhaAlterada,
+        ds_codigo:''//aqui é para o código random ser usado apenas uma vez
+    },{
+        where:{id_usuario: usu.id_usuario}
+    })
+    resp.sendStatus(200)
+} catch (error) {
+     resp.send({error:"Erro"})   
+}
 });
+
+
+
 
 app.post('/categoria', async (req, resp) => {
     try {
@@ -724,6 +783,7 @@ app.post('/chat/:id/:id2', async (req, resp) => {
     try {
         let chat = req.body;
         let id = req.params.id;
+
 
         //let consul = await db.infoa_enl_chat.findOne({where: {id_usuario: id}})
 

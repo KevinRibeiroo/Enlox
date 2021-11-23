@@ -58,18 +58,31 @@ export default function MeusAnuncios(){
     const [idProduto, setIdProduto] = useState('')  
  
 
-    async function listar(){
+   async function listar(){
         setLoading(true);
         
-        const resp = await axios.get(`http://localhost:3030/produtoss/${idUsu}?page=` + pagina);
-       
-          setProduto([{...resp.data.items}]);
-          setTotalPaginas(resp.data.totalPaginas);
+        const resp = await api.listarMeusprodutos(
+          (idUsu + pagina) 
+           );
+          setProduto([...resp/*.data.items*/]);
+          setTotalPaginas(resp/*.data.totalPaginas*/);
 
         setLoading(false);
     }
 
-    
+   /* async function listar(){
+      setLoading(true);
+      
+      const resp = await axios.get(
+      (`http://localhost:3030/produtoss/${idUsu}?page=` + pagina)
+      );
+      setProduto([...resp.data.items]);
+      setTotalPaginas(resp.data.totalPaginas);
+      
+      setLoading(false)
+    }*/
+
+  
     function irPara(pagina) {
         setPagina(pagina);
       } 
@@ -200,7 +213,7 @@ export default function MeusAnuncios(){
       
 <div className="container-produtos">
         <div className="produtos">
-          {loading }
+          {loading /*&& <Loader/>*/}
 
           {!loading &&
           produto.map((item) => 

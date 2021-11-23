@@ -72,7 +72,7 @@ export default function Produto (props){
 
     const InserirChat = async () => {
         if (Cookies.get('usuario-logado') === undefined) {
-            nav.push('/');
+            nav.push('/login');
             alert('para começar um chat é necessario estar logado')
           }
         
