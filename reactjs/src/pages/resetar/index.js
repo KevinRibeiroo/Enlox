@@ -61,6 +61,7 @@ export default function Resetar(props) {
     return(
         <RContainer>
            <ToastContainer/>
+           <div className="oie">
             <div className="RBox">
                 <Link className="RDefinir" to = "/"><div className="imagem"> <img src="/assets/images/logo.svg" alt=""/></div></Link>
                 <div className = "RTitulo">Recuperação de Senha</div>
@@ -82,7 +83,7 @@ export default function Resetar(props) {
                 </div>
 
             }
-
+            </div>
             <Rodape/>
         </RContainer>
     )
